@@ -30,7 +30,9 @@
         <Icon name="lucide:arrow-left" aria-hidden="true" />
       </button>
       <span v-if="activeIndex !== null">
-        {{ t('gallery.count', { number: activeIndex + 1, total: numbers.length }) }}
+        {{
+          t('gallery.count', { number: activeIndex + 1, total: numbers.length })
+        }}
       </span>
       <button
         class="icon-button"
@@ -64,7 +66,9 @@ function close() {
 
 function move(direction: -1 | 1) {
   if (activeIndex.value === null) return
-  activeIndex.value = (activeIndex.value + direction + props.numbers.length) % props.numbers.length
+  activeIndex.value =
+    (activeIndex.value + direction + props.numbers.length) %
+    props.numbers.length
 }
 
 function handleKeydown(event: KeyboardEvent) {

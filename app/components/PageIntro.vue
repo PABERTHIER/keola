@@ -1,5 +1,8 @@
 <template>
-  <section class="page-intro" :class="`page-intro--${tone}`" aria-labelledby="page-title">
+  <section
+    class="page-intro"
+    :class="`page-intro--${tone}`"
+    aria-labelledby="page-title">
     <div class="shell page-intro__inner">
       <NuxtLink :to="localePath('/')" class="page-intro__back">
         <Icon name="lucide:arrow-left" aria-hidden="true" />

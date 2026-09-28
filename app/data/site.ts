@@ -15,7 +15,12 @@ export const externalLinks = {
 } as const
 
 export const socialLinks = [
-  { name: 'Twitch', url: externalLinks.twitch, icon: 'twitch-logo.svg', detail: 'live' },
+  {
+    name: 'Twitch',
+    url: externalLinks.twitch,
+    icon: 'twitch-logo.svg',
+    detail: 'live',
+  },
   {
     name: 'YouTube',
     url: externalLinks.youtube,
@@ -46,7 +51,12 @@ export const socialLinks = [
     icon: 'tik-tok-logo.svg',
     detail: 'clips',
   },
-  { name: 'X', url: externalLinks.x, icon: 'twitter-logo.svg', detail: 'updates' },
+  {
+    name: 'X',
+    url: externalLinks.x,
+    icon: 'twitter-logo.svg',
+    detail: 'updates',
+  },
   {
     name: 'Ko-fi',
     url: externalLinks.kofi,
@@ -66,19 +76,51 @@ export const fanartNumbers = [
 
 export const credits = [
   { name: 'NesSama & MarroDono', role: 'assistants' },
-  { name: 'Kouzuki_1103', role: 'model', url: 'https://twitter.com/Kouzuki_1103' },
+  {
+    name: 'Kouzuki_1103',
+    role: 'model',
+    url: 'https://twitter.com/Kouzuki_1103',
+  },
   { name: 'Yuzufei', role: 'chibi', url: 'https://twitter.com/Yuzufei' },
   { name: 'Williartz', role: 'screens', url: 'https://twitter.com/williartz' },
   { name: 'Meiuwun', role: 'animation', url: 'https://twitter.com/meiuwun' },
-  { name: 'Little Kaito', role: 'chat_music', url: 'https://twitter.com/ItsDaSmolKaito_' },
+  {
+    name: 'Little Kaito',
+    role: 'chat_music',
+    url: 'https://twitter.com/ItsDaSmolKaito_',
+  },
   { name: 'NNaomi', role: 'alerts', url: 'https://twitter.com/nnaomi' },
   { name: 'Nyacchii', role: 'emotes', url: 'https://twitter.com/nyacchii_art' },
-  { name: 'Happygiar', role: 'stream_music', url: 'https://twitter.com/happygiar' },
-  { name: 'StefanusHendy', role: 'channel_graphics', url: 'https://twitter.com/stefanushendy98' },
-  { name: 'Gabyy_GM', role: 'background', url: 'https://twitter.com/gabinette04' },
+  {
+    name: 'Happygiar',
+    role: 'stream_music',
+    url: 'https://twitter.com/happygiar',
+  },
+  {
+    name: 'StefanusHendy',
+    role: 'channel_graphics',
+    url: 'https://twitter.com/stefanushendy98',
+  },
+  {
+    name: 'Gabyy_GM',
+    role: 'background',
+    url: 'https://twitter.com/gabinette04',
+  },
   { name: 'Harukoti', role: 'ref_chat', url: 'https://twitter.com/harukoti' },
   { name: '_Lelysz', role: 'ref_design', url: 'https://twitter.com/_lelysz' },
-  { name: 'Beatscribe', role: 'alert_music', url: 'https://twitter.com/BeatScribe' },
-  { name: 'Bustufu2', role: 'redebut_video', url: 'https://twitter.com/Bustufu2' },
-  { name: 'LittleLythen', role: 'badges', url: 'https://twitter.com/LittleLythen' },
+  {
+    name: 'Beatscribe',
+    role: 'alert_music',
+    url: 'https://twitter.com/BeatScribe',
+  },
+  {
+    name: 'Bustufu2',
+    role: 'redebut_video',
+    url: 'https://twitter.com/Bustufu2',
+  },
+  {
+    name: 'LittleLythen',
+    role: 'badges',
+    url: 'https://twitter.com/LittleLythen',
+  },
 ] as const

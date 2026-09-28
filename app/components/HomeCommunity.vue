@@ -1,9 +1,14 @@
 <template>
-  <section id="community" class="section community-section" aria-labelledby="community-title">
+  <section
+    id="community"
+    class="section community-section"
+    aria-labelledby="community-title">
     <div class="shell community-section__grid">
       <div>
         <span class="eyebrow">{{ t('home.community_eyebrow') }}</span>
-        <h2 id="community-title" class="section-title">{{ t('home.community_title') }}</h2>
+        <h2 id="community-title" class="section-title">
+          {{ t('home.community_title') }}
+        </h2>
         <p class="section-lead">{{ t('home.community_text') }}</p>
       </div>
       <div class="community-links">
@@ -13,7 +18,12 @@
           :href="link.url"
           target="_blank"
           rel="noopener noreferrer">
-          <img :src="`/icons/${link.icon}`" alt="" width="26" height="26" loading="lazy" />
+          <img
+            :src="`/icons/${link.icon}`"
+            alt=""
+            width="26"
+            height="26"
+            loading="lazy" />
           <span>
             <strong>{{ link.name }}</strong>
             <small>{{ t(`social.${link.detail}`) }}</small>

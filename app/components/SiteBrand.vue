@@ -4,7 +4,12 @@
     class="brand"
     :class="{ 'brand--inverse': inverse }"
     aria-label="Keola Kumaneko">
-    <NuxtImg src="/images/image01.webp" alt="" width="48" height="44" loading="eager" />
+    <NuxtImg
+      src="/images/image01.webp"
+      alt=""
+      width="48"
+      height="44"
+      loading="eager" />
     <span class="brand__text">
       Keola
       <span>Kumaneko</span>

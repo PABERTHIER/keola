@@ -29,7 +29,9 @@
           </span>
         </li>
       </ul>
-      <NuxtLink class="button button--outline credits-page__link" :to="localePath('/galerie')">
+      <NuxtLink
+        class="button button--outline credits-page__link"
+        :to="localePath('/galerie')">
         {{ t('site.gallery') }}
         <Icon name="lucide:arrow-up-right" aria-hidden="true" />
       </NuxtLink>

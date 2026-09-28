@@ -4,7 +4,9 @@
       <div class="section-heading">
         <div>
           <span class="eyebrow">{{ t('home.gallery_eyebrow') }}</span>
-          <h2 id="gallery-title" class="section-title">{{ t('home.gallery_title') }}</h2>
+          <h2 id="gallery-title" class="section-title">
+            {{ t('home.gallery_title') }}
+          </h2>
           <p class="section-lead">{{ t('home.gallery_text') }}</p>
         </div>
         <NuxtLink class="button button--outline" :to="localePath('/galerie')">

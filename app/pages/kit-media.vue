@@ -1,6 +1,9 @@
 <template>
   <main id="main-content">
-    <PageIntro :eyebrow="t('media.eyebrow')" :title="t('media.title')" :intro="t('media.intro')" />
+    <PageIntro
+      :eyebrow="t('media.eyebrow')"
+      :title="t('media.title')"
+      :intro="t('media.intro')" />
     <div class="media-page shell">
       <div class="media-page__sheet">
         <NuxtImg
@@ -35,7 +38,12 @@
             :href="link.url"
             target="_blank"
             rel="noopener noreferrer">
-            <img :src="`/icons/${link.icon}`" alt="" width="23" height="23" loading="lazy" />
+            <img
+              :src="`/icons/${link.icon}`"
+              alt=""
+              width="23"
+              height="23"
+              loading="lazy" />
             <span>{{ link.name }}</span>
             <Icon name="lucide:arrow-up-right" aria-hidden="true" />
           </a>

@@ -1,9 +1,16 @@
 <template>
-  <section id="mission" class="section mission-section" aria-labelledby="mission-title">
+  <section
+    id="mission"
+    class="section mission-section"
+    aria-labelledby="mission-title">
     <div class="shell mission-section__grid">
       <div>
-        <span class="eyebrow eyebrow--light">{{ t('home.mission_eyebrow') }}</span>
-        <h2 id="mission-title" class="section-title">{{ t('home.mission_title') }}</h2>
+        <span class="eyebrow eyebrow--light">
+          {{ t('home.mission_eyebrow') }}
+        </span>
+        <h2 id="mission-title" class="section-title">
+          {{ t('home.mission_title') }}
+        </h2>
         <p class="section-lead">{{ t('home.mission_text') }}</p>
         <a
           class="button button--primary"

@@ -8,13 +8,17 @@
         class="site-nav"
         :class="{ 'is-open': menuOpen }"
         :aria-label="t('site.explore')">
-        <NuxtLink :to="localePath({ path: '/', hash: '#about' })" @click="menuOpen = false">
+        <NuxtLink
+          :to="localePath({ path: '/', hash: '#about' })"
+          @click="menuOpen = false">
           {{ t('site.about') }}
         </NuxtLink>
         <NuxtLink :to="localePath('/galerie')" @click="menuOpen = false">
           {{ t('site.gallery') }}
         </NuxtLink>
-        <NuxtLink :to="localePath({ path: '/', hash: '#mission' })" @click="menuOpen = false">
+        <NuxtLink
+          :to="localePath({ path: '/', hash: '#mission' })"
+          @click="menuOpen = false">
           {{ t('site.mission') }}
         </NuxtLink>
         <NuxtLink :to="localePath('/archives')" @click="menuOpen = false">
@@ -29,7 +33,10 @@
         <label class="language-control">
           <span class="sr-only">{{ t('site.language') }}</span>
           <Icon name="lucide:languages" aria-hidden="true" />
-          <select :value="locale" :aria-label="t('site.language')" @change="changeLocale">
+          <select
+            :value="locale"
+            :aria-label="t('site.language')"
+            @change="changeLocale">
             <option v-for="item in locales" :key="item.code" :value="item.code">
               {{ item.code === 'ja' ? 'JP' : item.code.toUpperCase() }}
             </option>
@@ -52,7 +59,9 @@
           :aria-expanded="menuOpen"
           aria-controls="primary-nav"
           @click="menuOpen = !menuOpen">
-          <Icon :name="menuOpen ? 'lucide:x' : 'lucide:menu'" aria-hidden="true" />
+          <Icon
+            :name="menuOpen ? 'lucide:x' : 'lucide:menu'"
+            aria-hidden="true" />
         </button>
       </div>
     </div>

@@ -36,7 +36,10 @@
         </div>
       </article>
       <div class="archive-timeline">
-        <article v-for="year in [2024, 2023]" :key="year" class="archive-timeline__item">
+        <article
+          v-for="year in [2024, 2023]"
+          :key="year"
+          class="archive-timeline__item">
           <div class="archive-timeline__images">
             <NuxtImg
               :src="`/images/redebut-${year}-left-part.webp`"

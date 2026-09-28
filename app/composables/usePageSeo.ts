@@ -18,7 +18,9 @@ export function usePageSeo(page: PageName) {
     ogImageHeight: 840,
     ogImageType: 'image/webp',
     ogUrl: computed(() => `${baseUrl.value}${route.path}`),
-    ogLocale: computed(() => ({ fr: 'fr_FR', en: 'en_US', ja: 'ja_JP' })[locale.value] || 'fr_FR'),
+    ogLocale: computed(
+      () => ({ fr: 'fr_FR', en: 'en_US', ja: 'ja_JP' })[locale.value] || 'fr_FR'
+    ),
     ogType: 'website',
   })
 

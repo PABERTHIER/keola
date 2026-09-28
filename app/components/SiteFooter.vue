@@ -12,12 +12,18 @@
         </div>
         <div class="site-footer__column">
           <h2>{{ t('site.explore') }}</h2>
-          <NuxtLink :to="localePath({ path: '/', hash: '#about' })">{{ t('site.about') }}</NuxtLink>
-          <NuxtLink :to="localePath('/galerie')">{{ t('site.gallery') }}</NuxtLink>
+          <NuxtLink :to="localePath({ path: '/', hash: '#about' })">
+            {{ t('site.about') }}
+          </NuxtLink>
+          <NuxtLink :to="localePath('/galerie')">
+            {{ t('site.gallery') }}
+          </NuxtLink>
           <NuxtLink :to="localePath({ path: '/', hash: '#mission' })">
             {{ t('site.mission') }}
           </NuxtLink>
-          <NuxtLink :to="localePath('/archives')">{{ t('site.archives') }}</NuxtLink>
+          <NuxtLink :to="localePath('/archives')">
+            {{ t('site.archives') }}
+          </NuxtLink>
         </div>
         <div class="site-footer__column">
           <h2>{{ t('site.elsewhere') }}</h2>
@@ -32,9 +38,16 @@
         </div>
         <div class="site-footer__column">
           <h2>{{ t('site.contact') }}</h2>
-          <NuxtLink :to="localePath('/kit-media')">{{ t('site.media') }}</NuxtLink>
-          <NuxtLink :to="localePath('/credits')">{{ t('site.credits') }}</NuxtLink>
-          <a :href="externalLinks.redPandaNetwork" target="_blank" rel="noopener noreferrer">
+          <NuxtLink :to="localePath('/kit-media')">
+            {{ t('site.media') }}
+          </NuxtLink>
+          <NuxtLink :to="localePath('/credits')">
+            {{ t('site.credits') }}
+          </NuxtLink>
+          <a
+            :href="externalLinks.redPandaNetwork"
+            target="_blank"
+            rel="noopener noreferrer">
             Red Panda Network
           </a>
         </div>
@@ -50,7 +63,12 @@
             :title="link.name"
             target="_blank"
             rel="noopener noreferrer">
-            <img :src="`/icons/${link.icon}`" alt="" width="19" height="19" loading="lazy" />
+            <img
+              :src="`/icons/${link.icon}`"
+              alt=""
+              width="19"
+              height="19"
+              loading="lazy" />
           </a>
         </div>
       </div>

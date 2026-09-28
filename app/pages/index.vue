@@ -2,7 +2,10 @@
   <main id="main-content">
     <HomeHero />
 
-    <section id="schedule" class="schedule-band" aria-labelledby="schedule-title">
+    <section
+      id="schedule"
+      class="schedule-band"
+      aria-labelledby="schedule-title">
       <div class="shell schedule-band__inner">
         <span class="schedule-band__icon" aria-hidden="true">
           <Icon name="lucide:calendar-days" />
@@ -32,7 +35,10 @@
       </div>
     </section>
 
-    <section id="about" class="section about-section" aria-labelledby="about-title">
+    <section
+      id="about"
+      class="section about-section"
+      aria-labelledby="about-title">
       <div class="shell about-section__grid">
         <div class="about-section__art">
           <NuxtImg
@@ -45,7 +51,9 @@
         </div>
         <div class="about-section__copy">
           <span class="eyebrow">{{ t('home.about_eyebrow') }}</span>
-          <h2 id="about-title" class="section-title">{{ t('home.about_title') }}</h2>
+          <h2 id="about-title" class="section-title">
+            {{ t('home.about_title') }}
+          </h2>
           <p class="section-lead">{{ t('home.about_text') }}</p>
           <p class="about-section__quote">{{ t('home.about_quote') }}</p>
           <a
@@ -70,7 +78,9 @@
     <section class="section partners-section" aria-labelledby="partners-title">
       <div class="shell">
         <span class="eyebrow">{{ t('home.partners_eyebrow') }}</span>
-        <h2 id="partners-title" class="section-title">{{ t('home.partners_title') }}</h2>
+        <h2 id="partners-title" class="section-title">
+          {{ t('home.partners_title') }}
+        </h2>
         <div class="partners-grid">
           <a
             class="partner"
@@ -91,8 +101,16 @@
               </em>
             </span>
           </a>
-          <a class="partner" :href="externalLinks.holy" target="_blank" rel="noopener noreferrer">
-            <NuxtImg src="/images/holy-brand-logo.webp" alt="HOLY" width="120" loading="lazy" />
+          <a
+            class="partner"
+            :href="externalLinks.holy"
+            target="_blank"
+            rel="noopener noreferrer">
+            <NuxtImg
+              src="/images/holy-brand-logo.webp"
+              alt="HOLY"
+              width="120"
+              loading="lazy" />
             <span>
               <strong>HOLY</strong>
               <small>{{ t('home.holy_text') }}</small>
@@ -109,7 +127,9 @@
     <section class="closing-section" aria-labelledby="closing-title">
       <div class="shell closing-section__inner">
         <div>
-          <span class="eyebrow eyebrow--light">{{ t('home.community_eyebrow') }}</span>
+          <span class="eyebrow eyebrow--light">
+            {{ t('home.community_eyebrow') }}
+          </span>
           <h2 id="closing-title">{{ t('home.end_title') }}</h2>
           <p>{{ t('home.end_text') }}</p>
         </div>
