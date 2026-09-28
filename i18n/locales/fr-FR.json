@@ -1,0 +1,153 @@
+{
+  "site": {
+    "skip": "Aller au contenu",
+    "menu": "Ouvrir le menu",
+    "close_menu": "Fermer le menu",
+    "language": "Langue du site",
+    "home": "Accueil",
+    "about": "Keola",
+    "gallery": "Galerie",
+    "mission": "La cause",
+    "credits": "Crédits",
+    "archives": "Archives",
+    "media": "Media kit",
+    "watch": "Voir le live",
+    "contact": "Contacter Keola",
+    "explore": "Explorer",
+    "elsewhere": "Retrouver Keola",
+    "footer_intro": "Une VTuber panda roux, des petits esprits et une cause qui lui tient à coeur.",
+    "back_home": "Retour à l'accueil",
+    "og_alt": "Keola Kumaneko, VTuber panda roux",
+    "copyright": "Keola Kumaneko. Les illustrations restent la propriété de leurs artistes."
+  },
+  "social": {
+    "live": "Lives",
+    "videos": "Vidéos",
+    "community": "Communauté",
+    "updates": "Actualités",
+    "images": "Images",
+    "clips": "Clips",
+    "support": "Soutenir"
+  },
+  "seo": {
+    "home": {
+      "title": "Keola Kumaneko - VTuber panda roux",
+      "description": "Découvre Keola Kumaneko, VTuber panda roux francophone : lives, Petits Esprits, fanarts et engagement pour la protection des pandas roux."
+    },
+    "gallery": {
+      "title": "Galerie de fanarts - Keola Kumaneko",
+      "description": "Explore les fanarts de Keola Kumaneko, VTuber panda roux, et les créations partagées autour de son univers."
+    },
+    "credits": {
+      "title": "Crédits - Keola Kumaneko",
+      "description": "Rencontre les artistes et créateurs qui ont contribué à l'univers de Keola Kumaneko."
+    },
+    "archives": {
+      "title": "Archives - Keola Kumaneko",
+      "description": "Retrouve les anciens événements de Keola Kumaneko, du Red Pandathon aux redebuts de 2023 et 2024."
+    },
+    "media": {
+      "title": "Media kit - Keola Kumaneko",
+      "description": "Fiche média, liens officiels et contact professionnel de Keola Kumaneko, VTuber panda roux."
+    }
+  },
+  "home": {
+    "hero_eyebrow": "VTuber panda roux · Bienvenue dans la forêt",
+    "hero_name": "Keola",
+    "hero_surname": "Kumaneko",
+    "hero_alt": "Portrait illustré de Keola Kumaneko, VTuber panda roux",
+    "hero_text": "Des lives, des Petits Esprits et une grande place pour les pandas roux. Entre, on t'attendait.",
+    "hero_discover": "Découvrir son univers",
+    "hero_caption": "La forêt a toujours une histoire à raconter.",
+    "schedule_eyebrow": "Le prochain rendez-vous",
+    "schedule_title": "On se retrouve en live ?",
+    "schedule_text": "Le planning à jour est sur Twitch. Passe voir le prochain rendez-vous, ou installe-toi quand le live commence.",
+    "schedule_link": "Voir le planning Twitch",
+    "schedule_watch": "Ouvrir la chaîne",
+    "about_eyebrow": "Fais connaissance",
+    "about_title": "Un panda roux, beaucoup d'esprit.",
+    "about_alt": "Illustration de Keola Kumaneko",
+    "about_text": "Keola Kumaneko est une VTuber panda roux francophone. Autour de ses lives, elle rassemble les Petits Esprits : une communauté où l'on vient partager un moment, créer et se retrouver.",
+    "about_quote": "Ici, les Petits Esprits ont leur place.",
+    "about_link": "Rejoindre le Discord",
+    "gallery_eyebrow": "Créations de la communauté",
+    "gallery_title": "La forêt vue par ses artistes.",
+    "gallery_text": "Des styles, des couleurs et autant de façons d'imaginer Keola. Voici les dernières créations partagées sur son site.",
+    "gallery_link": "Explorer la galerie",
+    "mission_eyebrow": "Une cause qui compte",
+    "mission_title": "Protéger les pandas roux, pour de vrai.",
+    "mission_text": "Au-delà des streams, Keola met en lumière Red Panda Network. L'association agit pour les pandas roux sauvages et leur habitat avec les communautés locales.",
+    "mission_link": "Découvrir Red Panda Network",
+    "community_eyebrow": "Les Petits Esprits",
+    "community_title": "La conversation continue ailleurs.",
+    "community_text": "Retrouve Keola en live, en vidéo et là où la communauté se rassemble.",
+    "partners_eyebrow": "Rencontres et collaborations",
+    "partners_title": "Des liens qui ont du sens.",
+    "safebear_text": "Un outil pour documenter le cyberharcèlement et accompagner les personnes concernées.",
+    "holy_text": "Une marque de boissons avec laquelle Keola a collaboré.",
+    "partner_link": "Découvrir le site",
+    "end_title": "On se retrouve bientôt ?",
+    "end_text": "Le prochain chapitre s'écrit aussi avec toi.",
+    "end_link": "Rejoindre les Petits Esprits"
+  },
+  "gallery": {
+    "eyebrow": "Galerie · Petits Esprits",
+    "title": "Tout un monde, à plusieurs mains.",
+    "intro": "Une sélection de fanarts partagés autour de Keola, du plus récent au plus ancien.",
+    "image_alt": "Fanart de Keola Kumaneko, VTuber panda roux, numéro {number}",
+    "open": "Agrandir le fanart numéro {number}",
+    "count": "{number} sur {total}",
+    "close": "Fermer l'image",
+    "previous": "Image précédente",
+    "next": "Image suivante",
+    "credit_note": "Les artistes conservent les droits sur leurs oeuvres. Les attributions individuelles sont en cours de vérification."
+  },
+  "credits": {
+    "eyebrow": "Les talents derrière l'univers",
+    "title": "Une forêt, plein de mains.",
+    "intro": "Modèle, musiques, animations, illustrations : Keola ne construit pas cet univers seule. Merci aux personnes citées sur son site actuel.",
+    "visit": "Voir le profil de {name}",
+    "roles": {
+      "assistants": "Aides de camp",
+      "model": "Illustration et rig du modèle",
+      "chibi": "Modèle chibi",
+      "screens": "Écrans de stream",
+      "animation": "Animation",
+      "chat_music": "Musique du chatting",
+      "alerts": "Alertes et textes",
+      "emotes": "Emotes",
+      "stream_music": "Musiques des écrans de stream",
+      "channel_graphics": "Graphisme de la chaîne",
+      "background": "Décor",
+      "ref_chat": "Refsheet et chatbox",
+      "ref_design": "Design et illustration du refsheet",
+      "alert_music": "Musique des alertes",
+      "redebut_video": "Vidéo du redebut",
+      "badges": "Badges"
+    }
+  },
+  "archives": {
+    "eyebrow": "Souvenirs de la forêt",
+    "title": "Les chapitres précédents.",
+    "intro": "Des moments et des créations des années passées. Pour les prochains rendez-vous, direction le planning Twitch.",
+    "redpandathon": "Red Pandathon · 2024",
+    "redpandathon_text": "Un événement caritatif organisé du 18 au 21 juillet 2024 en soutien à Red Panda Network.",
+    "redpandathon_alt": "Visuel des objectifs du Red Pandathon 2024",
+    "redebut_2024": "Redebut · 2024",
+    "redebut_2023": "Redebut · 2023",
+    "redebut_text": "Un aperçu des visuels de cette nouvelle étape de l'univers de Keola.",
+    "redebut_alt": "Illustration du redebut de Keola en {year}",
+    "schedule_link": "Voir le planning actuel"
+  },
+  "media": {
+    "eyebrow": "Pour la presse et les collaborations",
+    "title": "Les essentiels, au même endroit.",
+    "intro": "La fiche média existante de Keola, ses liens officiels et un contact direct pour échanger.",
+    "preview_alt": "Fiche média de Keola Kumaneko",
+    "download": "Télécharger la fiche média (WebP)",
+    "contact_title": "Parlons-en.",
+    "contact_text": "Pour une proposition ou une question professionnelle, écris directement à Keola.",
+    "email": "Écrire un email",
+    "links_title": "Ses liens officiels"
+  }
+}
