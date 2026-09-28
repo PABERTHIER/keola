@@ -1,0 +1,153 @@
+{
+  "site": {
+    "skip": "Skip to content",
+    "menu": "Open menu",
+    "close_menu": "Close menu",
+    "language": "Site language",
+    "home": "Home",
+    "about": "Keola",
+    "gallery": "Gallery",
+    "mission": "The cause",
+    "credits": "Credits",
+    "archives": "Archives",
+    "media": "Media kit",
+    "watch": "Watch live",
+    "contact": "Contact Keola",
+    "explore": "Explore",
+    "elsewhere": "Find Keola",
+    "footer_intro": "A red panda VTuber, her Little Spirits and a cause close to her heart.",
+    "back_home": "Back to home",
+    "og_alt": "Keola Kumaneko, red panda VTuber",
+    "copyright": "Keola Kumaneko. Artwork remains the property of its artists."
+  },
+  "social": {
+    "live": "Livestreams",
+    "videos": "Videos",
+    "community": "Community",
+    "updates": "Updates",
+    "images": "Images",
+    "clips": "Clips",
+    "support": "Support"
+  },
+  "seo": {
+    "home": {
+      "title": "Keola Kumaneko - Red panda VTuber",
+      "description": "Meet Keola Kumaneko, a French-speaking red panda VTuber. Explore her streams, Little Spirits community, fanart and red panda conservation work."
+    },
+    "gallery": {
+      "title": "Fanart gallery - Keola Kumaneko",
+      "description": "Explore fanart of Keola Kumaneko, a red panda VTuber, and creations shared by her community."
+    },
+    "credits": {
+      "title": "Credits - Keola Kumaneko",
+      "description": "Meet the artists and creators who have contributed to Keola Kumaneko's world."
+    },
+    "archives": {
+      "title": "Archives - Keola Kumaneko",
+      "description": "Look back at Keola Kumaneko's past events, from the Red Pandathon to her 2023 and 2024 redebuts."
+    },
+    "media": {
+      "title": "Media kit - Keola Kumaneko",
+      "description": "Media sheet, official links and professional contact for Keola Kumaneko, red panda VTuber."
+    }
+  },
+  "home": {
+    "hero_eyebrow": "Red panda VTuber · Welcome to the forest",
+    "hero_name": "Keola",
+    "hero_surname": "Kumaneko",
+    "hero_alt": "Illustrated portrait of Keola Kumaneko, a red panda VTuber",
+    "hero_text": "Livestreams, Little Spirits and a big place in her heart for red pandas. Come on in, we've been expecting you.",
+    "hero_discover": "Discover her world",
+    "hero_caption": "There's always another story in the forest.",
+    "schedule_eyebrow": "The next get-together",
+    "schedule_title": "See you live?",
+    "schedule_text": "The up-to-date schedule lives on Twitch. Check the next stream, or drop in when Keola goes live.",
+    "schedule_link": "See the Twitch schedule",
+    "schedule_watch": "Open the channel",
+    "about_eyebrow": "Get to know her",
+    "about_title": "One red panda, plenty of spirit.",
+    "about_alt": "Illustration of Keola Kumaneko",
+    "about_text": "Keola Kumaneko is a French-speaking red panda VTuber. Around her streams, she brings together the Little Spirits: a community to share moments, create and feel at home.",
+    "about_quote": "The Little Spirits belong here.",
+    "about_link": "Join the Discord",
+    "gallery_eyebrow": "Community creations",
+    "gallery_title": "The forest through its artists' eyes.",
+    "gallery_text": "Different styles, different colors, countless ways to imagine Keola. Here are the latest creations shared on her site.",
+    "gallery_link": "Explore the gallery",
+    "mission_eyebrow": "A cause that matters",
+    "mission_title": "Protecting red pandas, for real.",
+    "mission_text": "Beyond streaming, Keola shines a light on Red Panda Network. The organization works to protect wild red pandas and their habitat alongside local communities.",
+    "mission_link": "Discover Red Panda Network",
+    "community_eyebrow": "The Little Spirits",
+    "community_title": "The conversation goes on elsewhere.",
+    "community_text": "Find Keola live, on video and wherever the community comes together.",
+    "partners_eyebrow": "People and collaborations",
+    "partners_title": "Connections with a purpose.",
+    "safebear_text": "A tool to document online harassment and support the people affected by it.",
+    "holy_text": "A drinks brand Keola has collaborated with.",
+    "partner_link": "Visit website",
+    "end_title": "See you soon?",
+    "end_text": "You're part of the next chapter, too.",
+    "end_link": "Join the Little Spirits"
+  },
+  "gallery": {
+    "eyebrow": "Gallery · Little Spirits",
+    "title": "A world made together.",
+    "intro": "Fanart shared around Keola, from newest to oldest.",
+    "image_alt": "Fanart of Keola Kumaneko, red panda VTuber, number {number}",
+    "open": "Enlarge fanart number {number}",
+    "count": "{number} of {total}",
+    "close": "Close image",
+    "previous": "Previous image",
+    "next": "Next image",
+    "credit_note": "Artists retain the rights to their work. Individual attributions are being verified."
+  },
+  "credits": {
+    "eyebrow": "The talent behind the world",
+    "title": "A forest made by many hands.",
+    "intro": "Models, music, animation, illustration: Keola didn't build this world alone. Thank you to the people credited on her current site.",
+    "visit": "View {name}'s profile",
+    "roles": {
+      "assistants": "Assistants",
+      "model": "Model art and rigging",
+      "chibi": "Chibi model",
+      "screens": "Stream screens",
+      "animation": "Animation",
+      "chat_music": "Chatting music",
+      "alerts": "Alerts and text",
+      "emotes": "Emotes",
+      "stream_music": "Stream screen music",
+      "channel_graphics": "Channel graphics",
+      "background": "Background",
+      "ref_chat": "Reference sheet and chatbox",
+      "ref_design": "Reference sheet design and illustration",
+      "alert_music": "Alert music",
+      "redebut_video": "Redebut video",
+      "badges": "Badges"
+    }
+  },
+  "archives": {
+    "eyebrow": "Forest memories",
+    "title": "The chapters before this one.",
+    "intro": "Past events and creations. For upcoming streams, head to the Twitch schedule.",
+    "redpandathon": "Red Pandathon · 2024",
+    "redpandathon_text": "A charity event held July 18–21, 2024 in support of Red Panda Network.",
+    "redpandathon_alt": "Red Pandathon 2024 goals illustration",
+    "redebut_2024": "Redebut · 2024",
+    "redebut_2023": "Redebut · 2023",
+    "redebut_text": "A look at the artwork from this new chapter in Keola's world.",
+    "redebut_alt": "Keola's {year} redebut illustration",
+    "schedule_link": "See the current schedule"
+  },
+  "media": {
+    "eyebrow": "For press and collaborations",
+    "title": "The essentials, all in one place.",
+    "intro": "Keola's existing media sheet, official links and a direct contact for getting in touch.",
+    "preview_alt": "Keola Kumaneko media sheet",
+    "download": "Download media sheet (WebP)",
+    "contact_title": "Let's talk.",
+    "contact_text": "For a proposal or professional inquiry, email Keola directly.",
+    "email": "Send an email",
+    "links_title": "Official links"
+  }
+}
