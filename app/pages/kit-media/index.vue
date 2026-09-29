@@ -33,12 +33,12 @@
             :href="link.url"
             target="_blank"
             rel="noopener noreferrer">
-            <Image
-              :src="`/icons/${link.icon}`"
-              alt=""
-              width="23"
-              height="23"
-              loading="lazy" />
+            <Icon
+              :name="link.icon"
+              mode="svg"
+              class="social-icon"
+              :size="23"
+              aria-hidden="true" />
             <span>{{ link.name }}</span>
             <Icon name="lucide:arrow-up-right" aria-hidden="true" />
           </a>
@@ -114,10 +114,9 @@ useHead(usePageSeo('media'))
 .media-page__links a:hover {
   color: #a85012;
 }
-.media-page__links img {
-  width: 23px;
-  height: 23px;
-  object-fit: contain;
+.media-page__links .social-icon {
+  flex: 0 0 23px;
+  color: #000;
 }
 .media-page__links a span {
   flex: 1;

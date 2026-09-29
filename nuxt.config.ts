@@ -64,6 +64,9 @@ export default defineNuxtConfig({
     },
   },
   icon: {
+    clientBundle: {
+      includeCustomCollections: true,
+    },
     customCollections: [
       {
         prefix: 'keo-icon',
