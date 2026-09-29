@@ -63,12 +63,12 @@
             :title="link.name"
             target="_blank"
             rel="noopener noreferrer">
-            <Image
-              :src="`/icons/${link.icon}`"
-              alt=""
-              width="19"
-              height="19"
-              loading="lazy" />
+            <Icon
+              :name="link.icon"
+              mode="svg"
+              class="social-icon"
+              :size="19"
+              aria-hidden="true" />
           </a>
         </div>
       </div>
@@ -158,8 +158,8 @@ const year = new Date().getFullYear()
   gap: 6px;
 
   a {
-    width: 34px;
-    height: 34px;
+    width: 44px;
+    height: 44px;
     display: grid;
     place-items: center;
     border: 1px solid #745469;
@@ -168,8 +168,8 @@ const year = new Date().getFullYear()
   a:hover {
     background: #67405c;
   }
-  img {
-    filter: invert(1);
+  .social-icon {
+    color: #fff;
   }
 }
 

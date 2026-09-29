@@ -93,7 +93,7 @@ The same checks run on Linux in `.github/workflows/ci.yml` with an immutable Yar
 | `app/composables/usePageSeo.ts`   | Translated titles and social metadata                |
 | `app/styles/`                     | SCSS design tokens and minimal shared rules          |
 | `i18n/locales/`                   | Matching FR/EN/JA keys and page copy                 |
-| `public/images/`, `public/icons/` | Images and SVG icons used on the published site      |
+| `public/images/`                  | Published artwork and downloads                      |
 
 Each named page lives in `app/pages/<route>/index.vue` (for example, `app/pages/galerie/index.vue`).
 The homepage stays at `app/pages/index.vue`.
@@ -114,13 +114,28 @@ Leave the Output Directory override disabled; Nuxt/Nitro prepares the Vercel dep
 Use Node.js 24 and the Yarn version pinned in `package.json`.
 Do **not** use `nuxt generate` as this server-rendered app's Vercel build target.
 
-Images are served directly from `public/images/` and `public/icons/` on every host.
+Images are served directly from `public/images/` on every host.
 No image service, provider configuration or transformation endpoint is needed.
 After deployment, confirm image requests such as `/images/image01.webp` return HTTP 200 with an image content type in the browser's Network panel.
 
+## Use Icons
+
+Social logos live in `app/assets/svg/` and use the `keo-icon:` collection configured in `nuxt.config.ts`.
+Custom collections are explicitly included in the client bundle, so dynamic names from `app/data/site.ts` need no runtime icon request.
+Interface icons continue to use `lucide:`.
+These SVGs are build inputs, not public URLs.
+
+```vue
+<Icon name="keo-icon:twitch-logo" mode="svg" :size="26" aria-hidden="true" />
+```
+
+Use standalone SVGs with a root `viewBox`.
+Provide visible link text or an accessible label on controls and hide redundant icons from assistive technology.
+The collection is processed during the Nuxt build and needs no Vercel asset provider.
+
 ## Use Images
 
-Use [Image.vue](app/components/Image.vue) for artwork and social logos:
+Use [Image.vue](app/components/Image.vue) for artwork:
 
 ```vue
 <Image src="/images/mediakit.webp" :alt="t('media.preview_alt')" />

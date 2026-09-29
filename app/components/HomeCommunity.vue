@@ -18,12 +18,12 @@
           :href="link.url"
           target="_blank"
           rel="noopener noreferrer">
-          <Image
-            :src="`/icons/${link.icon}`"
-            alt=""
-            width="26"
-            height="26"
-            loading="lazy" />
+          <Icon
+            :name="link.icon"
+            mode="svg"
+            class="social-icon"
+            :size="26"
+            aria-hidden="true" />
           <span>
             <strong>{{ link.name }}</strong>
             <small>{{ t(`social.${link.detail}`) }}</small>
@@ -65,10 +65,9 @@ const { t } = useI18n()
     padding-left: 16px;
     background: #f8e9ee;
   }
-  img {
-    width: 26px;
-    height: 26px;
-    object-fit: contain;
+  .social-icon {
+    flex: 0 0 26px;
+    color: #000;
   }
   span {
     display: flex;
