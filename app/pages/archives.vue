@@ -21,18 +21,12 @@
           </a>
         </div>
         <div class="archive-feature__images">
-          <NuxtImg
+          <Image
             src="/images/red-panda-thon-2024-goals.webp"
-            :alt="t('archives.redpandathon_alt')"
-            width="550"
-            sizes="xs:45vw md:24vw"
-            loading="lazy" />
-          <NuxtImg
+            :alt="t('archives.redpandathon_alt')" />
+          <Image
             src="/images/red-panda-thon-2024-impossible-goals.webp"
-            :alt="t('archives.redpandathon_alt')"
-            width="550"
-            sizes="xs:45vw md:24vw"
-            loading="lazy" />
+            :alt="t('archives.redpandathon_alt')" />
         </div>
       </article>
       <div class="archive-timeline">
@@ -41,18 +35,12 @@
           :key="year"
           class="archive-timeline__item">
           <div class="archive-timeline__images">
-            <NuxtImg
+            <Image
               :src="`/images/redebut-${year}-left-part.webp`"
-              :alt="t('archives.redebut_alt', { year })"
-              width="600"
-              sizes="xs:45vw md:24vw"
-              loading="lazy" />
-            <NuxtImg
+              :alt="t('archives.redebut_alt', { year })" />
+            <Image
               :src="`/images/redebut-${year}-right-part.webp`"
-              :alt="t('archives.redebut_alt', { year })"
-              width="600"
-              sizes="xs:45vw md:24vw"
-              loading="lazy" />
+              :alt="t('archives.redebut_alt', { year })" />
           </div>
           <div class="archive-timeline__copy">
             <span class="eyebrow">{{ year }} / Keola Kumaneko</span>

@@ -63,7 +63,7 @@
             :title="link.name"
             target="_blank"
             rel="noopener noreferrer">
-            <img
+            <Image
               :src="`/icons/${link.icon}`"
               alt=""
               width="19"

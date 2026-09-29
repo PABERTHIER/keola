@@ -14,13 +14,13 @@
           type="button"
           :aria-label="t('gallery.open', { number })"
           @click="openArtwork(index)">
-          <NuxtImg
+          <Image
+            class="gallery-item__image"
             :src="`/images/fanart/fanart-${number}.webp`"
-            :alt="t('gallery.image_alt', { number })"
-            width="650"
-            sizes="xs:92vw sm:46vw md:31vw lg:23vw"
-            loading="lazy" />
-          <span aria-hidden="true"><Icon name="lucide:expand" /></span>
+            :alt="t('gallery.image_alt', { number })" />
+          <span class="gallery-item__badge" aria-hidden="true">
+            <Icon class="gallery-item__icon" name="lucide:expand" />
+          </span>
         </button>
       </div>
       <p class="gallery-page__note">{{ t('gallery.credit_note') }}</p>
@@ -48,7 +48,7 @@ function openArtwork(index: number) {
   padding-block: 65px 100px;
 }
 .gallery-wall {
-  columns: 4;
+  columns: 16rem 4;
   column-gap: 13px;
 }
 .gallery-item {
@@ -64,27 +64,52 @@ function openArtwork(index: number) {
   background: $white;
   cursor: zoom-in;
 
-  img {
+  &__image {
     width: 100%;
     height: auto;
   }
-  span {
+  &__badge {
     position: absolute;
+    z-index: 1;
     right: 10px;
     bottom: 10px;
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
     display: grid;
     place-items: center;
     border-radius: 4px;
     background: $white;
     color: $ink;
-    opacity: 0;
+    pointer-events: none;
     transition: opacity 0.2s ease;
   }
-  &:hover span,
-  &:focus-visible span {
+  &__icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gallery-item__badge {
+    opacity: 0;
+  }
+  .gallery-item:hover .gallery-item__badge,
+  .gallery-item:focus-visible .gallery-item__badge {
     opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .gallery-item__image {
+    transition: transform 0.35s ease;
+  }
+  .gallery-item:focus-visible .gallery-item__image {
+    transform: scale(1.04);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .gallery-item:hover .gallery-item__image {
+      transform: scale(1.04);
+    }
   }
 }
 .gallery-page__note {
@@ -94,29 +119,15 @@ function openArtwork(index: number) {
   font-size: 0.82rem;
 }
 
-@media (max-width: 1024px) {
-  .gallery-wall {
-    columns: 3;
-  }
-}
 @media (max-width: 720px) {
   .gallery-page {
     padding-block: 38px 70px;
   }
   .gallery-wall {
-    columns: 2;
     column-gap: 9px;
   }
   .gallery-item {
     margin-bottom: 9px;
-  }
-  .gallery-item span {
-    opacity: 1;
-  }
-}
-@media (max-width: 375px) {
-  .gallery-wall {
-    columns: 1;
   }
 }
 </style>

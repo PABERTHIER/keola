@@ -24,7 +24,6 @@
     "@fontsource/zen-maru-gothic": "^5.3.0",
     "@iconify-json/lucide": "^1.2.137",
     "@nuxt/icon": "^2.5.1",
-    "@nuxt/image": "^2.1.0",
     "@nuxtjs/i18n": "^10.6.0",
     "@nuxtjs/seo": "^5.3.16",
     "@vue/composition-api": "^1.7.2",

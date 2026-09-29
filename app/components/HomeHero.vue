@@ -30,12 +30,9 @@
         </div>
       </div>
       <div class="hero__visual">
-        <NuxtImg
+        <Image
           src="/images/slideshow-1.webp"
           :alt="t('home.hero_alt')"
-          width="694"
-          height="953"
-          sizes="xs:100vw sm:50vw lg:46vw"
           loading="eager"
           fetchpriority="high" />
         <span class="hero__caption">{{ t('home.hero_caption') }}</span>

@@ -18,7 +18,7 @@
           :href="link.url"
           target="_blank"
           rel="noopener noreferrer">
-          <img
+          <Image
             :src="`/icons/${link.icon}`"
             alt=""
             width="26"

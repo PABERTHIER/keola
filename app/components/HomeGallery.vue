@@ -21,13 +21,13 @@
           class="preview-grid__item"
           :to="localePath('/galerie')"
           :aria-label="`${t('home.gallery_link')} · ${t('gallery.image_alt', { number })}`">
-          <NuxtImg
+          <Image
+            class="preview-grid__image"
             :src="`/images/fanart/fanart-${number}.webp`"
-            :alt="t('gallery.image_alt', { number })"
-            width="600"
-            sizes="xs:75vw sm:40vw lg:22vw"
-            loading="lazy" />
-          <span aria-hidden="true"><Icon name="lucide:arrow-up-right" /></span>
+            :alt="t('gallery.image_alt', { number })" />
+          <span class="preview-grid__badge" aria-hidden="true">
+            <Icon class="preview-grid__icon" name="lucide:arrow-up-right" />
+          </span>
         </NuxtLink>
       </div>
     </div>
@@ -68,17 +68,14 @@ const localePath = useLocalePath()
   &__item:nth-child(4) {
     background: #dbe3e2;
   }
-  &__item img {
+  &__image {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    transition: transform 0.35s ease;
   }
-  &__item:hover img {
-    transform: scale(1.04);
-  }
-  &__item > span {
+  &__badge {
     position: absolute;
+    z-index: 1;
     right: 12px;
     bottom: 12px;
     width: 36px;
@@ -88,6 +85,25 @@ const localePath = useLocalePath()
     border-radius: 4px;
     background: $white;
     color: $ink;
+    pointer-events: none;
+  }
+  &__icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .preview-grid__image {
+    transition: transform 0.35s ease;
+  }
+  .preview-grid__item:focus-visible .preview-grid__image {
+    transform: scale(1.04);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .preview-grid__item:hover .preview-grid__image {
+      transform: scale(1.04);
+    }
   }
 }
 

@@ -15,10 +15,11 @@
       <Icon name="lucide:x" aria-hidden="true" />
     </button>
     <div class="lightbox__image">
-      <img
+      <Image
         v-if="activeNumber !== null"
         :src="`/images/fanart/fanart-${activeNumber}.webp`"
-        :alt="t('gallery.image_alt', { number: activeNumber })" />
+        :alt="t('gallery.image_alt', { number: activeNumber })"
+        loading="eager" />
     </div>
     <div class="lightbox__controls">
       <button
@@ -91,13 +92,20 @@ defineExpose({ open })
   position: fixed;
   width: min(1100px, calc(100% - 28px));
   max-width: none;
-  max-height: calc(100svh - 28px);
+  height: min(850px, calc(100dvh - 28px));
+  max-height: calc(100dvh - 28px);
   padding: 16px;
   overflow: auto;
   border: 0;
   border-radius: 6px;
   background: $plum-deep;
   color: white;
+
+  &[open] {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    gap: 10px;
+  }
 
   &::backdrop {
     background: #231725ed;
@@ -111,13 +119,12 @@ defineExpose({ open })
   &__image {
     display: grid;
     place-items: center;
-    min-height: min(68svh, 650px);
+    min-height: 0;
   }
   &__image img {
-    max-width: 100%;
-    max-height: 72svh;
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
     object-fit: contain;
   }
   &__controls {
@@ -125,7 +132,6 @@ defineExpose({ open })
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    margin-top: 10px;
   }
   &__controls .icon-button {
     border-color: #97788f;
@@ -134,12 +140,6 @@ defineExpose({ open })
   &__controls span {
     font-size: 0.81rem;
     font-weight: 700;
-  }
-}
-
-@media (max-width: 720px) {
-  .lightbox__image {
-    min-height: min(60svh, 480px);
   }
 }
 </style>

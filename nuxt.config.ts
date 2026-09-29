@@ -44,13 +44,6 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
-  image: {
-    provider: 'ipx',
-    format: ['webp', 'jpg', 'jpeg', 'png'],
-    screens: {
-      xs: 320,
-    },
-  },
   plugins: [],
   build: {
     transpile: [],
@@ -58,13 +51,7 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
-  modules: [
-    '@nuxt/image',
-    '@nuxt/icon',
-    '@nuxtjs/i18n',
-    '@nuxtjs/seo',
-    '@nuxt/eslint',
-  ],
+  modules: ['@nuxt/icon', '@nuxtjs/i18n', '@nuxtjs/seo', '@nuxt/eslint'],
   imports: {
     dirs: [],
   },
