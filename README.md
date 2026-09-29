@@ -3,7 +3,7 @@
 [![Build][build-badge]][build-link]
 [![Release][release-badge]][release-link]
 
-A static website for Keola Kumaneko, a red-panda VTuber and the Petits Esprits community.
+A server-rendered website for Keola Kumaneko, a red-panda VTuber and the Petits Esprits community.
 
 Here it is: [keola][release-link]
 
@@ -29,12 +29,16 @@ Use a current Node.js 24 release and Corepack. Yarn 4 is pinned in `package.json
 
 Install the Volar VSCode extension.
 
-Install Yarn:
+Enable the Yarn launcher once when setting up Node.js:
 
 ```bash
 # enable corepack
 corepack enable
 ```
+
+After enabling Corepack, `yarn` automatically uses the version pinned in `package.json`.
+If the launcher is unavailable, use `corepack yarn <command>`.
+If PowerShell blocks `yarn.ps1`, use `yarn.cmd <command>` instead.
 
 Make sure to install the dependencies:
 
@@ -73,7 +77,7 @@ yarn preview
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
 
-`corepack yarn format` formats authored Vue/TypeScript/SCSS, locales and project documentation.
+`yarn format` formats authored Vue/TypeScript/SCSS, locales and project documentation.
 It deliberately excludes the supplied artwork and brand-source docs.
 The same checks run on Linux in `.github/workflows/ci.yml` with an immutable Yarn install.
 
@@ -94,15 +98,42 @@ Artwork belongs to its artists.
 ## Architecture And Design
 
 Nuxt 4 SSR, Vue 3 Composition API, TypeScript **6**, Yarn 4, and scoped SCSS.
-`@nuxt/image` optimizes local WebPs, `@nuxtjs/i18n` serves three locales, and `@nuxtjs/seo` provides sitemap, canonical and alternate-language metadata.
+The shared `Image` component renders native images, `@nuxtjs/i18n` serves three locales, and `@nuxtjs/seo` provides sitemap, canonical and alternate-language metadata.
 Fonts are bundled locally: Kaushan Script for Keola's signature, Zen Maru Gothic for headings/Japanese and Plus Jakarta Sans for compact UI copy.
 Orange `#FF7B00` is the confirmed brand accent; warm paper and plum carry the new visual direction, with lilac kept to small spirit accents.
 
 ## Deploy On Vercel
 
-Select the Nuxt preset, install with `corepack yarn install --immutable` and build with `corepack yarn build`.
-Deploy as a server-rendered Nuxt app so Nuxt Image/IPX can transform WebPs.
-Do **not** use `nuxt generate` as the Vercel build target.
+Select the Nuxt preset, install with `yarn install --immutable` and build with `yarn build`.
+Leave the Output Directory override disabled; Nuxt/Nitro prepares the Vercel deployment output.
+Use Node.js 24 and the Yarn version pinned in `package.json`.
+Do **not** use `nuxt generate` as this server-rendered app's Vercel build target.
+
+Images are served directly from `public/images/` and `public/icons/` on every host.
+No image service, provider configuration or transformation endpoint is needed.
+After deployment, confirm image requests such as `/images/image01.webp` return HTTP 200 with an image content type in the browser's Network panel.
+
+## Use Images
+
+Use [Image.vue](app/components/Image.vue) for artwork and social logos:
+
+```vue
+<Image src="/images/mediakit.webp" :alt="t('media.preview_alt')" />
+```
+
+It renders a single native `img`, with lazy loading, asynchronous decoding and proportional sizing by default.
+Classes, styles, native attributes and image events pass through to that element.
+Use `loading="eager"` for the brand, hero and opened lightbox, and `fetchpriority="high"` for the hero.
+
+[imageDimensions.ts](app/data/imageDimensions.ts) records each artwork's original pixel dimensions so the browser reserves its space before loading.
+Update its entry when adding or replacing artwork, or supply both `width` and `height` directly.
+The component works without an entry, but cannot reserve its aspect ratio in advance.
+
+Pages control layout using CSS grids, columns and container widths.
+Images shrink to fit their containers; gallery artwork stays complete.
+The gallery uses a preferred 16rem column width and a maximum of four columns, adapting without JavaScript sizing.
+Responsive display does not reduce download size: every device receives the original WebP.
+Keep source files reasonably sized; no resized variants are generated.
 
 [build-badge]: https://github.com/PABERTHIER/keola/actions/workflows/ci.yml/badge.svg
 [build-link]: https://github.com/PABERTHIER/keola/actions/workflows/ci.yml

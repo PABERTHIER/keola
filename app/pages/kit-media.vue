@@ -6,12 +6,7 @@
       :intro="t('media.intro')" />
     <div class="media-page shell">
       <div class="media-page__sheet">
-        <NuxtImg
-          src="/images/mediakit.webp"
-          :alt="t('media.preview_alt')"
-          width="900"
-          sizes="xs:100vw md:60vw"
-          loading="lazy" />
+        <Image src="/images/mediakit.webp" :alt="t('media.preview_alt')" />
         <a
           class="button button--dark"
           href="/images/mediakit.webp"
@@ -38,7 +33,7 @@
             :href="link.url"
             target="_blank"
             rel="noopener noreferrer">
-            <img
+            <Image
               :src="`/icons/${link.icon}`"
               alt=""
               width="23"

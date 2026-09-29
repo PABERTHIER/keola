@@ -23,12 +23,9 @@
       </div>
       <div class="mission-section__art">
         <span class="mission-section__orbit" aria-hidden="true">✳</span>
-        <NuxtImg
+        <Image
           src="/images/red-panda-network-logo.webp"
-          alt="Red Panda Network"
-          width="550"
-          sizes="xs:65vw md:35vw"
-          loading="lazy" />
+          alt="Red Panda Network" />
         <span>
           Red Panda Network
           <Icon name="lucide:arrow-up-right" aria-hidden="true" />

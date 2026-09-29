@@ -41,12 +41,7 @@
       aria-labelledby="about-title">
       <div class="shell about-section__grid">
         <div class="about-section__art">
-          <NuxtImg
-            src="/images/slideshow-6.webp"
-            :alt="t('home.about_alt')"
-            width="1942"
-            sizes="xs:100vw sm:80vw md:50vw lg:42vw"
-            loading="lazy" />
+          <Image src="/images/slideshow-6.webp" :alt="t('home.about_alt')" />
           <span class="about-section__art-label">Keola Kumaneko / VTuber</span>
         </div>
         <div class="about-section__copy">
@@ -87,11 +82,7 @@
             :href="externalLinks.safebear"
             target="_blank"
             rel="noopener noreferrer">
-            <NuxtImg
-              src="/images/safebear-brand-logo.webp"
-              alt="Safebear"
-              width="120"
-              loading="lazy" />
+            <Image src="/images/safebear-brand-logo.webp" alt="Safebear" />
             <span>
               <strong>Safebear</strong>
               <small>{{ t('home.safebear_text') }}</small>
@@ -106,11 +97,7 @@
             :href="externalLinks.holy"
             target="_blank"
             rel="noopener noreferrer">
-            <NuxtImg
-              src="/images/holy-brand-logo.webp"
-              alt="HOLY"
-              width="120"
-              loading="lazy" />
+            <Image src="/images/holy-brand-logo.webp" alt="HOLY" />
             <span>
               <strong>HOLY</strong>
               <small>{{ t('home.holy_text') }}</small>
