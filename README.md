@@ -93,6 +93,9 @@ The same checks run on Linux in `.github/workflows/ci.yml` with an immutable Yar
 | `i18n/locales/`                   | Matching FR/EN/JA keys and page copy                 |
 | `public/images/`, `public/icons/` | Images and SVG icons used on the published site      |
 
+Each named page lives in `app/pages/<route>/index.vue` (for example, `app/pages/galerie/index.vue`).
+The homepage stays at `app/pages/index.vue`.
+
 Artwork belongs to its artists.
 
 ## Architecture And Design
