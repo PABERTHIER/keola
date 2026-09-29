@@ -24,7 +24,7 @@ export default defineNuxtConfig({
           name: 'apple-mobile-web-app-title',
           content: 'Keola',
         },
-        { name: 'theme-color', content: '#493047' }, // TODO: Is it the right theme-color value ?
+        { name: 'theme-color', content: '#ff7b00' },
       ],
       templateParams: {
         separator: '-',

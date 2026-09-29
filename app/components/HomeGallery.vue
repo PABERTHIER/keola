@@ -48,7 +48,7 @@ const localePath = useLocalePath()
 .preview-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  gap: $space-12;
 
   &__item {
     position: relative;
@@ -56,17 +56,17 @@ const localePath = useLocalePath()
     display: grid;
     place-items: center;
     overflow: hidden;
-    border-radius: 6px;
-    background: #e7d7c8;
+    border-radius: $radius-control;
+    background: $gallery-background-peach;
   }
   &__item:nth-child(2) {
-    background: #e8dceb;
+    background: $gallery-background-lilac;
   }
   &__item:nth-child(3) {
-    background: #e1d6df;
+    background: $gallery-background-rose;
   }
   &__item:nth-child(4) {
-    background: #dbe3e2;
+    background: $gallery-background-sage;
   }
   &__image {
     width: 100%;
@@ -75,49 +75,49 @@ const localePath = useLocalePath()
   }
   &__badge {
     position: absolute;
-    z-index: 1;
-    right: 12px;
-    bottom: 12px;
-    width: 36px;
-    height: 36px;
+    z-index: $z-artwork;
+    right: $space-12;
+    bottom: $space-12;
+    width: $gallery-badge-size;
+    height: $gallery-badge-size;
     display: grid;
     place-items: center;
-    border-radius: 4px;
+    border-radius: $radius-small;
     background: $white;
     color: $ink;
     pointer-events: none;
   }
   &__icon {
-    width: 18px;
-    height: 18px;
+    width: $gallery-icon-size;
+    height: $gallery-icon-size;
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .preview-grid__image {
-    transition: transform 0.35s ease;
+    transition: transform $transition-artwork;
   }
   .preview-grid__item:focus-visible .preview-grid__image {
-    transform: scale(1.04);
+    transform: scale($artwork-hover-scale);
   }
   @media (hover: hover) and (pointer: fine) {
     .preview-grid__item:hover .preview-grid__image {
-      transform: scale(1.04);
+      transform: scale($artwork-hover-scale);
     }
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: $breakpoint-mobile) {
   .preview-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 9px;
+    gap: $space-9;
   }
   .preview-grid__item {
     height: 235px;
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: $breakpoint-small) {
   .preview-grid__item {
     height: 175px;
   }

@@ -63,35 +63,35 @@ useHead(usePageSeo('archives'))
 
 <style lang="scss" scoped>
 .archives-page {
-  padding-block: 70px 110px;
+  padding-block: $space-70 $space-110;
 }
 .archive-feature {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 45px;
+  gap: $space-45;
   align-items: center;
-  padding: 45px;
-  border-radius: 6px;
+  padding: $space-45;
+  border-radius: $radius-control;
   background: $plum;
-  color: white;
+  color: $white-pure;
 }
 .archive-feature__copy {
   max-width: 520px;
 }
 .archive-feature__copy .eyebrow {
-  color: #ffb76f;
+  color: $archive-accent;
 }
 .archive-feature h2,
 .archive-timeline h2 {
-  margin: 15px 0;
+  margin: $space-15 0;
   font-size: 2.55rem;
 }
 .archive-feature p {
-  color: #f4dfea;
-  line-height: 1.75;
+  color: $archive-text;
+  line-height: $line-height-copy;
 }
 .archive-feature .button {
-  margin-top: 13px;
+  margin-top: $space-13;
   background: $orange;
   color: $plum-deep;
 }
@@ -99,7 +99,7 @@ useHead(usePageSeo('archives'))
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: $space-10;
 }
 .archive-feature__images img {
   width: 48%;
@@ -107,20 +107,20 @@ useHead(usePageSeo('archives'))
   object-fit: contain;
 }
 .archive-timeline {
-  margin-top: 70px;
+  margin-top: $space-70;
 }
 .archive-timeline__item {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: $space-60;
   align-items: center;
-  padding: 36px 0;
-  border-top: 1px solid $line;
+  padding: $space-36 0;
+  border-top: $border-width solid $line;
 }
 .archive-timeline__images {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: $space-8;
   min-width: 0;
 }
 .archive-timeline__images img {
@@ -132,27 +132,27 @@ useHead(usePageSeo('archives'))
   max-width: 440px;
   color: $muted;
 }
-@media (max-width: 720px) {
+@media (max-width: $breakpoint-mobile) {
   .archives-page {
-    padding-block: 38px 70px;
+    padding-block: $space-38 $space-70;
   }
   .archive-feature,
   .archive-timeline__item {
     grid-template-columns: 1fr;
-    gap: 25px;
+    gap: $space-25;
   }
   .archive-feature {
-    padding: 25px;
+    padding: $space-25;
   }
   .archive-feature h2,
   .archive-timeline h2 {
     font-size: 2rem;
   }
   .archive-timeline {
-    margin-top: 40px;
+    margin-top: $space-40;
   }
   .archive-timeline__item {
-    gap: 10px;
+    gap: $space-10;
   }
   .archive-timeline__images img {
     max-height: 260px;
