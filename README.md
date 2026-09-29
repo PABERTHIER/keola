@@ -1,5 +1,7 @@
 # Keola Kumaneko
 
+![Keola Kumaneko with orange pom-poms against a blue sky][readme-image]
+
 [![Build][build-badge]][build-link]
 [![Release][release-badge]][release-link]
 
@@ -137,6 +139,8 @@ Images shrink to fit their containers; gallery artwork stays complete.
 The gallery uses a preferred 16rem column width and a maximum of four columns, adapting without JavaScript sizing.
 Responsive display does not reduce download size: every device receives the original WebP.
 Keep source files reasonably sized; no resized variants are generated.
+
+[readme-image]: public/images/og-image.webp
 
 [build-badge]: https://github.com/PABERTHIER/keola/actions/workflows/ci.yml/badge.svg
 [build-link]: https://github.com/PABERTHIER/keola/actions/workflows/ci.yml
