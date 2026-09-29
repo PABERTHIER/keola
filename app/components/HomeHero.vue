@@ -52,7 +52,7 @@ const localePath = useLocalePath()
 .hero {
   overflow: hidden;
   background: $plum;
-  color: white;
+  color: $white-pure;
 
   &__inner {
     min-height: 560px;
@@ -63,36 +63,38 @@ const localePath = useLocalePath()
   &__content {
     align-self: center;
     position: relative;
-    z-index: 2;
-    padding: 38px 32px 42px 0;
+    z-index: $z-content;
+    padding: $space-38 $space-32 $space-42 0;
   }
   h1 {
-    margin: 27px 0 22px;
+    margin: 27px 0 $space-22;
     font-family: $signature;
     font-size: 6rem;
-    font-weight: 400;
+    font-weight: $weight-regular;
     line-height: 1.08;
   }
   h1 span {
     display: block;
-    color: #ffad53;
+    color: $hero-accent;
   }
   &__lead {
     max-width: 500px;
     margin-bottom: 31px;
-    color: #f4e3ee;
+    color: $hero-text;
     font-size: 1.13rem;
-    line-height: 1.75;
+    line-height: $line-height-copy;
   }
   &__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 11px;
+    gap: $space-11;
   }
   &__visual {
     position: relative;
     min-height: 100%;
-    margin-right: calc((min(100vw - 72px, 1240px) - 100vw) / 2);
+    margin-right: calc(
+      (min(100vw - $shell-gutter * 2, $shell-max-width) - 100vw) / 2
+    );
     overflow: hidden;
   }
   &__visual img {
@@ -105,26 +107,26 @@ const localePath = useLocalePath()
   }
   &__caption {
     position: absolute;
-    right: 32px;
-    bottom: 24px;
+    right: $space-32;
+    bottom: $space-24;
     max-width: 230px;
-    padding: 8px 12px;
+    padding: $space-8 $space-12;
     background: $plum-deep;
-    color: #f9eee1;
-    font-size: 0.72rem;
-    font-weight: 700;
+    color: $hero-note-text;
+    font-size: $font-size-caption;
+    font-weight: $weight-bold;
   }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: $breakpoint-desktop) {
   .hero h1 {
     font-size: 4.9rem;
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: $breakpoint-tablet) {
   .hero__visual {
-    margin-right: -24px;
+    margin-right: -$shell-gutter-tablet;
   }
   .hero h1 {
     font-size: 4.3rem;
@@ -134,7 +136,7 @@ const localePath = useLocalePath()
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: $breakpoint-mobile) {
   .hero__inner {
     display: flex;
     flex-direction: column;
@@ -146,40 +148,40 @@ const localePath = useLocalePath()
     padding: 43px 0 29px;
   }
   .hero h1 {
-    margin: 17px 0 15px;
+    margin: $space-17 0 $space-15;
     font-size: 3.65rem;
   }
   .hero__lead {
     max-width: 550px;
-    margin-bottom: 22px;
-    font-size: 0.94rem;
-    line-height: 1.55;
+    margin-bottom: $space-22;
+    font-size: $font-size-intro-mobile;
+    line-height: $line-height-compact;
   }
   .hero__actions {
-    gap: 8px;
+    gap: $space-8;
   }
   .hero__actions .button {
     min-height: 43px;
-    padding: 9px 12px;
-    font-size: 0.76rem;
+    padding: $space-9 $space-12;
+    font-size: $font-size-action-small;
   }
   .hero__visual {
-    height: 240px;
-    min-height: 240px;
-    margin-left: -18px;
-    margin-right: -18px;
+    height: $hero-art-height-mobile;
+    min-height: $hero-art-height-mobile;
+    margin-left: -$shell-gutter-mobile;
+    margin-right: -$shell-gutter-mobile;
   }
   .hero__visual img {
     object-position: center 19%;
   }
   .hero__caption {
-    right: 15px;
-    bottom: 13px;
+    right: $space-15;
+    bottom: $space-13;
     font-size: 0.62rem;
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: $breakpoint-small) {
   .hero h1 {
     font-size: 3rem;
   }
@@ -187,29 +189,29 @@ const localePath = useLocalePath()
     max-width: 100%;
   }
   .hero__visual {
-    height: 190px;
-    min-height: 190px;
+    height: $hero-art-height-small;
+    min-height: $hero-art-height-small;
   }
 }
 
-@media (max-width: 360px) and (max-height: 640px) {
+@media (max-width: $breakpoint-compact) and (max-height: $breakpoint-short-height) {
   .hero__content {
-    padding: 24px 0 12px;
+    padding: $space-24 0 $space-12;
   }
   .hero h1 {
-    margin: 9px 0 8px;
+    margin: $space-9 0 $space-8;
     font-size: 2.85rem;
   }
   .hero__lead {
-    margin-bottom: 13px;
+    margin-bottom: $space-13;
     line-height: 1.45;
   }
   .hero__actions .button--light-outline {
     display: none;
   }
   .hero__visual {
-    height: 128px;
-    min-height: 128px;
+    height: $hero-art-height-compact;
+    min-height: $hero-art-height-compact;
   }
   .hero__caption {
     display: none;

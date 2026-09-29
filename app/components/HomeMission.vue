@@ -44,21 +44,21 @@ const { t } = useI18n()
 <style lang="scss" scoped>
 .mission-section {
   overflow: hidden;
-  background: #643c52;
-  color: white;
+  background: $mission-background;
+  color: $white-pure;
 
   &__grid {
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
     align-items: center;
-    gap: 70px;
+    gap: $space-70;
   }
   .section-title {
     max-width: 660px;
   }
   .section-lead {
-    color: #f4e2e9;
-    margin-bottom: 30px;
+    color: $mission-text;
+    margin-bottom: $space-30;
   }
   &__art {
     position: relative;
@@ -67,13 +67,13 @@ const { t } = useI18n()
     align-items: center;
     justify-content: center;
     min-height: 365px;
-    border: 1px solid #ad829d;
-    border-radius: 7px;
-    background: #794b69;
+    border: $border-width solid $mission-art-border;
+    border-radius: $radius-art;
+    background: $mission-art-background;
   }
   &__art img {
     position: relative;
-    z-index: 1;
+    z-index: $z-artwork;
     max-height: 210px;
     max-width: 60%;
     width: auto;
@@ -81,28 +81,28 @@ const { t } = useI18n()
   }
   &__art > span:last-child {
     position: absolute;
-    bottom: 20px;
-    left: 24px;
+    bottom: $space-20;
+    left: $space-24;
     display: flex;
-    gap: 8px;
+    gap: $space-8;
     align-items: center;
-    font-size: 0.77rem;
-    font-weight: 700;
+    font-size: $font-size-small;
+    font-weight: $weight-bold;
   }
   &__orbit {
     position: absolute;
-    right: 24px;
+    right: $space-24;
     top: 2px;
-    color: #dcb8d1;
+    color: $mission-orbit;
     font-size: 6rem;
     line-height: 1;
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: $breakpoint-mobile) {
   .mission-section__grid {
     grid-template-columns: 1fr;
-    gap: 33px;
+    gap: $space-33;
   }
   .mission-section__art {
     min-height: 265px;

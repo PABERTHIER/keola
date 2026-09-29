@@ -86,54 +86,54 @@ const year = new Date().getFullYear()
 
 <style lang="scss" scoped>
 .site-footer {
-  padding-top: 75px;
+  padding-top: $space-75;
   background: $plum-deep;
-  color: #fff3ec;
+  color: $footer-text;
 
   &__main {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 45px;
-    padding-bottom: 70px;
+    gap: $space-45;
+    padding-bottom: $space-70;
   }
   &__identity p {
     max-width: 310px;
-    margin: 22px 0;
-    color: #e1cbd8;
+    margin: $space-22 0;
+    color: $footer-description-text;
     font-size: 0.88rem;
   }
   &__column {
     display: flex;
     flex-direction: column;
     align-items: start;
-    gap: 12px;
+    gap: $space-12;
 
     h2 {
-      margin: 7px 0 8px;
-      color: #ffad68;
+      margin: $space-7 0 $space-8;
+      color: $footer-heading-text;
       font-family: $body;
-      font-size: 0.75rem;
-      font-weight: 800;
+      font-size: $font-size-label;
+      font-weight: $weight-heavy;
       text-transform: uppercase;
     }
     a {
       font-size: 0.8rem;
     }
     a:hover {
-      color: #ffae60;
+      color: $footer-link-hover;
     }
   }
   &__bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
-    padding: 18px 0 24px;
-    border-top: 1px solid #745469;
+    gap: $space-20;
+    padding: $space-18 0 $space-24;
+    border-top: $border-width solid $footer-border;
   }
   &__bottom p {
     margin: 0;
-    color: #dcc2d1;
+    color: $footer-copyright-text;
     font-size: 0.7rem;
   }
 }
@@ -141,13 +141,13 @@ const year = new Date().getFullYear()
 .footer-email {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  font-size: 0.82rem;
-  font-weight: 700;
+  gap: $space-5;
+  font-size: $font-size-note;
+  font-weight: $weight-bold;
   overflow-wrap: anywhere;
 
   &:hover {
-    color: #ffae60;
+    color: $footer-link-hover;
   }
 }
 
@@ -155,25 +155,25 @@ const year = new Date().getFullYear()
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: $space-6;
 
   a {
-    width: 44px;
-    height: 44px;
+    width: $control-size;
+    height: $control-size;
     display: grid;
     place-items: center;
-    border: 1px solid #745469;
-    border-radius: 5px;
+    border: $border-width solid $footer-border;
+    border-radius: $radius-social;
   }
   a:hover {
-    background: #67405c;
+    background: $footer-social-hover;
   }
   .social-icon {
-    color: #fff;
+    color: $white-pure;
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: $breakpoint-tablet) {
   .site-footer__main {
     grid-template-columns: 1.5fr 1fr 1fr;
   }
@@ -182,14 +182,14 @@ const year = new Date().getFullYear()
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: $breakpoint-mobile) {
   .site-footer {
     padding-top: 58px;
   }
   .site-footer__main {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 36px 22px;
-    padding-bottom: 45px;
+    gap: $space-36 $space-22;
+    padding-bottom: $space-45;
   }
   .site-footer__identity {
     grid-column: 1 / -1;

@@ -90,31 +90,31 @@ defineExpose({ open })
 <style lang="scss" scoped>
 .lightbox {
   position: fixed;
-  width: min(1100px, calc(100% - 28px));
+  width: min($lightbox-max-width, calc(100% - $lightbox-inset * 2));
   max-width: none;
-  height: min(850px, calc(100dvh - 28px));
-  max-height: calc(100dvh - 28px);
-  padding: 16px;
+  height: min($lightbox-max-height, calc(100dvh - $lightbox-inset * 2));
+  max-height: calc(100dvh - $lightbox-inset * 2);
+  padding: $space-16;
   overflow: auto;
   border: 0;
-  border-radius: 6px;
+  border-radius: $radius-control;
   background: $plum-deep;
-  color: white;
+  color: $white-pure;
 
   &[open] {
     display: grid;
     grid-template-rows: auto minmax(0, 1fr) auto;
-    gap: 10px;
+    gap: $space-10;
   }
 
   &::backdrop {
-    background: #231725ed;
+    background: $lightbox-backdrop;
   }
   &__close {
     display: grid;
     margin-left: auto;
-    border-color: #97788f;
-    color: white;
+    border-color: $lightbox-border;
+    color: $white-pure;
   }
   &__image {
     display: grid;
@@ -131,15 +131,15 @@ defineExpose({ open })
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
+    gap: $space-10;
   }
   &__controls .icon-button {
-    border-color: #97788f;
-    color: white;
+    border-color: $lightbox-border;
+    color: $white-pure;
   }
   &__controls span {
-    font-size: 0.81rem;
-    font-weight: 700;
+    font-size: $font-size-nav;
+    font-weight: $weight-bold;
   }
 }
 </style>

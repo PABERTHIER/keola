@@ -97,26 +97,26 @@ function changeLocale(event: Event) {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 30;
-  height: 74px;
+  z-index: $z-header;
+  height: $header-height;
   background: $white;
-  border-bottom: 1px solid #e6e4dc;
+  border-bottom: $border-width solid $header-border;
 
   &__inner {
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: $space-20;
   }
   &__actions {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: $space-10;
   }
   &__live {
     min-height: 42px;
-    padding: 9px 13px;
+    padding: $space-9 $space-13;
     font-size: 0.78rem;
     white-space: nowrap;
   }
@@ -129,14 +129,14 @@ function changeLocale(event: Event) {
   margin-left: auto;
 
   a {
-    font-size: 0.81rem;
-    font-weight: 700;
+    font-size: $font-size-nav;
+    font-weight: $weight-bold;
     white-space: nowrap;
-    transition: color 0.2s ease;
+    transition: color $transition-ui;
   }
   a:hover,
   a.router-link-exact-active {
-    color: #a54a00;
+    color: $header-link-hover;
   }
 }
 
@@ -144,7 +144,7 @@ function changeLocale(event: Event) {
   display: inline-flex;
   align-items: center;
   gap: 3px;
-  padding-left: 5px;
+  padding-left: $space-5;
   color: $ink;
 
   .icon {
@@ -156,8 +156,8 @@ function changeLocale(event: Event) {
     background: transparent;
     border: 0;
     color: inherit;
-    font-size: 0.75rem;
-    font-weight: 800;
+    font-size: $font-size-label;
+    font-weight: $weight-heavy;
     cursor: pointer;
   }
 }
@@ -166,19 +166,19 @@ function changeLocale(event: Event) {
   display: none;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: $breakpoint-desktop) {
   .site-nav {
-    gap: 15px;
+    gap: $space-15;
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: $breakpoint-tablet) {
   .site-header {
-    height: 68px;
+    height: $header-height-mobile;
   }
   .site-nav {
     position: absolute;
-    top: 68px;
+    top: $header-height-mobile;
     left: 0;
     right: 0;
     display: none;
@@ -186,17 +186,17 @@ function changeLocale(event: Event) {
     align-items: stretch;
     gap: 0;
     margin: 0;
-    padding: 14px 24px 22px;
-    border-bottom: 1px solid $line;
+    padding: $space-14 $space-24 $space-22;
+    border-bottom: $border-width solid $line;
     background: $white;
-    box-shadow: 0 16px 22px #102d2a18;
+    box-shadow: 0 16px 22px $header-menu-shadow;
 
     &.is-open {
       display: flex;
     }
     a {
-      padding: 13px 7px;
-      border-bottom: 1px solid $line;
+      padding: $space-13 $space-7;
+      border-bottom: $border-width solid $line;
       font-size: 0.95rem;
     }
   }
@@ -205,9 +205,9 @@ function changeLocale(event: Event) {
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: $breakpoint-mobile) {
   .site-header__live {
-    width: 44px;
+    width: $control-size;
     padding: 0;
   }
   .site-header__live span {
@@ -215,18 +215,18 @@ function changeLocale(event: Event) {
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: $breakpoint-small) {
   .brand {
-    font-size: 1.1rem;
+    font-size: $font-size-brand-mobile;
   }
   .brand__symbol {
     font-size: 1.85rem;
   }
   .brand__text span {
-    font-size: 0.77rem;
+    font-size: $font-size-small;
   }
   .site-header__actions {
-    gap: 4px;
+    gap: $space-4;
   }
   .language-control .icon {
     display: none;

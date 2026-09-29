@@ -45,22 +45,22 @@ function openArtwork(index: number) {
 
 <style lang="scss" scoped>
 .gallery-page {
-  padding-block: 65px 100px;
+  padding-block: 65px $space-100;
 }
 .gallery-wall {
-  columns: 16rem 4;
-  column-gap: 13px;
+  columns: $gallery-column-width 4;
+  column-gap: $space-13;
 }
 .gallery-item {
   position: relative;
   display: block;
   width: 100%;
-  margin: 0 0 13px;
+  margin: 0 0 $space-13;
   padding: 0;
   overflow: hidden;
   break-inside: avoid;
-  border: 1px solid $line;
-  border-radius: 6px;
+  border: $border-width solid $line;
+  border-radius: $radius-control;
   background: $white;
   cursor: zoom-in;
 
@@ -70,22 +70,22 @@ function openArtwork(index: number) {
   }
   &__badge {
     position: absolute;
-    z-index: 1;
-    right: 10px;
-    bottom: 10px;
-    width: 36px;
-    height: 36px;
+    z-index: $z-artwork;
+    right: $space-10;
+    bottom: $space-10;
+    width: $gallery-badge-size;
+    height: $gallery-badge-size;
     display: grid;
     place-items: center;
-    border-radius: 4px;
+    border-radius: $radius-small;
     background: $white;
     color: $ink;
     pointer-events: none;
-    transition: opacity 0.2s ease;
+    transition: opacity $transition-ui;
   }
   &__icon {
-    width: 18px;
-    height: 18px;
+    width: $gallery-icon-size;
+    height: $gallery-icon-size;
   }
 }
 
@@ -101,14 +101,14 @@ function openArtwork(index: number) {
 
 @media (prefers-reduced-motion: no-preference) {
   .gallery-item__image {
-    transition: transform 0.35s ease;
+    transition: transform $transition-artwork;
   }
   .gallery-item:focus-visible .gallery-item__image {
-    transform: scale(1.04);
+    transform: scale($artwork-hover-scale);
   }
   @media (hover: hover) and (pointer: fine) {
     .gallery-item:hover .gallery-item__image {
-      transform: scale(1.04);
+      transform: scale($artwork-hover-scale);
     }
   }
 }
@@ -116,18 +116,18 @@ function openArtwork(index: number) {
   max-width: 650px;
   margin: 35px 0 0;
   color: $muted;
-  font-size: 0.82rem;
+  font-size: $font-size-note;
 }
 
-@media (max-width: 720px) {
+@media (max-width: $breakpoint-mobile) {
   .gallery-page {
-    padding-block: 38px 70px;
+    padding-block: $space-38 $space-70;
   }
   .gallery-wall {
-    column-gap: 9px;
+    column-gap: $space-9;
   }
   .gallery-item {
-    margin-bottom: 9px;
+    margin-bottom: $space-9;
   }
 }
 </style>
