@@ -55,12 +55,12 @@ const localePath = useLocalePath()
   color: $white-pure;
 
   &__inner {
-    min-height: 560px;
-    height: min(72svh, 650px);
+    min-height: clamp(560px, 72svh, 650px);
     display: grid;
     grid-template-columns: 55% 45%;
   }
   &__content {
+    min-width: 0;
     align-self: center;
     position: relative;
     z-index: $z-content;
@@ -72,6 +72,7 @@ const localePath = useLocalePath()
     font-size: 6rem;
     font-weight: $weight-regular;
     line-height: 1.08;
+    overflow-wrap: anywhere;
   }
   h1 span {
     display: block;
@@ -132,7 +133,7 @@ const localePath = useLocalePath()
     font-size: 4.3rem;
   }
   .hero__inner {
-    min-height: 520px;
+    min-height: clamp(520px, 72svh, 650px);
   }
 }
 

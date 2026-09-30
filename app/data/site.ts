@@ -11,6 +11,10 @@ export const externalLinks = {
   redPandaNetwork: 'https://redpandanetwork.org',
   safebear: 'https://safebear.ai',
   holy: 'https://fr.weareholy.com/?ref=KEOLA&utm_medium=creator&utm_source=creator',
+  creatorCredits: 'https://credits.keola.tv/',
+  facts: 'https://fact.keola.tv/',
+  presentationVideo: 'https://www.youtube.com/watch?v=67RMXZWvo00',
+  presentationEmbed: 'https://www.youtube-nocookie.com/embed/67RMXZWvo00',
   email: 'mailto:kumaneko.keola@gmail.com',
 } as const
 

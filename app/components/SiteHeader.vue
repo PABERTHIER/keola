@@ -1,5 +1,9 @@
 <template>
-  <header class="site-header" @keydown.esc="menuOpen = false">
+  <header
+    ref="header"
+    class="site-header"
+    :style="{ '--measured-header-height': `${headerHeight}px` }"
+    @keydown.esc="closeMenu">
     <div class="shell site-header__inner">
       <SiteBrand />
 
@@ -8,9 +12,7 @@
         class="site-nav"
         :class="{ 'is-open': menuOpen }"
         :aria-label="t('site.explore')">
-        <NuxtLink
-          :to="localePath({ path: '/', hash: '#about' })"
-          @click="menuOpen = false">
+        <NuxtLink :to="localePath('/keola')" @click="menuOpen = false">
           {{ t('site.about') }}
         </NuxtLink>
         <NuxtLink :to="localePath('/galerie')" @click="menuOpen = false">
@@ -53,9 +55,11 @@
           <span>{{ t('site.watch') }}</span>
         </a>
         <button
+          ref="menuToggle"
           class="menu-toggle icon-button"
           type="button"
           :aria-label="menuOpen ? t('site.close_menu') : t('site.menu')"
+          :title="menuOpen ? t('site.close_menu') : t('site.menu')"
           :aria-expanded="menuOpen"
           aria-controls="primary-nav"
           @click="menuOpen = !menuOpen">
@@ -76,6 +80,27 @@ const localePath = useLocalePath()
 const switchLocalePath = useSwitchLocalePath()
 const route = useRoute()
 const menuOpen = ref(false)
+const menuToggle = ref<HTMLButtonElement | null>(null)
+const header = ref<HTMLElement | null>(null)
+const headerHeight = ref(0)
+let headerObserver: ResizeObserver | undefined
+
+onMounted(() => {
+  if (!header.value) return
+  headerHeight.value = header.value.offsetHeight
+  headerObserver = new ResizeObserver(() => {
+    headerHeight.value = header.value?.offsetHeight ?? 0
+  })
+  headerObserver.observe(header.value)
+})
+
+onBeforeUnmount(() => headerObserver?.disconnect())
+
+function closeMenu() {
+  if (!menuOpen.value) return
+  menuOpen.value = false
+  menuToggle.value?.focus()
+}
 
 watch(
   () => route.fullPath,
@@ -98,24 +123,28 @@ function changeLocale(event: Event) {
   position: sticky;
   top: 0;
   z-index: $z-header;
-  height: $header-height;
+  min-height: $header-height;
   background: $white;
   border-bottom: $border-width solid $header-border;
 
   &__inner {
-    height: 100%;
+    min-height: calc($header-height - $border-width);
+    padding-block: $space-10;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: $space-20;
+    row-gap: $space-8;
   }
   &__actions {
     display: flex;
     align-items: center;
     gap: $space-10;
+    margin-left: auto;
   }
   &__live {
-    min-height: 42px;
+    min-height: $control-size;
     padding: $space-9 $space-13;
     font-size: 0.78rem;
     white-space: nowrap;
@@ -151,7 +180,7 @@ function changeLocale(event: Event) {
     font-size: 17px;
   }
   select {
-    height: 40px;
+    height: $control-size;
     width: 48px;
     background: transparent;
     border: 0;
@@ -174,11 +203,14 @@ function changeLocale(event: Event) {
 
 @media (max-width: $breakpoint-tablet) {
   .site-header {
-    height: $header-height-mobile;
+    min-height: $header-height-mobile;
+  }
+  .site-header__inner {
+    min-height: calc($header-height-mobile - $border-width);
   }
   .site-nav {
     position: absolute;
-    top: $header-height-mobile;
+    top: 100%;
     left: 0;
     right: 0;
     display: none;
@@ -187,6 +219,11 @@ function changeLocale(event: Event) {
     gap: 0;
     margin: 0;
     padding: $space-14 $space-24 $space-22;
+    padding-bottom: max($space-22, env(safe-area-inset-bottom));
+    max-height: calc(
+      100dvh - var(--measured-header-height, #{$header-height-mobile})
+    );
+    overflow-y: auto;
     border-bottom: $border-width solid $line;
     background: $white;
     box-shadow: 0 16px 22px $header-menu-shadow;
@@ -232,7 +269,7 @@ function changeLocale(event: Event) {
     display: none;
   }
   .language-control select {
-    width: 43px;
+    width: $control-size;
   }
 }
 </style>

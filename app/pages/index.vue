@@ -40,10 +40,16 @@
       class="section about-section"
       aria-labelledby="about-title">
       <div class="shell about-section__grid">
-        <div class="about-section__art">
+        <NuxtLink
+          :to="localePath('/keola')"
+          class="about-section__art"
+          :aria-label="t('home.about_discover')">
           <Image src="/images/slideshow-6.webp" :alt="t('home.about_alt')" />
-          <span class="about-section__art-label">Keola Kumaneko / VTuber</span>
-        </div>
+          <span class="about-section__art-label">
+            {{ t('home.about_discover') }}
+            <Icon name="lucide:arrow-right" aria-hidden="true" />
+          </span>
+        </NuxtLink>
         <div class="about-section__copy">
           <span class="eyebrow">{{ t('home.about_eyebrow') }}</span>
           <h2 id="about-title" class="section-title">
@@ -137,11 +143,16 @@
 import { externalLinks } from '~/data/site'
 
 const { t } = useI18n()
+const localePath = useLocalePath()
 
 useHead(usePageSeo('home'))
 </script>
 
 <style lang="scss" scoped>
+.section-title {
+  overflow-wrap: anywhere;
+}
+
 .schedule-band {
   background: $white;
   border-bottom: $border-width solid $line;
@@ -194,6 +205,7 @@ useHead(usePageSeo('home'))
   }
   &__art {
     position: relative;
+    display: block;
     height: 550px;
     overflow: hidden;
     border-radius: $radius-art;
@@ -204,11 +216,26 @@ useHead(usePageSeo('home'))
     height: 100%;
     object-fit: cover;
     object-position: center 20%;
+    transition: transform $transition-artwork;
+  }
+  &__art:hover img,
+  &__art:focus-visible img {
+    transform: scale($artwork-hover-scale);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    &__art:hover img,
+    &__art:focus-visible img {
+      transform: none;
+    }
   }
   &__art-label {
     position: absolute;
     left: 0;
     bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: $space-8;
+    max-width: 100%;
     padding: $space-12 $space-18;
     background: $orange;
     color: $plum-deep;
