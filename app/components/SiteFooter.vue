@@ -18,7 +18,11 @@
           <NuxtLink :to="localePath('/galerie')">
             {{ t('site.gallery') }}
           </NuxtLink>
-          <NuxtLink :to="localePath({ path: '/', hash: '#mission' })">
+          <NuxtLink
+            :to="localePath({ path: '/', hash: '#mission' })"
+            :aria-current-value="
+              route.hash === '#mission' ? 'location' : 'false'
+            ">
             {{ t('site.mission') }}
           </NuxtLink>
           <NuxtLink :to="localePath('/archives')">
@@ -82,11 +86,13 @@ import { externalLinks, featuredSocialLinks, socialLinks } from '~/data/site'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
+const route = useRoute()
 const year = new Date().getFullYear()
 </script>
 
 <style lang="scss" scoped>
 .site-footer {
+  --focus-color: #{$orange};
   padding-top: $space-75;
   background: $plum-deep;
   color: $footer-text;
@@ -102,6 +108,9 @@ const year = new Date().getFullYear()
     margin: $space-22 0;
     color: $footer-description-text;
     font-size: 0.88rem;
+  }
+  &__identity {
+    min-width: 0;
   }
   &__column {
     display: flex;
@@ -149,6 +158,8 @@ const year = new Date().getFullYear()
 
 .footer-email {
   display: inline-flex;
+  min-height: $control-size;
+  max-width: 100%;
   align-items: center;
   gap: $space-5;
   font-size: $font-size-note;

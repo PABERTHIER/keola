@@ -176,6 +176,8 @@ useHead(usePageSeo('home'))
   }
   &__copy {
     flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
   h2 {
     margin: 2px 0 3px;
@@ -190,6 +192,8 @@ useHead(usePageSeo('home'))
   }
   &__actions {
     display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
     align-items: center;
     gap: $space-19;
     flex: none;
@@ -278,8 +282,10 @@ useHead(usePageSeo('home'))
   background: $white;
   transition: transform $transition-ui;
 
-  &:hover {
-    transform: translateY(-3px);
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    &:hover {
+      transform: translateY(-3px);
+    }
   }
   img {
     width: 96px;
@@ -287,7 +293,9 @@ useHead(usePageSeo('home'))
     flex: none;
     object-fit: contain;
   }
-  span {
+  > span {
+    min-width: 0;
+    overflow-wrap: anywhere;
     display: flex;
     flex-direction: column;
     gap: $space-8;
@@ -313,6 +321,8 @@ useHead(usePageSeo('home'))
 }
 
 .closing-section {
+  --focus-color: #{$white};
+  overflow-wrap: anywhere;
   padding-block: $space-55;
   background: $closing-background;
   color: $white-pure;
@@ -341,6 +351,7 @@ useHead(usePageSeo('home'))
   }
   .schedule-band__actions {
     margin-left: 82px;
+    max-width: calc(100% - 82px);
   }
   .about-section__grid {
     gap: $space-40;
@@ -368,6 +379,7 @@ useHead(usePageSeo('home'))
   }
   .schedule-band__actions {
     width: 100%;
+    max-width: 100%;
     margin-left: 0;
     flex-wrap: wrap;
   }

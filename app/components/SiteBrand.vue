@@ -21,6 +21,7 @@ const localePath = useLocalePath()
 <style lang="scss" scoped>
 .brand {
   display: inline-flex;
+  min-height: $control-size;
   align-items: center;
   gap: $space-8;
   flex: none;

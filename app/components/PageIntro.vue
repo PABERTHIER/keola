@@ -48,6 +48,7 @@ const localePath = useLocalePath()
   }
   &__back {
     display: inline-flex;
+    min-height: $control-size;
     align-items: center;
     gap: $space-8;
     margin-bottom: 47px;

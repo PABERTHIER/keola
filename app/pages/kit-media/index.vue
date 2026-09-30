@@ -63,16 +63,21 @@ useHead(usePageSeo('media'))
 
 <style lang="scss" scoped>
 .media-page {
+  overflow-wrap: anywhere;
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   gap: $space-70;
   padding-block: $space-70 $space-110;
 }
 .media-page__sheet {
+  min-width: 0;
   display: flex;
   align-items: start;
   flex-direction: column;
   gap: 23px;
+}
+.media-page .button {
+  max-width: 100%;
 }
 .media-page__sheet img {
   width: 100%;

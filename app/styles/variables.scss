@@ -23,7 +23,7 @@ $button-primary-hover: #ff9a35;
 $button-dark-hover: #68425d;
 $button-light-outline-border: #baa6b7;
 $button-light-hover: #f1f3ea;
-$text-link-hover: #dc6900;
+$text-link-hover: $link-hover;
 $eyebrow-text: #8d4b1b;
 $eyebrow-light-text: #fdb770;
 $community-background: #f8e9ee;
@@ -45,7 +45,7 @@ $mission-orbit: #dcb8d1;
 $schedule-icon: #a95000;
 $about-art-background: #ddd4c6;
 $partner-border: #d8c7d9;
-$closing-background: #c65434;
+$closing-background: #b94a2d;
 $closing-eyebrow: #fff0c9;
 $page-intro-eyebrow: #a64d10;
 $footer-text: #fff3ec;
@@ -132,7 +132,6 @@ $section-spacing: 104px;
 $section-spacing-mobile: $space-70;
 $header-height: 74px;
 $header-height-mobile: 68px;
-$anchor-offset: $header-height + $space-14;
 
 // controls
 $control-size: 44px;

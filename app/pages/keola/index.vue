@@ -29,10 +29,13 @@
     </section>
 
     <nav class="chapter-nav shell" :aria-label="t('keola.contents')">
-      <a v-for="section in sections" :key="section" :href="`#${section}`">
+      <NuxtLink
+        v-for="section in sections"
+        :key="section"
+        :to="localePath({ path: '/keola', hash: `#${section}` })">
         {{ t(`keola.nav.${section}`) }}
         <Icon name="lucide:arrow-down" aria-hidden="true" />
-      </a>
+      </NuxtLink>
     </nav>
 
     <section class="section profile-section" aria-labelledby="profile-title">
@@ -355,7 +358,7 @@ useHead(usePageSeo('keola'))
     padding-top: $space-24;
     border-top: 2px solid $orange-pale;
   }
-  .icon {
+  .iconify {
     font-size: 28px;
     color: $eyebrow-text;
     margin-bottom: $space-20;
