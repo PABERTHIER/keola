@@ -12,7 +12,9 @@ html {
 }
 main[id],
 main [id] {
-  scroll-margin-top: $anchor-offset;
+  scroll-margin-top: calc(
+    var(--site-header-height, #{$header-height}) + #{$space-14}
+  );
 }
 body {
   margin: 0;
@@ -51,7 +53,7 @@ h3 {
   font-weight: $weight-semibold;
 }
 :focus-visible {
-  outline: $focus-width solid $orange;
+  outline: $focus-width solid var(--focus-color, #{$plum});
   outline-offset: $focus-offset;
 }
 ::selection {
@@ -71,7 +73,16 @@ h3 {
   border: 0;
 }
 .shell {
-  width: min(100% - $shell-gutter * 2, $shell-max-width);
+  --shell-gutter: #{$shell-gutter};
+  width: min(
+    100% - max(
+        var(--shell-gutter),
+        env(safe-area-inset-left),
+        env(safe-area-inset-right)
+      ) *
+      2,
+    $shell-max-width
+  );
   margin-inline: auto;
 }
 .skip-link {
@@ -87,6 +98,7 @@ h3 {
   transform: translateY(0);
 }
 .icon-button {
+  flex: none;
   width: $control-size;
   height: $control-size;
   display: inline-grid;
@@ -96,7 +108,7 @@ h3 {
   border-radius: $radius-control;
   color: $ink;
 }
-.icon-button .icon {
+.icon-button .iconify {
   font-size: 23px;
 }
 .button {
@@ -105,6 +117,8 @@ h3 {
   justify-content: center;
   gap: $space-11;
   min-height: $button-min-height;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   padding: $space-11 $space-19;
   border: $border-width solid transparent;
   border-radius: $radius-control;
@@ -117,10 +131,12 @@ h3 {
     color $transition-ui,
     transform $transition-ui;
 }
-.button:hover {
-  transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .button:hover {
+    transform: translateY(-2px);
+  }
 }
-.button .icon {
+.button .iconify {
   font-size: 18px;
   flex: none;
 }
@@ -162,6 +178,9 @@ h3 {
   background: $button-light-hover;
 }
 .text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: $control-size;
   font-size: 0.86rem;
   font-weight: $weight-bold;
   border-bottom: $border-width solid currentColor;
@@ -218,12 +237,12 @@ h3 {
 
 @media (max-width: $breakpoint-tablet) {
   .shell {
-    width: min(100% - $shell-gutter-tablet * 2, $shell-max-width);
+    --shell-gutter: #{$shell-gutter-tablet};
   }
 }
 @media (max-width: $breakpoint-mobile) {
   .shell {
-    width: min(100% - $shell-gutter-mobile * 2, $shell-max-width);
+    --shell-gutter: #{$shell-gutter-mobile};
   }
   .section {
     padding-block: $section-spacing-mobile;

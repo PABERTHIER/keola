@@ -43,13 +43,15 @@ const { t } = useI18n()
 
 <style lang="scss" scoped>
 .mission-section {
+  --focus-color: #{$orange};
   overflow: hidden;
   background: $mission-background;
   color: $white-pure;
 
   &__grid {
     display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    overflow-wrap: anywhere;
     align-items: center;
     gap: $space-70;
   }
@@ -75,14 +77,14 @@ const { t } = useI18n()
     position: relative;
     z-index: $z-artwork;
     max-height: 210px;
-    max-width: 60%;
-    width: auto;
+    width: 60%;
     object-fit: contain;
   }
   &__art > span:last-child {
     position: absolute;
     bottom: $space-20;
     left: $space-24;
+    right: $space-24;
     display: flex;
     gap: $space-8;
     align-items: center;
@@ -101,7 +103,7 @@ const { t } = useI18n()
 
 @media (max-width: $breakpoint-mobile) {
   .mission-section__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: $space-33;
   }
   .mission-section__art {

@@ -92,7 +92,7 @@ useHead(usePageSeo('credits'))
   color: $muted;
   font-size: 0.79rem;
 }
-.credits-list .icon {
+.credits-list .iconify {
   flex: none;
   font-size: 21px;
 }

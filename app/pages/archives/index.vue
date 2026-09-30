@@ -63,11 +63,13 @@ useHead(usePageSeo('archives'))
 
 <style lang="scss" scoped>
 .archives-page {
+  overflow-wrap: anywhere;
   padding-block: $space-70 $space-110;
 }
 .archive-feature {
+  --focus-color: #{$orange};
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: $space-45;
   align-items: center;
   padding: $space-45;
@@ -111,7 +113,7 @@ useHead(usePageSeo('archives'))
 }
 .archive-timeline__item {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: $space-60;
   align-items: center;
   padding: $space-36 0;
@@ -138,7 +140,7 @@ useHead(usePageSeo('archives'))
   }
   .archive-feature,
   .archive-timeline__item {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: $space-25;
   }
   .archive-feature {

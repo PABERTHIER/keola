@@ -2,10 +2,11 @@
   <dialog
     ref="dialog"
     class="lightbox"
+    data-lenis-prevent
     :aria-label="t('site.gallery')"
     @click.self="close"
     @keydown="handleKeydown"
-    @close="activeIndex = null">
+    @close="handleClose">
     <button
       class="lightbox__close icon-button"
       type="button"
@@ -55,6 +56,7 @@
 <script setup lang="ts">
 const props = defineProps<{ numbers: readonly number[] }>()
 const { t } = useI18n()
+const { $lenis } = useNuxtApp()
 const dialog = ref<HTMLDialogElement | null>(null)
 const activeIndex = ref<number | null>(null)
 const activeNumber = computed(() =>
@@ -107,12 +109,22 @@ function open(index: number) {
   swipeStart = null
   activeIndex.value = index
   dialog.value?.showModal()
+  $lenis.stop()
 }
 
 function close() {
   swipeStart = null
   dialog.value?.close()
 }
+
+function handleClose() {
+  activeIndex.value = null
+  $lenis.start()
+}
+
+onBeforeUnmount(() => {
+  if (dialog.value?.open) $lenis.start()
+})
 
 function move(direction: -1 | 1) {
   if (activeIndex.value === null) return
@@ -138,13 +150,18 @@ defineExpose({ open })
 
 <style lang="scss" scoped>
 .lightbox {
+  --focus-color: #{$orange};
   position: fixed;
   width: min($lightbox-max-width, calc(100% - $lightbox-inset * 2));
   max-width: none;
   height: min($lightbox-max-height, calc(100dvh - $lightbox-inset * 2));
   max-height: calc(100dvh - $lightbox-inset * 2);
-  padding: $space-16;
+  padding: max(#{$space-16}, env(safe-area-inset-top))
+    max(#{$space-16}, env(safe-area-inset-right))
+    max(#{$space-16}, env(safe-area-inset-bottom))
+    max(#{$space-16}, env(safe-area-inset-left));
   overflow: auto;
+  overscroll-behavior: contain;
   border: 0;
   border-radius: $radius-control;
   background: $plum-deep;

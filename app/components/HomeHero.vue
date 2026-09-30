@@ -212,6 +212,7 @@ onBeforeUnmount(() => {
 
 <style lang="scss" scoped>
 .hero {
+  --focus-color: #{$orange};
   overflow: hidden;
   background: $plum;
   color: $white-pure;
@@ -370,7 +371,7 @@ onBeforeUnmount(() => {
     gap: $space-8;
   }
   .hero__actions .button {
-    min-height: 43px;
+    min-height: $control-size;
     padding: $space-9 $space-12;
     font-size: $font-size-action-small;
   }
@@ -428,9 +429,6 @@ onBeforeUnmount(() => {
   .hero__lead {
     margin-bottom: $space-13;
     line-height: 1.45;
-  }
-  .hero__actions .button--light-outline {
-    display: none;
   }
   .hero__visual {
     --hero-art-height: #{$hero-art-height-compact};

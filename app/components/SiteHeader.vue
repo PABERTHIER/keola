@@ -3,30 +3,34 @@
     ref="header"
     class="site-header"
     :style="{ '--measured-header-height': `${headerHeight}px` }"
-    @keydown.esc="closeMenu">
+    @focusout="handleFocusOut">
     <div class="shell site-header__inner">
       <SiteBrand />
 
       <nav
         id="primary-nav"
+        ref="navigation"
         class="site-nav"
-        :class="{ 'is-open': menuOpen }"
+        :class="{ 'is-open': menuOpen, 'is-animated': menuAnimated }"
+        :inert="mobileNavigation && !menuOpen"
+        data-lenis-prevent
         :aria-label="t('site.explore')">
-        <NuxtLink :to="localePath('/keola')" @click="menuOpen = false">
+        <NuxtLink :to="localePath('/keola')" @click="closeMenu">
           {{ t('site.about') }}
         </NuxtLink>
-        <NuxtLink :to="localePath('/galerie')" @click="menuOpen = false">
+        <NuxtLink :to="localePath('/galerie')" @click="closeMenu">
           {{ t('site.gallery') }}
         </NuxtLink>
         <NuxtLink
           :to="localePath({ path: '/', hash: '#mission' })"
-          @click="menuOpen = false">
+          :aria-current-value="route.hash === '#mission' ? 'location' : 'false'"
+          @click="closeMenu">
           {{ t('site.mission') }}
         </NuxtLink>
-        <NuxtLink :to="localePath('/archives')" @click="menuOpen = false">
+        <NuxtLink :to="localePath('/archives')" @click="closeMenu">
           {{ t('site.archives') }}
         </NuxtLink>
-        <NuxtLink :to="localePath('/credits')" @click="menuOpen = false">
+        <NuxtLink :to="localePath('/credits')" @click="closeMenu">
           {{ t('site.credits') }}
         </NuxtLink>
       </nav>
@@ -67,7 +71,7 @@
           :title="menuOpen ? t('site.close_menu') : t('site.menu')"
           :aria-expanded="menuOpen"
           aria-controls="primary-nav"
-          @click="menuOpen = !menuOpen">
+          @click="toggleMenu">
           <Icon
             :name="menuOpen ? 'lucide:x' : 'lucide:menu'"
             aria-hidden="true" />
@@ -85,6 +89,9 @@ const localePath = useLocalePath()
 const switchLocalePath = useSwitchLocalePath()
 const route = useRoute()
 const menuOpen = ref(false)
+const menuAnimated = ref(false)
+const mobileNavigation = ref(false)
+const navigation = ref<HTMLElement | null>(null)
 const menuToggle = ref<HTMLButtonElement | null>(null)
 const header = ref<HTMLElement | null>(null)
 const headerHeight = ref(0)
@@ -92,18 +99,58 @@ let headerObserver: ResizeObserver | undefined
 
 onMounted(() => {
   document.addEventListener('pointerdown', handleOutsidePointer)
+  document.addEventListener('keydown', handleEscape)
   if (!header.value) return
-  headerHeight.value = header.value.offsetHeight
-  headerObserver = new ResizeObserver(() => {
-    headerHeight.value = header.value?.offsetHeight ?? 0
-  })
+  measureHeader()
+  headerObserver = new ResizeObserver(measureHeader)
   headerObserver.observe(header.value)
 })
 
 onBeforeUnmount(() => {
   headerObserver?.disconnect()
   document.removeEventListener('pointerdown', handleOutsidePointer)
+  document.removeEventListener('keydown', handleEscape)
+  document.documentElement.style.removeProperty('--site-header-height')
 })
+
+function measureHeader() {
+  headerHeight.value = header.value?.offsetHeight ?? 0
+  document.documentElement.style.setProperty(
+    '--site-header-height',
+    `${headerHeight.value}px`
+  )
+  const mobile = menuToggle.value?.offsetParent !== null
+  if (mobile !== mobileNavigation.value) menuAnimated.value = false
+  mobileNavigation.value = mobile
+  if (!mobileNavigation.value) menuOpen.value = false
+}
+
+async function toggleMenu() {
+  menuAnimated.value = true
+  if (menuOpen.value) {
+    closeMenu()
+    return
+  }
+  menuOpen.value = true
+  await nextTick()
+  navigation.value?.querySelector('a')?.focus({ preventScroll: true })
+}
+
+function handleEscape(event: KeyboardEvent) {
+  if (event.key === 'Escape' && menuOpen.value) {
+    event.preventDefault()
+    closeMenu()
+  }
+}
+
+function handleFocusOut(event: FocusEvent) {
+  if (
+    event.relatedTarget instanceof Node &&
+    !header.value?.contains(event.relatedTarget)
+  ) {
+    menuOpen.value = false
+  }
+}
 
 function handleOutsidePointer(event: PointerEvent) {
   if (
@@ -118,7 +165,7 @@ function handleOutsidePointer(event: PointerEvent) {
 function closeMenu() {
   if (!menuOpen.value) return
   menuOpen.value = false
-  menuToggle.value?.focus()
+  menuToggle.value?.focus({ preventScroll: true })
 }
 
 watch(
@@ -184,13 +231,18 @@ function changeLocale(event: Event) {
   margin-left: auto;
 
   a {
+    display: inline-flex;
+    align-items: center;
+    min-width: $control-size;
+    min-height: $control-size;
     font-size: $font-size-nav;
     font-weight: $weight-bold;
-    white-space: nowrap;
+    overflow-wrap: anywhere;
     transition: color $transition-ui;
   }
   a:hover,
-  a.router-link-exact-active {
+  a.router-link-exact-active:not([href*='#']),
+  a[aria-current='location'] {
     color: $header-link-hover;
   }
 }
@@ -201,7 +253,7 @@ function changeLocale(event: Event) {
   align-items: center;
   justify-content: center;
   gap: $space-5;
-  width: 75px;
+  width: 4.7rem;
   min-height: $control-size;
   padding-inline: $space-5;
   border-radius: $radius-control;
@@ -222,13 +274,13 @@ function changeLocale(event: Event) {
   select {
     position: absolute;
     inset: 0;
-    height: $control-size;
+    height: 100%;
     width: 100%;
     padding-left: 27px;
     background: transparent;
     border: 0;
     color: inherit;
-    font-size: $font-size-label;
+    font-size: 1rem;
     font-weight: $weight-heavy;
     cursor: pointer;
 
@@ -260,23 +312,39 @@ function changeLocale(event: Event) {
     top: 100%;
     left: 0;
     right: 0;
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
     margin: 0;
-    padding: $space-14 $space-24 $space-22;
+    padding: $space-14 max(#{$space-24}, env(safe-area-inset-right)) $space-22
+      max(#{$space-24}, env(safe-area-inset-left));
     padding-bottom: max($space-22, env(safe-area-inset-bottom));
     max-height: calc(
       100dvh - var(--measured-header-height, #{$header-height-mobile})
     );
     overflow-y: auto;
+    overscroll-behavior: contain;
     border-bottom: $border-width solid $line;
     background: $white;
     box-shadow: 0 16px 22px $header-menu-shadow;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-$space-8);
+    pointer-events: none;
+    &.is-animated {
+      transition:
+        opacity $transition-ui,
+        transform $transition-ui,
+        visibility 0s 0.2s;
+    }
 
     &.is-open {
-      display: flex;
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      transition-delay: 0s;
     }
     a {
       padding: $space-13 $space-7;
@@ -300,15 +368,6 @@ function changeLocale(event: Event) {
 }
 
 @media (max-width: $breakpoint-small) {
-  .brand {
-    font-size: $font-size-brand-mobile;
-  }
-  .brand__symbol {
-    font-size: 1.85rem;
-  }
-  .brand__text span {
-    font-size: $font-size-small;
-  }
   .site-header__actions {
     gap: $space-4;
   }
@@ -316,10 +375,16 @@ function changeLocale(event: Event) {
     display: none;
   }
   .language-control {
-    width: $control-size;
+    width: max(#{$control-size}, 3.1rem);
   }
   .language-control select {
     padding-left: $space-5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-nav.is-animated {
+    transition: none;
   }
 }
 </style>
