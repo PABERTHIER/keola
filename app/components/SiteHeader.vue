@@ -260,7 +260,7 @@ function changeLocale(event: Event) {
   color: $ink;
 
   &:has(select:focus-visible) {
-    outline: $focus-width solid $plum;
+    outline: $focus-width solid $orange;
     outline-offset: $focus-offset;
   }
   .iconify {
