@@ -1,6 +1,14 @@
 // Intrinsic pixel dimensions of the original artwork in public/images.
 // Update the matching entry when adding or replacing an image.
 export const imageDimensions: Record<string, readonly [number, number]> = {
+  '/images/credits.webp': [320, 200],
+  '/images/Keola_Schedule_debut.webp': [723, 1024],
+  '/images/keola_v3.webp': [578, 1075],
+  '/images/keola_v3_portrait.webp': [1122, 1368],
+  '/images/keola_v4.webp': [892, 1275],
+  '/images/keo_damour_1.webp': [708, 768],
+  '/images/petits_esprits.webp': [1800, 1800],
+  '/images/vts_2026_hd.webp': [1197, 2089],
   '/images/fanart/fanart-1.webp': [1495, 840],
   '/images/fanart/fanart-10.webp': [698, 840],
   '/images/fanart/fanart-11.webp': [930, 840],

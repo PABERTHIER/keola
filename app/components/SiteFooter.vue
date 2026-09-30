@@ -12,7 +12,7 @@
         </div>
         <div class="site-footer__column">
           <h2>{{ t('site.explore') }}</h2>
-          <NuxtLink :to="localePath({ path: '/', hash: '#about' })">
+          <NuxtLink :to="localePath('/keola')">
             {{ t('site.about') }}
           </NuxtLink>
           <NuxtLink :to="localePath('/galerie')">
@@ -107,8 +107,11 @@ const year = new Date().getFullYear()
     flex-direction: column;
     align-items: start;
     gap: $space-12;
+    min-width: 0;
+    overflow-wrap: anywhere;
 
     h2 {
+      max-width: 100%;
       margin: $space-7 0 $space-8;
       color: $footer-heading-text;
       font-family: $body;
@@ -117,6 +120,11 @@ const year = new Date().getFullYear()
       text-transform: uppercase;
     }
     a {
+      display: inline-flex;
+      align-items: center;
+      min-width: $control-size;
+      min-height: $control-size;
+      max-width: 100%;
       font-size: 0.8rem;
     }
     a:hover {
