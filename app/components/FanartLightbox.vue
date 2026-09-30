@@ -14,7 +14,12 @@
       @click="close">
       <Icon name="lucide:x" aria-hidden="true" />
     </button>
-    <div class="lightbox__image">
+    <div
+      class="lightbox__image"
+      @touchstart.passive="startSwipe"
+      @touchmove.passive="trackSwipe"
+      @touchend.passive="endSwipe"
+      @touchcancel="swipeStart = null">
       <Image
         v-if="activeNumber !== null"
         :src="`/images/fanart/fanart-${activeNumber}.webp`"
@@ -55,13 +60,57 @@ const activeIndex = ref<number | null>(null)
 const activeNumber = computed(() =>
   activeIndex.value === null ? null : props.numbers[activeIndex.value]
 )
+let swipeStart: {
+  identifier: number
+  x: number
+  y: number
+  time: number
+} | null = null
+
+function startSwipe(event: TouchEvent) {
+  const touch = event.touches[0]
+  swipeStart =
+    event.touches.length === 1 && touch
+      ? {
+          identifier: touch.identifier,
+          x: touch.clientX,
+          y: touch.clientY,
+          time: event.timeStamp,
+        }
+      : null
+}
+
+function trackSwipe(event: TouchEvent) {
+  if (event.touches.length !== 1) swipeStart = null
+}
+
+function endSwipe(event: TouchEvent) {
+  const start = swipeStart
+  swipeStart = null
+  if (!start || event.touches.length > 0) return
+  const touch = Array.from(event.changedTouches).find(
+    item => item.identifier === start.identifier
+  )
+  if (!touch) return
+  const distanceX = touch.clientX - start.x
+  const distanceY = touch.clientY - start.y
+  if (
+    Math.abs(distanceX) >= 50 &&
+    Math.abs(distanceX) > Math.abs(distanceY) * 1.5 &&
+    event.timeStamp - start.time < 800
+  ) {
+    move(distanceX < 0 ? 1 : -1)
+  }
+}
 
 function open(index: number) {
+  swipeStart = null
   activeIndex.value = index
   dialog.value?.showModal()
 }
 
 function close() {
+  swipeStart = null
   dialog.value?.close()
 }
 
@@ -120,6 +169,7 @@ defineExpose({ open })
     display: grid;
     place-items: center;
     min-height: 0;
+    touch-action: pan-y pinch-zoom;
   }
   &__image img {
     width: 100%;

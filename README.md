@@ -116,7 +116,7 @@ Do **not** use `nuxt generate` as this server-rendered app's Vercel build target
 
 Images are served directly from `public/images/` on every host.
 No image service, provider configuration or transformation endpoint is needed.
-After deployment, confirm image requests such as `/images/image01.webp` return HTTP 200 with an image content type in the browser's Network panel.
+After deployment, confirm image requests such as `/images/logo.webp` return HTTP 200 with an image content type in the browser's Network panel.
 
 ## Use Icons
 

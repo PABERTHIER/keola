@@ -10,7 +10,10 @@
           {{ t('home.hero_name') }}
           <span>{{ t('home.hero_surname') }}</span>
         </h1>
-        <p class="hero__lead">{{ t('home.hero_text') }}</p>
+        <p class="hero__lead">
+          {{ t('home.hero_text') }}
+          <span class="hero__welcome">{{ t('home.hero_welcome') }}</span>
+        </p>
         <div class="hero__actions">
           <a
             class="button button--primary"
@@ -29,13 +32,68 @@
           </NuxtLink>
         </div>
       </div>
-      <div class="hero__visual">
-        <Image
-          src="/images/slideshow-1.webp"
-          :alt="t('home.hero_alt')"
-          loading="eager"
-          fetchpriority="high" />
+      <div
+        class="hero__visual"
+        :aria-label="t('home.hero_slideshow')"
+        @mouseenter="hovered = true"
+        @mouseleave="hovered = false"
+        @focusin="focused = true"
+        @focusout="handleFocusOut">
+        <Transition name="hero-slide">
+          <Image
+            :key="activeSlide"
+            :src="`/images/slideshow-${slides[activeSlide]}.webp`"
+            :alt="t('home.hero_alt')"
+            loading="eager"
+            :fetchpriority="activeSlide === 0 ? 'high' : 'auto'" />
+        </Transition>
         <span class="hero__caption">{{ t('home.hero_caption') }}</span>
+        <div class="hero__carousel-controls">
+          <button
+            class="icon-button"
+            type="button"
+            :aria-label="t('gallery.previous')"
+            :title="t('gallery.previous')"
+            @click="moveSlide(-1)">
+            <Icon name="lucide:chevron-left" aria-hidden="true" />
+          </button>
+          <span class="hero__slide-count" aria-live="off">
+            <span aria-hidden="true">
+              {{ activeSlide + 1 }} / {{ slides.length }}
+            </span>
+            <span class="sr-only">
+              {{
+                t('gallery.count', {
+                  number: activeSlide + 1,
+                  total: slides.length,
+                })
+              }}
+            </span>
+          </span>
+          <button
+            class="icon-button"
+            type="button"
+            :aria-label="t('gallery.next')"
+            :title="t('gallery.next')"
+            @click="moveSlide(1)">
+            <Icon name="lucide:chevron-right" aria-hidden="true" />
+          </button>
+          <button
+            class="icon-button"
+            type="button"
+            :aria-label="
+              t(paused || reducedMotion ? 'home.hero_play' : 'home.hero_pause')
+            "
+            :title="
+              t(paused || reducedMotion ? 'home.hero_play' : 'home.hero_pause')
+            "
+            :disabled="reducedMotion"
+            @click="paused = !paused">
+            <Icon
+              :name="paused || reducedMotion ? 'lucide:play' : 'lucide:pause'"
+              aria-hidden="true" />
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -46,6 +104,110 @@ import { externalLinks } from '~/data/site'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
+const slides = [1, 2, 3, 4, 5] as const
+const activeSlide = ref(0)
+const paused = ref(false)
+const reducedMotion = ref(false)
+const hovered = ref(false)
+const focused = ref(false)
+const pageHidden = ref(false)
+const canAutoplay = computed(
+  () =>
+    !paused.value &&
+    !reducedMotion.value &&
+    !hovered.value &&
+    !focused.value &&
+    !pageHidden.value
+)
+const preloads = new Map<number, Promise<void>>()
+let timer: ReturnType<typeof setTimeout> | undefined
+let motionPreference: MediaQueryList | undefined
+let mounted = false
+let slideRequest = 0
+
+function preloadSlide(index: number) {
+  const cached = preloads.get(index)
+  if (cached) return cached
+  const image = new window.Image()
+  image.src = `/images/slideshow-${slides[index]}.webp`
+  const decoded = image.decode().catch(error => {
+    preloads.delete(index)
+    throw error
+  })
+  preloads.set(index, decoded)
+  return decoded
+}
+
+function preloadNextSlide() {
+  void preloadSlide((activeSlide.value + 1) % slides.length).catch(
+    () => undefined
+  )
+}
+
+function scheduleNextSlide() {
+  clearTimeout(timer)
+  if (!mounted || !canAutoplay.value) return
+  timer = setTimeout(() => {
+    void selectSlide((activeSlide.value + 1) % slides.length)
+  }, 4000)
+}
+
+async function selectSlide(index: number) {
+  clearTimeout(timer)
+  const request = ++slideRequest
+  try {
+    await preloadSlide(index)
+  } catch {
+    scheduleNextSlide()
+    return
+  }
+  if (!mounted || request !== slideRequest) return
+  activeSlide.value = index
+  if (canAutoplay.value) preloadNextSlide()
+  scheduleNextSlide()
+}
+
+function moveSlide(direction: -1 | 1) {
+  paused.value = true
+  void selectSlide(
+    (activeSlide.value + direction + slides.length) % slides.length
+  )
+}
+
+function handleFocusOut(event: FocusEvent) {
+  focused.value =
+    event.relatedTarget instanceof Node &&
+    (event.currentTarget as HTMLElement).contains(event.relatedTarget)
+}
+
+function updateMotionPreference() {
+  reducedMotion.value = motionPreference?.matches ?? false
+}
+
+function updateVisibility() {
+  pageHidden.value = document.hidden
+}
+
+watch(canAutoplay, scheduleNextSlide)
+
+onMounted(() => {
+  mounted = true
+  motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)')
+  updateMotionPreference()
+  updateVisibility()
+  motionPreference.addEventListener('change', updateMotionPreference)
+  document.addEventListener('visibilitychange', updateVisibility)
+  if (canAutoplay.value) preloadNextSlide()
+  scheduleNextSlide()
+})
+
+onBeforeUnmount(() => {
+  mounted = false
+  slideRequest++
+  clearTimeout(timer)
+  motionPreference?.removeEventListener('change', updateMotionPreference)
+  document.removeEventListener('visibilitychange', updateVisibility)
+})
 </script>
 
 <style lang="scss" scoped>
@@ -85,6 +247,13 @@ const localePath = useLocalePath()
     font-size: 1.13rem;
     line-height: $line-height-copy;
   }
+  &__welcome {
+    display: block;
+    margin-top: $space-8;
+    font-family: $display;
+    font-weight: $weight-bold;
+    color: $white-pure;
+  }
   &__actions {
     display: flex;
     flex-wrap: wrap;
@@ -108,8 +277,9 @@ const localePath = useLocalePath()
   }
   &__caption {
     position: absolute;
+    z-index: $z-content;
     right: $space-32;
-    bottom: $space-24;
+    bottom: calc($control-size + $space-40);
     max-width: 230px;
     padding: $space-8 $space-12;
     background: $plum-deep;
@@ -117,6 +287,44 @@ const localePath = useLocalePath()
     font-size: $font-size-caption;
     font-weight: $weight-bold;
   }
+  &__carousel-controls {
+    position: absolute;
+    right: $space-24;
+    bottom: $space-16;
+    z-index: $z-content;
+    display: flex;
+    align-items: center;
+    gap: $space-6;
+    padding: $space-4;
+    border-radius: $radius-control;
+    background: $plum-deep;
+
+    .icon-button {
+      color: $white-pure;
+      border-color: $lightbox-border;
+    }
+    .icon-button:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+  &__slide-count {
+    min-width: 48px;
+    text-align: center;
+    font-size: $font-size-label;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.hero-slide-enter-active,
+.hero-slide-leave-active {
+  transition: opacity 550ms ease;
+}
+.hero-slide-enter-active {
+  z-index: 1;
+}
+.hero-slide-enter-from {
+  opacity: 0;
 }
 
 @media (max-width: $breakpoint-desktop) {
@@ -167,18 +375,33 @@ const localePath = useLocalePath()
     font-size: $font-size-action-small;
   }
   .hero__visual {
-    height: $hero-art-height-mobile;
-    min-height: $hero-art-height-mobile;
+    --hero-art-height: #{$hero-art-height-mobile};
+    display: grid;
+    grid-template-rows: var(--hero-art-height) auto auto;
+    justify-items: center;
+    gap: $space-12;
+    height: auto;
+    min-height: 0;
+    padding-bottom: $space-16;
     margin-left: -$shell-gutter-mobile;
     margin-right: -$shell-gutter-mobile;
   }
   .hero__visual img {
+    height: var(--hero-art-height);
     object-position: center 19%;
   }
   .hero__caption {
-    right: $space-15;
-    bottom: $space-13;
-    font-size: 0.62rem;
+    position: static;
+    grid-row: 2;
+    max-width: calc(100% - #{$shell-gutter-mobile * 2});
+    text-align: center;
+  }
+  .hero__carousel-controls {
+    position: static;
+    grid-row: 3;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: calc(100% - #{$shell-gutter-mobile * 2});
   }
 }
 
@@ -190,8 +413,7 @@ const localePath = useLocalePath()
     max-width: 100%;
   }
   .hero__visual {
-    height: $hero-art-height-small;
-    min-height: $hero-art-height-small;
+    --hero-art-height: #{$hero-art-height-small};
   }
 }
 
@@ -211,11 +433,7 @@ const localePath = useLocalePath()
     display: none;
   }
   .hero__visual {
-    height: $hero-art-height-compact;
-    min-height: $hero-art-height-compact;
-  }
-  .hero__caption {
-    display: none;
+    --hero-art-height: #{$hero-art-height-compact};
   }
 }
 </style>

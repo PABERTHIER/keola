@@ -60,9 +60,13 @@
     "hero_name": "Keola",
     "hero_surname": "Kumaneko",
     "hero_alt": "Portrait illustré de Keola Kumaneko, VTuber panda roux",
-    "hero_text": "Sans micro, mais pas sans malice. Des jeux, des réactions et des moments à partager avec mes petits esprits. Entre, on t'attendait.",
+    "hero_text": "Sans micro, mais pas sans malice. Des jeux, des réactions et des moments à partager avec mes petits esprits.",
+    "hero_welcome": "Entre, on t'attendait.",
     "hero_discover": "Découvrir son univers",
     "hero_caption": "Bienvenue au Temple Kumaneko.",
+    "hero_slideshow": "Illustrations de Keola",
+    "hero_pause": "Mettre le diaporama en pause",
+    "hero_play": "Lancer le diaporama",
     "schedule_eyebrow": "Le prochain rendez-vous",
     "schedule_title": "On se retrouve en live ?",
     "schedule_text": "Le planning à jour est sur Twitch. Passe voir le prochain rendez-vous, ou installe-toi quand le live commence.",
@@ -210,7 +214,7 @@
   "credits": {
     "eyebrow": "Les talents derrière l'univers",
     "title": "Un temple, plein de talents.",
-    "intro": "Modèles, musiques, animations, illustrations : de nombreux talents donnent vie à Keola et au Temple Kumaneko. Voici les personnes citées sur son site d'origine.",
+    "intro": "Modèles, musiques, animations, illustrations : de nombreux talents donnent vie à Keola et au Temple Kumaneko.",
     "visit": "Voir le profil de {name}",
     "roles": {
       "assistants": "Aides de camp",

@@ -67,6 +67,7 @@
               :name="link.icon"
               mode="svg"
               class="social-icon"
+              :style="{ color: link.color }"
               :size="19"
               aria-hidden="true" />
           </a>
@@ -175,9 +176,6 @@ const year = new Date().getFullYear()
   }
   a:hover {
     background: $footer-social-hover;
-  }
-  .social-icon {
-    color: $white-pure;
   }
 }
 

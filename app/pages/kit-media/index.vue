@@ -37,10 +37,15 @@
               :name="link.icon"
               mode="svg"
               class="social-icon"
+              :style="{ color: link.color }"
               :size="23"
               aria-hidden="true" />
-            <span>{{ link.name }}</span>
-            <Icon name="lucide:arrow-up-right" aria-hidden="true" />
+            <span class="media-page__link-label">{{ link.name }}</span>
+            <Icon
+              class="media-page__link-arrow"
+              name="lucide:arrow-up-right"
+              size="20"
+              aria-hidden="true" />
           </a>
         </div>
       </div>
@@ -115,11 +120,22 @@ useHead(usePageSeo('media'))
   color: $link-hover;
 }
 .media-page__links .social-icon {
-  flex: 0 0 23px;
-  color: $black;
+  flex: 0 0 $control-size;
+  width: $control-size;
+  height: $control-size;
+  padding: $space-10;
+  border-radius: $radius-control;
+  background: $plum-deep;
 }
-.media-page__links a span {
+.media-page__link-label {
   flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.media-page__link-arrow {
+  flex: none;
+  width: 20px;
+  height: 20px;
 }
 @media (max-width: $breakpoint-mobile) {
   .media-page {

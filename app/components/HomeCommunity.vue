@@ -22,13 +22,18 @@
             :name="link.icon"
             mode="svg"
             class="social-icon"
+            :style="{ color: link.color }"
             :size="26"
             aria-hidden="true" />
-          <span>
+          <span class="community-links__copy">
             <strong>{{ link.name }}</strong>
             <small>{{ t(`social.${link.detail}`) }}</small>
           </span>
-          <Icon name="lucide:arrow-up-right" aria-hidden="true" />
+          <Icon
+            class="community-links__arrow"
+            name="lucide:arrow-up-right"
+            size="20"
+            aria-hidden="true" />
         </a>
       </div>
     </div>
@@ -44,8 +49,9 @@ const { t } = useI18n()
 <style lang="scss" scoped>
 .community-section__grid {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
   gap: $space-110;
+  overflow-wrap: anywhere;
 }
 .community-links {
   border-top: $border-width solid $line;
@@ -66,13 +72,19 @@ const { t } = useI18n()
     background: $community-background;
   }
   .social-icon {
-    flex: 0 0 26px;
-    color: $black;
+    flex: 0 0 $control-size;
+    width: $control-size;
+    height: $control-size;
+    padding: $space-9;
+    border-radius: $radius-control;
+    background: $plum-deep;
   }
-  span {
+  &__copy {
     display: flex;
     flex-direction: column;
     flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
   strong {
     font-family: $display;
@@ -84,8 +96,10 @@ const { t } = useI18n()
     color: $muted;
     font-size: $font-size-small;
   }
-  .icon {
-    font-size: 20px;
+  &__arrow {
+    flex: none;
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -103,7 +117,7 @@ const { t } = useI18n()
 
 @media (max-width: $breakpoint-mobile) {
   .community-section__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: $space-33;
   }
 }

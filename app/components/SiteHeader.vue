@@ -51,8 +51,13 @@
           :title="t('site.watch')"
           target="_blank"
           rel="noopener noreferrer">
-          <Icon name="lucide:radio" aria-hidden="true" />
-          <span>{{ t('site.watch') }}</span>
+          <Icon
+            class="site-header__live-icon"
+            name="keo-icon:twitch-logo"
+            mode="svg"
+            size="20"
+            aria-hidden="true" />
+          <span class="site-header__live-label">{{ t('site.watch') }}</span>
         </a>
         <button
           ref="menuToggle"
@@ -86,6 +91,7 @@ const headerHeight = ref(0)
 let headerObserver: ResizeObserver | undefined
 
 onMounted(() => {
+  document.addEventListener('pointerdown', handleOutsidePointer)
   if (!header.value) return
   headerHeight.value = header.value.offsetHeight
   headerObserver = new ResizeObserver(() => {
@@ -94,7 +100,20 @@ onMounted(() => {
   headerObserver.observe(header.value)
 })
 
-onBeforeUnmount(() => headerObserver?.disconnect())
+onBeforeUnmount(() => {
+  headerObserver?.disconnect()
+  document.removeEventListener('pointerdown', handleOutsidePointer)
+})
+
+function handleOutsidePointer(event: PointerEvent) {
+  if (
+    menuOpen.value &&
+    event.target instanceof Node &&
+    !header.value?.contains(event.target)
+  ) {
+    closeMenu()
+  }
+}
 
 function closeMenu() {
   if (!menuOpen.value) return
@@ -148,6 +167,13 @@ function changeLocale(event: Event) {
     padding: $space-9 $space-13;
     font-size: 0.78rem;
     white-space: nowrap;
+
+    .site-header__live-icon {
+      color: $white-pure;
+      width: 20px;
+      height: 20px;
+      flex: none;
+    }
   }
 }
 
@@ -170,24 +196,45 @@ function changeLocale(event: Event) {
 }
 
 .language-control {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 3px;
-  padding-left: $space-5;
+  justify-content: center;
+  gap: $space-5;
+  width: 75px;
+  min-height: $control-size;
+  padding-inline: $space-5;
+  border-radius: $radius-control;
   color: $ink;
 
-  .icon {
-    font-size: 17px;
+  &:has(select:focus-visible) {
+    outline: $focus-width solid $orange;
+    outline-offset: $focus-offset;
+  }
+  .iconify {
+    position: absolute;
+    left: $space-5;
+    pointer-events: none;
+    width: 17px;
+    height: 17px;
+    flex: none;
   }
   select {
+    position: absolute;
+    inset: 0;
     height: $control-size;
-    width: 48px;
+    width: 100%;
+    padding-left: 27px;
     background: transparent;
     border: 0;
     color: inherit;
     font-size: $font-size-label;
     font-weight: $weight-heavy;
     cursor: pointer;
+
+    &:focus-visible {
+      outline: none;
+    }
   }
 }
 
@@ -247,7 +294,7 @@ function changeLocale(event: Event) {
     width: $control-size;
     padding: 0;
   }
-  .site-header__live span {
+  .site-header__live-label {
     display: none;
   }
 }
@@ -265,11 +312,14 @@ function changeLocale(event: Event) {
   .site-header__actions {
     gap: $space-4;
   }
-  .language-control .icon {
+  .language-control .iconify {
     display: none;
   }
-  .language-control select {
+  .language-control {
     width: $control-size;
+  }
+  .language-control select {
+    padding-left: $space-5;
   }
 }
 </style>
