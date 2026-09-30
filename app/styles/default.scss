@@ -5,7 +5,14 @@
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: $anchor-offset;
+
+  &.lenis {
+    scroll-behavior: auto;
+  }
+}
+main[id],
+main [id] {
+  scroll-margin-top: $anchor-offset;
 }
 body {
   margin: 0;

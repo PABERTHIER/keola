@@ -47,6 +47,7 @@ export const imageDimensions: Record<string, readonly [number, number]> = {
   '/images/fanart/fanart-9.webp': [833, 840],
   '/images/holy-brand-logo.webp': [699, 700],
   '/images/image01.webp': [544, 500],
+  '/images/logo.webp': [294, 220],
   '/images/mediakit.webp': [2114, 2994],
   '/images/red-panda-network-logo.webp': [544, 500],
   '/images/red-panda-thon-2024-goals.webp': [1920, 1080],
@@ -57,5 +58,9 @@ export const imageDimensions: Record<string, readonly [number, number]> = {
   '/images/redebut-2024-right-part.webp': [1921, 1081],
   '/images/safebear-brand-logo.webp': [1680, 1680],
   '/images/slideshow-1.webp': [694, 953],
+  '/images/slideshow-2.webp': [1282, 2560],
+  '/images/slideshow-3.webp': [1811, 2560],
+  '/images/slideshow-4.webp': [1817, 2560],
+  '/images/slideshow-5.webp': [1239, 2560],
   '/images/slideshow-6.webp': [1942, 2475],
 }

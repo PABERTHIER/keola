@@ -4,7 +4,7 @@
     class="brand"
     :class="{ 'brand--inverse': inverse }"
     aria-label="Keola Kumaneko">
-    <Image src="/images/image01.webp" alt="" loading="eager" />
+    <Image src="/images/logo.webp" alt="" loading="eager" />
     <span class="brand__text">
       Keola
       <span>Kumaneko</span>

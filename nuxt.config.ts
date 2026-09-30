@@ -9,7 +9,10 @@ const siteUrl =
 export default defineNuxtConfig({
   app: {
     head: {
-      link: [{ rel: 'icon', type: 'image/webp', href: '/images/image01.webp' }], // TODO: Replace with /favicon.ico
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' }, // TODO: Replace with /favicon.ico
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+      ],
       title: 'Keola',
       meta: [
         {
@@ -130,7 +133,7 @@ export default defineNuxtConfig({
       type: 'Person',
       name: 'Keola Kumaneko',
       url: prodUrl,
-      logo: `${prodUrl}/logo.svg`, // TODO: Need a logo
+      logo: `${prodUrl}/images/logo.webp`, // TODO: Need a svg logo
       image: `${prodUrl}/images/og-image.webp`,
     },
   },

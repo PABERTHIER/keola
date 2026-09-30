@@ -60,9 +60,13 @@
     "hero_name": "Keola",
     "hero_surname": "Kumaneko",
     "hero_alt": "Illustrated portrait of Keola Kumaneko, a red panda VTuber",
-    "hero_text": "No microphone, plenty of mischief. Games, reactions and moments to share with my little spirits. Come on in, we've been expecting you.",
+    "hero_text": "No microphone, plenty of mischief. Games, reactions and moments to share with my little spirits.",
+    "hero_welcome": "Come on in, we've been expecting you.",
     "hero_discover": "Discover her world",
     "hero_caption": "Welcome to Kumaneko Temple.",
+    "hero_slideshow": "Illustrations of Keola",
+    "hero_pause": "Pause slideshow",
+    "hero_play": "Play slideshow",
     "schedule_eyebrow": "The next get-together",
     "schedule_title": "See you live?",
     "schedule_text": "The up-to-date schedule lives on Twitch. Check the next stream, or drop in when Keola goes live.",
@@ -210,7 +214,7 @@
   "credits": {
     "eyebrow": "The talent behind the world",
     "title": "One temple, many talents.",
-    "intro": "Models, music, animation, illustration: many talented people bring Keola and Kumaneko Temple to life. Here are the contributors listed on her original site.",
+    "intro": "Models, music, animation, illustration: many talented people bring Keola and Kumaneko Temple to life.",
     "visit": "View {name}'s profile",
     "roles": {
       "assistants": "Assistants",
