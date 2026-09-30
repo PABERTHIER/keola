@@ -1,4 +1,4 @@
-type PageName = 'home' | 'gallery' | 'credits' | 'archives' | 'media'
+type PageName = 'home' | 'keola' | 'gallery' | 'credits' | 'archives' | 'media'
 
 export function usePageSeo(page: PageName) {
   const { t, locale } = useI18n()

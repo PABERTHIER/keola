@@ -9,7 +9,10 @@ const siteUrl =
 export default defineNuxtConfig({
   app: {
     head: {
-      link: [{ rel: 'icon', type: 'image/webp', href: '/images/image01.webp' }], // TODO: Replace with /favicon.ico
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' }, // TODO: Replace with /favicon.ico
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+      ],
       title: 'Keola',
       meta: [
         {
@@ -24,7 +27,7 @@ export default defineNuxtConfig({
           name: 'apple-mobile-web-app-title',
           content: 'Keola',
         },
-        { name: 'theme-color', content: '#493047' }, // TODO: Is it the right theme-color value ?
+        { name: 'theme-color', content: '#ff7b00' },
       ],
       templateParams: {
         separator: '-',
@@ -44,13 +47,6 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
-  image: {
-    provider: 'ipx',
-    format: ['webp', 'jpg', 'jpeg', 'png'],
-    screens: {
-      xs: 320,
-    },
-  },
   plugins: [],
   build: {
     transpile: [],
@@ -58,13 +54,7 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
-  modules: [
-    '@nuxt/image',
-    '@nuxt/icon',
-    '@nuxtjs/i18n',
-    '@nuxtjs/seo',
-    '@nuxt/eslint',
-  ],
+  modules: ['@nuxt/icon', '@nuxtjs/i18n', '@nuxtjs/seo', '@nuxt/eslint'],
   imports: {
     dirs: [],
   },
@@ -77,6 +67,9 @@ export default defineNuxtConfig({
     },
   },
   icon: {
+    clientBundle: {
+      includeCustomCollections: true,
+    },
     customCollections: [
       {
         prefix: 'keo-icon',
@@ -140,7 +133,7 @@ export default defineNuxtConfig({
       type: 'Person',
       name: 'Keola Kumaneko',
       url: prodUrl,
-      logo: `${prodUrl}/logo.svg`, // TODO: Need a logo
+      logo: `${prodUrl}/images/logo.webp`, // TODO: Need a svg logo
       image: `${prodUrl}/images/og-image.webp`,
     },
   },

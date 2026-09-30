@@ -2,10 +2,11 @@
   <dialog
     ref="dialog"
     class="lightbox"
+    data-lenis-prevent
     :aria-label="t('site.gallery')"
     @click.self="close"
     @keydown="handleKeydown"
-    @close="activeIndex = null">
+    @close="handleClose">
     <button
       class="lightbox__close icon-button"
       type="button"
@@ -14,11 +15,17 @@
       @click="close">
       <Icon name="lucide:x" aria-hidden="true" />
     </button>
-    <div class="lightbox__image">
-      <img
+    <div
+      class="lightbox__image"
+      @touchstart.passive="startSwipe"
+      @touchmove.passive="trackSwipe"
+      @touchend.passive="endSwipe"
+      @touchcancel="swipeStart = null">
+      <Image
         v-if="activeNumber !== null"
         :src="`/images/fanart/fanart-${activeNumber}.webp`"
-        :alt="t('gallery.image_alt', { number: activeNumber })" />
+        :alt="t('gallery.image_alt', { number: activeNumber })"
+        loading="eager" />
     </div>
     <div class="lightbox__controls">
       <button
@@ -49,20 +56,75 @@
 <script setup lang="ts">
 const props = defineProps<{ numbers: readonly number[] }>()
 const { t } = useI18n()
+const { $lenis } = useNuxtApp()
 const dialog = ref<HTMLDialogElement | null>(null)
 const activeIndex = ref<number | null>(null)
 const activeNumber = computed(() =>
   activeIndex.value === null ? null : props.numbers[activeIndex.value]
 )
+let swipeStart: {
+  identifier: number
+  x: number
+  y: number
+  time: number
+} | null = null
+
+function startSwipe(event: TouchEvent) {
+  const touch = event.touches[0]
+  swipeStart =
+    event.touches.length === 1 && touch
+      ? {
+          identifier: touch.identifier,
+          x: touch.clientX,
+          y: touch.clientY,
+          time: event.timeStamp,
+        }
+      : null
+}
+
+function trackSwipe(event: TouchEvent) {
+  if (event.touches.length !== 1) swipeStart = null
+}
+
+function endSwipe(event: TouchEvent) {
+  const start = swipeStart
+  swipeStart = null
+  if (!start || event.touches.length > 0) return
+  const touch = Array.from(event.changedTouches).find(
+    item => item.identifier === start.identifier
+  )
+  if (!touch) return
+  const distanceX = touch.clientX - start.x
+  const distanceY = touch.clientY - start.y
+  if (
+    Math.abs(distanceX) >= 50 &&
+    Math.abs(distanceX) > Math.abs(distanceY) * 1.5 &&
+    event.timeStamp - start.time < 800
+  ) {
+    move(distanceX < 0 ? 1 : -1)
+  }
+}
 
 function open(index: number) {
+  swipeStart = null
   activeIndex.value = index
   dialog.value?.showModal()
+  $lenis.stop()
 }
 
 function close() {
+  swipeStart = null
   dialog.value?.close()
 }
+
+function handleClose() {
+  activeIndex.value = null
+  $lenis.start()
+}
+
+onBeforeUnmount(() => {
+  if (dialog.value?.open) $lenis.start()
+})
 
 function move(direction: -1 | 1) {
   if (activeIndex.value === null) return
@@ -88,58 +150,63 @@ defineExpose({ open })
 
 <style lang="scss" scoped>
 .lightbox {
+  --focus-color: #{$orange};
   position: fixed;
-  width: min(1100px, calc(100% - 28px));
+  width: min($lightbox-max-width, calc(100% - $lightbox-inset * 2));
   max-width: none;
-  max-height: calc(100svh - 28px);
-  padding: 16px;
+  height: min($lightbox-max-height, calc(100dvh - $lightbox-inset * 2));
+  max-height: calc(100dvh - $lightbox-inset * 2);
+  padding: max(#{$space-16}, env(safe-area-inset-top))
+    max(#{$space-16}, env(safe-area-inset-right))
+    max(#{$space-16}, env(safe-area-inset-bottom))
+    max(#{$space-16}, env(safe-area-inset-left));
   overflow: auto;
+  overscroll-behavior: contain;
   border: 0;
-  border-radius: 6px;
+  border-radius: $radius-control;
   background: $plum-deep;
-  color: white;
+  color: $white-pure;
+
+  &[open] {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    gap: $space-10;
+  }
 
   &::backdrop {
-    background: #231725ed;
+    background: $lightbox-backdrop;
   }
   &__close {
     display: grid;
     margin-left: auto;
-    border-color: #97788f;
-    color: white;
+    border-color: $lightbox-border;
+    color: $white-pure;
   }
   &__image {
     display: grid;
     place-items: center;
-    min-height: min(68svh, 650px);
+    min-height: 0;
+    touch-action: pan-y pinch-zoom;
   }
   &__image img {
-    max-width: 100%;
-    max-height: 72svh;
-    width: auto;
-    height: auto;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
     object-fit: contain;
   }
   &__controls {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
-    margin-top: 10px;
+    gap: $space-10;
   }
   &__controls .icon-button {
-    border-color: #97788f;
-    color: white;
+    border-color: $lightbox-border;
+    color: $white-pure;
   }
   &__controls span {
-    font-size: 0.81rem;
-    font-weight: 700;
-  }
-}
-
-@media (max-width: 720px) {
-  .lightbox__image {
-    min-height: min(60svh, 480px);
+    font-size: $font-size-nav;
+    font-weight: $weight-bold;
   }
 }
 </style>

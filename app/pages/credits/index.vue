@@ -50,7 +50,7 @@ useHead(usePageSeo('credits'))
 
 <style lang="scss" scoped>
 .credits-page {
-  padding-block: 70px 100px;
+  padding-block: $space-70 $space-100;
 }
 .credits-list {
   display: grid;
@@ -62,19 +62,19 @@ useHead(usePageSeo('credits'))
 }
 .credits-list li {
   min-width: 0;
-  border-top: 1px solid $line;
+  border-top: $border-width solid $line;
 }
 .credits-list a,
 .credits-list__plain {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: $space-16;
   min-height: 95px;
-  padding: 15px 5px;
+  padding: $space-15 $space-5;
 }
 .credits-list a:hover {
-  color: #a85012;
+  color: $link-hover;
 }
 .credits-list span span,
 .credits-list a span {
@@ -85,23 +85,23 @@ useHead(usePageSeo('credits'))
 .credits-list strong {
   font-family: $display;
   font-size: 1.28rem;
-  font-weight: 600;
+  font-weight: $weight-semibold;
   overflow-wrap: anywhere;
 }
 .credits-list small {
   color: $muted;
   font-size: 0.79rem;
 }
-.credits-list .icon {
+.credits-list .iconify {
   flex: none;
   font-size: 21px;
 }
 .credits-page__link {
-  margin-top: 42px;
+  margin-top: $space-42;
 }
-@media (max-width: 720px) {
+@media (max-width: $breakpoint-mobile) {
   .credits-page {
-    padding-block: 40px 70px;
+    padding-block: $space-40 $space-70;
   }
   .credits-list {
     grid-template-columns: 1fr;

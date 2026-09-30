@@ -4,12 +4,7 @@
     class="brand"
     :class="{ 'brand--inverse': inverse }"
     aria-label="Keola Kumaneko">
-    <NuxtImg
-      src="/images/image01.webp"
-      alt=""
-      width="48"
-      height="44"
-      loading="eager" />
+    <Image src="/images/logo.webp" alt="" loading="eager" />
     <span class="brand__text">
       Keola
       <span>Kumaneko</span>
@@ -26,17 +21,18 @@ const localePath = useLocalePath()
 <style lang="scss" scoped>
 .brand {
   display: inline-flex;
+  min-height: $control-size;
   align-items: center;
-  gap: 8px;
+  gap: $space-8;
   flex: none;
   color: $ink;
   font-family: $signature;
   font-size: 1.32rem;
-  font-weight: 400;
+  font-weight: $weight-regular;
   line-height: 0.93;
 
   &--inverse {
-    color: white;
+    color: $white-pure;
   }
 
   img {
@@ -52,13 +48,13 @@ const localePath = useLocalePath()
   }
 
   &__text span {
-    font-size: 0.9rem;
+    font-size: $font-size-secondary;
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: $breakpoint-small) {
   .brand {
-    font-size: 1.1rem;
+    font-size: $font-size-brand-mobile;
   }
 
   .brand img {
@@ -67,7 +63,7 @@ const localePath = useLocalePath()
   }
 
   .brand__text span {
-    font-size: 0.77rem;
+    font-size: $font-size-small;
   }
 }
 </style>

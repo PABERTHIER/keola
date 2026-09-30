@@ -18,17 +18,22 @@
           :href="link.url"
           target="_blank"
           rel="noopener noreferrer">
-          <img
-            :src="`/icons/${link.icon}`"
-            alt=""
-            width="26"
-            height="26"
-            loading="lazy" />
-          <span>
+          <Icon
+            :name="link.icon"
+            mode="svg"
+            class="social-icon"
+            :style="{ color: link.color }"
+            :size="26"
+            aria-hidden="true" />
+          <span class="community-links__copy">
             <strong>{{ link.name }}</strong>
             <small>{{ t(`social.${link.detail}`) }}</small>
           </span>
-          <Icon name="lucide:arrow-up-right" aria-hidden="true" />
+          <Icon
+            class="community-links__arrow"
+            name="lucide:arrow-up-right"
+            size="20"
+            aria-hidden="true" />
         </a>
       </div>
     </div>
@@ -44,68 +49,76 @@ const { t } = useI18n()
 <style lang="scss" scoped>
 .community-section__grid {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 110px;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: $space-110;
+  overflow-wrap: anywhere;
 }
 .community-links {
-  border-top: 1px solid $line;
+  border-top: $border-width solid $line;
 
   a {
     display: flex;
     align-items: center;
-    gap: 19px;
+    gap: $space-19;
     min-height: 82px;
-    padding: 12px 7px;
-    border-bottom: 1px solid $line;
+    padding: $space-12 $space-7;
+    border-bottom: $border-width solid $line;
     transition:
-      padding 0.2s ease,
-      background-color 0.2s ease;
+      padding $transition-ui,
+      background-color $transition-ui;
   }
   a:hover {
-    padding-left: 16px;
-    background: #f8e9ee;
+    padding-left: $space-16;
+    background: $community-background;
   }
-  img {
-    width: 26px;
-    height: 26px;
-    object-fit: contain;
+  .social-icon {
+    flex: 0 0 $control-size;
+    width: $control-size;
+    height: $control-size;
+    padding: $space-9;
+    border-radius: $radius-control;
+    background: $plum-deep;
   }
-  span {
+  &__copy {
     display: flex;
     flex-direction: column;
     flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
   strong {
     font-family: $display;
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: $weight-semibold;
     line-height: 1.2;
   }
   small {
     color: $muted;
-    font-size: 0.77rem;
+    font-size: $font-size-small;
   }
-  .icon {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 1100px) {
-  .community-section__grid {
-    gap: 60px;
+  &__arrow {
+    flex: none;
+    width: 20px;
+    height: 20px;
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: $breakpoint-desktop) {
   .community-section__grid {
-    gap: 40px;
+    gap: $space-60;
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: $breakpoint-tablet) {
   .community-section__grid {
-    grid-template-columns: 1fr;
-    gap: 33px;
+    gap: $space-40;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .community-section__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: $space-33;
   }
 }
 </style>

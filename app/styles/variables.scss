@@ -1,6 +1,7 @@
 // colors
 $paper: #fff8f3;
 $white: #fffdf9;
+$white-pure: #fff;
 $ink: #342630;
 $muted: #665961;
 $plum: #493047;
@@ -10,15 +11,166 @@ $orange-pale: #f7dfc5;
 $peach: #f2e4d6;
 $spirit: #eee8f3;
 $line: #d9dbd2;
+$black: #000;
+$link-hover: #a85012;
+$footer-link-hover: #ffae60;
+$footer-border: #745469;
+$lightbox-border: #97788f;
+
+$selection-background: #ffc184;
+$button-primary-text: #1c2b27;
+$button-primary-hover: #ff9a35;
+$button-dark-hover: #68425d;
+$button-light-outline-border: #baa6b7;
+$button-light-hover: #f1f3ea;
+$text-link-hover: $link-hover;
+$eyebrow-text: #8d4b1b;
+$eyebrow-light-text: #fdb770;
+$community-background: #f8e9ee;
+$lightbox-backdrop: #231725ed;
+$gallery-background-peach: #e7d7c8;
+$gallery-background-lilac: #e8dceb;
+$gallery-background-rose: #e1d6df;
+$gallery-background-sage: #dbe3e2;
+$archive-accent: #ffb76f;
+$archive-text: #f4dfea;
+$hero-accent: #ffad53;
+$hero-text: #f4e3ee;
+$hero-note-text: #f9eee1;
+$mission-background: #643c52;
+$mission-text: #f4e2e9;
+$mission-art-border: #ad829d;
+$mission-art-background: #794b69;
+$mission-orbit: #dcb8d1;
+$schedule-icon: #a95000;
+$about-art-background: #ddd4c6;
+$partner-border: #d8c7d9;
+$closing-background: #b94a2d;
+$closing-eyebrow: #fff0c9;
+$page-intro-eyebrow: #a64d10;
+$footer-text: #fff3ec;
+$footer-description-text: #e1cbd8;
+$footer-heading-text: #ffad68;
+$footer-copyright-text: #dcc2d1;
+$footer-social-hover: #67405c;
+$header-border: #e6e4dc;
+$header-link-hover: #a54a00;
+$header-menu-shadow: #102d2a18;
 
 // fonts
 $display: 'Zen Maru Gothic', sans-serif;
 $signature: 'Kaushan Script', 'Zen Maru Gothic', cursive;
 $body: 'Plus Jakarta Sans', 'Zen Maru Gothic', sans-serif;
 
+// sizes
+$font-size-caption: 0.72rem;
+$font-size-label: 0.75rem;
+$font-size-action-small: 0.76rem;
+$font-size-small: 0.77rem;
+$font-size-nav: 0.81rem;
+$font-size-note: 0.82rem;
+$font-size-button: 0.87rem;
+$font-size-secondary: 0.9rem;
+$font-size-intro-mobile: 0.94rem;
+$font-size-brand-mobile: 1.1rem;
+
+$weight-regular: 400;
+$weight-semibold: 600;
+$weight-bold: 700;
+$weight-heavy: 800;
+
+$line-height-body: 1.6;
+$line-height-heading: 1.1;
+$line-height-compact: 1.55;
+$line-height-copy: 1.75;
+
+// spaces
+$space-4: 4px;
+$space-5: 5px;
+$space-6: 6px;
+$space-7: 7px;
+$space-8: 8px;
+$space-9: 9px;
+$space-10: 10px;
+$space-11: 11px;
+$space-12: 12px;
+$space-13: 13px;
+$space-14: 14px;
+$space-15: 15px;
+$space-16: 16px;
+$space-17: 17px;
+$space-18: 18px;
+$space-19: 19px;
+$space-20: 20px;
+$space-22: 22px;
+$space-24: 24px;
+$space-25: 25px;
+$space-28: 28px;
+$space-30: 30px;
+$space-32: 32px;
+$space-33: 33px;
+$space-34: 34px;
+$space-36: 36px;
+$space-38: 38px;
+$space-40: 40px;
+$space-42: 42px;
+$space-45: 45px;
+$space-48: 48px;
+$space-55: 55px;
+$space-60: 60px;
+$space-70: 70px;
+$space-75: 75px;
+$space-100: 100px;
+$space-110: 110px;
+
+// layout
+$shell-max-width: 1240px;
+$shell-gutter: $space-36;
+$shell-gutter-tablet: $space-24;
+$shell-gutter-mobile: $space-18;
+$section-spacing: 104px;
+$section-spacing-mobile: $space-70;
+$header-height: 74px;
+$header-height-mobile: 68px;
+
+// controls
+$control-size: 44px;
+$button-min-height: 48px;
+$gallery-badge-size: 36px;
+$gallery-icon-size: 18px;
+$gallery-column-width: 16rem;
+$lightbox-max-width: 1100px;
+$lightbox-max-height: 850px;
+$lightbox-inset: $space-14;
+$hero-art-height-mobile: 240px;
+$hero-art-height-small: 190px;
+$hero-art-height-compact: 128px;
+
+// borders, focus and corners
+$border-width: 1px;
+$focus-width: 3px;
+$focus-offset: $space-4;
+$radius-small: 4px;
+$radius-social: 5px;
+$radius-control: 6px;
+$radius-art: 7px;
+
+// z-index
+$z-artwork: 1;
+$z-content: 2;
+$z-header: 30;
+$z-skip-link: 100;
+
+// motion
+$transition-ui: 0.2s ease;
+$transition-artwork: 0.35s ease;
+$artwork-hover-scale: 1.04;
+$reduced-motion-duration: 0.01ms;
+
 // breakpoints
-$xs: 320px;
-$sm: 640px;
-$md: 768px;
-$lg: 1024px;
-$xl: 1280px;
+$breakpoint-compact: 360px;
+$breakpoint-small: 420px;
+$breakpoint-mobile: 720px;
+$breakpoint-tablet: 960px;
+$breakpoint-desktop: 1100px;
+$breakpoint-short-height: 640px;

@@ -32,8 +32,8 @@ const localePath = useLocalePath()
 
 <style lang="scss" scoped>
 .page-intro {
-  padding: 44px 0 75px;
-  border-bottom: 1px solid $line;
+  padding: 44px 0 $space-75;
+  border-bottom: $border-width solid $line;
 
   &--peach {
     background: $peach;
@@ -48,18 +48,19 @@ const localePath = useLocalePath()
   }
   &__back {
     display: inline-flex;
+    min-height: $control-size;
     align-items: center;
-    gap: 8px;
+    gap: $space-8;
     margin-bottom: 47px;
-    font-size: 0.82rem;
-    font-weight: 700;
+    font-size: $font-size-note;
+    font-weight: $weight-bold;
   }
   &__back:hover {
-    color: #a64d10;
+    color: $page-intro-eyebrow;
   }
   h1 {
     max-width: 950px;
-    margin: 17px 0 20px;
+    margin: $space-17 0 $space-20;
     font-size: 3.8rem;
     overflow-wrap: anywhere;
   }
@@ -68,26 +69,26 @@ const localePath = useLocalePath()
     margin: 0;
     color: $muted;
     font-size: 1.05rem;
-    line-height: 1.75;
+    line-height: $line-height-copy;
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: $breakpoint-mobile) {
   .page-intro {
-    padding: 24px 0 55px;
+    padding: $space-24 0 $space-55;
   }
   .page-intro__back {
-    margin-bottom: 38px;
+    margin-bottom: $space-38;
   }
   .page-intro h1 {
     font-size: 2.5rem;
   }
   .page-intro p {
-    font-size: 0.94rem;
+    font-size: $font-size-intro-mobile;
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: $breakpoint-small) {
   .page-intro h1 {
     font-size: 2.15rem;
   }

@@ -40,15 +40,16 @@
       class="section about-section"
       aria-labelledby="about-title">
       <div class="shell about-section__grid">
-        <div class="about-section__art">
-          <NuxtImg
-            src="/images/slideshow-6.webp"
-            :alt="t('home.about_alt')"
-            width="1942"
-            sizes="xs:100vw sm:80vw md:50vw lg:42vw"
-            loading="lazy" />
-          <span class="about-section__art-label">Keola Kumaneko / VTuber</span>
-        </div>
+        <NuxtLink
+          :to="localePath('/keola')"
+          class="about-section__art"
+          :aria-label="t('home.about_discover')">
+          <Image src="/images/slideshow-6.webp" :alt="t('home.about_alt')" />
+          <span class="about-section__art-label">
+            {{ t('home.about_discover') }}
+            <Icon name="lucide:arrow-right" aria-hidden="true" />
+          </span>
+        </NuxtLink>
         <div class="about-section__copy">
           <span class="eyebrow">{{ t('home.about_eyebrow') }}</span>
           <h2 id="about-title" class="section-title">
@@ -87,11 +88,7 @@
             :href="externalLinks.safebear"
             target="_blank"
             rel="noopener noreferrer">
-            <NuxtImg
-              src="/images/safebear-brand-logo.webp"
-              alt="Safebear"
-              width="120"
-              loading="lazy" />
+            <Image src="/images/safebear-brand-logo.webp" alt="Safebear" />
             <span>
               <strong>Safebear</strong>
               <small>{{ t('home.safebear_text') }}</small>
@@ -106,11 +103,7 @@
             :href="externalLinks.holy"
             target="_blank"
             rel="noopener noreferrer">
-            <NuxtImg
-              src="/images/holy-brand-logo.webp"
-              alt="HOLY"
-              width="120"
-              loading="lazy" />
+            <Image src="/images/holy-brand-logo.webp" alt="HOLY" />
             <span>
               <strong>HOLY</strong>
               <small>{{ t('home.holy_text') }}</small>
@@ -150,20 +143,25 @@
 import { externalLinks } from '~/data/site'
 
 const { t } = useI18n()
+const localePath = useLocalePath()
 
 useHead(usePageSeo('home'))
 </script>
 
 <style lang="scss" scoped>
+.section-title {
+  overflow-wrap: anywhere;
+}
+
 .schedule-band {
   background: $white;
-  border-bottom: 1px solid $line;
+  border-bottom: $border-width solid $line;
 
   &__inner {
     display: flex;
     align-items: center;
-    gap: 24px;
-    padding-block: 28px;
+    gap: $space-24;
+    padding-block: $space-28;
   }
   &__icon {
     width: 58px;
@@ -171,13 +169,15 @@ useHead(usePageSeo('home'))
     display: grid;
     place-items: center;
     flex: none;
-    border-radius: 6px;
+    border-radius: $radius-control;
     background: $orange-pale;
-    color: #a95000;
+    color: $schedule-icon;
     font-size: 25px;
   }
   &__copy {
     flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
   h2 {
     margin: 2px 0 3px;
@@ -188,12 +188,14 @@ useHead(usePageSeo('home'))
     margin: 0;
     color: $muted;
     font-size: 0.84rem;
-    line-height: 1.55;
+    line-height: $line-height-compact;
   }
   &__actions {
     display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
     align-items: center;
-    gap: 19px;
+    gap: $space-19;
     flex: none;
   }
 }
@@ -207,34 +209,50 @@ useHead(usePageSeo('home'))
   }
   &__art {
     position: relative;
+    display: block;
     height: 550px;
     overflow: hidden;
-    border-radius: 7px;
-    background: #ddd4c6;
+    border-radius: $radius-art;
+    background: $about-art-background;
   }
   &__art img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center 20%;
+    transition: transform $transition-artwork;
+  }
+  &__art:hover img,
+  &__art:focus-visible img {
+    transform: scale($artwork-hover-scale);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    &__art:hover img,
+    &__art:focus-visible img {
+      transform: none;
+    }
   }
   &__art-label {
     position: absolute;
     left: 0;
     bottom: 0;
-    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: $space-8;
+    max-width: 100%;
+    padding: $space-12 $space-18;
     background: $orange;
     color: $plum-deep;
-    font-size: 0.72rem;
-    font-weight: 800;
+    font-size: $font-size-caption;
+    font-weight: $weight-heavy;
   }
   &__copy .section-lead {
-    margin-bottom: 30px;
+    margin-bottom: $space-30;
   }
   &__quote {
     max-width: 470px;
-    margin-bottom: 30px;
-    padding-left: 20px;
+    margin-bottom: $space-30;
+    padding-left: $space-20;
     border-left: 3px solid $orange;
     font-family: $display;
     font-size: 1.35rem;
@@ -246,26 +264,28 @@ useHead(usePageSeo('home'))
   background: $spirit;
 }
 .partners-section .section-title {
-  margin-bottom: 34px;
+  margin-bottom: $space-34;
 }
 .partners-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 15px;
+  gap: $space-15;
 }
 .partner {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: $space-24;
   min-height: 200px;
-  padding: 25px;
-  border: 1px solid #d8c7d9;
-  border-radius: 6px;
+  padding: $space-25;
+  border: $border-width solid $partner-border;
+  border-radius: $radius-control;
   background: $white;
-  transition: transform 0.2s ease;
+  transition: transform $transition-ui;
 
-  &:hover {
-    transform: translateY(-3px);
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    &:hover {
+      transform: translateY(-3px);
+    }
   }
   img {
     width: 96px;
@@ -273,73 +293,78 @@ useHead(usePageSeo('home'))
     flex: none;
     object-fit: contain;
   }
-  span {
+  > span {
+    min-width: 0;
+    overflow-wrap: anywhere;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: $space-8;
   }
   strong {
     font-family: $display;
     font-size: 1.45rem;
-    font-weight: 600;
+    font-weight: $weight-semibold;
   }
   small {
     color: $muted;
-    font-size: 0.82rem;
-    line-height: 1.6;
+    font-size: $font-size-note;
+    line-height: $line-height-body;
   }
   em {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    font-size: 0.76rem;
+    gap: $space-6;
+    font-size: $font-size-action-small;
     font-style: normal;
-    font-weight: 800;
+    font-weight: $weight-heavy;
   }
 }
 
 .closing-section {
-  padding-block: 55px;
-  background: #c65434;
-  color: white;
+  --focus-color: #{$white};
+  overflow-wrap: anywhere;
+  padding-block: $space-55;
+  background: $closing-background;
+  color: $white-pure;
 
   &__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
+    gap: $space-24;
   }
   h2 {
-    margin: 8px 0;
+    margin: $space-8 0;
     font-size: 2.45rem;
   }
   p {
     margin: 0;
   }
   .eyebrow {
-    color: #fff0c9;
+    color: $closing-eyebrow;
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: $breakpoint-tablet) {
   .schedule-band__inner {
     flex-wrap: wrap;
   }
   .schedule-band__actions {
     margin-left: 82px;
+    max-width: calc(100% - 82px);
   }
   .about-section__grid {
-    gap: 40px;
+    gap: $space-40;
   }
   .about-section__art {
     height: 460px;
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: $breakpoint-mobile) {
   .schedule-band__inner {
-    gap: 14px;
-    padding-block: 22px;
+    gap: $space-14;
+    padding-block: $space-22;
   }
   .schedule-band__icon {
     width: 44px;
@@ -354,12 +379,13 @@ useHead(usePageSeo('home'))
   }
   .schedule-band__actions {
     width: 100%;
+    max-width: 100%;
     margin-left: 0;
     flex-wrap: wrap;
   }
   .about-section__grid {
     grid-template-columns: 1fr;
-    gap: 33px;
+    gap: $space-33;
   }
   .about-section__art {
     height: 350px;
@@ -376,10 +402,10 @@ useHead(usePageSeo('home'))
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: $breakpoint-small) {
   .partner {
-    padding: 17px;
-    gap: 14px;
+    padding: $space-17;
+    gap: $space-14;
   }
   .partner img {
     width: 70px;

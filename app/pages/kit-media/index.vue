@@ -6,12 +6,7 @@
       :intro="t('media.intro')" />
     <div class="media-page shell">
       <div class="media-page__sheet">
-        <NuxtImg
-          src="/images/mediakit.webp"
-          :alt="t('media.preview_alt')"
-          width="900"
-          sizes="xs:100vw md:60vw"
-          loading="lazy" />
+        <Image src="/images/mediakit.webp" :alt="t('media.preview_alt')" />
         <a
           class="button button--dark"
           href="/images/mediakit.webp"
@@ -38,14 +33,19 @@
             :href="link.url"
             target="_blank"
             rel="noopener noreferrer">
-            <img
-              :src="`/icons/${link.icon}`"
-              alt=""
-              width="23"
-              height="23"
-              loading="lazy" />
-            <span>{{ link.name }}</span>
-            <Icon name="lucide:arrow-up-right" aria-hidden="true" />
+            <Icon
+              :name="link.icon"
+              mode="svg"
+              class="social-icon"
+              :style="{ color: link.color }"
+              :size="23"
+              aria-hidden="true" />
+            <span class="media-page__link-label">{{ link.name }}</span>
+            <Icon
+              class="media-page__link-arrow"
+              name="lucide:arrow-up-right"
+              size="20"
+              aria-hidden="true" />
           </a>
         </div>
       </div>
@@ -63,33 +63,38 @@ useHead(usePageSeo('media'))
 
 <style lang="scss" scoped>
 .media-page {
+  overflow-wrap: anywhere;
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-  gap: 70px;
-  padding-block: 70px 110px;
+  gap: $space-70;
+  padding-block: $space-70 $space-110;
 }
 .media-page__sheet {
+  min-width: 0;
   display: flex;
   align-items: start;
   flex-direction: column;
   gap: 23px;
 }
+.media-page .button {
+  max-width: 100%;
+}
 .media-page__sheet img {
   width: 100%;
   height: auto;
-  border: 1px solid $line;
-  border-radius: 6px;
+  border: $border-width solid $line;
+  border-radius: $radius-control;
 }
 .media-page__aside {
   min-width: 0;
 }
 .media-page__contact {
-  padding: 34px;
-  border-radius: 6px;
+  padding: $space-34;
+  border-radius: $radius-control;
   background: $spirit;
 }
 .media-page__contact h2 {
-  margin: 15px 0;
+  margin: $space-15 0;
   font-size: 2.2rem;
 }
 .media-page__contact p {
@@ -97,44 +102,54 @@ useHead(usePageSeo('media'))
   line-height: 1.7;
 }
 .media-page__contact .button {
-  margin-top: 8px;
+  margin-top: $space-8;
 }
 .media-page__links {
-  margin-top: 45px;
+  margin-top: $space-45;
 }
 .media-page__links h2 {
-  margin-bottom: 18px;
+  margin-bottom: $space-18;
   font-size: 1.65rem;
 }
 .media-page__links a {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: $space-16;
   min-height: 54px;
-  padding: 10px 4px;
-  border-top: 1px solid $line;
-  font-size: 0.9rem;
-  font-weight: 700;
+  padding: $space-10 $space-4;
+  border-top: $border-width solid $line;
+  font-size: $font-size-secondary;
+  font-weight: $weight-bold;
 }
 .media-page__links a:hover {
-  color: #a85012;
+  color: $link-hover;
 }
-.media-page__links img {
-  width: 23px;
-  height: 23px;
-  object-fit: contain;
+.media-page__links .social-icon {
+  flex: 0 0 $control-size;
+  width: $control-size;
+  height: $control-size;
+  padding: $space-10;
+  border-radius: $radius-control;
+  background: $plum-deep;
 }
-.media-page__links a span {
+.media-page__link-label {
   flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
-@media (max-width: 720px) {
+.media-page__link-arrow {
+  flex: none;
+  width: 20px;
+  height: 20px;
+}
+@media (max-width: $breakpoint-mobile) {
   .media-page {
     grid-template-columns: 1fr;
-    gap: 48px;
-    padding-block: 40px 70px;
+    gap: $space-48;
+    padding-block: $space-40 $space-70;
   }
   .media-page__contact {
-    padding: 25px;
+    padding: $space-25;
   }
 }
 </style>

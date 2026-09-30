@@ -14,13 +14,13 @@
           type="button"
           :aria-label="t('gallery.open', { number })"
           @click="openArtwork(index)">
-          <NuxtImg
+          <Image
+            class="gallery-item__image"
             :src="`/images/fanart/fanart-${number}.webp`"
-            :alt="t('gallery.image_alt', { number })"
-            width="650"
-            sizes="xs:92vw sm:46vw md:31vw lg:23vw"
-            loading="lazy" />
-          <span aria-hidden="true"><Icon name="lucide:expand" /></span>
+            :alt="t('gallery.image_alt', { number })" />
+          <span class="gallery-item__badge" aria-hidden="true">
+            <Icon class="gallery-item__icon" name="lucide:expand" />
+          </span>
         </button>
       </div>
       <p class="gallery-page__note">{{ t('gallery.credit_note') }}</p>
@@ -45,78 +45,89 @@ function openArtwork(index: number) {
 
 <style lang="scss" scoped>
 .gallery-page {
-  padding-block: 65px 100px;
+  padding-block: 65px $space-100;
 }
 .gallery-wall {
-  columns: 4;
-  column-gap: 13px;
+  columns: $gallery-column-width 4;
+  column-gap: $space-13;
 }
 .gallery-item {
   position: relative;
   display: block;
   width: 100%;
-  margin: 0 0 13px;
+  margin: 0 0 $space-13;
   padding: 0;
   overflow: hidden;
   break-inside: avoid;
-  border: 1px solid $line;
-  border-radius: 6px;
+  border: $border-width solid $line;
+  border-radius: $radius-control;
   background: $white;
   cursor: zoom-in;
 
-  img {
+  &__image {
     width: 100%;
     height: auto;
   }
-  span {
+  &__badge {
     position: absolute;
-    right: 10px;
-    bottom: 10px;
-    width: 34px;
-    height: 34px;
+    z-index: $z-artwork;
+    right: $space-10;
+    bottom: $space-10;
+    width: $gallery-badge-size;
+    height: $gallery-badge-size;
     display: grid;
     place-items: center;
-    border-radius: 4px;
+    border-radius: $radius-small;
     background: $white;
     color: $ink;
-    opacity: 0;
-    transition: opacity 0.2s ease;
+    pointer-events: none;
+    transition: opacity $transition-ui;
   }
-  &:hover span,
-  &:focus-visible span {
+  &__icon {
+    width: $gallery-icon-size;
+    height: $gallery-icon-size;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gallery-item__badge {
+    opacity: 0;
+  }
+  .gallery-item:hover .gallery-item__badge,
+  .gallery-item:focus-visible .gallery-item__badge {
     opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .gallery-item__image {
+    transition: transform $transition-artwork;
+  }
+  .gallery-item:focus-visible .gallery-item__image {
+    transform: scale($artwork-hover-scale);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .gallery-item:hover .gallery-item__image {
+      transform: scale($artwork-hover-scale);
+    }
   }
 }
 .gallery-page__note {
   max-width: 650px;
   margin: 35px 0 0;
   color: $muted;
-  font-size: 0.82rem;
+  font-size: $font-size-note;
 }
 
-@media (max-width: 1024px) {
-  .gallery-wall {
-    columns: 3;
-  }
-}
-@media (max-width: 720px) {
+@media (max-width: $breakpoint-mobile) {
   .gallery-page {
-    padding-block: 38px 70px;
+    padding-block: $space-38 $space-70;
   }
   .gallery-wall {
-    columns: 2;
-    column-gap: 9px;
+    column-gap: $space-9;
   }
   .gallery-item {
-    margin-bottom: 9px;
-  }
-  .gallery-item span {
-    opacity: 1;
-  }
-}
-@media (max-width: 375px) {
-  .gallery-wall {
-    columns: 1;
+    margin-bottom: $space-9;
   }
 }
 </style>
