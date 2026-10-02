@@ -39,6 +39,7 @@ export const imageDimensions: Record<string, readonly [number, number]> = {
   '/images/fanart/fanart-35.webp': [1494, 839],
   '/images/fanart/fanart-36.webp': [840, 839],
   '/images/fanart/fanart-37.webp': [840, 839],
+  '/images/fanart/fanart-38.webp': [7000, 5000],
   '/images/fanart/fanart-4.webp': [1398, 839],
   '/images/fanart/fanart-5.webp': [689, 839],
   '/images/fanart/fanart-6.webp': [594, 839],
