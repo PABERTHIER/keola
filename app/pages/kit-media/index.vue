@@ -24,6 +24,16 @@
             <Icon name="lucide:mail" aria-hidden="true" />
             {{ t('media.email') }}
           </a>
+          <div class="media-page__characters">
+            <Image
+              class="media-page__character"
+              src="/images/keola/Keola_pirate_blep.webp"
+              :alt="t('media.pirate_blep_alt')" />
+            <Image
+              class="media-page__character"
+              src="/images/keola/Keola_pirate_blush.webp"
+              :alt="t('media.pirate_blush_alt')" />
+          </div>
         </div>
         <div class="media-page__links">
           <h2>{{ t('media.links_title') }}</h2>
@@ -104,6 +114,19 @@ useHead(usePageSeo('media'))
 .media-page__contact .button {
   margin-top: $space-8;
 }
+.media-page__characters {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: $space-12;
+  max-width: 340px;
+  margin-inline: auto;
+  margin-top: $space-20;
+}
+.media-page__character {
+  width: min(30%, 170px);
+  height: auto;
+}
 .media-page__links {
   margin-top: $space-45;
 }
@@ -120,9 +143,20 @@ useHead(usePageSeo('media'))
   border-top: $border-width solid $line;
   font-size: $font-size-secondary;
   font-weight: $weight-bold;
+  transition:
+    padding $transition-ui,
+    background-color $transition-ui;
 }
-.media-page__links a:hover {
+.media-page__links a:hover,
+.media-page__links a:focus-visible {
+  padding-left: $space-13;
+  background: $community-background;
   color: $link-hover;
+}
+@media (prefers-reduced-motion: reduce) {
+  .media-page__links a {
+    transition: none;
+  }
 }
 .media-page__links .social-icon {
   flex: 0 0 $control-size;

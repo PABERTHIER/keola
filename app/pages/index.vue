@@ -119,6 +119,10 @@
 
     <section class="closing-section" aria-labelledby="closing-title">
       <div class="shell closing-section__inner">
+        <Image
+          class="closing-section__peek"
+          src="/images/keola/Keola_Peak.webp"
+          alt="" />
         <div>
           <span class="eyebrow eyebrow--light">
             {{ t('home.community_eyebrow') }}
@@ -328,10 +332,13 @@ useHead(usePageSeo('home'))
   color: $white-pure;
 
   &__inner {
-    display: flex;
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr) auto;
     align-items: center;
-    justify-content: space-between;
     gap: $space-24;
+  }
+  &__peek {
+    width: 140px;
   }
   h2 {
     margin: $space-8 0;
@@ -346,6 +353,24 @@ useHead(usePageSeo('home'))
 }
 
 @media (max-width: $breakpoint-tablet) {
+  .closing-section__inner {
+    grid-template-columns: 54px minmax(0, 1fr);
+    gap: $space-12;
+  }
+  .closing-section__inner > div {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+  .closing-section__peek {
+    grid-row: 2;
+    width: 54px;
+  }
+  .closing-section__inner > a {
+    grid-column: 2;
+    grid-row: 2;
+    width: fit-content;
+    justify-self: end;
+  }
   .schedule-band__inner {
     flex-wrap: wrap;
   }
@@ -397,12 +422,28 @@ useHead(usePageSeo('home'))
     grid-template-columns: 1fr;
   }
   .closing-section__inner {
-    flex-direction: column;
-    align-items: start;
+    gap: $space-12;
+  }
+  .closing-section__peek {
+    width: 54px;
   }
 }
 
 @media (max-width: $breakpoint-small) {
+  .closing-section__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .closing-section__peek {
+    grid-column: 1;
+    grid-row: 3;
+    width: 48px;
+  }
+  .closing-section__inner > a {
+    grid-column: 1;
+    grid-row: 2;
+    width: fit-content;
+    justify-self: start;
+  }
   .partner {
     padding: $space-17;
     gap: $space-14;

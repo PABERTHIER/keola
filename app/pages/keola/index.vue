@@ -114,9 +114,24 @@
               <h3 :id="`lore-${chapter.id}`">
                 {{ t(`keola.lore.${chapter.id}.title`) }}
               </h3>
+              <Image
+                v-if="chapter.id === 'guardian'"
+                class="lore-story__guardian-art"
+                src="/images/keola/Keola_left_side_inclined_v2.webp"
+                :alt="t('keola.lore.guardian_alt')" />
               <p v-for="paragraph in chapter.paragraphs" :key="paragraph">
                 {{ t(`keola.lore.${chapter.id}.${paragraph}`) }}
               </p>
+              <div
+                v-if="chapter.id === 'streaming'"
+                class="lore-story__stream-art">
+                <Image
+                  src="/images/keola/Keola_chibi_looking.webp"
+                  :alt="t('keola.lore.chibi_alt')" />
+                <Image
+                  src="/images/keola/Keola_pirate_sat_heart_eyes.webp"
+                  :alt="t('keola.lore.pirate_heart_eyes_alt')" />
+              </div>
               <figure
                 v-if="chapter.id === 'origin'"
                 class="lore-story__spirits">
@@ -439,6 +454,26 @@ useHead(usePageSeo('keola'))
   &__spirits img {
     width: min(100%, 360px);
     margin-inline: auto;
+  }
+  &__guardian-art {
+    float: left;
+    width: clamp(105px, 22vw, 182px);
+    margin: $space-12 $space-6 $space-12 0;
+  }
+  &__stream-art {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: end;
+    gap: $space-16;
+    max-width: 520px;
+    margin: $space-30 auto 0;
+    border-bottom: 2px solid $orange-pale;
+  }
+  &__stream-art .image {
+    width: 100%;
+    height: clamp(180px, 30vw, 300px);
+    object-fit: contain;
+    object-position: bottom;
   }
 }
 

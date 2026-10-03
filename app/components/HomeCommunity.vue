@@ -4,11 +4,16 @@
     class="section community-section"
     aria-labelledby="community-title">
     <div class="shell community-section__grid">
-      <div>
+      <div class="community-section__intro">
         <span class="eyebrow">{{ t('home.community_eyebrow') }}</span>
-        <h2 id="community-title" class="section-title">
+        <h2 id="community-title" ref="communityTitle" class="section-title">
           {{ t('home.community_title') }}
         </h2>
+        <Image
+          class="community-section__character"
+          src="/images/keola/Keola_left_side_inclined_v1.webp"
+          :alt="t('home.community_art_alt')"
+          :style="{ height: `${characterHeight}px` }" />
         <p class="section-lead">{{ t('home.community_text') }}</p>
       </div>
       <div class="community-links">
@@ -41,12 +46,64 @@
 </template>
 
 <script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { featuredSocialLinks } from '~/data/site'
 
 const { t } = useI18n()
+const communityTitle = ref<HTMLElement | null>(null)
+const characterHeight = ref(36)
+let titleObserver: ResizeObserver | undefined
+
+onMounted(() => {
+  if (!communityTitle.value) return
+
+  const updateCharacterHeight = () => {
+    if (!communityTitle.value) return
+    const titleHeight = communityTitle.value.getBoundingClientRect().height
+    const lineHeight = Number.parseFloat(
+      window.getComputedStyle(communityTitle.value).lineHeight
+    )
+    const lineCount = lineHeight > 0 ? Math.round(titleHeight / lineHeight) : 1
+    const scale = lineCount >= 4 ? 0.9 : 0.82
+    const maxHeight = lineCount >= 4 ? 180 : 160
+
+    characterHeight.value = Math.min(
+      Math.max(40, titleHeight * scale),
+      maxHeight
+    )
+  }
+
+  updateCharacterHeight()
+  titleObserver = new ResizeObserver(updateCharacterHeight)
+  titleObserver.observe(communityTitle.value)
+})
+
+onBeforeUnmount(() => titleObserver?.disconnect())
 </script>
 
 <style lang="scss" scoped>
+.community-section__character {
+  grid-column: 1;
+  grid-row: 2;
+  width: auto;
+  max-width: 120px;
+  justify-self: start;
+  object-fit: contain;
+}
+.community-section__intro {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: $space-12;
+}
+.community-section__intro > .section-title {
+  grid-column: 2;
+  grid-row: 2;
+}
+.community-section__intro > .eyebrow,
+.community-section__intro > .section-lead {
+  grid-column: 1 / -1;
+}
 .community-section__grid {
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
@@ -111,6 +168,7 @@ const { t } = useI18n()
 
 @media (max-width: $breakpoint-tablet) {
   .community-section__grid {
+    grid-template-columns: minmax(0, 1fr);
     gap: $space-40;
   }
 }
@@ -119,6 +177,19 @@ const { t } = useI18n()
   .community-section__grid {
     grid-template-columns: minmax(0, 1fr);
     gap: $space-33;
+  }
+}
+
+@media (max-width: $breakpoint-small) {
+  .community-section__intro {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .community-section__intro > .section-title {
+    grid-column: 1;
+  }
+  .community-section__character {
+    grid-column: 1;
+    grid-row: 3;
   }
 }
 </style>
