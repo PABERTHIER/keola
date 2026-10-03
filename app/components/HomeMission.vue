@@ -22,7 +22,6 @@
         </a>
       </div>
       <div class="mission-section__art">
-        <span class="mission-section__orbit" aria-hidden="true">✳</span>
         <Image
           src="/images/red-panda-network-logo.webp"
           alt="Red Panda Network" />
@@ -90,14 +89,6 @@ const { t } = useI18n()
     align-items: center;
     font-size: $font-size-small;
     font-weight: $weight-bold;
-  }
-  &__orbit {
-    position: absolute;
-    right: $space-24;
-    top: 2px;
-    color: $mission-orbit;
-    font-size: 6rem;
-    line-height: 1;
   }
 }
 

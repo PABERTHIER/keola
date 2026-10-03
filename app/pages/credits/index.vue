@@ -29,12 +29,17 @@
           </span>
         </li>
       </ul>
-      <NuxtLink
-        class="button button--outline credits-page__link"
-        :to="localePath('/galerie')">
-        {{ t('site.gallery') }}
-        <Icon name="lucide:arrow-up-right" aria-hidden="true" />
-      </NuxtLink>
+      <div class="credits-page__next">
+        <Image
+          src="/images/keola/Keola_magnifying_glass.webp"
+          :alt="t('credits.magnifying_glass_alt')" />
+        <NuxtLink
+          class="button button--outline credits-page__link"
+          :to="localePath('/galerie')">
+          {{ t('site.gallery') }}
+          <Icon name="lucide:arrow-up-right" aria-hidden="true" />
+        </NuxtLink>
+      </div>
     </section>
   </main>
 </template>
@@ -96,8 +101,16 @@ useHead(usePageSeo('credits'))
   flex: none;
   font-size: 21px;
 }
-.credits-page__link {
+.credits-page__next {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: $space-18;
   margin-top: $space-42;
+}
+.credits-page__next img {
+  width: auto;
+  height: $button-min-height;
 }
 @media (max-width: $breakpoint-mobile) {
   .credits-page {
@@ -105,6 +118,14 @@ useHead(usePageSeo('credits'))
   }
   .credits-list {
     grid-template-columns: 1fr;
+  }
+}
+@media (max-width: $breakpoint-small) {
+  .credits-page__link {
+    order: 0;
+  }
+  .credits-page__next img {
+    order: 1;
   }
 }
 </style>
