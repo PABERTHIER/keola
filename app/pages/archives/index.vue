@@ -16,6 +16,11 @@
             :href="externalLinks.twitchSchedule"
             target="_blank"
             rel="noopener noreferrer">
+            <Icon
+              name="keo-icon:twitch-logo"
+              mode="svg"
+              size="20"
+              aria-hidden="true" />
             {{ t('archives.schedule_link') }}
             <Icon name="lucide:arrow-up-right" aria-hidden="true" />
           </a>

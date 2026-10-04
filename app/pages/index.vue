@@ -21,6 +21,11 @@
             :href="externalLinks.twitchSchedule"
             target="_blank"
             rel="noopener noreferrer">
+            <Icon
+              name="keo-icon:twitch-logo"
+              mode="svg"
+              size="20"
+              aria-hidden="true" />
             {{ t('home.schedule_link') }}
             <Icon name="lucide:arrow-up-right" aria-hidden="true" />
           </a>
@@ -29,6 +34,11 @@
             :href="externalLinks.twitch"
             target="_blank"
             rel="noopener noreferrer">
+            <Icon
+              name="keo-icon:twitch-logo"
+              mode="svg"
+              size="20"
+              aria-hidden="true" />
             {{ t('home.schedule_watch') }}
           </a>
         </div>
@@ -64,8 +74,12 @@
             :href="externalLinks.discord"
             target="_blank"
             rel="noopener noreferrer">
-            <Icon name="lucide:users-round" aria-hidden="true" />
-            {{ t('home.about_link') }}
+            <Icon
+              name="keo-icon:discord-logo"
+              mode="svg"
+              size="20"
+              aria-hidden="true" />
+            {{ t('home.discord_link') }}
             <Icon name="lucide:arrow-up-right" aria-hidden="true" />
           </a>
         </div>
@@ -207,6 +221,10 @@ useHead(usePageSeo('home'))
     align-items: center;
     gap: $space-19;
     flex: none;
+
+    .text-link {
+      gap: $space-8;
+    }
   }
 }
 

@@ -20,7 +20,11 @@
             :href="externalLinks.twitch"
             target="_blank"
             rel="noopener noreferrer">
-            <Icon name="lucide:radio" aria-hidden="true" />
+            <Icon
+              name="keo-icon:twitch-logo"
+              mode="svg"
+              size="20"
+              aria-hidden="true" />
             {{ t('site.watch') }}
             <Icon name="lucide:arrow-up-right" aria-hidden="true" />
           </a>
