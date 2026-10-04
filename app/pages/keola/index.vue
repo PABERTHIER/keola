@@ -5,7 +5,13 @@
         <div class="portrait-section__copy">
           <span class="eyebrow">{{ t('keola.eyebrow') }}</span>
           <h1 id="keola-title">{{ t('keola.title') }}</h1>
-          <p class="portrait-section__welcome">{{ t('keola.welcome') }}</p>
+          <p class="portrait-section__welcome">
+            <span>{{ t('keola.welcome') }}</span>
+            <Image
+              src="/images/misc/Esprit_violet.webp"
+              alt=""
+              class="portrait-section__spirit" />
+          </p>
           <p class="section-lead">{{ t('keola.intro') }}</p>
           <a
             class="button button--primary"
@@ -19,7 +25,7 @@
         </div>
         <figure class="portrait-section__art">
           <Image
-            src="/images/keola_v3_portrait.webp"
+            src="/images/models/Keola_v3_portrait.webp"
             :alt="t('keola.portrait_alt')"
             loading="eager"
             fetchpriority="high" />
@@ -136,7 +142,7 @@
                 v-if="chapter.id === 'origin'"
                 class="lore-story__spirits">
                 <Image
-                  src="/images/petits_esprits.webp"
+                  src="/images/misc/Petits_esprits.webp"
                   :alt="t('keola.lore.spirits_alt')" />
                 <figcaption>{{ t('keola.lore.spirits_caption') }}</figcaption>
               </figure>
@@ -157,6 +163,12 @@
             {{ t('keola.debut.title') }}
           </h2>
           <p class="section-lead">{{ t('keola.debut.text') }}</p>
+          <figure class="debut-section__teaser">
+            <Image
+              src="/images/debut/Keola_Debut.webp"
+              :alt="t('keola.debut.teaser_alt')" />
+            <figcaption>{{ t('keola.debut.teaser_caption') }}</figcaption>
+          </figure>
           <div class="debut-section__actions">
             <NuxtLink
               class="button button--outline"
@@ -168,7 +180,7 @@
         </div>
         <figure class="debut-section__poster">
           <Image
-            src="/images/Keola_Schedule_debut.webp"
+            src="/images/debut/Keola_Schedule_debut.webp"
             :alt="t('keola.debut.alt')" />
           <figcaption>{{ t('keola.debut.caption') }}</figcaption>
         </figure>
@@ -185,18 +197,69 @@
           {{ t('keola.models.title') }}
         </h2>
         <p class="section-lead">{{ t('keola.models.text') }}</p>
+        <figure class="models-section__evolution">
+          <Image :src="evolutionImage" :alt="t('keola.models.evolution_alt')" />
+          <figcaption>{{ t('keola.models.evolution') }}</figcaption>
+        </figure>
         <div class="models-section__gallery">
-          <figure v-for="model in models" :key="model.id">
-            <div class="models-section__art">
+          <figure v-for="(model, index) in models" :key="model.id">
+            <button
+              class="models-section__art"
+              type="button"
+              :aria-label="
+                t('keola.models.open_image', {
+                  name: t(`keola.models.${model.id}`),
+                })
+              "
+              @click="openModelArtwork(index, $event)">
               <Image
                 :src="model.src"
                 :alt="t(`keola.models.${model.id}_alt`)" />
-            </div>
+              <Icon
+                class="models-section__expand"
+                name="lucide:expand"
+                aria-hidden="true" />
+            </button>
             <figcaption>{{ t(`keola.models.${model.id}`) }}</figcaption>
           </figure>
         </div>
+        <div class="models-section__references">
+          <h3>{{ t('keola.models.references_title') }}</h3>
+          <p>{{ t('keola.models.references_intro') }}</p>
+          <div class="models-section__reference-grid">
+            <figure
+              v-for="(reference, index) in modelReferences"
+              :key="reference.id"
+              :class="{
+                'models-section__reference--wide': reference.id === 'sheet2026',
+              }">
+              <button
+                type="button"
+                :aria-label="
+                  t('keola.models.open_image', {
+                    name: t(`keola.models.${reference.id}`),
+                  })
+                "
+                @click="openModelArtwork(index + models.length, $event)">
+                <Image
+                  :src="reference.src"
+                  :alt="t(`keola.models.${reference.id}_alt`)" />
+                <span>
+                  {{ t('keola.models.open') }}
+                  <Icon name="lucide:expand" aria-hidden="true" />
+                </span>
+              </button>
+              <figcaption>{{ t(`keola.models.${reference.id}`) }}</figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
     </section>
+
+    <ArtworkLightbox
+      ref="modelViewer"
+      :artworks="modelArtworks"
+      :label="t('keola.models.title')" />
 
     <section
       id="more"
@@ -278,10 +341,33 @@ const loreChapters = [
   { id: 'streaming', paragraphs: ['p1', 'p2', 'p3'] },
 ] as const
 const models = [
-  { id: 'v3', src: '/images/keola_v3.webp' },
-  { id: 'v4', src: '/images/keola_v4.webp' },
-  { id: 'recent', src: '/images/vts_2026_hd.webp' },
+  { id: 'v3', src: '/images/models/Keola_v3.webp' },
+  { id: 'v4', src: '/images/models/Keola_v4.webp' },
+  { id: 'recent', src: '/images/models/Keola_v5.webp' },
 ] as const
+const evolutionImage = '/images/models/Keola_models_evolution.webp'
+const modelReferences = [
+  { id: 'sheet2025', src: '/images/models/Keola_Refsheet_2025.webp' },
+  { id: 'referenceV5', src: '/images/models/Keola_Ref_model_v5.webp' },
+  { id: 'sheet2026', src: '/images/models/Keola_Refsheet_2026.webp' },
+] as const
+const modelViewer = ref<{
+  open: (index: number, trigger?: HTMLElement) => void
+} | null>(null)
+const modelArtworks = computed(() => [
+  ...models.map(model => ({
+    src: model.src,
+    alt: t(`keola.models.${model.id}_alt`),
+  })),
+  ...modelReferences.map(reference => ({
+    src: reference.src,
+    alt: t(`keola.models.${reference.id}_alt`),
+  })),
+])
+
+function openModelArtwork(index: number, event: MouseEvent) {
+  modelViewer.value?.open(index, event.currentTarget as HTMLElement)
+}
 
 useHead(usePageSeo('keola'))
 </script>
@@ -292,6 +378,12 @@ useHead(usePageSeo('keola'))
 
   figure {
     margin: 0;
+  }
+  figure.models-section__evolution {
+    margin: $space-40 auto 0;
+  }
+  figure.debut-section__teaser {
+    margin: 0 auto $space-24;
   }
   figcaption {
     margin-top: $space-16;
@@ -321,10 +413,22 @@ useHead(usePageSeo('keola'))
     overflow-wrap: anywhere;
   }
   &__welcome {
+    display: flex;
+    align-items: center;
+    gap: $space-10;
     color: $plum;
     font-family: $display;
     font-size: 1.3rem;
     margin-bottom: $space-16;
+
+    span {
+      min-width: 0;
+    }
+  }
+  &__spirit {
+    flex: 0 0 auto;
+    width: 42px;
+    object-fit: contain;
   }
   .section-lead {
     margin-bottom: $space-24;
@@ -491,6 +595,17 @@ useHead(usePageSeo('keola'))
     border-radius: $radius-art;
     box-shadow: 8px 8px 0 $orange-pale;
   }
+  &__teaser {
+    width: min(100%, 280px);
+  }
+  &__teaser img {
+    width: 100%;
+    border-radius: $radius-art;
+    box-shadow: 5px 5px 0 $orange-pale;
+  }
+  &__teaser figcaption {
+    margin-top: $space-10;
+  }
   &__actions {
     display: flex;
     justify-content: center;
@@ -501,6 +616,63 @@ useHead(usePageSeo('keola'))
 }
 
 .models-section {
+  > .shell > .section-lead {
+    max-width: none;
+  }
+  &__evolution {
+    max-width: 800px;
+  }
+  &__evolution img,
+  &__reference-grid img {
+    width: 100%;
+    border-radius: $radius-art;
+  }
+  &__reference-grid button {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: $link-hover;
+    text-align: left;
+    cursor: zoom-in;
+  }
+  &__reference-grid button > span {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-8;
+    min-height: $control-size;
+    font-size: $font-size-secondary;
+    font-weight: $weight-bold;
+  }
+  &__evolution figcaption,
+  &__reference-grid figcaption {
+    margin-top: $space-4;
+  }
+  &__references {
+    margin-top: $space-60;
+  }
+  &__references h3 {
+    font-size: 1.5rem;
+  }
+  &__references > p {
+    color: $muted;
+  }
+  &__reference-grid {
+    display: grid;
+    gap: $space-32;
+    margin-top: $space-24;
+  }
+  &__reference-grid figure {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    min-width: 0;
+  }
+  &__reference-grid button {
+    justify-content: center;
+  }
   &__gallery {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -516,14 +688,29 @@ useHead(usePageSeo('keola'))
     width: calc(50% - $space-8);
   }
   &__art {
+    position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: minmax(0, 1fr);
     place-items: center;
+    width: 100%;
     height: clamp(180px, 38svh, 240px);
     padding: $space-16;
+    border: 0;
     border-bottom: 2px solid $orange;
     background: linear-gradient(0deg, $orange-pale, transparent 75%);
+    cursor: zoom-in;
+  }
+  &__expand {
+    position: absolute;
+    right: $space-10;
+    bottom: $space-10;
+    width: $gallery-badge-size;
+    height: $gallery-badge-size;
+    padding: $space-8;
+    border-radius: $radius-small;
+    background: $white;
+    color: $ink;
   }
   &__art img {
     min-height: 0;
@@ -639,6 +826,9 @@ useHead(usePageSeo('keola'))
   .debut-section__actions {
     justify-content: flex-start;
   }
+  .keola-page figure.debut-section__teaser {
+    margin-left: 0;
+  }
   .models-section__gallery {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: $space-24;
@@ -665,6 +855,13 @@ useHead(usePageSeo('keola'))
   .models-section__art {
     height: 420px;
   }
+  .models-section__reference-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+  .models-section__reference--wide {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: $breakpoint-small) {
@@ -673,6 +870,9 @@ useHead(usePageSeo('keola'))
   }
   .portrait-section h1 {
     font-size: 2.15rem;
+  }
+  .portrait-section__spirit {
+    width: 34px;
   }
 }
 

@@ -13,7 +13,7 @@
           class="gallery-item"
           type="button"
           :aria-label="t('gallery.open', { number })"
-          @click="openArtwork(index)">
+          @click="openArtwork(index, $event)">
           <Image
             class="gallery-item__image"
             :src="`/images/fanart/fanart-${number}.webp`"
@@ -26,7 +26,10 @@
       <p class="gallery-page__note">{{ t('gallery.credit_note') }}</p>
     </section>
 
-    <FanartLightbox ref="viewer" :numbers="fanartNumbers" />
+    <ArtworkLightbox
+      ref="viewer"
+      :artworks="artworks"
+      :label="t('site.gallery')" />
   </main>
 </template>
 
@@ -34,12 +37,20 @@
 import { fanartNumbers } from '~/data/site'
 
 const { t } = useI18n()
-const viewer = ref<{ open: (index: number) => void } | null>(null)
+const viewer = ref<{
+  open: (index: number, trigger?: HTMLElement) => void
+} | null>(null)
+const artworks = computed(() =>
+  fanartNumbers.map(number => ({
+    src: `/images/fanart/fanart-${number}.webp`,
+    alt: t('gallery.image_alt', { number }),
+  }))
+)
 
 useHead(usePageSeo('gallery'))
 
-function openArtwork(index: number) {
-  viewer.value?.open(index)
+function openArtwork(index: number, event: MouseEvent) {
+  viewer.value?.open(index, event.currentTarget as HTMLElement)
 }
 </script>
 

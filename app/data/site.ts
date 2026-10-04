@@ -83,7 +83,7 @@ export const featuredSocialLinks = socialLinks.filter(link =>
 
 export const fanartNumbers = [
   ...Array.from({ length: 16 }, (_, index) => index + 1),
-  ...Array.from({ length: 21 }, (_, index) => index + 18),
+  ...Array.from({ length: 22 }, (_, index) => index + 18),
 ]
 
 export const credits = [
