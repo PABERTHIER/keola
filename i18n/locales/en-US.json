@@ -1,5 +1,12 @@
 {
   "site": {
+    "brand_first": "Keola",
+    "brand_last": "Kumaneko",
+    "brand_name": "Keola Kumaneko",
+    "brand_logo_alt": "Keola Kumaneko's red panda head logo with little spirits",
+    "red_panda_network": "Red Panda Network",
+    "safebear": "Safebear",
+    "holy": "HOLY",
     "skip": "Skip to content",
     "menu": "Open menu",
     "close_menu": "Close menu",
@@ -81,7 +88,7 @@
     "about_link": "Join the Discord",
     "gallery_eyebrow": "Community creations",
     "gallery_title": "Keola through her artists' eyes.",
-    "gallery_text": "Different styles, different colors, countless ways to imagine Keola. Here are the latest creations shared on her site.",
+    "gallery_text": "Different styles, different colors, countless ways to imagine Keola. Here is a selection of creations shared on her site.",
     "gallery_link": "Explore the gallery",
     "mission_eyebrow": "A cause that matters",
     "mission_title": "Protecting red pandas, for real.",
@@ -93,6 +100,7 @@
     "community_art_alt": "Keola Kumaneko leaning in from the side to say hello",
     "partners_eyebrow": "People and collaborations",
     "partners_title": "Connections with a purpose.",
+    "closing_art_alt": "Keola peeking over the edge with her ears raised",
     "safebear_text": "Keola joined SafeBear's ambassadors in 2025: a tool for collecting evidence of online harassment.",
     "holy_text": "A drinks brand Keola has collaborated with.",
     "partner_link": "Visit website",
@@ -101,6 +109,7 @@
     "end_link": "Join the little spirits"
   },
   "keola": {
+    "welcome_spirit_alt": "Smiling little purple spirit",
     "eyebrow": "French-speaking VTuber · Red panda",
     "title": "Keola Kumaneko",
     "welcome": "Welcome, my little spirits.",
@@ -206,6 +215,8 @@
       "recent_alt": "Full view of Keola's model in the 2026 visual"
     },
     "more": {
+      "credits_art_alt": "Keola holding a magnifying glass beside a map and the word Credits",
+      "facts_art_alt": "Keola perched on a little purple spirit in a snowy scene",
       "eyebrow": "The little details matter",
       "title": "A little more Keola.",
       "credits_title": "The talent behind Keola",
@@ -220,7 +231,7 @@
   "gallery": {
     "eyebrow": "Gallery · The little spirits",
     "title": "A world made together.",
-    "intro": "Fanart shared around Keola, from newest to oldest.",
+    "intro": "A selection of fanart shared around Keola.",
     "image_alt": "Fanart of Keola Kumaneko, red panda VTuber, number {number}",
     "open": "Enlarge fanart number {number}",
     "count": "{number} of {total}",
@@ -259,6 +270,7 @@
     "title": "The chapters before this one.",
     "intro": "Past events and creations. For upcoming streams, head to the Twitch schedule.",
     "redpandathon": "Red Pandathon · 2024",
+    "redpandathon_eyebrow": "2024 / Red Panda Network",
     "redpandathon_text": "A charity event held July 18–21, 2024 in support of Red Panda Network.",
     "redpandathon_goals_alt": "Red Pandathon 2024 goals board",
     "redpandathon_impossible_alt": "Red Pandathon 2024 impossible goals board",

@@ -1,5 +1,12 @@
 {
   "site": {
+    "brand_first": "Keola",
+    "brand_last": "Kumaneko",
+    "brand_name": "Keola Kumaneko",
+    "brand_logo_alt": "レッサーパンダの顔と小さな精霊たちを描いたケオラ・クマネコのロゴ",
+    "red_panda_network": "Red Panda Network",
+    "safebear": "Safebear",
+    "holy": "HOLY",
     "skip": "本文へ移動",
     "menu": "メニューを開く",
     "close_menu": "メニューを閉じる",
@@ -81,7 +88,7 @@
     "about_link": "Discordに参加",
     "gallery_eyebrow": "コミュニティの作品",
     "gallery_title": "アーティストたちが描くケオラ。",
-    "gallery_text": "色もスタイルもさまざま。ケオラのサイトで公開された新しいファンアートを紹介します。",
+    "gallery_text": "色もスタイルもさまざま。ケオラのサイトで公開されたファンアートから、いくつかを紹介します。",
     "gallery_link": "ギャラリーを見る",
     "mission_eyebrow": "大切な活動",
     "mission_title": "レッサーパンダを、現実の世界でも守る。",
@@ -93,6 +100,7 @@
     "community_art_alt": "横から身を乗り出して挨拶するケオラ・クマネコ",
     "partners_eyebrow": "出会いとコラボレーション",
     "partners_title": "大切なつながり。",
+    "closing_art_alt": "耳を立てて、縁から顔をのぞかせるケオラ",
     "safebear_text": "ケオラは2025年にSafeBearのアンバサダーに加わりました。ネット上のハラスメントの証拠を集めるためのツールです。",
     "holy_text": "ケオラがコラボレーションしたことのあるドリンクブランド。",
     "partner_link": "サイトを見る",
@@ -101,6 +109,7 @@
     "end_link": "小さな精霊たちに加わる"
   },
   "keola": {
+    "welcome_spirit_alt": "笑顔の紫色の小さな精霊",
     "eyebrow": "フランス語で活動するVTuber · レッサーパンダ",
     "title": "Keola Kumaneko",
     "welcome": "ようこそ、私の小さな精霊たち。",
@@ -206,6 +215,8 @@
       "recent_alt": "2026年のビジュアルに描かれたケオラのモデルの全身イラスト"
     },
     "more": {
+      "credits_art_alt": "虫眼鏡を持つケオラと地図、「CREDITS」の文字",
+      "facts_art_alt": "雪景色の中、紫色の小さな精霊の上に座るケオラ",
       "eyebrow": "小さなことも大切に",
       "title": "もっとケオラを知る。",
       "credits_title": "ケオラを支えるクリエイター",
@@ -220,7 +231,7 @@
   "gallery": {
     "eyebrow": "ギャラリー · 小さな精霊たち",
     "title": "みんなでつくる世界。",
-    "intro": "ケオラのファンアートを新しい順に紹介します。",
+    "intro": "ケオラをめぐって共有されたファンアートの一部を紹介します。",
     "image_alt": "レッサーパンダVTuber、ケオラ・クマネコのファンアート {number}",
     "open": "ファンアート {number} を拡大",
     "count": "{total} 枚中 {number} 枚目",
@@ -259,6 +270,7 @@
     "title": "これまでの物語。",
     "intro": "過去のイベントや作品を紹介します。次の配信予定はTwitchで確認できます。",
     "redpandathon": "Red Pandathon · 2024",
+    "redpandathon_eyebrow": "2024 / Red Panda Network",
     "redpandathon_text": "2024年7月18日から21日まで開催された、Red Panda Networkを支援するチャリティーイベント。",
     "redpandathon_goals_alt": "2024年Red Pandathonの目標一覧",
     "redpandathon_impossible_alt": "2024年Red Pandathonの追加目標一覧",

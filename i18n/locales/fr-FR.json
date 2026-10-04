@@ -1,5 +1,12 @@
 {
   "site": {
+    "brand_first": "Keola",
+    "brand_last": "Kumaneko",
+    "brand_name": "Keola Kumaneko",
+    "brand_logo_alt": "Logo de Keola Kumaneko en forme de tête de panda roux, avec de petits esprits",
+    "red_panda_network": "Red Panda Network",
+    "safebear": "Safebear",
+    "holy": "HOLY",
     "skip": "Aller au contenu",
     "menu": "Ouvrir le menu",
     "close_menu": "Fermer le menu",
@@ -81,7 +88,7 @@
     "about_link": "Rejoindre le Discord",
     "gallery_eyebrow": "Créations de la communauté",
     "gallery_title": "Keola vue par ses artistes.",
-    "gallery_text": "Des styles, des couleurs et autant de façons d'imaginer Keola. Voici les dernières créations partagées sur son site.",
+    "gallery_text": "Des styles, des couleurs et autant de façons d'imaginer Keola. Voici une sélection de créations partagées sur son site.",
     "gallery_link": "Explorer la galerie",
     "mission_eyebrow": "Une cause qui compte",
     "mission_title": "Protéger les pandas roux, pour de vrai.",
@@ -93,6 +100,7 @@
     "community_art_alt": "Keola Kumaneko se penche sur le côté pour saluer",
     "partners_eyebrow": "Rencontres et collaborations",
     "partners_title": "Des liens qui ont du sens.",
+    "closing_art_alt": "Keola, les oreilles dressées, regarde par-dessus le bord",
     "safebear_text": "Keola a rejoint les ambassadeurs de SafeBear en 2025 : un outil de collecte de preuves face au cyberharcèlement.",
     "holy_text": "Une marque de boissons avec laquelle Keola a collaboré.",
     "partner_link": "Découvrir le site",
@@ -101,6 +109,7 @@
     "end_link": "Rejoindre les petits esprits"
   },
   "keola": {
+    "welcome_spirit_alt": "Petit esprit violet souriant",
     "eyebrow": "VTuber francophone · Panda roux",
     "title": "Keola Kumaneko",
     "welcome": "Bienvenue, mes petits esprits.",
@@ -206,6 +215,8 @@
       "recent_alt": "Vue complète du modèle de Keola dans le visuel de 2026"
     },
     "more": {
+      "credits_art_alt": "Keola, loupe à la main, devant une carte et le mot Credits",
+      "facts_art_alt": "Keola perchée sur un petit esprit violet dans une scène enneigée",
       "eyebrow": "Les petits détails comptent",
       "title": "Encore un peu de Keola.",
       "credits_title": "Les talents derrière Keola",
@@ -220,7 +231,7 @@
   "gallery": {
     "eyebrow": "Galerie · Les petits esprits",
     "title": "Tout un monde, à plusieurs mains.",
-    "intro": "Une sélection de fanarts partagés autour de Keola, du plus récent au plus ancien.",
+    "intro": "Une sélection de fanarts partagés autour de Keola.",
     "image_alt": "Fanart de Keola Kumaneko, VTuber panda roux, numéro {number}",
     "open": "Agrandir le fanart numéro {number}",
     "count": "{number} sur {total}",
@@ -259,6 +270,7 @@
     "title": "Les chapitres précédents.",
     "intro": "Des moments et des créations des années passées. Pour les prochains rendez-vous, direction le planning Twitch.",
     "redpandathon": "Red Pandathon · 2024",
+    "redpandathon_eyebrow": "2024 / Red Panda Network",
     "redpandathon_text": "Un événement caritatif organisé du 18 au 21 juillet 2024 en soutien à Red Panda Network.",
     "redpandathon_goals_alt": "Tableau des objectifs du Red Pandathon 2024",
     "redpandathon_impossible_alt": "Tableau des objectifs impossibles du Red Pandathon 2024",

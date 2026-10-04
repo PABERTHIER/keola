@@ -24,9 +24,9 @@
       <div class="mission-section__art">
         <Image
           src="/images/redpanda/RedPandaNetwork_logo.webp"
-          alt="Red Panda Network" />
+          :alt="t('site.red_panda_network')" />
         <span>
-          Red Panda Network
+          {{ t('site.red_panda_network') }}
           <Icon name="lucide:arrow-up-right" aria-hidden="true" />
         </span>
       </div>

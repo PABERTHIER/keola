@@ -3,11 +3,14 @@
     :to="localePath('/')"
     class="brand"
     :class="{ 'brand--inverse': inverse }"
-    aria-label="Keola Kumaneko">
-    <Image src="/images/logo.webp" alt="" loading="eager" />
+    :aria-label="t('site.brand_name')">
+    <Image
+      src="/images/logo.webp"
+      :alt="t('site.brand_logo_alt')"
+      loading="eager" />
     <span class="brand__text">
-      Keola
-      <span>Kumaneko</span>
+      {{ t('site.brand_first') }}
+      <span>{{ t('site.brand_last') }}</span>
     </span>
   </NuxtLink>
 </template>
@@ -15,6 +18,7 @@
 <script setup lang="ts">
 defineProps<{ inverse?: boolean }>()
 
+const { t } = useI18n()
 const localePath = useLocalePath()
 </script>
 
