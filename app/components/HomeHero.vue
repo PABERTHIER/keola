@@ -42,7 +42,7 @@
         <Transition name="hero-slide">
           <Image
             :key="activeSlide"
-            :src="`/images/slideshow-${slides[activeSlide]}.webp`"
+            :src="`/images/slideshows/slideshow-${slides[activeSlide]}.webp`"
             :alt="t('home.hero_alt')"
             loading="eager"
             :fetchpriority="activeSlide === 0 ? 'high' : 'auto'" />
@@ -104,7 +104,7 @@ import { externalLinks } from '~/data/site'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
-const slides = [1, 2, 3, 4, 5] as const
+const slides = [1, 2, 3, 4, 5, 6] as const
 const activeSlide = ref(0)
 const paused = ref(false)
 const reducedMotion = ref(false)
@@ -129,7 +129,7 @@ function preloadSlide(index: number) {
   const cached = preloads.get(index)
   if (cached) return cached
   const image = new window.Image()
-  image.src = `/images/slideshow-${slides[index]}.webp`
+  image.src = `/images/slideshows/slideshow-${slides[index]}.webp`
   const decoded = image.decode().catch(error => {
     preloads.delete(index)
     throw error

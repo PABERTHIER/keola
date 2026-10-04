@@ -138,7 +138,7 @@ The collection is processed during the Nuxt build and needs no Vercel asset prov
 Use [Image.vue](app/components/Image.vue) for artwork:
 
 ```vue
-<Image src="/images/mediakit.webp" :alt="t('media.preview_alt')" />
+<Image src="/images/misc/Mediakit.webp" :alt="t('media.preview_alt')" />
 ```
 
 It renders a single native `img`, with lazy loading, asynchronous decoding and proportional sizing by default.

@@ -23,7 +23,7 @@
           :aria-label="`${t('home.gallery_link')} · ${t('gallery.image_alt', { number })}`">
           <Image
             class="preview-grid__image"
-            :src="`/images/fanart/fanart-${number}.webp`"
+            :src="`/images/fanarts/fanart-${number}.webp`"
             :alt="t('gallery.image_alt', { number })" />
           <span class="preview-grid__badge" aria-hidden="true">
             <Icon class="preview-grid__icon" name="lucide:arrow-up-right" />

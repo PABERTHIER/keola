@@ -3,7 +3,7 @@
     ref="dialog"
     class="lightbox"
     data-lenis-prevent
-    :aria-label="t('site.gallery')"
+    :aria-label="label"
     @click.self="close"
     @keydown="handleKeydown"
     @close="handleClose">
@@ -22,9 +22,9 @@
       @touchend.passive="endSwipe"
       @touchcancel="swipeStart = null">
       <Image
-        v-if="activeNumber !== null"
-        :src="`/images/fanart/fanart-${activeNumber}.webp`"
-        :alt="t('gallery.image_alt', { number: activeNumber })"
+        v-if="activeArtwork"
+        :src="activeArtwork.src"
+        :alt="activeArtwork.alt"
         loading="eager" />
     </div>
     <div class="lightbox__controls">
@@ -38,7 +38,10 @@
       </button>
       <span v-if="activeIndex !== null">
         {{
-          t('gallery.count', { number: activeIndex + 1, total: numbers.length })
+          t('gallery.count', {
+            number: activeIndex + 1,
+            total: artworks.length,
+          })
         }}
       </span>
       <button
@@ -54,14 +57,18 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{ numbers: readonly number[] }>()
+const props = defineProps<{
+  artworks: readonly { src: string; alt: string }[]
+  label: string
+}>()
 const { t } = useI18n()
 const { $lenis } = useNuxtApp()
 const dialog = ref<HTMLDialogElement | null>(null)
 const activeIndex = ref<number | null>(null)
-const activeNumber = computed(() =>
-  activeIndex.value === null ? null : props.numbers[activeIndex.value]
+const activeArtwork = computed(() =>
+  activeIndex.value === null ? null : props.artworks[activeIndex.value]
 )
+let opener: HTMLElement | null = null
 let swipeStart: {
   identifier: number
   x: number
@@ -105,7 +112,9 @@ function endSwipe(event: TouchEvent) {
   }
 }
 
-function open(index: number) {
+function open(index: number, trigger?: HTMLElement) {
+  if (!props.artworks[index]) return
+  opener = trigger ?? (document.activeElement as HTMLElement | null)
   swipeStart = null
   activeIndex.value = index
   dialog.value?.showModal()
@@ -120,6 +129,8 @@ function close() {
 function handleClose() {
   activeIndex.value = null
   $lenis.start()
+  if (opener?.isConnected) opener.focus({ preventScroll: true })
+  opener = null
 }
 
 onBeforeUnmount(() => {
@@ -129,8 +140,8 @@ onBeforeUnmount(() => {
 function move(direction: -1 | 1) {
   if (activeIndex.value === null) return
   activeIndex.value =
-    (activeIndex.value + direction + props.numbers.length) %
-    props.numbers.length
+    (activeIndex.value + direction + props.artworks.length) %
+    props.artworks.length
 }
 
 function handleKeydown(event: KeyboardEvent) {
