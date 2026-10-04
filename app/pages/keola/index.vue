@@ -277,7 +277,7 @@
             target="_blank"
             rel="noopener noreferrer">
             <div class="illustrated-link__art">
-              <Image src="/images/credits.webp" alt="" />
+              <Image src="/images/misc/Credits.webp" alt="" />
             </div>
             <div class="illustrated-link__copy">
               <h3>{{ t('keola.more.credits_title') }}</h3>
@@ -294,7 +294,7 @@
             target="_blank"
             rel="noopener noreferrer">
             <div class="illustrated-link__art">
-              <Image src="/images/keo_damour_1.webp" alt="" />
+              <Image src="/images/misc/Facts.webp" alt="" />
             </div>
             <div class="illustrated-link__copy">
               <h3>{{ t('keola.more.facts_title') }}</h3>

@@ -16,7 +16,7 @@
           @click="openArtwork(index, $event)">
           <Image
             class="gallery-item__image"
-            :src="`/images/fanart/fanart-${number}.webp`"
+            :src="`/images/fanarts/fanart-${number}.webp`"
             :alt="t('gallery.image_alt', { number })" />
           <span class="gallery-item__badge" aria-hidden="true">
             <Icon class="gallery-item__icon" name="lucide:expand" />
@@ -42,7 +42,7 @@ const viewer = ref<{
 } | null>(null)
 const artworks = computed(() =>
   fanartNumbers.map(number => ({
-    src: `/images/fanart/fanart-${number}.webp`,
+    src: `/images/fanarts/fanart-${number}.webp`,
     alt: t('gallery.image_alt', { number }),
   }))
 )

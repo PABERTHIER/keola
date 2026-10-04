@@ -44,7 +44,9 @@
           :to="localePath('/keola')"
           class="about-section__art"
           :aria-label="t('home.about_discover')">
-          <Image src="/images/slideshow-6.webp" :alt="t('home.about_alt')" />
+          <Image
+            src="/images/fanarts/fanart-32.webp"
+            :alt="t('home.about_alt')" />
           <span class="about-section__art-label">
             {{ t('home.about_discover') }}
             <Icon name="lucide:arrow-right" aria-hidden="true" />
@@ -88,7 +90,9 @@
             :href="externalLinks.safebear"
             target="_blank"
             rel="noopener noreferrer">
-            <Image src="/images/safebear-brand-logo.webp" alt="Safebear" />
+            <Image
+              src="/images/brands/safebear-brand-logo.webp"
+              alt="Safebear" />
             <span>
               <strong>Safebear</strong>
               <small>{{ t('home.safebear_text') }}</small>
@@ -103,7 +107,7 @@
             :href="externalLinks.holy"
             target="_blank"
             rel="noopener noreferrer">
-            <Image src="/images/holy-brand-logo.webp" alt="HOLY" />
+            <Image src="/images/brands/holy-brand-logo.webp" alt="HOLY" />
             <span>
               <strong>HOLY</strong>
               <small>{{ t('home.holy_text') }}</small>

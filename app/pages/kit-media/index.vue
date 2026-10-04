@@ -6,10 +6,10 @@
       :intro="t('media.intro')" />
     <div class="media-page shell">
       <div class="media-page__sheet">
-        <Image src="/images/mediakit.webp" :alt="t('media.preview_alt')" />
+        <Image src="/images/misc/Mediakit.webp" :alt="t('media.preview_alt')" />
         <a
           class="button button--dark"
-          href="/images/mediakit.webp"
+          href="/images/misc/Mediakit.webp"
           download="keola-kumaneko-mediakit.webp">
           <Icon name="lucide:download" aria-hidden="true" />
           {{ t('media.download') }}

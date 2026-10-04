@@ -23,7 +23,7 @@
       </div>
       <div class="mission-section__art">
         <Image
-          src="/images/red-panda-network-logo.webp"
+          src="/images/redpanda/RedPandaNetwork_logo.webp"
           alt="Red Panda Network" />
         <span>
           Red Panda Network
