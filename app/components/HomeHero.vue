@@ -310,7 +310,6 @@ onBeforeUnmount(() => {
     }
     .icon-button:disabled {
       opacity: 0.5;
-      cursor: default;
     }
   }
   &__slide-count {

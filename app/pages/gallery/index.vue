@@ -81,8 +81,6 @@ function openArtwork(index: number, event: MouseEvent) {
   border: $border-width solid $line;
   border-radius: $radius-control;
   background: $white;
-  cursor: zoom-in;
-
   &__image {
     width: 100%;
     height: auto;

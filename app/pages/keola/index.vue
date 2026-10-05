@@ -650,7 +650,6 @@ useHead(usePageSeo('keola'))
     background: transparent;
     color: $link-hover;
     text-align: left;
-    cursor: zoom-in;
   }
   &__reference-grid button > span {
     display: inline-flex;
@@ -712,7 +711,6 @@ useHead(usePageSeo('keola'))
     border: 0;
     border-bottom: 2px solid $orange;
     background: linear-gradient(0deg, $orange-pale, transparent 75%);
-    cursor: zoom-in;
   }
   &__expand {
     position: absolute;
