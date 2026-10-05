@@ -50,7 +50,7 @@ export const imageDimensions: Record<string, readonly [number, number]> = {
   '/images/fanarts/fanart-7.webp': [607, 840],
   '/images/fanarts/fanart-8.webp': [1355, 839],
   '/images/fanarts/fanart-9.webp': [833, 840],
-  '/images/keola/Keola_left_side_inclined_v1.webp': [465, 693],
+  '/images/keola/Keola_left_side_inclined_v1.webp': [465, 675],
   '/images/keola/Keola_left_side_inclined_v2.webp': [347, 512],
   '/images/keola/Keola_Peak.webp': [712, 632],
   '/images/keola/Keola_chibi_looking.webp': [476, 524],
