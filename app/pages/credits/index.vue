@@ -35,7 +35,7 @@
           :alt="t('credits.magnifying_glass_alt')" />
         <NuxtLink
           class="button button--outline credits-page__link"
-          :to="localePath('/galerie')">
+          :to="localePath('/gallery')">
           {{ t('site.gallery') }}
           <Icon name="lucide:arrow-up-right" aria-hidden="true" />
         </NuxtLink>

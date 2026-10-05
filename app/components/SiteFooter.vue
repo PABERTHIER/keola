@@ -15,7 +15,7 @@
           <NuxtLink :to="localePath('/keola')">
             {{ t('site.about') }}
           </NuxtLink>
-          <NuxtLink :to="localePath('/galerie')">
+          <NuxtLink :to="localePath('/gallery')">
             {{ t('site.gallery') }}
           </NuxtLink>
           <NuxtLink

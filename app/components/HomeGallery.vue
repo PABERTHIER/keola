@@ -9,7 +9,7 @@
           </h2>
           <p class="section-lead">{{ t('home.gallery_text') }}</p>
         </div>
-        <NuxtLink class="button button--outline" :to="localePath('/galerie')">
+        <NuxtLink class="button button--outline" :to="localePath('/gallery')">
           {{ t('home.gallery_link') }}
           <Icon name="lucide:arrow-up-right" aria-hidden="true" />
         </NuxtLink>
@@ -19,7 +19,7 @@
           v-for="number in fanartNumbers.slice(0, 4)"
           :key="number"
           class="preview-grid__item"
-          :to="localePath('/galerie')"
+          :to="localePath('/gallery')"
           :aria-label="`${t('home.gallery_link')} · ${t('gallery.image_alt', { number, description: t(`gallery.image_descriptions.${number}`) })}`">
           <Image
             class="preview-grid__image"
