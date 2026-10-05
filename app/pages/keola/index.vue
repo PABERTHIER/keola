@@ -330,6 +330,7 @@
             <Icon name="lucide:arrow-up-right" aria-hidden="true" />
           </a>
         </div>
+        <KeolaEmoteSurprise />
       </div>
     </section>
   </main>
@@ -741,6 +742,7 @@ useHead(usePageSeo('keola'))
 
 .more-section {
   background: $spirit;
+  padding-bottom: $space-28;
 
   &__links {
     display: grid;

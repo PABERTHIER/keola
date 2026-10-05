@@ -232,7 +232,13 @@
       "facts_title": "The little spirits' legends",
       "facts_text": "Not-so-serious 'facts', imaginary feats and plenty of humor: the little spirits have their own version of the legend.",
       "facts_link": "Discover Keola facts",
-      "community": "The story continues with you, my little spirits."
+      "community": "The story continues with you, my little spirits.",
+      "egg_action": "Make Keola's emotes rain down",
+      "egg_hint": "Psst… one last little secret?",
+      "egg_result": "NYUH! Candy and hearts for you!",
+      "egg_nyuh_alt": "Keola exclaiming “NYUH!”",
+      "egg_candy_alt": "Keola candy emote",
+      "egg_heart_alt": "Keola heart emote"
     }
   },
   "gallery": {

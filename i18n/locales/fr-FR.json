@@ -232,7 +232,13 @@
       "facts_title": "Les légendes des petits esprits",
       "facts_text": "Des « facts » pas tout à fait sérieux, des exploits imaginaires et beaucoup d'humour : les petits esprits ont leur propre version de la légende.",
       "facts_link": "Découvrir les Keola facts",
-      "community": "L'histoire continue avec vous, mes petits esprits."
+      "community": "L'histoire continue avec vous, mes petits esprits.",
+      "egg_action": "Faire pleuvoir les emotes de Keola",
+      "egg_hint": "Psst… un dernier petit secret ?",
+      "egg_result": "NYUH ! Des bonbons et des cœurs pour toi !",
+      "egg_nyuh_alt": "Keola s’écrie « NYUH ! »",
+      "egg_candy_alt": "Emote bonbon de Keola",
+      "egg_heart_alt": "Emote cœur de Keola"
     }
   },
   "gallery": {

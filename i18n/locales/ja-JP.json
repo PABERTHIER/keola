@@ -232,7 +232,13 @@
       "facts_title": "小さな精霊たちの伝説",
       "facts_text": "真面目すぎない「facts」、空想の大活躍、そしてたっぷりのユーモア。小さな精霊たちが語る、もうひとつのケオラの伝説です。",
       "facts_link": "Keola factsを見る",
-      "community": "物語は、私の小さな精霊たちと一緒に続いていきます。"
+      "community": "物語は、私の小さな精霊たちと一緒に続いていきます。",
+      "egg_action": "ケオラのエモートを降らせる",
+      "egg_hint": "ねえ、最後に小さな秘密があるよ？",
+      "egg_result": "NYUH！キャンディーとハートをどうぞ！",
+      "egg_nyuh_alt": "「NYUH！」と叫ぶケオラ",
+      "egg_candy_alt": "ケオラのキャンディーエモート",
+      "egg_heart_alt": "ケオラのハートエモート"
     }
   },
   "gallery": {
