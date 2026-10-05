@@ -20,11 +20,16 @@
           :key="number"
           class="preview-grid__item"
           :to="localePath('/galerie')"
-          :aria-label="`${t('home.gallery_link')} · ${t('gallery.image_alt', { number })}`">
+          :aria-label="`${t('home.gallery_link')} · ${t('gallery.image_alt', { number, description: t(`gallery.image_descriptions.${number}`) })}`">
           <Image
             class="preview-grid__image"
             :src="`/images/fanarts/fanart-${number}.webp`"
-            :alt="t('gallery.image_alt', { number })" />
+            :alt="
+              t('gallery.image_alt', {
+                number,
+                description: t(`gallery.image_descriptions.${number}`),
+              })
+            " />
           <span class="preview-grid__badge" aria-hidden="true">
             <Icon class="preview-grid__icon" name="lucide:arrow-up-right" />
           </span>

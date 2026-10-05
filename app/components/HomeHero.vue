@@ -47,7 +47,7 @@
           <Image
             :key="activeSlide"
             :src="`/images/slideshows/slideshow-${slides[activeSlide]}.webp`"
-            :alt="t('home.hero_alt')"
+            :alt="t(`home.hero_alts.${slides[activeSlide]}`)"
             loading="eager"
             :fetchpriority="activeSlide === 0 ? 'high' : 'auto'" />
         </Transition>
