@@ -126,7 +126,6 @@ onUnmounted(() => {
     border-radius: $radius-art;
     background: $paper;
     box-shadow: 4px 4px 0 $orange-pale;
-    cursor: pointer;
     transition:
       transform $transition-ui,
       box-shadow $transition-ui;

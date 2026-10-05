@@ -191,7 +191,6 @@ useHead(usePageSeo('archives'))
   border: 0;
   background: transparent;
   color: $link-hover;
-  cursor: zoom-in;
 }
 .archive-artwork img {
   width: 100%;
