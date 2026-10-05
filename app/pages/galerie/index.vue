@@ -12,12 +12,17 @@
           :key="number"
           class="gallery-item"
           type="button"
-          :aria-label="t('gallery.open', { number })"
+          :aria-label="`${t('gallery.open', { number })} : ${t(`gallery.image_descriptions.${number}`)}`"
           @click="openArtwork(index, $event)">
           <Image
             class="gallery-item__image"
             :src="`/images/fanarts/fanart-${number}.webp`"
-            :alt="t('gallery.image_alt', { number })" />
+            :alt="
+              t('gallery.image_alt', {
+                number,
+                description: t(`gallery.image_descriptions.${number}`),
+              })
+            " />
           <span class="gallery-item__badge" aria-hidden="true">
             <Icon class="gallery-item__icon" name="lucide:expand" />
           </span>
@@ -43,7 +48,10 @@ const viewer = ref<{
 const artworks = computed(() =>
   fanartNumbers.map(number => ({
     src: `/images/fanarts/fanart-${number}.webp`,
-    alt: t('gallery.image_alt', { number }),
+    alt: t('gallery.image_alt', {
+      number,
+      description: t(`gallery.image_descriptions.${number}`),
+    }),
   }))
 )
 

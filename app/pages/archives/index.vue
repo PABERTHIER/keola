@@ -8,7 +8,7 @@
     <div class="archives-page shell">
       <article class="archive-feature" aria-labelledby="redpandathon-title">
         <div class="archive-feature__copy">
-          <span class="eyebrow">2024 / Red Panda Network</span>
+          <span class="eyebrow">{{ t('archives.redpandathon_eyebrow') }}</span>
           <h2 id="redpandathon-title">{{ t('archives.redpandathon') }}</h2>
           <p>{{ t('archives.redpandathon_text') }}</p>
           <a
@@ -16,6 +16,11 @@
             :href="externalLinks.twitchSchedule"
             target="_blank"
             rel="noopener noreferrer">
+            <Icon
+              name="keo-icon:twitch-logo"
+              mode="svg"
+              size="20"
+              aria-hidden="true" />
             {{ t('archives.schedule_link') }}
             <Icon name="lucide:arrow-up-right" aria-hidden="true" />
           </a>

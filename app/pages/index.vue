@@ -21,6 +21,11 @@
             :href="externalLinks.twitchSchedule"
             target="_blank"
             rel="noopener noreferrer">
+            <Icon
+              name="keo-icon:twitch-logo"
+              mode="svg"
+              size="20"
+              aria-hidden="true" />
             {{ t('home.schedule_link') }}
             <Icon name="lucide:arrow-up-right" aria-hidden="true" />
           </a>
@@ -29,6 +34,11 @@
             :href="externalLinks.twitch"
             target="_blank"
             rel="noopener noreferrer">
+            <Icon
+              name="keo-icon:twitch-logo"
+              mode="svg"
+              size="20"
+              aria-hidden="true" />
             {{ t('home.schedule_watch') }}
           </a>
         </div>
@@ -64,8 +74,12 @@
             :href="externalLinks.discord"
             target="_blank"
             rel="noopener noreferrer">
-            <Icon name="lucide:users-round" aria-hidden="true" />
-            {{ t('home.about_link') }}
+            <Icon
+              name="keo-icon:discord-logo"
+              mode="svg"
+              size="20"
+              aria-hidden="true" />
+            {{ t('home.discord_link') }}
             <Icon name="lucide:arrow-up-right" aria-hidden="true" />
           </a>
         </div>
@@ -92,9 +106,9 @@
             rel="noopener noreferrer">
             <Image
               src="/images/brands/safebear-brand-logo.webp"
-              alt="Safebear" />
+              :alt="t('site.safebear')" />
             <span>
-              <strong>Safebear</strong>
+              <strong>{{ t('site.safebear') }}</strong>
               <small>{{ t('home.safebear_text') }}</small>
               <em>
                 {{ t('home.partner_link') }}
@@ -107,9 +121,11 @@
             :href="externalLinks.holy"
             target="_blank"
             rel="noopener noreferrer">
-            <Image src="/images/brands/holy-brand-logo.webp" alt="HOLY" />
+            <Image
+              src="/images/brands/holy-brand-logo.webp"
+              :alt="t('site.holy')" />
             <span>
-              <strong>HOLY</strong>
+              <strong>{{ t('site.holy') }}</strong>
               <small>{{ t('home.holy_text') }}</small>
               <em>
                 {{ t('home.partner_link') }}
@@ -126,7 +142,7 @@
         <Image
           class="closing-section__peek"
           src="/images/keola/Keola_Peak.webp"
-          alt="" />
+          :alt="t('home.closing_art_alt')" />
         <div>
           <span class="eyebrow eyebrow--light">
             {{ t('home.community_eyebrow') }}
@@ -205,6 +221,10 @@ useHead(usePageSeo('home'))
     align-items: center;
     gap: $space-19;
     flex: none;
+
+    .text-link {
+      gap: $space-8;
+    }
   }
 }
 

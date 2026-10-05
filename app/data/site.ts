@@ -81,10 +81,7 @@ export const featuredSocialLinks = socialLinks.filter(link =>
   ['Twitch', 'YouTube', 'Discord', 'Ko-fi'].includes(link.name)
 )
 
-export const fanartNumbers = [
-  ...Array.from({ length: 16 }, (_, index) => index + 1),
-  ...Array.from({ length: 22 }, (_, index) => index + 18),
-]
+export const fanartNumbers = Array.from({ length: 39 }, (_, index) => index + 1)
 
 export const credits = [
   { name: 'NesSama & MarroDono', role: 'assistants' },

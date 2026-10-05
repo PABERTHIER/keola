@@ -9,7 +9,7 @@
             <span>{{ t('keola.welcome') }}</span>
             <Image
               src="/images/misc/Esprit_violet.webp"
-              alt=""
+              :alt="t('keola.welcome_spirit_alt')"
               class="portrait-section__spirit" />
           </p>
           <p class="section-lead">{{ t('keola.intro') }}</p>
@@ -18,7 +18,11 @@
             :href="externalLinks.twitch"
             target="_blank"
             rel="noopener noreferrer">
-            <Icon name="lucide:radio" aria-hidden="true" />
+            <Icon
+              name="keo-icon:twitch-logo"
+              mode="svg"
+              size="20"
+              aria-hidden="true" />
             {{ t('site.watch') }}
             <Icon name="lucide:arrow-up-right" aria-hidden="true" />
           </a>
@@ -277,7 +281,9 @@
             target="_blank"
             rel="noopener noreferrer">
             <div class="illustrated-link__art">
-              <Image src="/images/misc/Credits.webp" alt="" />
+              <Image
+                src="/images/misc/Credits.webp"
+                :alt="t('keola.more.credits_art_alt')" />
             </div>
             <div class="illustrated-link__copy">
               <h3>{{ t('keola.more.credits_title') }}</h3>
@@ -294,7 +300,9 @@
             target="_blank"
             rel="noopener noreferrer">
             <div class="illustrated-link__art">
-              <Image src="/images/misc/Facts.webp" alt="" />
+              <Image
+                src="/images/misc/Facts.webp"
+                :alt="t('keola.more.facts_art_alt')" />
             </div>
             <div class="illustrated-link__copy">
               <h3>{{ t('keola.more.facts_title') }}</h3>
@@ -313,8 +321,12 @@
             :href="externalLinks.discord"
             target="_blank"
             rel="noopener noreferrer">
-            <Icon name="lucide:users-round" aria-hidden="true" />
-            {{ t('home.about_link') }}
+            <Icon
+              name="keo-icon:discord-logo"
+              mode="svg"
+              size="20"
+              aria-hidden="true" />
+            {{ t('home.discord_link') }}
             <Icon name="lucide:arrow-up-right" aria-hidden="true" />
           </a>
         </div>
