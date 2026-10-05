@@ -44,17 +44,6 @@ select,
     url('/images/cursors/Link.cur') 0 0,
     pointer;
 }
-// TODO: To remove after translation module rework
-.language-control select {
-  cursor:
-    url('/images/cursors/Location.cur') 0 0,
-    pointer;
-}
-.language-control button {
-  cursor:
-    url('/images/cursors/Location.cur') 0 0,
-    pointer;
-}
 input:not([type='button']):not([type='submit']):not([type='reset']):not(
     [type='checkbox']
   ):not([type='radio']):not([type='range']),
