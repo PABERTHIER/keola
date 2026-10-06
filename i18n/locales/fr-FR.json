@@ -112,7 +112,11 @@
       "3": "Keola, en tenue de boxeuse, donne un coup de poing",
       "4": "Keola, tenant des pompons orange, bondit au milieu des vagues sous un ciel bleu",
       "5": "Keola en combinaison spatiale tend la main vers un petit esprit astronaute",
-      "6": "Keola est allongée près d'un petit esprit violet qui mange une tranche de pastèque"
+      "6": "Keola est allongée près d'un petit esprit violet qui mange une tranche de pastèque",
+      "7": "Keola dans l'armure du clan Kumaneko, dans une scène épique",
+      "8": "Keola et une amie posent côte à côte en tenues japonaises",
+      "9": "Keola Zelda, une épée dans les mains, en pleine action",
+      "10": "Keola en tenue japonaise regarde le ciel, d'où tombent des pétales de fleurs de cerisier"
     }
   },
   "keola": {
@@ -363,7 +367,8 @@
       "108": "Keola sniper, prête à tirer",
       "109": "Keola et une amie qui font un signe de la main",
       "110": "Keola dans l'armure du clan Kumaneko, dans une scène épique",
-      "111": "Keola à la plage, accompagnée d'un petit esprit violet dans une bouée"
+      "111": "Keola à la plage, accompagnée d'un petit esprit violet dans une bouée",
+      "112": "Keola fait un clin d'œil, un masque de renard sur la tête et un masque à gaz autour du cou"
     }
   },
   "credits": {

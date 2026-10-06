@@ -82,7 +82,7 @@ export const featuredSocialLinks = socialLinks.filter(link =>
 )
 
 export const fanartNumbers = Array.from(
-  { length: 111 },
+  { length: 112 },
   (_, index) => index + 1
 )
 
