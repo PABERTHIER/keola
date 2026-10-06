@@ -123,6 +123,8 @@ export const imageDimensions: Record<string, readonly [number, number]> = {
   '/images/fanarts/fanart-109.webp': [2048, 1583],
   '/images/fanarts/fanart-110.webp': [2356, 4093],
   '/images/fanarts/fanart-111.webp': [4736, 2183],
+  '/images/fanarts/fanart-112.webp': [6144, 3441],
+  '/images/fanarts/fanart-113.webp': [1920, 1080],
   '/images/keola/Keola_left_side_inclined_v1.webp': [465, 675],
   '/images/keola/Keola_left_side_inclined_v2.webp': [347, 512],
   '/images/keola/Keola_Peak.webp': [712, 632],
