@@ -55,7 +55,7 @@
           class="about-section__art"
           :aria-label="t('home.about_discover')">
           <Image
-            src="/images/fanarts/fanart-32.webp"
+            src="/images/fanarts/fanart-32-home.webp"
             :alt="t('home.about_alt')" />
           <span class="about-section__art-label">
             {{ t('home.about_discover') }}
