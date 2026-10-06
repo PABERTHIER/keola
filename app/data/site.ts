@@ -86,6 +86,8 @@ export const fanartNumbers = Array.from(
   (_, index) => index + 1
 )
 
+export const homeGalleryFanartNumbers = [92, 97, 95, 84] as const
+
 export const credits = [
   { name: 'NesSama & MarroDono', role: 'assistants' },
   {
