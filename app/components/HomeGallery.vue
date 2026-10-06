@@ -16,7 +16,7 @@
       </div>
       <div class="preview-grid">
         <NuxtLink
-          v-for="number in fanartNumbers.slice(0, 4)"
+          v-for="number in homeGalleryFanartNumbers"
           :key="number"
           class="preview-grid__item"
           :to="localePath('/gallery')"
@@ -40,7 +40,7 @@
 </template>
 
 <script setup lang="ts">
-import { fanartNumbers } from '~/data/site'
+import { homeGalleryFanartNumbers } from '~/data/site'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
