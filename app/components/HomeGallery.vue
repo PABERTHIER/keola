@@ -9,22 +9,29 @@
           </h2>
           <p class="section-lead">{{ t('home.gallery_text') }}</p>
         </div>
-        <NuxtLink class="button button--outline" :to="localePath('/galerie')">
+        <NuxtLink class="button button--outline" :to="localePath('/gallery')">
           {{ t('home.gallery_link') }}
           <Icon name="lucide:arrow-up-right" aria-hidden="true" />
         </NuxtLink>
       </div>
       <div class="preview-grid">
         <NuxtLink
-          v-for="number in fanartNumbers.slice(0, 4)"
+          v-for="number in homeGalleryFanartNumbers"
           :key="number"
           class="preview-grid__item"
-          :to="localePath('/galerie')"
-          :aria-label="`${t('home.gallery_link')} · ${t('gallery.image_alt', { number })}`">
-          <Image
-            class="preview-grid__image"
-            :src="`/images/fanart/fanart-${number}.webp`"
-            :alt="t('gallery.image_alt', { number })" />
+          :to="localePath('/gallery')"
+          :aria-label="`${t('home.gallery_link')} · ${t('gallery.image_alt', { number, description: t(`gallery.image_descriptions.${number}`) })}`">
+          <span class="preview-grid__artwork">
+            <Image
+              class="preview-grid__image"
+              :src="`/images/fanarts/fanart-${number}.webp`"
+              :alt="
+                t('gallery.image_alt', {
+                  number,
+                  description: t(`gallery.image_descriptions.${number}`),
+                })
+              " />
+          </span>
           <span class="preview-grid__badge" aria-hidden="true">
             <Icon class="preview-grid__icon" name="lucide:arrow-up-right" />
           </span>
@@ -35,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import { fanartNumbers } from '~/data/site'
+import { homeGalleryFanartNumbers } from '~/data/site'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
@@ -47,14 +54,14 @@ const localePath = useLocalePath()
 }
 .preview-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: $space-12;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: $space-10;
 
   &__item {
     position: relative;
-    height: 295px;
-    display: grid;
-    place-items: center;
+    display: block;
+    padding: $space-10;
     overflow: hidden;
     border-radius: $radius-control;
     background: $gallery-background-peach;
@@ -68,21 +75,24 @@ const localePath = useLocalePath()
   &__item:nth-child(4) {
     background: $gallery-background-sage;
   }
+  &__artwork {
+    display: block;
+    overflow: hidden;
+  }
   &__image {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    height: auto;
   }
   &__badge {
     position: absolute;
     z-index: $z-artwork;
-    right: $space-12;
-    bottom: $space-12;
+    right: $space-10;
+    bottom: $space-10;
     width: $gallery-badge-size;
     height: $gallery-badge-size;
     display: grid;
     place-items: center;
-    border-radius: $radius-small;
+    border-radius: $radius-small 0 0 0;
     background: $white;
     color: $ink;
     pointer-events: none;
@@ -107,19 +117,15 @@ const localePath = useLocalePath()
   }
 }
 
-@media (max-width: $breakpoint-mobile) {
+@media (min-width: 560px) {
   .preview-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: $space-9;
-  }
-  .preview-grid__item {
-    height: 235px;
   }
 }
 
-@media (max-width: $breakpoint-small) {
-  .preview-grid__item {
-    height: 175px;
+@media (min-width: $breakpoint-desktop) {
+  .preview-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 </style>

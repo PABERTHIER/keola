@@ -20,7 +20,11 @@
             :href="externalLinks.twitch"
             target="_blank"
             rel="noopener noreferrer">
-            <Icon name="lucide:radio" aria-hidden="true" />
+            <Icon
+              name="keo-icon:twitch-logo"
+              mode="svg"
+              size="20"
+              aria-hidden="true" />
             {{ t('site.watch') }}
             <Icon name="lucide:arrow-up-right" aria-hidden="true" />
           </a>
@@ -42,12 +46,11 @@
         <Transition name="hero-slide">
           <Image
             :key="activeSlide"
-            :src="`/images/slideshow-${slides[activeSlide]}.webp`"
-            :alt="t('home.hero_alt')"
+            :src="`/images/slideshows/slideshow-${slides[activeSlide]}.webp`"
+            :alt="t(`home.hero_alts.${slides[activeSlide]}`)"
             loading="eager"
             :fetchpriority="activeSlide === 0 ? 'high' : 'auto'" />
         </Transition>
-        <span class="hero__caption">{{ t('home.hero_caption') }}</span>
         <div class="hero__carousel-controls">
           <button
             class="icon-button"
@@ -104,7 +107,7 @@ import { externalLinks } from '~/data/site'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
-const slides = [1, 2, 3, 4, 5] as const
+const slides = [1, 2, 3, 4, 5, 6, 7, 8, 9] as const
 const activeSlide = ref(0)
 const paused = ref(false)
 const reducedMotion = ref(false)
@@ -129,7 +132,7 @@ function preloadSlide(index: number) {
   const cached = preloads.get(index)
   if (cached) return cached
   const image = new window.Image()
-  image.src = `/images/slideshow-${slides[index]}.webp`
+  image.src = `/images/slideshows/slideshow-${slides[index]}.webp`
   const decoded = image.decode().catch(error => {
     preloads.delete(index)
     throw error
@@ -270,33 +273,21 @@ onBeforeUnmount(() => {
   }
   &__visual img {
     position: absolute;
-    inset: 0;
-    width: 100%;
+    inset: 0 0 0 auto;
+    width: min(100%, 800px);
     height: 100%;
     object-fit: cover;
     object-position: center 16%;
   }
-  &__caption {
-    position: absolute;
-    z-index: $z-content;
-    right: $space-32;
-    bottom: calc($control-size + $space-40);
-    max-width: 230px;
-    padding: $space-8 $space-12;
-    background: $plum-deep;
-    color: $hero-note-text;
-    font-size: $font-size-caption;
-    font-weight: $weight-bold;
-  }
   &__carousel-controls {
     position: absolute;
-    right: $space-24;
-    bottom: $space-16;
+    right: $space-20;
+    bottom: $space-10;
     z-index: $z-content;
     display: flex;
     align-items: center;
     gap: $space-6;
-    padding: $space-4;
+    padding: $space-10;
     border-radius: $radius-control;
     background: $plum-deep;
 
@@ -306,7 +297,6 @@ onBeforeUnmount(() => {
     }
     .icon-button:disabled {
       opacity: 0.5;
-      cursor: default;
     }
   }
   &__slide-count {
@@ -376,9 +366,9 @@ onBeforeUnmount(() => {
     font-size: $font-size-action-small;
   }
   .hero__visual {
-    --hero-art-height: #{$hero-art-height-mobile};
+    --hero-art-height: clamp(300px, 85vw, 480px);
     display: grid;
-    grid-template-rows: var(--hero-art-height) auto auto;
+    grid-template-rows: var(--hero-art-height) auto;
     justify-items: center;
     gap: $space-12;
     height: auto;
@@ -388,18 +378,17 @@ onBeforeUnmount(() => {
     margin-right: -$shell-gutter-mobile;
   }
   .hero__visual img {
+    right: auto;
+    left: 50%;
+    width: min(calc(100% - #{$shell-gutter-mobile * 2}), 520px);
     height: var(--hero-art-height);
     object-position: center 19%;
-  }
-  .hero__caption {
-    position: static;
-    grid-row: 2;
-    max-width: calc(100% - #{$shell-gutter-mobile * 2});
-    text-align: center;
+    border-radius: $radius-art;
+    transform: translateX(-50%);
   }
   .hero__carousel-controls {
     position: static;
-    grid-row: 3;
+    grid-row: 2;
     flex-wrap: wrap;
     justify-content: center;
     max-width: calc(100% - #{$shell-gutter-mobile * 2});
@@ -412,9 +401,6 @@ onBeforeUnmount(() => {
   }
   .hero__actions .button {
     max-width: 100%;
-  }
-  .hero__visual {
-    --hero-art-height: #{$hero-art-height-small};
   }
 }
 
@@ -429,9 +415,6 @@ onBeforeUnmount(() => {
   .hero__lead {
     margin-bottom: $space-13;
     line-height: 1.45;
-  }
-  .hero__visual {
-    --hero-art-height: #{$hero-art-height-compact};
   }
 }
 </style>

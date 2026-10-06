@@ -18,7 +18,7 @@
         <NuxtLink :to="localePath('/keola')" @click="closeMenu">
           {{ t('site.about') }}
         </NuxtLink>
-        <NuxtLink :to="localePath('/galerie')" @click="closeMenu">
+        <NuxtLink :to="localePath('/gallery')" @click="closeMenu">
           {{ t('site.gallery') }}
         </NuxtLink>
         <NuxtLink
@@ -36,18 +36,7 @@
       </nav>
 
       <div class="site-header__actions">
-        <label class="language-control">
-          <span class="sr-only">{{ t('site.language') }}</span>
-          <Icon name="lucide:languages" aria-hidden="true" />
-          <select
-            :value="locale"
-            :aria-label="t('site.language')"
-            @change="changeLocale">
-            <option v-for="item in locales" :key="item.code" :value="item.code">
-              {{ item.code === 'ja' ? 'JP' : item.code.toUpperCase() }}
-            </option>
-          </select>
-        </label>
+        <LanguageSwitcher />
         <a
           class="button button--primary site-header__live"
           :href="externalLinks.twitch"
@@ -84,9 +73,8 @@
 <script setup lang="ts">
 import { externalLinks } from '~/data/site'
 
-const { t, locale, locales } = useI18n()
+const { t } = useI18n()
 const localePath = useLocalePath()
-const switchLocalePath = useSwitchLocalePath()
 const route = useRoute()
 const menuOpen = ref(false)
 const menuAnimated = ref(false)
@@ -174,14 +162,6 @@ watch(
     menuOpen.value = false
   }
 )
-
-function changeLocale(event: Event) {
-  const selectedLocale = locales.value.find(
-    item => item.code === (event.target as HTMLSelectElement).value
-  )
-  menuOpen.value = false
-  if (selectedLocale) void navigateTo(switchLocalePath(selectedLocale.code))
-}
 </script>
 
 <style lang="scss" scoped>
@@ -244,49 +224,6 @@ function changeLocale(event: Event) {
   a.router-link-exact-active:not([href*='#']),
   a[aria-current='location'] {
     color: $header-link-hover;
-  }
-}
-
-.language-control {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: $space-5;
-  width: 4.7rem;
-  min-height: $control-size;
-  padding-inline: $space-5;
-  border-radius: $radius-control;
-  color: $ink;
-
-  &:has(select:focus-visible) {
-    outline: $focus-width solid $orange;
-    outline-offset: $focus-offset;
-  }
-  .iconify {
-    position: absolute;
-    left: $space-5;
-    pointer-events: none;
-    width: 17px;
-    height: 17px;
-    flex: none;
-  }
-  select {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-    width: 100%;
-    padding-left: 27px;
-    background: transparent;
-    border: 0;
-    color: inherit;
-    font-size: 1rem;
-    font-weight: $weight-heavy;
-    cursor: pointer;
-
-    &:focus-visible {
-      outline: none;
-    }
   }
 }
 
@@ -370,15 +307,6 @@ function changeLocale(event: Event) {
 @media (max-width: $breakpoint-small) {
   .site-header__actions {
     gap: $space-4;
-  }
-  .language-control .iconify {
-    display: none;
-  }
-  .language-control {
-    width: max(#{$control-size}, 3.1rem);
-  }
-  .language-control select {
-    padding-left: $space-5;
   }
 }
 

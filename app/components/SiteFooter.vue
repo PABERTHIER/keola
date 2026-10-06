@@ -6,7 +6,7 @@
           <SiteBrand inverse />
           <p>{{ t('site.footer_intro') }}</p>
           <a class="footer-email" :href="externalLinks.email">
-            kumaneko.keola@gmail.com
+            {{ externalLinks.email.slice('mailto:'.length) }}
             <Icon name="lucide:arrow-up-right" aria-hidden="true" />
           </a>
         </div>
@@ -15,7 +15,7 @@
           <NuxtLink :to="localePath('/keola')">
             {{ t('site.about') }}
           </NuxtLink>
-          <NuxtLink :to="localePath('/galerie')">
+          <NuxtLink :to="localePath('/gallery')">
             {{ t('site.gallery') }}
           </NuxtLink>
           <NuxtLink
@@ -52,7 +52,7 @@
             :href="externalLinks.redPandaNetwork"
             target="_blank"
             rel="noopener noreferrer">
-            Red Panda Network
+            {{ t('site.red_panda_network') }}
           </a>
         </div>
       </div>

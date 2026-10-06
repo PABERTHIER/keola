@@ -21,6 +21,11 @@
             :href="externalLinks.twitchSchedule"
             target="_blank"
             rel="noopener noreferrer">
+            <Icon
+              name="keo-icon:twitch-logo"
+              mode="svg"
+              size="20"
+              aria-hidden="true" />
             {{ t('home.schedule_link') }}
             <Icon name="lucide:arrow-up-right" aria-hidden="true" />
           </a>
@@ -29,6 +34,11 @@
             :href="externalLinks.twitch"
             target="_blank"
             rel="noopener noreferrer">
+            <Icon
+              name="keo-icon:twitch-logo"
+              mode="svg"
+              size="20"
+              aria-hidden="true" />
             {{ t('home.schedule_watch') }}
           </a>
         </div>
@@ -44,7 +54,9 @@
           :to="localePath('/keola')"
           class="about-section__art"
           :aria-label="t('home.about_discover')">
-          <Image src="/images/slideshow-6.webp" :alt="t('home.about_alt')" />
+          <Image
+            src="/images/fanarts/fanart-32-home.webp"
+            :alt="t('home.about_alt')" />
           <span class="about-section__art-label">
             {{ t('home.about_discover') }}
             <Icon name="lucide:arrow-right" aria-hidden="true" />
@@ -62,8 +74,12 @@
             :href="externalLinks.discord"
             target="_blank"
             rel="noopener noreferrer">
-            <Icon name="lucide:users-round" aria-hidden="true" />
-            {{ t('home.about_link') }}
+            <Icon
+              name="keo-icon:discord-logo"
+              mode="svg"
+              size="20"
+              aria-hidden="true" />
+            {{ t('home.discord_link') }}
             <Icon name="lucide:arrow-up-right" aria-hidden="true" />
           </a>
         </div>
@@ -88,9 +104,11 @@
             :href="externalLinks.safebear"
             target="_blank"
             rel="noopener noreferrer">
-            <Image src="/images/safebear-brand-logo.webp" alt="Safebear" />
+            <Image
+              src="/images/brands/safebear-brand-logo.webp"
+              :alt="t('site.safebear')" />
             <span>
-              <strong>Safebear</strong>
+              <strong>{{ t('site.safebear') }}</strong>
               <small>{{ t('home.safebear_text') }}</small>
               <em>
                 {{ t('home.partner_link') }}
@@ -103,9 +121,11 @@
             :href="externalLinks.holy"
             target="_blank"
             rel="noopener noreferrer">
-            <Image src="/images/holy-brand-logo.webp" alt="HOLY" />
+            <Image
+              src="/images/brands/holy-brand-logo.webp"
+              :alt="t('site.holy')" />
             <span>
-              <strong>HOLY</strong>
+              <strong>{{ t('site.holy') }}</strong>
               <small>{{ t('home.holy_text') }}</small>
               <em>
                 {{ t('home.partner_link') }}
@@ -119,6 +139,10 @@
 
     <section class="closing-section" aria-labelledby="closing-title">
       <div class="shell closing-section__inner">
+        <Image
+          class="closing-section__peek"
+          src="/images/keola/Keola_Peak.webp"
+          :alt="t('home.closing_art_alt')" />
         <div>
           <span class="eyebrow eyebrow--light">
             {{ t('home.community_eyebrow') }}
@@ -197,6 +221,10 @@ useHead(usePageSeo('home'))
     align-items: center;
     gap: $space-19;
     flex: none;
+
+    .text-link {
+      gap: $space-8;
+    }
   }
 }
 
@@ -328,10 +356,13 @@ useHead(usePageSeo('home'))
   color: $white-pure;
 
   &__inner {
-    display: flex;
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr) auto;
     align-items: center;
-    justify-content: space-between;
     gap: $space-24;
+  }
+  &__peek {
+    width: 140px;
   }
   h2 {
     margin: $space-8 0;
@@ -346,6 +377,24 @@ useHead(usePageSeo('home'))
 }
 
 @media (max-width: $breakpoint-tablet) {
+  .closing-section__inner {
+    grid-template-columns: 54px minmax(0, 1fr);
+    gap: $space-12;
+  }
+  .closing-section__inner > div {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+  .closing-section__peek {
+    grid-row: 2;
+    width: 54px;
+  }
+  .closing-section__inner > a {
+    grid-column: 2;
+    grid-row: 2;
+    width: fit-content;
+    justify-self: end;
+  }
   .schedule-band__inner {
     flex-wrap: wrap;
   }
@@ -397,12 +446,28 @@ useHead(usePageSeo('home'))
     grid-template-columns: 1fr;
   }
   .closing-section__inner {
-    flex-direction: column;
-    align-items: start;
+    gap: $space-12;
+  }
+  .closing-section__peek {
+    width: 54px;
   }
 }
 
 @media (max-width: $breakpoint-small) {
+  .closing-section__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .closing-section__peek {
+    grid-column: 1;
+    grid-row: 3;
+    width: 48px;
+  }
+  .closing-section__inner > a {
+    grid-column: 1;
+    grid-row: 2;
+    width: fit-content;
+    justify-self: start;
+  }
   .partner {
     padding: $space-17;
     gap: $space-14;

@@ -8,7 +8,7 @@
     <div class="archives-page shell">
       <article class="archive-feature" aria-labelledby="redpandathon-title">
         <div class="archive-feature__copy">
-          <span class="eyebrow">2024 / Red Panda Network</span>
+          <span class="eyebrow">{{ t('archives.redpandathon_eyebrow') }}</span>
           <h2 id="redpandathon-title">{{ t('archives.redpandathon') }}</h2>
           <p>{{ t('archives.redpandathon_text') }}</p>
           <a
@@ -16,31 +16,51 @@
             :href="externalLinks.twitchSchedule"
             target="_blank"
             rel="noopener noreferrer">
+            <Icon
+              name="keo-icon:twitch-logo"
+              mode="svg"
+              size="20"
+              aria-hidden="true" />
             {{ t('archives.schedule_link') }}
             <Icon name="lucide:arrow-up-right" aria-hidden="true" />
           </a>
         </div>
         <div class="archive-feature__images">
-          <Image
-            src="/images/red-panda-thon-2024-goals.webp"
-            :alt="t('archives.redpandathon_alt')" />
-          <Image
-            src="/images/red-panda-thon-2024-impossible-goals.webp"
-            :alt="t('archives.redpandathon_alt')" />
+          <button
+            v-for="(artwork, index) in featuredArtworks"
+            :key="artwork.src"
+            class="archive-artwork"
+            type="button"
+            @click="openArtwork(index, $event)">
+            <Image :src="artwork.src" :alt="t(`archives.${artwork.altKey}`)" />
+            <span>{{ t('archives.enlarge_image') }}</span>
+          </button>
         </div>
       </article>
       <div class="archive-timeline">
         <article
-          v-for="year in [2024, 2023]"
+          v-for="(year, yearIndex) in redebutYears"
           :key="year"
           class="archive-timeline__item">
           <div class="archive-timeline__images">
-            <Image
-              :src="`/images/redebut-${year}-left-part.webp`"
-              :alt="t('archives.redebut_alt', { year })" />
-            <Image
-              :src="`/images/redebut-${year}-right-part.webp`"
-              :alt="t('archives.redebut_alt', { year })" />
+            <button
+              v-for="(side, sideIndex) in redebutSides"
+              :key="side"
+              class="archive-artwork"
+              type="button"
+              @click="
+                openArtwork(
+                  featuredArtworks.length +
+                    yearIndex * redebutSides.length +
+                    sideIndex,
+                  $event
+                )
+              ">
+              <Image
+                :src="`/images/debut/Keola_Redebut_${year}_${side}_part.webp`"
+                :alt="t(`archives.redebut_${side}_alt`, { year })" />
+              <span>{{ t('archives.enlarge_image') }}</span>
+            </button>
           </div>
           <div class="archive-timeline__copy">
             <span class="eyebrow">{{ year }} / Keola Kumaneko</span>
@@ -50,6 +70,10 @@
         </article>
       </div>
     </div>
+    <ArtworkLightbox
+      ref="viewer"
+      :artworks="artworks"
+      :label="t('archives.title')" />
   </main>
 </template>
 
@@ -57,6 +81,37 @@
 import { externalLinks } from '~/data/site'
 
 const { t } = useI18n()
+const featuredArtworks = [
+  {
+    src: '/images/redpanda/RedPandathon_2024_goals.webp',
+    altKey: 'redpandathon_goals_alt',
+  },
+  {
+    src: '/images/redpanda/RedPandathon_2024_impossible_goals.webp',
+    altKey: 'redpandathon_impossible_alt',
+  },
+] as const
+const redebutYears = [2024, 2023] as const
+const redebutSides = ['left', 'right'] as const
+const artworks = computed(() => [
+  ...featuredArtworks.map(artwork => ({
+    src: artwork.src,
+    alt: t(`archives.${artwork.altKey}`),
+  })),
+  ...redebutYears.flatMap(year =>
+    redebutSides.map(side => ({
+      src: `/images/debut/Keola_Redebut_${year}_${side}_part.webp`,
+      alt: t(`archives.redebut_${side}_alt`, { year }),
+    }))
+  ),
+])
+const viewer = ref<{
+  open: (index: number, trigger?: HTMLElement) => void
+} | null>(null)
+
+function openArtwork(index: number, event: MouseEvent) {
+  viewer.value?.open(index, event.currentTarget as HTMLElement)
+}
 
 useHead(usePageSeo('archives'))
 </script>
@@ -64,7 +119,7 @@ useHead(usePageSeo('archives'))
 <style lang="scss" scoped>
 .archives-page {
   overflow-wrap: anywhere;
-  padding-block: $space-70 $space-110;
+  padding-block: $space-70 $space-40;
 }
 .archive-feature {
   --focus-color: #{$orange};
@@ -98,15 +153,13 @@ useHead(usePageSeo('archives'))
   color: $plum-deep;
 }
 .archive-feature__images {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: $space-10;
 }
 .archive-feature__images img {
-  width: 48%;
   max-height: 345px;
-  object-fit: contain;
 }
 .archive-timeline {
   margin-top: $space-70;
@@ -120,15 +173,43 @@ useHead(usePageSeo('archives'))
   border-top: $border-width solid $line;
 }
 .archive-timeline__images {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: $space-8;
   min-width: 0;
 }
 .archive-timeline__images img {
-  width: calc(50% - 4px);
   max-height: 300px;
-  object-fit: contain;
+}
+.archive-artwork {
+  display: grid;
+  justify-items: center;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: $link-hover;
+}
+.archive-artwork img {
+  width: 100%;
+  border-radius: $radius-art;
+}
+.archive-artwork span {
+  display: grid;
+  place-items: center;
+  min-height: $control-size;
+  font-size: $font-size-secondary;
+  font-weight: $weight-bold;
+  text-align: center;
+}
+.archive-artwork:hover span,
+.archive-artwork:focus-visible span {
+  text-decoration: underline;
+}
+.archive-feature .archive-artwork {
+  color: $white-pure;
 }
 .archive-timeline__copy p {
   max-width: 440px;
@@ -136,7 +217,7 @@ useHead(usePageSeo('archives'))
 }
 @media (max-width: $breakpoint-mobile) {
   .archives-page {
-    padding-block: $space-38 $space-70;
+    padding-block: $space-38 $space-30;
   }
   .archive-feature,
   .archive-timeline__item {
@@ -155,6 +236,9 @@ useHead(usePageSeo('archives'))
   }
   .archive-timeline__item {
     gap: $space-10;
+  }
+  .archive-timeline__copy {
+    order: -1;
   }
   .archive-timeline__images img {
     max-height: 260px;

@@ -16,7 +16,8 @@ It uses Vercel for deployment and hosting.
 | Page      | Route           | Purpose                                        |
 | --------- | --------------- | ---------------------------------------------- |
 | Home      | `/fr`           | Keola, upcoming streams, fanart and her causes |
-| Gallery   | `/fr/galerie`   | All 36 supplied fanarts in newest-first order  |
+| Keola     | `/fr/keola`     | Keola's profile, lore and model gallery        |
+| Gallery   | `/fr/gallery`   | Some fanarts                                   |
 | Credits   | `/fr/credits`   | Creators named on the previous site            |
 | Archives  | `/fr/archives`  | Historical 2023 and 2024 events                |
 | Media kit | `/fr/kit-media` | Existing media sheet and professional contact  |
@@ -95,7 +96,7 @@ The same checks run on Linux in `.github/workflows/ci.yml` with an immutable Yar
 | `i18n/locales/`                   | Matching FR/EN/JA keys and page copy                 |
 | `public/images/`                  | Published artwork and downloads                      |
 
-Each named page lives in `app/pages/<route>/index.vue` (for example, `app/pages/galerie/index.vue`).
+Each named page lives in `app/pages/<route>/index.vue` (for example, `app/pages/gallery/index.vue`).
 The homepage stays at `app/pages/index.vue`.
 
 Artwork belongs to its artists.
@@ -138,7 +139,7 @@ The collection is processed during the Nuxt build and needs no Vercel asset prov
 Use [Image.vue](app/components/Image.vue) for artwork:
 
 ```vue
-<Image src="/images/mediakit.webp" :alt="t('media.preview_alt')" />
+<Image src="/images/misc/Mediakit.webp" :alt="t('media.preview_alt')" />
 ```
 
 It renders a single native `img`, with lazy loading, asynchronous decoding and proportional sizing by default.
