@@ -5,16 +5,18 @@
     aria-labelledby="community-title">
     <div class="shell community-section__grid">
       <div class="community-section__intro">
-        <span class="eyebrow">{{ t('home.community_eyebrow') }}</span>
+        <span class="eyebrow">
+          {{ t('components.home_community.eyebrow') }}
+        </span>
         <h2 id="community-title" ref="communityTitle" class="section-title">
-          {{ t('home.community_title') }}
+          {{ t('components.home_community.title') }}
         </h2>
         <Image
           class="community-section__character"
           src="/images/keola/Keola_left_side_inclined_v1.webp"
-          :alt="t('home.community_art_alt')"
+          :alt="t('components.home_community.art_alt')"
           :style="{ height: `${characterHeight}px` }" />
-        <p class="section-lead">{{ t('home.community_text') }}</p>
+        <p class="section-lead">{{ t('components.home_community.text') }}</p>
       </div>
       <div class="community-links">
         <a

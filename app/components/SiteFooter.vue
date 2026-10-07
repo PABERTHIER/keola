@@ -4,7 +4,7 @@
       <div class="site-footer__main">
         <div class="site-footer__identity">
           <SiteBrand inverse />
-          <p>{{ t('site.footer_intro') }}</p>
+          <p>{{ t('components.site_footer.footer_intro') }}</p>
           <a class="footer-email" :href="externalLinks.email">
             {{ externalLinks.email.slice('mailto:'.length) }}
             <Icon name="lucide:arrow-up-right" aria-hidden="true" />
@@ -30,7 +30,7 @@
           </NuxtLink>
         </div>
         <div class="site-footer__column">
-          <h2>{{ t('site.elsewhere') }}</h2>
+          <h2>{{ t('components.site_footer.elsewhere') }}</h2>
           <a
             v-for="link in featuredSocialLinks"
             :key="link.name"
@@ -57,8 +57,10 @@
         </div>
       </div>
       <div class="site-footer__bottom">
-        <p>© {{ year }} {{ t('site.copyright') }}</p>
-        <div class="footer-socials" :aria-label="t('site.elsewhere')">
+        <p>© {{ year }} {{ t('components.site_footer.copyright') }}</p>
+        <div
+          class="footer-socials"
+          :aria-label="t('components.site_footer.elsewhere')">
           <a
             v-for="link in socialLinks"
             :key="link.name"

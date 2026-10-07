@@ -56,8 +56,16 @@
           ref="menuToggle"
           class="menu-toggle icon-button"
           type="button"
-          :aria-label="menuOpen ? t('site.close_menu') : t('site.menu')"
-          :data-tooltip="menuOpen ? t('site.close_menu') : t('site.menu')"
+          :aria-label="
+            menuOpen
+              ? t('components.site_header.close_menu')
+              : t('components.site_header.menu')
+          "
+          :data-tooltip="
+            menuOpen
+              ? t('components.site_header.close_menu')
+              : t('components.site_header.menu')
+          "
           :aria-expanded="menuOpen"
           aria-controls="primary-nav"
           @click="toggleMenu">

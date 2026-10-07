@@ -3,13 +3,19 @@
     <button
       class="emote-surprise__trigger"
       type="button"
-      :aria-label="t('keola.more.egg_action')"
-      :data-tooltip="t('keola.more.egg_tooltip')"
+      :aria-label="t('components.keola_emote_surprise.action')"
+      :data-tooltip="t('components.keola_emote_surprise.tooltip')"
       @click="releaseEmotes">
-      <Image src="/images/misc/NYUH.webp" :alt="t('keola.more.egg_nyuh_alt')" />
+      <Image
+        src="/images/misc/NYUH.webp"
+        :alt="t('components.keola_emote_surprise.nyuh_alt')" />
     </button>
     <p class="emote-surprise__caption" aria-live="polite" aria-atomic="true">
-      {{ isActive ? t('keola.more.egg_result') : t('keola.more.egg_hint') }}
+      {{
+        isActive
+          ? t('components.keola_emote_surprise.result')
+          : t('components.keola_emote_surprise.hint')
+      }}
     </p>
     <div
       v-if="isActive && reducedMotion"
@@ -17,11 +23,11 @@
       aria-hidden="true">
       <Image
         src="/images/emotes/keolaCandy.png"
-        :alt="t('keola.more.egg_candy_alt')"
+        :alt="t('components.keola_emote_surprise.candy_alt')"
         loading="eager" />
       <Image
         src="/images/emotes/keolaHeart.png"
-        :alt="t('keola.more.egg_heart_alt')"
+        :alt="t('components.keola_emote_surprise.heart_alt')"
         loading="eager" />
     </div>
 
@@ -78,8 +84,8 @@ function releaseEmotes() {
           : '/images/emotes/keolaHeart.png',
       alt:
         id % 2 === 0
-          ? t('keola.more.egg_candy_alt')
-          : t('keola.more.egg_heart_alt'),
+          ? t('components.keola_emote_surprise.candy_alt')
+          : t('components.keola_emote_surprise.heart_alt'),
       style: {
         left: `${Math.random() * 100}%`,
         width: `${30 + Math.random() * 30}px`,
