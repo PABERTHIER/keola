@@ -20,6 +20,7 @@
           :key="number"
           class="preview-grid__item"
           :to="localePath('/gallery')"
+          :data-tooltip="`${t('home.gallery_link')} · ${t(`gallery.image_descriptions.${number}`)}`"
           :aria-label="`${t('home.gallery_link')} · ${t('gallery.image_alt', { number, description: t(`gallery.image_descriptions.${number}`) })}`">
           <span class="preview-grid__artwork">
             <Image

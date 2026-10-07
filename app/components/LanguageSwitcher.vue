@@ -10,6 +10,7 @@
       class="language-switcher__trigger"
       type="button"
       :aria-label="`${t('site.language')}: ${currentLocale?.name ?? locale}`"
+      :data-tooltip="`${t('site.language')}: ${currentLocale?.name ?? locale}`"
       aria-haspopup="menu"
       :aria-expanded="menuOpen"
       aria-controls="language-options"
@@ -29,6 +30,7 @@
           role="menuitemradio"
           class="language-switcher__option"
           :aria-label="item.name"
+          :data-tooltip="item.name"
           :aria-checked="item.code === locale"
           :tabindex="item.code === locale ? 0 : -1"
           @click="changeLocale(item.code)">

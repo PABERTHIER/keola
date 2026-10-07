@@ -11,7 +11,7 @@
       class="lightbox__close icon-button"
       type="button"
       :aria-label="t('gallery.close')"
-      :title="t('gallery.close')"
+      :data-tooltip="t('gallery.close')"
       @click="close">
       <Icon name="lucide:x" aria-hidden="true" />
     </button>
@@ -32,7 +32,7 @@
         class="icon-button"
         type="button"
         :aria-label="t('gallery.previous')"
-        :title="t('gallery.previous')"
+        :data-tooltip="t('gallery.previous')"
         @click="move(-1)">
         <Icon name="lucide:arrow-left" aria-hidden="true" />
       </button>
@@ -48,7 +48,7 @@
         class="icon-button"
         type="button"
         :aria-label="t('gallery.next')"
-        :title="t('gallery.next')"
+        :data-tooltip="t('gallery.next')"
         @click="move(1)">
         <Icon name="lucide:arrow-right" aria-hidden="true" />
       </button>
