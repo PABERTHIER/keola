@@ -397,6 +397,11 @@ useHead(usePageSeo('keola'))
 </script>
 
 <style lang="scss" scoped>
+// Keep the player interactive even while Lenis is smooth scrolling
+:global(html.lenis.lenis-smooth .video-section__player iframe) {
+  pointer-events: auto;
+}
+
 .keola-page {
   overflow-wrap: anywhere;
 
