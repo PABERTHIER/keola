@@ -165,10 +165,22 @@ function handlePointerOut(event: PointerEvent) {
 function handleFocusIn(event: FocusEvent) {
   const target = tooltipTarget(event)
 
-  if (target) {
-    hide()
-    show(target, true)
+  if (!target?.matches(':focus-visible')) {
+    return
   }
+
+  const previousDialog =
+    event.relatedTarget instanceof Element
+      ? event.relatedTarget.closest('dialog')
+      : null
+
+  // Opening and closing a modal move focus automatically
+  if (target.closest('dialog') !== previousDialog) {
+    return
+  }
+
+  hide()
+  show(target, true)
 }
 
 function handleFocusOut(event: FocusEvent) {
