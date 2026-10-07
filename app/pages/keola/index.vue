@@ -93,8 +93,7 @@
             height="540"
             loading="lazy"
             referrerpolicy="strict-origin-when-cross-origin"
-            allow="encrypted-media; picture-in-picture; fullscreen"
-            allowfullscreen />
+            allow="encrypted-media; picture-in-picture; fullscreen" />
         </div>
       </div>
     </section>
