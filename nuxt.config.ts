@@ -93,6 +93,16 @@ export default defineNuxtConfig({
       redirectOn: 'root',
     },
   },
+  css: [
+    '@fontsource/kaushan-script/400.css',
+    '@fontsource/plus-jakarta-sans/400.css',
+    '@fontsource/plus-jakarta-sans/700.css',
+    '@fontsource/zen-maru-gothic/500.css',
+    '@fontsource/zen-maru-gothic/700.css',
+    '~/styles/default.scss',
+    '~/styles/shared.scss',
+    '~/styles/cursors.scss',
+  ],
   vite: {
     css: {
       preprocessorOptions: {
@@ -140,15 +150,4 @@ export default defineNuxtConfig({
   ogImage: {
     enabled: false,
   },
-
-  // TODO: Do we need it ?
-  css: [
-    '@fontsource/kaushan-script/400.css',
-    '@fontsource/plus-jakarta-sans/400.css',
-    '@fontsource/plus-jakarta-sans/500.css',
-    '@fontsource/plus-jakarta-sans/700.css',
-    '@fontsource/zen-maru-gothic/500.css',
-    '@fontsource/zen-maru-gothic/700.css',
-    '~/styles/default.scss',
-  ],
 })

@@ -1,16 +1,9 @@
 {
   "site": {
-    "brand_first": "Keola",
-    "brand_last": "Kumaneko",
-    "brand_name": "Keola Kumaneko",
-    "brand_logo_alt": "Logo de Keola Kumaneko en forme de tête de panda roux, avec de petits esprits",
     "red_panda_network": "Red Panda Network",
-    "safebear": "Safebear",
+    "safebear": "SafeBear",
     "holy": "HOLY",
     "skip": "Aller au contenu",
-    "menu": "Ouvrir le menu",
-    "close_menu": "Fermer le menu",
-    "language": "Langue du site",
     "home": "Accueil",
     "about": "Keola",
     "gallery": "Galerie",
@@ -21,11 +14,8 @@
     "watch": "Voir le live",
     "contact": "Contacter Keola",
     "explore": "Explorer",
-    "elsewhere": "Retrouver Keola",
-    "footer_intro": "Des lives sans micro, une VTuber panda roux très expressive et ses petits esprits. Bienvenue au Temple Kumaneko.",
     "back_home": "Retour à l'accueil",
-    "og_alt": "Keola Kumaneko, VTuber panda roux",
-    "copyright": "Keola Kumaneko. Les illustrations restent la propriété de leurs artistes."
+    "og_alt": "Keola Kumaneko, VTuber panda roux"
   },
   "social": {
     "live": "Lives",
@@ -62,16 +52,86 @@
       "description": "Fiche média, liens officiels et contact professionnel de Keola Kumaneko, VTuber panda roux."
     }
   },
+  "components": {
+    "site_brand": {
+      "brand_first": "Keola",
+      "brand_last": "Kumaneko",
+      "brand_name": "Keola Kumaneko",
+      "brand_logo_alt": "Logo de Keola Kumaneko en forme de tête de panda roux, avec de petits esprits"
+    },
+    "site_header": {
+      "menu": "Ouvrir le menu",
+      "close_menu": "Fermer le menu"
+    },
+    "language_switcher": {
+      "language": "Langue du site"
+    },
+    "site_footer": {
+      "footer_intro": "Des lives sans micro, une VTuber panda roux très expressive et ses petits esprits. Bienvenue au Temple Kumaneko.",
+      "copyright": "Keola Kumaneko. Les illustrations restent la propriété de leurs artistes.",
+      "elsewhere": "Retrouver Keola"
+    },
+    "home_hero": {
+      "eyebrow": "VTuber panda roux · Temple Kumaneko",
+      "name": "Keola",
+      "surname": "Kumaneko",
+      "text": "Sans micro, mais pas sans malice. Des jeux, des réactions et des moments à partager avec mes petits esprits.",
+      "welcome": "Entre, on t'attendait.",
+      "discover": "Découvrir son univers",
+      "slideshow": "Illustrations de Keola",
+      "pause": "Mettre le diaporama en pause",
+      "play": "Lancer le diaporama",
+      "alts": {
+        "1": "Keola fait un clin d'œil, un masque de renard sur la tête et un masque à gaz autour du cou",
+        "2": "Keola, en tenue de motard, est allongée sur une moto",
+        "3": "Keola, en tenue de boxeuse, donne un coup de poing",
+        "4": "Keola, tenant des pompons orange, bondit au milieu des vagues sous un ciel bleu",
+        "5": "Keola en combinaison spatiale tend la main vers un petit esprit astronaute",
+        "6": "Keola est allongée près d'un petit esprit violet qui mange une tranche de pastèque",
+        "7": "Keola dans l'armure du clan Kumaneko, dans une scène épique",
+        "8": "Keola et une amie posent côte à côte en tenues japonaises",
+        "9": "Keola Zelda, une épée dans les mains, en pleine action",
+        "10": "Keola en tenue japonaise regarde le ciel, d'où tombent des pétales de fleurs de cerisier"
+      },
+      "previous": "Diapositive précédente",
+      "next": "Diapositive suivante",
+      "count": "{number} sur {total}"
+    },
+    "home_gallery": {
+      "eyebrow": "Créations de la communauté",
+      "title": "Keola vue par ses artistes.",
+      "text": "Des styles, des couleurs et autant de façons d'imaginer Keola. Voici une sélection de créations partagées sur son site.",
+      "link": "Explorer la galerie"
+    },
+    "home_mission": {
+      "eyebrow": "Une cause qui compte",
+      "title": "Protéger les pandas roux, pour de vrai.",
+      "text": "Keola organise le Red Pandathon pour soutenir Red Panda Network et participe à d'autres événements caritatifs. Dans le monde réel, l'association protège les pandas roux sauvages et leur habitat avec les communautés locales.",
+      "link": "Découvrir Red Panda Network"
+    },
+    "home_community": {
+      "eyebrow": "Mes petits esprits",
+      "title": "La conversation continue ailleurs.",
+      "text": "Des parties ensemble aux discussions sur Discord, les petits esprits font vivre le Temple Kumaneko. Retrouve les lives, les vidéos et les nouvelles de Keola.",
+      "art_alt": "Keola Kumaneko en mode lurk"
+    },
+    "keola_emote_surprise": {
+      "action": "Faire pleuvoir les emotes de Keola",
+      "tooltip": "NYUH !",
+      "hint": "Psst… un dernier petit secret ?",
+      "result": "NYUH ! Des bonbons et des cœurs pour toi !",
+      "nyuh_alt": "Keola s'écrie « NYUH ! »",
+      "candy_alt": "Emote bonbon de Keola",
+      "heart_alt": "Emote cœur de Keola"
+    },
+    "artwork_lightbox": {
+      "count": "{number} sur {total}",
+      "close": "Fermer l'image",
+      "previous": "Image précédente",
+      "next": "Image suivante"
+    }
+  },
   "home": {
-    "hero_eyebrow": "VTuber panda roux · Temple Kumaneko",
-    "hero_name": "Keola",
-    "hero_surname": "Kumaneko",
-    "hero_text": "Sans micro, mais pas sans malice. Des jeux, des réactions et des moments à partager avec mes petits esprits.",
-    "hero_welcome": "Entre, on t'attendait.",
-    "hero_discover": "Découvrir son univers",
-    "hero_slideshow": "Illustrations de Keola",
-    "hero_pause": "Mettre le diaporama en pause",
-    "hero_play": "Lancer le diaporama",
     "schedule_eyebrow": "Le prochain rendez-vous",
     "schedule_title": "On se retrouve en live ?",
     "schedule_text": "Le planning à jour est sur Twitch. Passe voir le prochain rendez-vous, ou installe-toi quand le live commence.",
@@ -84,39 +144,16 @@
     "about_quote": "Mes petits esprits, installez-vous au temple.",
     "about_discover": "Faire connaissance avec Keola",
     "discord_link": "Rejoindre le Discord",
-    "gallery_eyebrow": "Créations de la communauté",
-    "gallery_title": "Keola vue par ses artistes.",
-    "gallery_text": "Des styles, des couleurs et autant de façons d'imaginer Keola. Voici une sélection de créations partagées sur son site.",
-    "gallery_link": "Explorer la galerie",
-    "mission_eyebrow": "Une cause qui compte",
-    "mission_title": "Protéger les pandas roux, pour de vrai.",
-    "mission_text": "Keola organise le Red Pandathon pour soutenir Red Panda Network et participe à d'autres événements caritatifs. Dans le monde réel, l'association protège les pandas roux sauvages et leur habitat avec les communautés locales.",
-    "mission_link": "Découvrir Red Panda Network",
-    "community_eyebrow": "Mes petits esprits",
-    "community_title": "La conversation continue ailleurs.",
-    "community_text": "Des parties ensemble aux discussions sur Discord, les petits esprits font vivre le Temple Kumaneko. Retrouve les lives, les vidéos et les nouvelles de Keola.",
-    "community_art_alt": "Keola Kumaneko en mode lurk",
     "partners_eyebrow": "Rencontres et collaborations",
     "partners_title": "Des liens qui ont du sens.",
-    "closing_art_alt": "Keola, les oreilles dressées, regarde par-dessus le bord",
     "safebear_text": "Keola a rejoint les ambassadeurs de SafeBear en 2025 : un outil de collecte de preuves face au cyberharcèlement.",
     "holy_text": "Une marque de boissons avec laquelle Keola a collaboré.",
     "partner_link": "Découvrir le site",
+    "community_eyebrow": "Mes petits esprits",
+    "closing_art_alt": "Keola, les oreilles dressées, regarde par-dessus le bord",
     "end_title": "On se retrouve bientôt ?",
     "end_text": "Une partie, une discussion, un moment ensemble : il y a une place pour toi au Temple Kumaneko.",
-    "end_link": "🍎Keola Sanctuary🍏",
-    "hero_alts": {
-      "1": "Keola fait un clin d'œil, un masque de renard sur la tête et un masque à gaz autour du cou",
-      "2": "Keola, en tenue de motard, est allongée sur une moto",
-      "3": "Keola, en tenue de boxeuse, donne un coup de poing",
-      "4": "Keola, tenant des pompons orange, bondit au milieu des vagues sous un ciel bleu",
-      "5": "Keola en combinaison spatiale tend la main vers un petit esprit astronaute",
-      "6": "Keola est allongée près d'un petit esprit violet qui mange une tranche de pastèque",
-      "7": "Keola dans l'armure du clan Kumaneko, dans une scène épique",
-      "8": "Keola et une amie posent côte à côte en tenues japonaises",
-      "9": "Keola Zelda, une épée dans les mains, en pleine action",
-      "10": "Keola en tenue japonaise regarde le ciel, d'où tombent des pétales de fleurs de cerisier"
-    }
+    "end_link": "🍎Keola Sanctuary🍏"
   },
   "keola": {
     "welcome_spirit_alt": "Petit esprit violet souriant",
@@ -161,34 +198,34 @@
       "spirits_caption": "Les petits esprits veillent sur le temple.",
       "origin": {
         "title": "La nuit des esprits bleus",
-        "p1": "Il y a fort longtemps, les humains découvrirent l’existence des êtres appelés « Panda Roux ».",
-        "p2": "Réputés pour leurs fourrures ou bien leurs côtés mignons qui en faisaient l’objet de convoitise de beaucoup de personnes, comme les braconniers ou les riches bourgeois voulant pouvoir montrer leurs richesses en exposant publiquement ces Pandas Roux pour montrer leurs pouvoirs auprès des petites gens.",
-        "p3": "Leurs races devenant de plus en plus rares avec les années certaines organisations et familles importantes ont décidé d’agir en créant un temple qui servirait de sanctuaire pour ces petits êtres, pour leur protection et pour leur sauvegarde !",
-        "p4": "Mais qu’est-ce qui pouvait bien avoir poussé les humains d’origine si cupides et si imbus d’eux-mêmes à œuvrer pour une telle cause ?",
-        "p5": "Tout cela remonte à il y a un quart de siècle, alors que le plus vieux panda roux du monde connaissait son dernier souffle lors d’un rituel de purification et d’aide au passage vers un monde meilleur, quelque chose d’inhabituel se passa !",
-        "p6": "Des flammes bleues apparurent lors du rituel prenant la forme tout d’abord de petits feux follets puis leurs silhouettes changèrent peu à peu pour prendre l’apparence de panda roux, comme si les esprits des défunts étaient venus accompagner leur plus ancien représentant lors de sa fin…"
+        "p1": "Il y a fort longtemps, les humains découvrirent l'existence des êtres appelés « Panda Roux ».",
+        "p2": "Réputés pour leurs fourrures ou bien leurs côtés mignons qui en faisaient l'objet de convoitise de beaucoup de personnes, comme les braconniers ou les riches bourgeois voulant pouvoir montrer leurs richesses en exposant publiquement ces Pandas Roux pour montrer leurs pouvoirs auprès des petites gens.",
+        "p3": "Leurs races devenant de plus en plus rares avec les années certaines organisations et familles importantes ont décidé d'agir en créant un temple qui servirait de sanctuaire pour ces petits êtres, pour leur protection et pour leur sauvegarde !",
+        "p4": "Mais qu'est-ce qui pouvait bien avoir poussé les humains d'origine si cupides et si imbus d'eux-mêmes à œuvrer pour une telle cause ?",
+        "p5": "Tout cela remonte à il y a un quart de siècle, alors que le plus vieux panda roux du monde connaissait son dernier souffle lors d'un rituel de purification et d'aide au passage vers un monde meilleur, quelque chose d'inhabituel se passa !",
+        "p6": "Des flammes bleues apparurent lors du rituel prenant la forme tout d'abord de petits feux follets puis leurs silhouettes changèrent peu à peu pour prendre l'apparence de panda roux, comme si les esprits des défunts étaient venus accompagner leur plus ancien représentant lors de sa fin…"
       },
       "inheritance": {
         "title": "Un héritage inattendu",
-        "p1": "Une lumière éblouissante alors éclata et se leva vers le ciel nocturne rempli d’étoiles et traversa la voûte céleste telle une étoile filante voyageant rapidement autour de la Terre pour finalement finir sa course dans une demeure humaine.",
-        "p2": "Cette même demeure était celle d’une famille assez noble du nom Kumaneko, mais la famille se portait assez mal car leur seule héritière était mourante...",
-        "p3": "C’est alors, qu’un flash bleu étincelant prit place dans la pièce dans laquelle était l’héritière de cette famille et une fois la lumière dissipée, une marque telle un sceau était apparue sur le ventre de celle-ci ! Mais qu’est-ce que cela pouvait-il bien être ?",
-        "p4": "Les humains ne comprirent pas au début, ce n’est uniquement qu’après que la nuit se soit levée et que l’héritière fut guérie miraculeusement que tout prit son sens, des oreilles et une queue de panda roux étaient apparues comme par magie, comme si un esprit avait pris possession du corps de cette enfant mais la famille ne put être que reconnaissante car cela avait permis de lui sauver la vie.",
-        "p5": "Dès lors cette famille changea drastiquement le traitement fait au panda roux, et comme une façon de remercier cet étrange évènement fortuit, ils décidèrent de créer toute une réserve naturelle dédiée à la protection de ceux-ci sur ordre de l’héritière, sans essayer de chercher à comprendre l’objectif de celle-ci, ils s’exécutèrent comme hypnotisés par un sort très puissant."
+        "p1": "Une lumière éblouissante alors éclata et se leva vers le ciel nocturne rempli d'étoiles et traversa la voûte céleste telle une étoile filante voyageant rapidement autour de la Terre pour finalement finir sa course dans une demeure humaine.",
+        "p2": "Cette même demeure était celle d'une famille assez noble du nom Kumaneko, mais la famille se portait assez mal car leur seule héritière était mourante...",
+        "p3": "C'est alors, qu'un flash bleu étincelant prit place dans la pièce dans laquelle était l'héritière de cette famille et une fois la lumière dissipée, une marque telle un sceau était apparue sur le ventre de celle-ci ! Mais qu'est-ce que cela pouvait-il bien être ?",
+        "p4": "Les humains ne comprirent pas au début, ce n'est uniquement qu'après que la nuit se soit levée et que l'héritière fut guérie miraculeusement que tout prit son sens, des oreilles et une queue de panda roux étaient apparues comme par magie, comme si un esprit avait pris possession du corps de cette enfant mais la famille ne put être que reconnaissante car cela avait permis de lui sauver la vie.",
+        "p5": "Dès lors cette famille changea drastiquement le traitement fait au panda roux, et comme une façon de remercier cet étrange évènement fortuit, ils décidèrent de créer toute une réserve naturelle dédiée à la protection de ceux-ci sur ordre de l'héritière, sans essayer de chercher à comprendre l'objectif de celle-ci, ils s'exécutèrent comme hypnotisés par un sort très puissant."
       },
       "guardian": {
         "title": "La gardienne du temple",
-        "p1": "Cet héritage fut transmis à travers les générations de mère en fille pendant plusieurs siècles jusqu’aux jours actuels, la famille avait depuis le temps beaucoup perdu de sa prestance à travers les âges avec l’investissement mis dans la réserve naturelle protégée par le Temple Kumaneko.",
-        "p2": "Les richesses de la famille avaient dépéri petit à petit que les générations avancèrent et l’impact sur la réserve naturelle qu’était le Temple Kumaneko se fit ressentir aussi alors la matriarche actuelle du nom de Keola Kumaneko décida de changer de stratégie pour préserver ce havre de paix et protéger tous les pandas roux y vivant !",
-        "p3": "Malgré qu’elle était touchée d’un mutisme suite à un accident plus jeune, cela n’avait pas affaibli Keola alors qu’elle avait déjà la lourde responsabilité de sa famille et du temple à gérer, au contraire cela n’avait fait que renforcer ses convictions d’en faire un endroit plus sécurisé et plus amical pour tous ceux de son espèce !",
-        "p4": "De son espèce ? Ah oui, j’ai peut-être oublié de le préciser mais au fur et à mesure que les générations ont hérité des pouvoirs spéciaux du panda roux partageant l’âme de tous les héritiers de la famille Kumaneko, l’esprit gagnait de plus en plus de contrôle car sa mémoire restait intacte et son emprise sur son hôte était alors plus forte à chaque réincarnation dans un enfant de ladite famille.",
-        "p5": "Alors arrivée en 2023, Keola Kumaneko était la personnalité de la panda roux résidant dans le corps de son hôte et ayant pris possession complète de celui-ci atteignant une certaine forme d’immortalité s’appliquant également au corps de son hôte qui semblait figer son apparence malgré les temps qui passent."
+        "p1": "Cet héritage fut transmis à travers les générations de mère en fille pendant plusieurs siècles jusqu'aux jours actuels, la famille avait depuis le temps beaucoup perdu de sa prestance à travers les âges avec l'investissement mis dans la réserve naturelle protégée par le Temple Kumaneko.",
+        "p2": "Les richesses de la famille avaient dépéri petit à petit que les générations avancèrent et l'impact sur la réserve naturelle qu'était le Temple Kumaneko se fit ressentir aussi alors la matriarche actuelle du nom de Keola Kumaneko décida de changer de stratégie pour préserver ce havre de paix et protéger tous les pandas roux y vivant !",
+        "p3": "Malgré qu'elle était touchée d'un mutisme suite à un accident plus jeune, cela n'avait pas affaibli Keola alors qu'elle avait déjà la lourde responsabilité de sa famille et du temple à gérer, au contraire cela n'avait fait que renforcer ses convictions d'en faire un endroit plus sécurisé et plus amical pour tous ceux de son espèce !",
+        "p4": "De son espèce ? Ah oui, j'ai peut-être oublié de le préciser mais au fur et à mesure que les générations ont hérité des pouvoirs spéciaux du panda roux partageant l'âme de tous les héritiers de la famille Kumaneko, l'esprit gagnait de plus en plus de contrôle car sa mémoire restait intacte et son emprise sur son hôte était alors plus forte à chaque réincarnation dans un enfant de ladite famille.",
+        "p5": "Alors arrivée en 2023, Keola Kumaneko était la personnalité de la panda roux résidant dans le corps de son hôte et ayant pris possession complète de celui-ci atteignant une certaine forme d'immortalité s'appliquant également au corps de son hôte qui semblait figer son apparence malgré les temps qui passent."
       },
       "streaming": {
         "title": "Une nouvelle magie : le streaming",
-        "p1": "Ayant pris conscience de cela, Keola ayant vécu plusieurs siècles en observant les humains et leurs méthodes avides, cupides et méprisables alors pour s’adapter elle étudia avec beaucoup de détails les moyens à sa disposition pour rallier des gens à sa cause et remplir à nouveau la trésorerie du temple Kumaneko pour pouvoir rendre à la réserve naturelle un coup de jeune ainsi qu’une nouvelle vie à celle-ci pour améliorer la vie des pandas roux y résidant.",
-        "p2": "Prenant en compte tout cela Keola fit acheter tout le nécessaire pour se lancer dans le streaming sur une plate-forme de divertissement vidéoludique nommée « Twitch » , en apprenant les codes d’animation d’émission divertissante en combinant sa magie d’esprit panda roux elle créa une bulle magique lui permettant de se faire entendre par ses spectateurs tout en affichant ce qu’elle disait dans ces mêmes bulles magiques.",
-        "p3": "À ce jour elle a réussi à s’entourer d’autres personnes dans ce monde vidéoludique qu’est le streaming et grâce à leur aide, à sa sagesse et ses efforts le temple Kumaneko est en train de revivre petit à petit et l’habitat des pandas roux s’en trouve restauré et embelli grâce aux donations des fidèles rejoignant le temple Kumaneko grâce aux émissions de Keola sur Internet."
+        "p1": "Ayant pris conscience de cela, Keola ayant vécu plusieurs siècles en observant les humains et leurs méthodes avides, cupides et méprisables alors pour s'adapter elle étudia avec beaucoup de détails les moyens à sa disposition pour rallier des gens à sa cause et remplir à nouveau la trésorerie du temple Kumaneko pour pouvoir rendre à la réserve naturelle un coup de jeune ainsi qu'une nouvelle vie à celle-ci pour améliorer la vie des pandas roux y résidant.",
+        "p2": "Prenant en compte tout cela Keola fit acheter tout le nécessaire pour se lancer dans le streaming sur une plate-forme de divertissement vidéoludique nommée « Twitch » , en apprenant les codes d'animation d'émission divertissante en combinant sa magie d'esprit panda roux elle créa une bulle magique lui permettant de se faire entendre par ses spectateurs tout en affichant ce qu'elle disait dans ces mêmes bulles magiques.",
+        "p3": "À ce jour elle a réussi à s'entourer d'autres personnes dans ce monde vidéoludique qu'est le streaming et grâce à leur aide, à sa sagesse et ses efforts le temple Kumaneko est en train de revivre petit à petit et l'habitat des pandas roux s'en trouve restauré et embelli grâce aux donations des fidèles rejoignant le temple Kumaneko grâce aux émissions de Keola sur Internet."
       }
     },
     "debut": {
@@ -225,7 +262,7 @@
       "recent_alt": "Vue complète du modèle de Keola dans le visuel de 2026"
     },
     "more": {
-      "credits_art_alt": "Keola, loupe à la main, devant une carte et le mot Credits",
+      "credits_art_alt": "Keola, loupe à la main, devant une carte et le mot « Credits »",
       "facts_art_alt": "Keola perchée sur un petit esprit violet dans une scène enneigée",
       "eyebrow": "Les petits détails comptent",
       "title": "Encore un peu de Keola.",
@@ -235,13 +272,7 @@
       "facts_title": "Les légendes des petits esprits",
       "facts_text": "Des « facts » pas tout à fait sérieux, des exploits imaginaires et beaucoup d'humour : les petits esprits ont leur propre version de la légende.",
       "facts_link": "Découvrir les Keola facts",
-      "community": "L'histoire continue avec vous, mes petits esprits.",
-      "egg_action": "Faire pleuvoir les emotes de Keola",
-      "egg_hint": "Psst… un dernier petit secret ?",
-      "egg_result": "NYUH ! Des bonbons et des cœurs pour toi !",
-      "egg_nyuh_alt": "Keola s’écrie « NYUH ! »",
-      "egg_candy_alt": "Emote bonbon de Keola",
-      "egg_heart_alt": "Emote cœur de Keola"
+      "community": "L'histoire continue avec vous, mes petits esprits."
     }
   },
   "gallery": {
@@ -250,10 +281,6 @@
     "intro": "Une sélection de fanarts partagés autour de Keola.",
     "image_alt": "Fanart {number} : {description}",
     "open": "Agrandir le fanart numéro {number}",
-    "count": "{number} sur {total}",
-    "close": "Fermer l'image",
-    "previous": "Image précédente",
-    "next": "Image suivante",
     "credit_note": "Les artistes conservent les droits sur leurs œuvres. Les attributions individuelles sont en cours de vérification.",
     "image_descriptions": {
       "1": "Keola est assise sur des marches, au bord de l'eau, dans un jardin japonais",
@@ -267,7 +294,7 @@
       "9": "Gros plan de Keola avec un masque de renard blanc",
       "10": "Keola pose debout en tenue noire, blanche et orange",
       "11": "Keola en tenue bleue, un katana à la main, se tient dans un paysage sombre",
-      "12": "Keola allongée dans la neige, au milieu des flocons de neige tombants",
+      "12": "Keola allongée dans la neige, au milieu des flocons qui tombent",
       "13": "Keola, géante, déguisée en dinosaure, marche dans une ville en feu",
       "14": "Keola montre une patte rose devant un fond rose orangé",
       "15": "Keola pose de profil sur fond noir",
@@ -325,7 +352,7 @@
       "67": "Portrait de Keola au trait noir, avec quelques notes orangées",
       "68": "Keola fait des graffitis avec un petit esprit bleu",
       "69": "Keola et un ami, assis côte à côté contre un mur, font un signe de la main",
-      "70": "Affiche de Keola, en soutien aux panda roux, donnant de l'espoir",
+      "70": "Affiche de Keola, en soutien aux pandas roux, donnant de l'espoir",
       "71": "Keola et un petit esprit violet, en tenues de Noël",
       "72": "Keola et Vic_kyllian devant un gâteau d'anniversaire, pour fêter la première année",
       "73": "Keola avec des oreilles de lapin, sur un socle, devant un fond rouge rosé",
@@ -333,21 +360,21 @@
       "75": "Keola, souriante, s'élance vers l'avant",
       "76": "Keola rigole et est accompagnée de son modèle Chibi",
       "77": "Keola est allongée sur la plage, accompagnée d'un cocktail",
-      "78": "Keola, en tenue Arknights Endfield, est assise et fait un signe de la main",
+      "78": "Keola, en tenue Arknights: Endfield, est assise et fait un signe de la main",
       "79": "Plein de Keola ayant des expressions faciales différentes, sur fond orangé",
       "80": "Un œuf orangé contenant Keola et un panda roux dans ses bras",
       "81": "Keola et Yhusky, au Japon, en plein entraînement de combat",
       "82": "Keola et une amie, assises, se faisant un câlin",
       "83": "Keola, prête à manger son gâteau, accompagnée de son esprit violet",
       "84": "Keola sur la Lune, en tenue Pragmata, en plein saut",
-      "85": "Keola se repose dans un bain naturel et est accompagnée d'un panda roux",
+      "85": "Keola se détend dans une source chaude naturelle aux côtés d'un panda roux",
       "86": "Portrait de Keola en tenue pirate",
       "87": "Keola, Yhusky et une amie sont très proches et heureux de se retrouver",
       "88": "Keola en tenue pirate, assise sur son siège de capitaine",
       "89": "Keola Chibi en tenue orange, est accompagnée de Pyroli",
       "90": "Scène de combat épique très sombre avec Keola au premier plan, les yeux rouges",
       "91": "Keola s'est endormie avec son petit esprit violet dans les bras",
-      "92": "Keola, en tenue Ghost of Yotei, est en train de sortir son katana",
+      "92": "Keola, en tenue Ghost of Yōtei, est en train de sortir son katana",
       "93": "Keola et ses amis jouent dans la neige",
       "94": "Keola est assise avec son petit esprit dans les bras et lui donne plein d'amour",
       "95": "Keola, assise, dans une scène automnale, caresse un petit panda roux",
@@ -418,7 +445,7 @@
     "title": "Les essentiels, au même endroit.",
     "intro": "VTuber panda roux francophone, Keola propose des lives sans micro et s'engage dans des événements caritatifs. Retrouve sa fiche média existante, ses liens officiels et son contact professionnel.",
     "preview_alt": "Fiche média illustrée de Keola avec sa présentation, des statistiques datées, des collaborations, des jeux et son adresse de contact",
-    "pirate_blush_alt": "Keola en tenue de pirate, rougissante, avec un petit esprit violet",
+    "pirate_blush_alt": "Keola en tenue de pirate, rougissante, tenant un petit esprit violet dans ses bras",
     "pirate_blep_alt": "Keola en tenue de pirate, la langue légèrement tirée",
     "download": "Télécharger la fiche média (WebP)",
     "contact_title": "Parlons-en.",

@@ -3,14 +3,15 @@
     :to="localePath('/')"
     class="brand"
     :class="{ 'brand--inverse': inverse }"
-    :aria-label="t('site.brand_name')">
+    :aria-label="`${t('components.site_brand.brand_name')} · ${t('site.back_home')}`"
+    :data-tooltip="t('site.back_home')">
     <Image
       src="/images/logo.webp"
-      :alt="t('site.brand_logo_alt')"
+      :alt="t('components.site_brand.brand_logo_alt')"
       loading="eager" />
     <span class="brand__text">
-      {{ t('site.brand_first') }}
-      <span>{{ t('site.brand_last') }}</span>
+      {{ t('components.site_brand.brand_first') }}
+      <span>{{ t('components.site_brand.brand_last') }}</span>
     </span>
   </NuxtLink>
 </template>

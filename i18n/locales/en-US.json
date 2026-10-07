@@ -1,16 +1,9 @@
 {
   "site": {
-    "brand_first": "Keola",
-    "brand_last": "Kumaneko",
-    "brand_name": "Keola Kumaneko",
-    "brand_logo_alt": "Keola Kumaneko's red panda head logo with little spirits",
     "red_panda_network": "Red Panda Network",
-    "safebear": "Safebear",
+    "safebear": "SafeBear",
     "holy": "HOLY",
     "skip": "Skip to content",
-    "menu": "Open menu",
-    "close_menu": "Close menu",
-    "language": "Site language",
     "home": "Home",
     "about": "Keola",
     "gallery": "Gallery",
@@ -21,11 +14,8 @@
     "watch": "Watch live",
     "contact": "Contact Keola",
     "explore": "Explore",
-    "elsewhere": "Find Keola",
-    "footer_intro": "Mic-free streams, an expressive red panda VTuber and her little spirits. Welcome to Kumaneko Temple.",
     "back_home": "Back to home",
-    "og_alt": "Keola Kumaneko, red panda VTuber",
-    "copyright": "Keola Kumaneko. Artwork remains the property of its artists."
+    "og_alt": "Keola Kumaneko, red panda VTuber"
   },
   "social": {
     "live": "Livestreams",
@@ -39,7 +29,7 @@
   "seo": {
     "keola": {
       "title": "Introduction and lore - Keola Kumaneko",
-      "description": "Get to know Keola Kumaneko through her introduction video, the story of Kumaneko Temple, her streaming debut and her evolving models."
+      "description": "Get to know Keola Kumaneko through her introduction video, the story of Temple Kumaneko, her streaming debut and her evolving models."
     },
     "home": {
       "title": "Keola Kumaneko - Red panda VTuber",
@@ -62,16 +52,86 @@
       "description": "Media sheet, official links and professional contact for Keola Kumaneko, red panda VTuber."
     }
   },
+  "components": {
+    "site_brand": {
+      "brand_first": "Keola",
+      "brand_last": "Kumaneko",
+      "brand_name": "Keola Kumaneko",
+      "brand_logo_alt": "Keola Kumaneko's red panda head logo with little spirits"
+    },
+    "site_header": {
+      "menu": "Open menu",
+      "close_menu": "Close menu"
+    },
+    "language_switcher": {
+      "language": "Site language"
+    },
+    "site_footer": {
+      "footer_intro": "Mic-free streams, an expressive red panda VTuber and her little spirits. Welcome to Temple Kumaneko.",
+      "copyright": "Keola Kumaneko. Illustrations remain the property of their respective artists.",
+      "elsewhere": "Find Keola"
+    },
+    "home_hero": {
+      "eyebrow": "Red panda VTuber · Temple Kumaneko",
+      "name": "Keola",
+      "surname": "Kumaneko",
+      "text": "No microphone, plenty of mischief. Games, reactions and moments to share with my little spirits.",
+      "welcome": "Come on in, we've been expecting you.",
+      "discover": "Discover her world",
+      "slideshow": "Illustrations of Keola",
+      "pause": "Pause slideshow",
+      "play": "Play slideshow",
+      "alts": {
+        "1": "Keola winks with a fox mask on her head and a gas mask around her neck",
+        "2": "Keola in biker gear lies across a motorcycle",
+        "3": "Keola in boxing gear throws a punch",
+        "4": "Keola leaps through waves beneath a blue sky, holding orange pom-poms",
+        "5": "Keola in a spacesuit reaches toward a little spirit astronaut",
+        "6": "Keola lies beside a little purple spirit eating a slice of watermelon",
+        "7": "Keola in Kumaneko clan armor in an epic scene",
+        "8": "Keola and a friend pose side by side in Japanese outfits",
+        "9": "Keola as Zelda, sword in hand, in the heat of battle",
+        "10": "Keola in a Japanese outfit looks up at the sky as cherry blossom petals fall"
+      },
+      "previous": "Previous slide",
+      "next": "Next slide",
+      "count": "{number} of {total}"
+    },
+    "home_gallery": {
+      "eyebrow": "Community creations",
+      "title": "Keola through her artists' eyes.",
+      "text": "Different styles, different colors, countless ways to imagine Keola. Here is a selection of creations shared on her site.",
+      "link": "Explore the gallery"
+    },
+    "home_mission": {
+      "eyebrow": "A cause that matters",
+      "title": "Protecting red pandas, for real.",
+      "text": "Keola organizes the Red Pandathon in support of Red Panda Network and takes part in other charity events. In the real world, the organization protects wild red pandas and their habitat alongside local communities.",
+      "link": "Discover Red Panda Network"
+    },
+    "home_community": {
+      "eyebrow": "My little spirits",
+      "title": "The conversation goes on elsewhere.",
+      "text": "From playing together to chatting on Discord, the little spirits bring Temple Kumaneko to life. Find Keola's streams, videos and updates.",
+      "art_alt": "Keola Kumaneko in lurk mode"
+    },
+    "keola_emote_surprise": {
+      "action": "Make Keola's emotes rain down",
+      "tooltip": "NYUH!",
+      "hint": "Psst… one last little secret?",
+      "result": "NYUH! Candy and hearts for you!",
+      "nyuh_alt": "Keola exclaiming “NYUH!”",
+      "candy_alt": "Keola candy emote",
+      "heart_alt": "Keola heart emote"
+    },
+    "artwork_lightbox": {
+      "count": "{number} of {total}",
+      "close": "Close image",
+      "previous": "Previous image",
+      "next": "Next image"
+    }
+  },
   "home": {
-    "hero_eyebrow": "Red panda VTuber · Kumaneko Temple",
-    "hero_name": "Keola",
-    "hero_surname": "Kumaneko",
-    "hero_text": "No microphone, plenty of mischief. Games, reactions and moments to share with my little spirits.",
-    "hero_welcome": "Come on in, we've been expecting you.",
-    "hero_discover": "Discover her world",
-    "hero_slideshow": "Illustrations of Keola",
-    "hero_pause": "Pause slideshow",
-    "hero_play": "Play slideshow",
     "schedule_eyebrow": "The next get-together",
     "schedule_title": "See you live?",
     "schedule_text": "The up-to-date schedule lives on Twitch. Check the next stream, or drop in when Keola goes live.",
@@ -84,39 +144,16 @@
     "about_quote": "My little spirits, make yourselves at home in the temple.",
     "about_discover": "Get to know Keola",
     "discord_link": "Join the Discord",
-    "gallery_eyebrow": "Community creations",
-    "gallery_title": "Keola through her artists' eyes.",
-    "gallery_text": "Different styles, different colors, countless ways to imagine Keola. Here is a selection of creations shared on her site.",
-    "gallery_link": "Explore the gallery",
-    "mission_eyebrow": "A cause that matters",
-    "mission_title": "Protecting red pandas, for real.",
-    "mission_text": "Keola organizes the Red Pandathon in support of Red Panda Network and takes part in other charity events. In the real world, the organization protects wild red pandas and their habitat alongside local communities.",
-    "mission_link": "Discover Red Panda Network",
-    "community_eyebrow": "My little spirits",
-    "community_title": "The conversation goes on elsewhere.",
-    "community_text": "From playing together to chatting on Discord, the little spirits bring Kumaneko Temple to life. Find Keola's streams, videos and updates.",
-    "community_art_alt": "Keola Kumaneko in lurk mode",
-    "partners_eyebrow": "People and collaborations",
+    "partners_eyebrow": "Encounters and collaborations",
     "partners_title": "Connections with a purpose.",
-    "closing_art_alt": "Keola peeking over the edge with her ears raised",
     "safebear_text": "Keola joined SafeBear's ambassadors in 2025: a tool for collecting evidence of online harassment.",
     "holy_text": "A drinks brand Keola has collaborated with.",
     "partner_link": "Visit website",
+    "community_eyebrow": "My little spirits",
+    "closing_art_alt": "Keola peeking over the edge with her ears raised",
     "end_title": "See you soon?",
-    "end_text": "A game, a conversation, a moment together: there's a place for you at Kumaneko Temple.",
-    "end_link": "🍎Keola Sanctuary🍏",
-    "hero_alts": {
-      "1": "Keola winks with a fox mask on her head and a gas mask around her neck",
-      "2": "Keola in biker gear lies across a motorcycle",
-      "3": "Keola in boxing gear throws a punch",
-      "4": "Keola leaps through waves beneath a blue sky, holding orange pom-poms",
-      "5": "Keola in a spacesuit reaches toward a little spirit astronaut",
-      "6": "Keola lies beside a little purple spirit eating a slice of watermelon",
-      "7": "Keola in Kumaneko clan armor in an epic scene",
-      "8": "Keola and a friend pose side by side in Japanese outfits",
-      "9": "Keola as Zelda, sword in hand, in the heat of battle",
-      "10": "Keola in a Japanese outfit looks up at the sky as cherry blossom petals fall"
-    }
+    "end_text": "A game, a conversation, a moment together: there's a place for you at Temple Kumaneko.",
+    "end_link": "🍎Keola Sanctuary🍏"
   },
   "keola": {
     "welcome_spirit_alt": "Smiling little purple spirit",
@@ -146,15 +183,15 @@
     },
     "video": {
       "eyebrow": "Meet Keola",
-      "title": "It starts with a hello.",
+      "title": "It all starts with a meeting.",
       "youtube": "Watch on YouTube",
       "frame_title": "Keola Kumaneko introduction video"
     },
     "lore": {
       "eyebrow": "Keola's lore",
-      "title": "Kumaneko Temple",
-      "intro": "The story of Kumaneko Temple, written by Keola.",
-      "spirits_alt": "Kumaneko Temple's little blue spirits in the shape of red pandas",
+      "title": "Temple Kumaneko",
+      "intro": "The story of Temple Kumaneko, written by Keola.",
+      "spirits_alt": "Temple Kumaneko's little blue spirits in the shape of red pandas",
       "guardian_alt": "Keola leaning to the side with a fox mask in her hair",
       "pirate_heart_eyes_alt": "Keola in a pirate outfit, with heart-shaped eyes and a little purple spirit in her arms",
       "chibi_alt": "Chibi Keola in a red panda hood holding a little purple spirit",
@@ -162,33 +199,33 @@
       "origin": {
         "title": "The night of the blue spirits",
         "p1": "A very long time ago, humans discovered the existence of beings called 'Red Pandas'.",
-        "p2": "Known for their fur or their cute sides, they became objects of desire for many people, such as poachers or wealthy members of the bourgeoisie who wanted to show their riches by publicly exhibiting these Red Pandas to display their power before the common people.",
-        "p3": "Their kind becoming increasingly rare over the years, certain organizations and important families decided to act by creating a temple that would serve as a sanctuary for these little beings, for their protection and for their preservation!",
+        "p2": "Known for their fur and their cute appearance, Red Pandas were coveted by many, including poachers and wealthy bourgeois who displayed them publicly to show off their riches and power.",
+        "p3": "As Red Pandas became increasingly rare over the years, certain organizations and prominent families decided to build a temple to serve as a sanctuary and protect them!",
         "p4": "But what could possibly have driven humans, originally so greedy and so full of themselves, to work for such a cause?",
-        "p5": "All this goes back a quarter of a century, when the oldest red panda in the world was taking its last breath during a ritual of purification and assistance in passing to a better world, something unusual happened!",
-        "p6": "Blue flames appeared during the ritual, first taking the form of little will-o'-the-wisps, then their silhouettes gradually changed to take on the appearance of a red panda, as if the spirits of the departed had come to accompany their oldest representative at its end…"
+        "p5": "It all goes back a quarter of a century. As the world's oldest red panda drew its last breath during a purification ritual to help it pass on to a better world, something unusual happened!",
+        "p6": "Blue flames appeared during the ritual, first taking the form of little will-o'-the-wisps. Their shapes gradually changed into red pandas, as if the spirits of the departed had come to accompany their oldest representative in its final moments…"
       },
       "inheritance": {
         "title": "An unexpected inheritance",
-        "p1": "A dazzling light then burst forth and rose toward the star-filled night sky and crossed the heavens like a shooting star travelling quickly around the Earth, finally ending its journey in a human home.",
-        "p2": "That very home belonged to a rather noble family named Kumaneko, but the family was doing rather badly because their only heiress was dying...",
-        "p3": "It was then that a sparkling blue flash appeared in the room where the family's heiress was, and once the light had dissipated, a mark like a seal had appeared on her stomach! But what could this possibly be?",
-        "p4": "The humans did not understand at first, it was only after the night had risen and the heiress had been miraculously cured that everything made sense, ears and a red panda tail had appeared as if by magic, as if a spirit had taken possession of this child's body, but the family could only be grateful because this had saved her life.",
-        "p5": "From then on this family drastically changed the treatment of red pandas, and as a way of thanking this strange, fortunate event, they decided to create an entire nature reserve dedicated to their protection on the heiress's orders, without trying to understand her objective, they complied as if hypnotized by a very powerful spell."
+        "p1": "A dazzling light burst forth and rose into the star-filled night sky. Like a shooting star, it crossed the heavens, sped around the Earth and finally came to rest in a human home.",
+        "p2": "That home belonged to the rather noble Kumaneko family, but they were in distress: their only heiress was dying…",
+        "p3": "Then a sparkling blue flash filled the room where the heiress lay. Once the light faded, a seal-like mark had appeared on her stomach! What could it be?",
+        "p4": "At first, the humans did not understand. Only after nightfall, when the heiress was miraculously healed, did it all make sense: red panda ears and a tail had appeared as if by magic. It was as though a spirit had taken possession of the child's body, but her family could only be grateful, for it had saved her life.",
+        "p5": "From then on, the family drastically changed how they treated red pandas. At the heiress's order, they created an entire nature reserve to protect them, as a way of giving thanks for the strange, fortunate event. Without trying to understand her goal, the family obeyed as if hypnotized by a powerful spell."
       },
       "guardian": {
         "title": "The temple's guardian",
-        "p1": "This inheritance was passed down through the generations from mother to daughter for several centuries until the present day, over time the family had lost much of its stature through the ages with the investment put into the nature reserve protected by Kumaneko Temple.",
-        "p2": "The family's riches had dwindled little by little as the generations went by, and the impact was also felt on the nature reserve that was Kumaneko Temple, so the current matriarch named Keola Kumaneko decided to change her strategy to preserve this haven of peace and protect all the red pandas living there!",
-        "p3": "Although she was affected by mutism following an accident when she was younger, this had not weakened Keola while she already had the heavy responsibility of her family and the temple to manage, on the contrary it had only strengthened her convictions to make it a more secure and friendlier place for all those of her species!",
-        "p4": "Her species? Oh yes, I may have forgotten to mention it, but as generations inherited the special powers of the red panda sharing the soul of all the heirs of the Kumaneko family, the spirit gained more and more control because its memory remained intact and its hold over its host was then stronger with each reincarnation into a child of that family.",
-        "p5": "Then, having reached 2023, Keola Kumaneko was the personality of the female red panda residing in her host's body and, having taken complete possession of it, reaching a certain form of immortality that also applied to her host's body, which seemed to freeze its appearance despite the passing times."
+        "p1": "This inheritance passed from mother to daughter for centuries, right up to the present day. Over time, the family lost much of its standing as it invested in the nature reserve protected by Temple Kumaneko.",
+        "p2": "The family's wealth dwindled with each generation, and the nature reserve that was Temple Kumaneko felt the effects. The current matriarch, Keola Kumaneko, decided to change her approach to preserve this haven of peace and protect every red panda living there!",
+        "p3": "An accident in her youth had left Keola unable to speak, but it had not weakened her. She already bore responsibility for her family and the temple; if anything, it strengthened her resolve to make the place safer and more welcoming for her kind!",
+        "p4": "Her kind? Oh yes, perhaps I forgot to mention it: as generations of the Kumaneko family inherited the special powers of the red panda spirit that shared their souls, the spirit gained more control. Its memory remained intact, and with each reincarnation into a child of the family, its hold on its host grew stronger.",
+        "p5": "By 2023, Keola Kumaneko was the personality of the female red panda living within her host. She had taken complete possession of the host's body and achieved a kind of immortality that extended to it: its appearance seemed frozen despite the passage of time."
       },
       "streaming": {
         "title": "A new kind of magic: streaming",
-        "p1": "Having become aware of this, Keola, having lived for several centuries observing humans and their greedy, grasping and contemptible methods, then studied in great detail the means at her disposal to adapt, rally people to her cause and replenish Kumaneko Temple's treasury, so she could give the nature reserve a fresh start as well as a new life to improve the lives of the red pandas residing there.",
-        "p2": "Taking all this into account, Keola had everything necessary bought to start streaming on a video-game entertainment platform named 'Twitch', learning the conventions of hosting an entertaining show and combining her red panda spirit magic, she created a magical bubble allowing her to be heard by her viewers while displaying what she said in those same magical bubbles.",
-        "p3": "To this day she has managed to surround herself with other people in this video-game world that is streaming, and thanks to their help, her wisdom and her efforts, Kumaneko Temple is gradually coming back to life and the red pandas' habitat is being restored and beautified thanks to donations from the faithful joining Kumaneko Temple thanks to Keola's broadcasts on the Internet."
+        "p1": "Aware of this, Keola drew on centuries of observing humans and their greedy, grasping and contemptible ways. She studied the means available to rally people to her cause and refill Temple Kumaneko's treasury, so she could renew the nature reserve and improve life for the red pandas living there.",
+        "p2": "With this in mind, Keola had everything she needed bought for streaming on a video-game entertainment platform called 'Twitch'. She learned how to host an entertaining show and combined those skills with her red panda spirit magic. She created magical bubbles that let viewers hear her while displaying her words.",
+        "p3": "Since then, Keola has surrounded herself with others in the gaming world of streaming. Thanks to their help, her wisdom and her efforts, Temple Kumaneko is gradually coming back to life. Donations from followers who discover the temple through Keola's broadcasts on the Internet are helping to restore and beautify the red pandas' habitat."
       }
     },
     "debut": {
@@ -235,25 +272,15 @@
       "facts_title": "The little spirits' legends",
       "facts_text": "Not-so-serious 'facts', imaginary feats and plenty of humor: the little spirits have their own version of the legend.",
       "facts_link": "Discover Keola facts",
-      "community": "The story continues with you, my little spirits.",
-      "egg_action": "Make Keola's emotes rain down",
-      "egg_hint": "Psst… one last little secret?",
-      "egg_result": "NYUH! Candy and hearts for you!",
-      "egg_nyuh_alt": "Keola exclaiming “NYUH!”",
-      "egg_candy_alt": "Keola candy emote",
-      "egg_heart_alt": "Keola heart emote"
+      "community": "The story continues with you, my little spirits."
     }
   },
   "gallery": {
     "eyebrow": "Gallery · The little spirits",
     "title": "A world made together.",
-    "intro": "A selection of fanart shared around Keola.",
+    "intro": "A selection of fanart featuring Keola.",
     "image_alt": "Fanart {number}: {description}",
     "open": "Enlarge fanart number {number}",
-    "count": "{number} of {total}",
-    "close": "Close image",
-    "previous": "Previous image",
-    "next": "Next image",
     "credit_note": "Artists retain the rights to their work. Individual attributions are being verified.",
     "image_descriptions": {
       "1": "Keola sits on steps beside the water in a Japanese garden",
@@ -297,13 +324,13 @@
       "39": "Portrait of smiling Keola with her fingers near her face",
       "40": "Keola is inside a backpack",
       "41": "Keola and a friend go shopping",
-      "42": "Keola as Zelda, sword in hand, in the heat of battle",
+      "42": "Keola as Zelda, sword in hand, in the middle of the action",
       "43": "Keola sits facing away in a Japanese outfit",
       "44": "Keola lies on a beach towel, sunbathing",
       "45": "Keola is about to blow out the candles on her birthday cake",
       "46": "Keola sits gazing thoughtfully at the ground",
       "47": "Keola and a friend sit in profile with their heads together",
-      "48": "Keola and a friend lie in each other's arms",
+      "48": "Keola lies in a friend's arms",
       "49": "Keola waves in her ZEvent 2026 outfit",
       "50": "Keola and Vic_kyllian in the kitchen",
       "51": "Keola shows off her nails in profile against a blue and red background",
@@ -323,7 +350,7 @@
       "65": "Keola in a witch outfit, accompanied by a little purple spirit and surrounded by flames",
       "66": "Keola in a witch outfit flies on her broom, accompanied by a little purple spirit",
       "67": "Black-line portrait of Keola with a few orange accents",
-      "68": "Keola makes graffiti with a little blue spirit",
+      "68": "Keola paints graffiti with a little blue spirit",
       "69": "Keola and a friend sit side by side against a wall and wave",
       "70": "A poster of Keola offering hope in support of red pandas",
       "71": "Keola and a little purple spirit in Christmas outfits",
@@ -331,7 +358,7 @@
       "73": "Keola with rabbit ears stands on a pedestal against a rosy red background",
       "74": "Keola rides a motorcycle, looking back with a piercing gaze",
       "75": "Keola smiles as she leaps forward",
-      "76": "Keola laughs alongside her chibi model",
+      "76": "Keola laughs alongside her Chibi model",
       "77": "Keola lies on the beach with a cocktail",
       "78": "Keola in an Arknights: Endfield outfit sits and waves",
       "79": "Many versions of Keola with different facial expressions against an orange background",
@@ -374,7 +401,7 @@
   "credits": {
     "eyebrow": "The talent behind the world",
     "title": "One temple, many talents.",
-    "intro": "Models, music, animation, illustration: many talented people bring Keola and Kumaneko Temple to life.",
+    "intro": "Models, music, animation, illustration: many talented people bring Keola and Temple Kumaneko to life.",
     "visit": "View {name}'s profile",
     "magnifying_glass_alt": "Keola looking through a magnifying glass with her right eye",
     "roles": {
@@ -402,7 +429,7 @@
     "intro": "Past events and creations. For upcoming streams, head to the Twitch schedule.",
     "redpandathon": "Red Pandathon · 2024",
     "redpandathon_eyebrow": "2024 / Red Panda Network",
-    "redpandathon_text": "A charity event held July 18–21, 2024 in support of Red Panda Network.",
+    "redpandathon_text": "A charity event held July 18-21, 2024 in support of Red Panda Network.",
     "redpandathon_goals_alt": "Red Pandathon 2024 goal chart, from 10 to 2,000 euros, with completed goals crossed out in red",
     "redpandathon_impossible_alt": "Additional Red Pandathon 2024 goals from 2,000 to 5,000 euros: four goals crossed out and two not crossed out",
     "redebut_2024": "Redebut · 2024",
@@ -418,8 +445,8 @@
     "title": "The essentials, all in one place.",
     "intro": "French-speaking red panda VTuber Keola hosts mic-free streams and takes part in charity events. Find her existing media sheet, official links and professional contact here.",
     "preview_alt": "Illustrated media sheet for Keola with her introduction, dated statistics, collaborations, games and contact address",
-    "pirate_blush_alt": "Keola in a pirate outfit, blushing while holding a little purple spirit",
-    "pirate_blep_alt": "Keola in a pirate outfit, sticking out her tongue",
+    "pirate_blush_alt": "Keola in a pirate outfit, blushing, while holding a little purple spirit",
+    "pirate_blep_alt": "Keola in a pirate outfit, sticking out her tongue slightly",
     "download": "Download media sheet (WebP)",
     "contact_title": "Let's talk.",
     "contact_text": "For a proposal or professional inquiry, email Keola directly.",

@@ -4,15 +4,17 @@
       <div class="hero__content">
         <span class="eyebrow eyebrow--light">
           <span class="eyebrow__mark" aria-hidden="true" />
-          {{ t('home.hero_eyebrow') }}
+          {{ t('components.home_hero.eyebrow') }}
         </span>
         <h1 id="hero-title">
-          {{ t('home.hero_name') }}
-          <span>{{ t('home.hero_surname') }}</span>
+          {{ t('components.home_hero.name') }}
+          <span>{{ t('components.home_hero.surname') }}</span>
         </h1>
         <p class="hero__lead">
-          {{ t('home.hero_text') }}
-          <span class="hero__welcome">{{ t('home.hero_welcome') }}</span>
+          {{ t('components.home_hero.text') }}
+          <span class="hero__welcome">
+            {{ t('components.home_hero.welcome') }}
+          </span>
         </p>
         <div class="hero__actions">
           <a
@@ -31,23 +33,24 @@
           <NuxtLink
             class="button button--light-outline"
             :to="localePath({ path: '/', hash: '#about' })">
-            {{ t('home.hero_discover') }}
+            {{ t('components.home_hero.discover') }}
             <Icon name="lucide:arrow-down-right" aria-hidden="true" />
           </NuxtLink>
         </div>
       </div>
       <div
         class="hero__visual"
-        :aria-label="t('home.hero_slideshow')"
-        @mouseenter="hovered = true"
-        @mouseleave="hovered = false"
-        @focusin="focused = true"
+        :aria-label="t('components.home_hero.slideshow')"
+        @pointerenter="handlePointerEnter"
+        @pointerleave="hovered = false"
+        @pointerdown="handlePointerDown"
+        @focusin="handleFocusIn"
         @focusout="handleFocusOut">
         <Transition name="hero-slide">
           <Image
             :key="activeSlide"
             :src="`/images/slideshows/slideshow-${slides[activeSlide]}.webp`"
-            :alt="t(`home.hero_alts.${slides[activeSlide]}`)"
+            :alt="t(`components.home_hero.alts.${slides[activeSlide]}`)"
             loading="eager"
             :fetchpriority="activeSlide === 0 ? 'high' : 'auto'" />
         </Transition>
@@ -55,8 +58,8 @@
           <button
             class="icon-button"
             type="button"
-            :aria-label="t('gallery.previous')"
-            :title="t('gallery.previous')"
+            :aria-label="t('components.home_hero.previous')"
+            :data-tooltip="t('components.home_hero.previous')"
             @click="moveSlide(-1)">
             <Icon name="lucide:chevron-left" aria-hidden="true" />
           </button>
@@ -66,7 +69,7 @@
             </span>
             <span class="sr-only">
               {{
-                t('gallery.count', {
+                t('components.home_hero.count', {
                   number: activeSlide + 1,
                   total: slides.length,
                 })
@@ -76,8 +79,8 @@
           <button
             class="icon-button"
             type="button"
-            :aria-label="t('gallery.next')"
-            :title="t('gallery.next')"
+            :aria-label="t('components.home_hero.next')"
+            :data-tooltip="t('components.home_hero.next')"
             @click="moveSlide(1)">
             <Icon name="lucide:chevron-right" aria-hidden="true" />
           </button>
@@ -85,15 +88,23 @@
             class="icon-button"
             type="button"
             :aria-label="
-              t(paused || reducedMotion ? 'home.hero_play' : 'home.hero_pause')
+              t(
+                autoplayPaused
+                  ? 'components.home_hero.play'
+                  : 'components.home_hero.pause'
+              )
             "
-            :title="
-              t(paused || reducedMotion ? 'home.hero_play' : 'home.hero_pause')
+            :data-tooltip="
+              t(
+                autoplayPaused
+                  ? 'components.home_hero.play'
+                  : 'components.home_hero.pause'
+              )
             "
             :disabled="reducedMotion"
-            @click="paused = !paused">
+            @click="togglePlayback">
             <Icon
-              :name="paused || reducedMotion ? 'lucide:play' : 'lucide:pause'"
+              :name="autoplayPaused ? 'lucide:play' : 'lucide:pause'"
               aria-hidden="true" />
           </button>
         </div>
@@ -107,36 +118,47 @@ import { externalLinks } from '~/data/site'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
+
 const slides = [1, 2, 3, 4, 5, 6, 7, 8, 9] as const
 const activeSlide = ref(0)
-const paused = ref(false)
+const playback = ref<'auto' | 'paused' | 'playing'>('auto')
 const reducedMotion = ref(false)
 const hovered = ref(false)
 const focused = ref(false)
 const pageHidden = ref(false)
-const canAutoplay = computed(
+
+const autoplayPaused = computed(
   () =>
-    !paused.value &&
-    !reducedMotion.value &&
-    !hovered.value &&
-    !focused.value &&
-    !pageHidden.value
+    playback.value === 'paused' ||
+    reducedMotion.value ||
+    (playback.value === 'auto' && (hovered.value || focused.value))
 )
+const canAutoplay = computed(() => !autoplayPaused.value && !pageHidden.value)
 const preloads = new Map<number, Promise<void>>()
+
 let timer: ReturnType<typeof setTimeout> | undefined
 let motionPreference: MediaQueryList | undefined
+
 let mounted = false
 let slideRequest = 0
+let autoplayRequest = 0
+let touchInteraction = false
 
 function preloadSlide(index: number) {
   const cached = preloads.get(index)
-  if (cached) return cached
+
+  if (cached) {
+    return cached
+  }
+
   const image = new window.Image()
   image.src = `/images/slideshows/slideshow-${slides[index]}.webp`
+
   const decoded = image.decode().catch(error => {
     preloads.delete(index)
     throw error
   })
+
   preloads.set(index, decoded)
   return decoded
 }
@@ -149,38 +171,103 @@ function preloadNextSlide() {
 
 function scheduleNextSlide() {
   clearTimeout(timer)
-  if (!mounted || !canAutoplay.value) return
+
+  if (!mounted || !canAutoplay.value) {
+    return
+  }
+
   timer = setTimeout(() => {
-    void selectSlide((activeSlide.value + 1) % slides.length)
+    void selectSlide((activeSlide.value + 1) % slides.length, true)
   }, 4000)
 }
 
-async function selectSlide(index: number) {
+async function selectSlide(index: number, automatic = false) {
   clearTimeout(timer)
+
   const request = ++slideRequest
+  const autoplayAtStart = autoplayRequest
+
   try {
     await preloadSlide(index)
   } catch {
-    scheduleNextSlide()
+    if (
+      request === slideRequest &&
+      (!automatic || autoplayAtStart === autoplayRequest)
+    ) {
+      scheduleNextSlide()
+    }
     return
   }
-  if (!mounted || request !== slideRequest) return
+
+  if (
+    !mounted ||
+    request !== slideRequest ||
+    (automatic && autoplayAtStart !== autoplayRequest)
+  ) {
+    return
+  }
+
   activeSlide.value = index
-  if (canAutoplay.value) preloadNextSlide()
+
+  if (canAutoplay.value) {
+    preloadNextSlide()
+  }
+
   scheduleNextSlide()
 }
 
 function moveSlide(direction: -1 | 1) {
-  paused.value = true
   void selectSlide(
     (activeSlide.value + direction + slides.length) % slides.length
   )
 }
 
-function handleFocusOut(event: FocusEvent) {
+function togglePlayback() {
+  if (autoplayPaused.value) {
+    playback.value = 'playing'
+    preloadNextSlide()
+  } else {
+    playback.value = 'paused'
+    slideRequest++
+  }
+}
+
+function handlePointerEnter(event: PointerEvent) {
+  hovered.value = event.pointerType === 'mouse'
+}
+
+function handlePointerDown(event: PointerEvent) {
+  touchInteraction = event.pointerType === 'touch'
+
+  if (touchInteraction) {
+    hovered.value = false
+    focused.value = false
+  }
+}
+
+function resetTouchInteraction() {
+  touchInteraction = false
+}
+
+function handleFocusIn(event: FocusEvent) {
   focused.value =
-    event.relatedTarget instanceof Node &&
-    (event.currentTarget as HTMLElement).contains(event.relatedTarget)
+    !touchInteraction &&
+    event.target instanceof HTMLElement &&
+    event.target.matches(':focus-visible')
+}
+
+function handleFocusOut(event: FocusEvent) {
+  const next = event.relatedTarget
+  const staysInside =
+    next instanceof HTMLElement &&
+    (event.currentTarget as HTMLElement).contains(next)
+
+  focused.value =
+    !touchInteraction && staysInside && next.matches(':focus-visible')
+
+  if (!staysInside) {
+    touchInteraction = false
+  }
 }
 
 function updateMotionPreference() {
@@ -191,7 +278,17 @@ function updateVisibility() {
   pageHidden.value = document.hidden
 }
 
-watch(canAutoplay, scheduleNextSlide)
+watch(
+  canAutoplay,
+  playing => {
+    if (!playing) {
+      autoplayRequest++
+    }
+
+    scheduleNextSlide()
+  },
+  { flush: 'sync' }
+)
 
 onMounted(() => {
   mounted = true
@@ -200,7 +297,12 @@ onMounted(() => {
   updateVisibility()
   motionPreference.addEventListener('change', updateMotionPreference)
   document.addEventListener('visibilitychange', updateVisibility)
-  if (canAutoplay.value) preloadNextSlide()
+  document.addEventListener('keydown', resetTouchInteraction)
+
+  if (canAutoplay.value) {
+    preloadNextSlide()
+  }
+
   scheduleNextSlide()
 })
 
@@ -210,6 +312,7 @@ onBeforeUnmount(() => {
   clearTimeout(timer)
   motionPreference?.removeEventListener('change', updateMotionPreference)
   document.removeEventListener('visibilitychange', updateVisibility)
+  document.removeEventListener('keydown', resetTouchInteraction)
 })
 </script>
 

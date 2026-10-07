@@ -3,14 +3,16 @@
     <div class="shell">
       <div class="section-heading">
         <div>
-          <span class="eyebrow">{{ t('home.gallery_eyebrow') }}</span>
+          <span class="eyebrow">
+            {{ t('components.home_gallery.eyebrow') }}
+          </span>
           <h2 id="gallery-title" class="section-title">
-            {{ t('home.gallery_title') }}
+            {{ t('components.home_gallery.title') }}
           </h2>
-          <p class="section-lead">{{ t('home.gallery_text') }}</p>
+          <p class="section-lead">{{ t('components.home_gallery.text') }}</p>
         </div>
         <NuxtLink class="button button--outline" :to="localePath('/gallery')">
-          {{ t('home.gallery_link') }}
+          {{ t('components.home_gallery.link') }}
           <Icon name="lucide:arrow-up-right" aria-hidden="true" />
         </NuxtLink>
       </div>
@@ -20,7 +22,8 @@
           :key="number"
           class="preview-grid__item"
           :to="localePath('/gallery')"
-          :aria-label="`${t('home.gallery_link')} · ${t('gallery.image_alt', { number, description: t(`gallery.image_descriptions.${number}`) })}`">
+          :data-tooltip="`${t('components.home_gallery.link')} · ${t(`gallery.image_descriptions.${number}`)}`"
+          :aria-label="`${t('components.home_gallery.link')} · ${t('gallery.image_alt', { number, description: t(`gallery.image_descriptions.${number}`) })}`">
           <span class="preview-grid__artwork">
             <Image
               class="preview-grid__image"

@@ -31,6 +31,7 @@
             :key="artwork.src"
             class="archive-artwork"
             type="button"
+            :data-tooltip="t('archives.enlarge_image')"
             @click="openArtwork(index, $event)">
             <Image :src="artwork.src" :alt="t(`archives.${artwork.altKey}`)" />
             <span>{{ t('archives.enlarge_image') }}</span>
@@ -48,6 +49,7 @@
               :key="side"
               class="archive-artwork"
               type="button"
+              :data-tooltip="t('archives.enlarge_image')"
               @click="
                 openArtwork(
                   featuredArtworks.length +
