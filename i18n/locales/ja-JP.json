@@ -1,16 +1,9 @@
 {
   "site": {
-    "brand_first": "Keola",
-    "brand_last": "Kumaneko",
-    "brand_name": "Keola Kumaneko",
-    "brand_logo_alt": "レッサーパンダの顔と小さな精霊たちを描いたケオラ・クマネコのロゴ",
     "red_panda_network": "Red Panda Network",
     "safebear": "Safebear",
     "holy": "HOLY",
     "skip": "本文へ移動",
-    "menu": "メニューを開く",
-    "close_menu": "メニューを閉じる",
-    "language": "サイトの言語",
     "home": "ホーム",
     "about": "ケオラ",
     "gallery": "ギャラリー",
@@ -21,11 +14,8 @@
     "watch": "配信を見る",
     "contact": "ケオラに連絡",
     "explore": "もっと見る",
-    "elsewhere": "ほかの場所でもケオラに会おう",
-    "footer_intro": "マイクなしでも表情豊かなレッサーパンダVTuberと、小さな精霊たち。クマネコ寺院へようこそ。",
     "back_home": "ホームに戻る",
-    "og_alt": "レッサーパンダのVTuber、ケオラ・クマネコ",
-    "copyright": "Keola Kumaneko。作品の権利は各アーティストに帰属します。"
+    "og_alt": "レッサーパンダのVTuber、ケオラ・クマネコ"
   },
   "social": {
     "live": "配信",
@@ -62,16 +52,86 @@
       "description": "レッサーパンダVTuber、ケオラ・クマネコのメディア資料、公式リンク、お問い合わせ先。"
     }
   },
+  "components": {
+    "site_brand": {
+      "brand_first": "Keola",
+      "brand_last": "Kumaneko",
+      "brand_name": "Keola Kumaneko",
+      "brand_logo_alt": "レッサーパンダの顔と小さな精霊たちを描いたケオラ・クマネコのロゴ"
+    },
+    "site_header": {
+      "menu": "メニューを開く",
+      "close_menu": "メニューを閉じる"
+    },
+    "language_switcher": {
+      "language": "サイトの言語"
+    },
+    "site_footer": {
+      "footer_intro": "マイクなしでも表情豊かなレッサーパンダVTuberと、小さな精霊たち。クマネコ寺院へようこそ。",
+      "copyright": "Keola Kumaneko。作品の権利は各アーティストに帰属します。",
+      "elsewhere": "ほかの場所でもケオラに会おう"
+    },
+    "home_hero": {
+      "eyebrow": "レッサーパンダVTuber · クマネコ寺院",
+      "name": "Keola",
+      "surname": "Kumaneko",
+      "text": "マイクなしでも、遊び心はいっぱい。私の小さな精霊たちと、ゲームもリアクションも楽しい時間も一緒に。",
+      "welcome": "さあ、入って。あなたを待っていたよ。",
+      "discover": "ケオラの世界へ",
+      "slideshow": "ケオラのイラスト",
+      "pause": "スライドショーを一時停止",
+      "play": "スライドショーを再生",
+      "alts": {
+        "1": "狐のお面を頭に、ガスマスクを首にかけてウインクするケオラ",
+        "2": "バイカー姿でバイクの上に寝そべるケオラ",
+        "3": "ボクサーの衣装でパンチを繰り出すケオラ",
+        "4": "オレンジ色のポンポンを持ち、青空の下で波の間を跳ぶケオラ",
+        "5": "宇宙服姿で小さな精霊の宇宙飛行士に手を伸ばすケオラ",
+        "6": "スイカを食べる紫色の小さな精霊のそばに寝転ぶケオラ",
+        "7": "クマネコ一族の鎧をまとったケオラを描く壮大な場面",
+        "8": "日本風の衣装で並んでポーズをとるケオラと友人",
+        "9": "ゼルダの姿をしたケオラが剣を手に活躍する場面",
+        "10": "和装のケオラが空を見上げ、桜の花びらが舞い落ちる"
+      },
+      "previous": "前のスライド",
+      "next": "次のスライド",
+      "count": "{total} 枚中 {number} 枚目"
+    },
+    "home_gallery": {
+      "eyebrow": "コミュニティの作品",
+      "title": "アーティストたちが描くケオラ。",
+      "text": "色もスタイルもさまざま。ケオラのサイトで公開されたファンアートから、いくつかを紹介します。",
+      "link": "ギャラリーを見る"
+    },
+    "home_mission": {
+      "eyebrow": "大切な活動",
+      "title": "レッサーパンダを、現実の世界でも守る。",
+      "text": "ケオラはRed Panda Networkを支援するRed Pandathonを主催し、ほかのチャリティーイベントにも参加しています。現実の世界で、この団体は地域の人々と共に野生のレッサーパンダと生息地を守っています。",
+      "link": "Red Panda Networkを見る"
+    },
+    "home_community": {
+      "eyebrow": "私の小さな精霊たち",
+      "title": "おしゃべりは、ほかでも続く。",
+      "text": "一緒にゲームをしたり、Discordで話したり。小さな精霊たちがクマネコ寺院をにぎやかにしています。ケオラの配信、動画、お知らせはこちら。",
+      "art_alt": "ROM中のケオラ・クマネコ"
+    },
+    "keola_emote_surprise": {
+      "action": "ケオラのエモートを降らせる",
+      "tooltip": "NYUH！",
+      "hint": "ねえ、最後に小さな秘密があるよ？",
+      "result": "NYUH！キャンディーとハートをどうぞ！",
+      "nyuh_alt": "「NYUH！」と叫ぶケオラ",
+      "candy_alt": "ケオラのキャンディーエモート",
+      "heart_alt": "ケオラのハートエモート"
+    },
+    "artwork_lightbox": {
+      "count": "{total} 枚中 {number} 枚目",
+      "close": "画像を閉じる",
+      "previous": "前の画像",
+      "next": "次の画像"
+    }
+  },
   "home": {
-    "hero_eyebrow": "レッサーパンダVTuber · クマネコ寺院",
-    "hero_name": "Keola",
-    "hero_surname": "Kumaneko",
-    "hero_text": "マイクなしでも、遊び心はいっぱい。私の小さな精霊たちと、ゲームもリアクションも楽しい時間も一緒に。",
-    "hero_welcome": "さあ、入って。あなたを待っていたよ。",
-    "hero_discover": "ケオラの世界へ",
-    "hero_slideshow": "ケオラのイラスト",
-    "hero_pause": "スライドショーを一時停止",
-    "hero_play": "スライドショーを再生",
     "schedule_eyebrow": "次の待ち合わせ",
     "schedule_title": "配信で会おう！",
     "schedule_text": "最新の配信予定はTwitchで確認できます。次の配信をチェックして遊びに来てね。",
@@ -84,39 +144,16 @@
     "about_quote": "私の小さな精霊たち、寺院でくつろいでね。",
     "about_discover": "ケオラについて知る",
     "discord_link": "Discordに参加",
-    "gallery_eyebrow": "コミュニティの作品",
-    "gallery_title": "アーティストたちが描くケオラ。",
-    "gallery_text": "色もスタイルもさまざま。ケオラのサイトで公開されたファンアートから、いくつかを紹介します。",
-    "gallery_link": "ギャラリーを見る",
-    "mission_eyebrow": "大切な活動",
-    "mission_title": "レッサーパンダを、現実の世界でも守る。",
-    "mission_text": "ケオラはRed Panda Networkを支援するRed Pandathonを主催し、ほかのチャリティーイベントにも参加しています。現実の世界で、この団体は地域の人々と共に野生のレッサーパンダと生息地を守っています。",
-    "mission_link": "Red Panda Networkを見る",
-    "community_eyebrow": "私の小さな精霊たち",
-    "community_title": "おしゃべりは、ほかでも続く。",
-    "community_text": "一緒にゲームをしたり、Discordで話したり。小さな精霊たちがクマネコ寺院をにぎやかにしています。ケオラの配信、動画、お知らせはこちら。",
-    "community_art_alt": "ROM中のケオラ・クマネコ",
     "partners_eyebrow": "出会いとコラボレーション",
     "partners_title": "大切なつながり。",
-    "closing_art_alt": "耳を立てて、縁から顔をのぞかせるケオラ",
     "safebear_text": "ケオラは2025年にSafeBearのアンバサダーに加わりました。ネット上のハラスメントの証拠を集めるためのツールです。",
     "holy_text": "ケオラがコラボレーションしたことのあるドリンクブランド。",
     "partner_link": "サイトを見る",
+    "community_eyebrow": "私の小さな精霊たち",
+    "closing_art_alt": "耳を立てて、縁から顔をのぞかせるケオラ",
     "end_title": "また会おうね！",
     "end_text": "ゲームも、おしゃべりも、一緒に過ごす時間も。クマネコ寺院には、あなたの居場所があります。",
-    "end_link": "🍎Keola Sanctuary🍏",
-    "hero_alts": {
-      "1": "狐のお面を頭に、ガスマスクを首にかけてウインクするケオラ",
-      "2": "バイカー姿でバイクの上に寝そべるケオラ",
-      "3": "ボクサーの衣装でパンチを繰り出すケオラ",
-      "4": "オレンジ色のポンポンを持ち、青空の下で波の間を跳ぶケオラ",
-      "5": "宇宙服姿で小さな精霊の宇宙飛行士に手を伸ばすケオラ",
-      "6": "スイカを食べる紫色の小さな精霊のそばに寝転ぶケオラ",
-      "7": "クマネコ一族の鎧をまとったケオラを描く壮大な場面",
-      "8": "日本風の衣装で並んでポーズをとるケオラと友人",
-      "9": "ゼルダの姿をしたケオラが剣を手に活躍する場面",
-      "10": "和装のケオラが空を見上げ、桜の花びらが舞い落ちる"
-    }
+    "end_link": "🍎Keola Sanctuary🍏"
   },
   "keola": {
     "welcome_spirit_alt": "笑顔の紫色の小さな精霊",
@@ -235,14 +272,7 @@
       "facts_title": "小さな精霊たちの伝説",
       "facts_text": "真面目すぎない「facts」、空想の大活躍、そしてたっぷりのユーモア。小さな精霊たちが語る、もうひとつのケオラの伝説です。",
       "facts_link": "Keola factsを見る",
-      "community": "物語は、私の小さな精霊たちと一緒に続いていきます。",
-      "egg_action": "ケオラのエモートを降らせる",
-      "egg_tooltip": "NYUH！",
-      "egg_hint": "ねえ、最後に小さな秘密があるよ？",
-      "egg_result": "NYUH！キャンディーとハートをどうぞ！",
-      "egg_nyuh_alt": "「NYUH！」と叫ぶケオラ",
-      "egg_candy_alt": "ケオラのキャンディーエモート",
-      "egg_heart_alt": "ケオラのハートエモート"
+      "community": "物語は、私の小さな精霊たちと一緒に続いていきます。"
     }
   },
   "gallery": {
@@ -251,10 +281,6 @@
     "intro": "ケオラをめぐって共有されたファンアートの一部を紹介します。",
     "image_alt": "ファンアート{number}：{description}",
     "open": "ファンアート {number} を拡大",
-    "count": "{total} 枚中 {number} 枚目",
-    "close": "画像を閉じる",
-    "previous": "前の画像",
-    "next": "次の画像",
     "credit_note": "作品の権利は各アーティストに帰属します。個別のクレジットを確認中です。",
     "image_descriptions": {
       "1": "日本庭園の水辺の階段に座るケオラ",

@@ -9,8 +9,8 @@
       ref="trigger"
       class="language-switcher__trigger"
       type="button"
-      :aria-label="`${t('site.language')}: ${currentLocale?.name ?? locale}`"
-      :data-tooltip="`${t('site.language')}: ${currentLocale?.name ?? locale}`"
+      :aria-label="`${t('components.language_switcher.language')}: ${currentLocale?.name ?? locale}`"
+      :data-tooltip="`${t('components.language_switcher.language')}: ${currentLocale?.name ?? locale}`"
       aria-haspopup="menu"
       :aria-expanded="menuOpen"
       aria-controls="language-options"
@@ -23,7 +23,7 @@
       id="language-options"
       class="language-switcher__menu"
       role="menu"
-      :aria-label="t('site.language')">
+      :aria-label="t('components.language_switcher.language')">
       <li v-for="item in locales" :key="item.code" role="none">
         <button
           type="button"

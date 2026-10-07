@@ -6,18 +6,18 @@
     <div class="shell mission-section__grid">
       <div>
         <span class="eyebrow eyebrow--light">
-          {{ t('home.mission_eyebrow') }}
+          {{ t('components.home_mission.eyebrow') }}
         </span>
         <h2 id="mission-title" class="section-title">
-          {{ t('home.mission_title') }}
+          {{ t('components.home_mission.title') }}
         </h2>
-        <p class="section-lead">{{ t('home.mission_text') }}</p>
+        <p class="section-lead">{{ t('components.home_mission.text') }}</p>
         <a
           class="button button--primary"
           :href="externalLinks.redPandaNetwork"
           target="_blank"
           rel="noopener noreferrer">
-          {{ t('home.mission_link') }}
+          {{ t('components.home_mission.link') }}
           <Icon name="lucide:arrow-up-right" aria-hidden="true" />
         </a>
       </div>

@@ -10,8 +10,8 @@
     <button
       class="lightbox__close icon-button"
       type="button"
-      :aria-label="t('gallery.close')"
-      :data-tooltip="t('gallery.close')"
+      :aria-label="t('components.artwork_lightbox.close')"
+      :data-tooltip="t('components.artwork_lightbox.close')"
       @click="close">
       <Icon name="lucide:x" aria-hidden="true" />
     </button>
@@ -31,14 +31,14 @@
       <button
         class="icon-button"
         type="button"
-        :aria-label="t('gallery.previous')"
-        :data-tooltip="t('gallery.previous')"
+        :aria-label="t('components.artwork_lightbox.previous')"
+        :data-tooltip="t('components.artwork_lightbox.previous')"
         @click="move(-1)">
         <Icon name="lucide:arrow-left" aria-hidden="true" />
       </button>
       <span v-if="activeIndex !== null">
         {{
-          t('gallery.count', {
+          t('components.artwork_lightbox.count', {
             number: activeIndex + 1,
             total: artworks.length,
           })
@@ -47,8 +47,8 @@
       <button
         class="icon-button"
         type="button"
-        :aria-label="t('gallery.next')"
-        :data-tooltip="t('gallery.next')"
+        :aria-label="t('components.artwork_lightbox.next')"
+        :data-tooltip="t('components.artwork_lightbox.next')"
         @click="move(1)">
         <Icon name="lucide:arrow-right" aria-hidden="true" />
       </button>

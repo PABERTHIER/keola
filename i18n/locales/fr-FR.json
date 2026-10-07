@@ -1,16 +1,9 @@
 {
   "site": {
-    "brand_first": "Keola",
-    "brand_last": "Kumaneko",
-    "brand_name": "Keola Kumaneko",
-    "brand_logo_alt": "Logo de Keola Kumaneko en forme de tête de panda roux, avec de petits esprits",
     "red_panda_network": "Red Panda Network",
     "safebear": "Safebear",
     "holy": "HOLY",
     "skip": "Aller au contenu",
-    "menu": "Ouvrir le menu",
-    "close_menu": "Fermer le menu",
-    "language": "Langue du site",
     "home": "Accueil",
     "about": "Keola",
     "gallery": "Galerie",
@@ -21,11 +14,8 @@
     "watch": "Voir le live",
     "contact": "Contacter Keola",
     "explore": "Explorer",
-    "elsewhere": "Retrouver Keola",
-    "footer_intro": "Des lives sans micro, une VTuber panda roux très expressive et ses petits esprits. Bienvenue au Temple Kumaneko.",
     "back_home": "Retour à l'accueil",
-    "og_alt": "Keola Kumaneko, VTuber panda roux",
-    "copyright": "Keola Kumaneko. Les illustrations restent la propriété de leurs artistes."
+    "og_alt": "Keola Kumaneko, VTuber panda roux"
   },
   "social": {
     "live": "Lives",
@@ -62,16 +52,86 @@
       "description": "Fiche média, liens officiels et contact professionnel de Keola Kumaneko, VTuber panda roux."
     }
   },
+  "components": {
+    "site_brand": {
+      "brand_first": "Keola",
+      "brand_last": "Kumaneko",
+      "brand_name": "Keola Kumaneko",
+      "brand_logo_alt": "Logo de Keola Kumaneko en forme de tête de panda roux, avec de petits esprits"
+    },
+    "site_header": {
+      "menu": "Ouvrir le menu",
+      "close_menu": "Fermer le menu"
+    },
+    "language_switcher": {
+      "language": "Langue du site"
+    },
+    "site_footer": {
+      "footer_intro": "Des lives sans micro, une VTuber panda roux très expressive et ses petits esprits. Bienvenue au Temple Kumaneko.",
+      "copyright": "Keola Kumaneko. Les illustrations restent la propriété de leurs artistes.",
+      "elsewhere": "Retrouver Keola"
+    },
+    "home_hero": {
+      "eyebrow": "VTuber panda roux · Temple Kumaneko",
+      "name": "Keola",
+      "surname": "Kumaneko",
+      "text": "Sans micro, mais pas sans malice. Des jeux, des réactions et des moments à partager avec mes petits esprits.",
+      "welcome": "Entre, on t'attendait.",
+      "discover": "Découvrir son univers",
+      "slideshow": "Illustrations de Keola",
+      "pause": "Mettre le diaporama en pause",
+      "play": "Lancer le diaporama",
+      "alts": {
+        "1": "Keola fait un clin d'œil, un masque de renard sur la tête et un masque à gaz autour du cou",
+        "2": "Keola, en tenue de motard, est allongée sur une moto",
+        "3": "Keola, en tenue de boxeuse, donne un coup de poing",
+        "4": "Keola, tenant des pompons orange, bondit au milieu des vagues sous un ciel bleu",
+        "5": "Keola en combinaison spatiale tend la main vers un petit esprit astronaute",
+        "6": "Keola est allongée près d'un petit esprit violet qui mange une tranche de pastèque",
+        "7": "Keola dans l'armure du clan Kumaneko, dans une scène épique",
+        "8": "Keola et une amie posent côte à côte en tenues japonaises",
+        "9": "Keola Zelda, une épée dans les mains, en pleine action",
+        "10": "Keola en tenue japonaise regarde le ciel, d'où tombent des pétales de fleurs de cerisier"
+      },
+      "previous": "Diapositive précédente",
+      "next": "Diapositive suivante",
+      "count": "{number} sur {total}"
+    },
+    "home_gallery": {
+      "eyebrow": "Créations de la communauté",
+      "title": "Keola vue par ses artistes.",
+      "text": "Des styles, des couleurs et autant de façons d'imaginer Keola. Voici une sélection de créations partagées sur son site.",
+      "link": "Explorer la galerie"
+    },
+    "home_mission": {
+      "eyebrow": "Une cause qui compte",
+      "title": "Protéger les pandas roux, pour de vrai.",
+      "text": "Keola organise le Red Pandathon pour soutenir Red Panda Network et participe à d'autres événements caritatifs. Dans le monde réel, l'association protège les pandas roux sauvages et leur habitat avec les communautés locales.",
+      "link": "Découvrir Red Panda Network"
+    },
+    "home_community": {
+      "eyebrow": "Mes petits esprits",
+      "title": "La conversation continue ailleurs.",
+      "text": "Des parties ensemble aux discussions sur Discord, les petits esprits font vivre le Temple Kumaneko. Retrouve les lives, les vidéos et les nouvelles de Keola.",
+      "art_alt": "Keola Kumaneko en mode lurk"
+    },
+    "keola_emote_surprise": {
+      "action": "Faire pleuvoir les emotes de Keola",
+      "tooltip": "NYUH !",
+      "hint": "Psst… un dernier petit secret ?",
+      "result": "NYUH ! Des bonbons et des cœurs pour toi !",
+      "nyuh_alt": "Keola s'écrie « NYUH ! »",
+      "candy_alt": "Emote bonbon de Keola",
+      "heart_alt": "Emote cœur de Keola"
+    },
+    "artwork_lightbox": {
+      "count": "{number} sur {total}",
+      "close": "Fermer l'image",
+      "previous": "Image précédente",
+      "next": "Image suivante"
+    }
+  },
   "home": {
-    "hero_eyebrow": "VTuber panda roux · Temple Kumaneko",
-    "hero_name": "Keola",
-    "hero_surname": "Kumaneko",
-    "hero_text": "Sans micro, mais pas sans malice. Des jeux, des réactions et des moments à partager avec mes petits esprits.",
-    "hero_welcome": "Entre, on t'attendait.",
-    "hero_discover": "Découvrir son univers",
-    "hero_slideshow": "Illustrations de Keola",
-    "hero_pause": "Mettre le diaporama en pause",
-    "hero_play": "Lancer le diaporama",
     "schedule_eyebrow": "Le prochain rendez-vous",
     "schedule_title": "On se retrouve en live ?",
     "schedule_text": "Le planning à jour est sur Twitch. Passe voir le prochain rendez-vous, ou installe-toi quand le live commence.",
@@ -84,39 +144,16 @@
     "about_quote": "Mes petits esprits, installez-vous au temple.",
     "about_discover": "Faire connaissance avec Keola",
     "discord_link": "Rejoindre le Discord",
-    "gallery_eyebrow": "Créations de la communauté",
-    "gallery_title": "Keola vue par ses artistes.",
-    "gallery_text": "Des styles, des couleurs et autant de façons d'imaginer Keola. Voici une sélection de créations partagées sur son site.",
-    "gallery_link": "Explorer la galerie",
-    "mission_eyebrow": "Une cause qui compte",
-    "mission_title": "Protéger les pandas roux, pour de vrai.",
-    "mission_text": "Keola organise le Red Pandathon pour soutenir Red Panda Network et participe à d'autres événements caritatifs. Dans le monde réel, l'association protège les pandas roux sauvages et leur habitat avec les communautés locales.",
-    "mission_link": "Découvrir Red Panda Network",
-    "community_eyebrow": "Mes petits esprits",
-    "community_title": "La conversation continue ailleurs.",
-    "community_text": "Des parties ensemble aux discussions sur Discord, les petits esprits font vivre le Temple Kumaneko. Retrouve les lives, les vidéos et les nouvelles de Keola.",
-    "community_art_alt": "Keola Kumaneko en mode lurk",
     "partners_eyebrow": "Rencontres et collaborations",
     "partners_title": "Des liens qui ont du sens.",
-    "closing_art_alt": "Keola, les oreilles dressées, regarde par-dessus le bord",
     "safebear_text": "Keola a rejoint les ambassadeurs de SafeBear en 2025 : un outil de collecte de preuves face au cyberharcèlement.",
     "holy_text": "Une marque de boissons avec laquelle Keola a collaboré.",
     "partner_link": "Découvrir le site",
+    "community_eyebrow": "Mes petits esprits",
+    "closing_art_alt": "Keola, les oreilles dressées, regarde par-dessus le bord",
     "end_title": "On se retrouve bientôt ?",
     "end_text": "Une partie, une discussion, un moment ensemble : il y a une place pour toi au Temple Kumaneko.",
-    "end_link": "🍎Keola Sanctuary🍏",
-    "hero_alts": {
-      "1": "Keola fait un clin d'œil, un masque de renard sur la tête et un masque à gaz autour du cou",
-      "2": "Keola, en tenue de motard, est allongée sur une moto",
-      "3": "Keola, en tenue de boxeuse, donne un coup de poing",
-      "4": "Keola, tenant des pompons orange, bondit au milieu des vagues sous un ciel bleu",
-      "5": "Keola en combinaison spatiale tend la main vers un petit esprit astronaute",
-      "6": "Keola est allongée près d'un petit esprit violet qui mange une tranche de pastèque",
-      "7": "Keola dans l'armure du clan Kumaneko, dans une scène épique",
-      "8": "Keola et une amie posent côte à côte en tenues japonaises",
-      "9": "Keola Zelda, une épée dans les mains, en pleine action",
-      "10": "Keola en tenue japonaise regarde le ciel, d'où tombent des pétales de fleurs de cerisier"
-    }
+    "end_link": "🍎Keola Sanctuary🍏"
   },
   "keola": {
     "welcome_spirit_alt": "Petit esprit violet souriant",
@@ -235,14 +272,7 @@
       "facts_title": "Les légendes des petits esprits",
       "facts_text": "Des « facts » pas tout à fait sérieux, des exploits imaginaires et beaucoup d'humour : les petits esprits ont leur propre version de la légende.",
       "facts_link": "Découvrir les Keola facts",
-      "community": "L'histoire continue avec vous, mes petits esprits.",
-      "egg_action": "Faire pleuvoir les emotes de Keola",
-      "egg_tooltip": "NYUH !",
-      "egg_hint": "Psst… un dernier petit secret ?",
-      "egg_result": "NYUH ! Des bonbons et des cœurs pour toi !",
-      "egg_nyuh_alt": "Keola s'écrie « NYUH ! »",
-      "egg_candy_alt": "Emote bonbon de Keola",
-      "egg_heart_alt": "Emote cœur de Keola"
+      "community": "L'histoire continue avec vous, mes petits esprits."
     }
   },
   "gallery": {
@@ -251,10 +281,6 @@
     "intro": "Une sélection de fanarts partagés autour de Keola.",
     "image_alt": "Fanart {number} : {description}",
     "open": "Agrandir le fanart numéro {number}",
-    "count": "{number} sur {total}",
-    "close": "Fermer l'image",
-    "previous": "Image précédente",
-    "next": "Image suivante",
     "credit_note": "Les artistes conservent les droits sur leurs œuvres. Les attributions individuelles sont en cours de vérification.",
     "image_descriptions": {
       "1": "Keola est assise sur des marches, au bord de l'eau, dans un jardin japonais",

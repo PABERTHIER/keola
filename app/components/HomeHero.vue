@@ -4,15 +4,17 @@
       <div class="hero__content">
         <span class="eyebrow eyebrow--light">
           <span class="eyebrow__mark" aria-hidden="true" />
-          {{ t('home.hero_eyebrow') }}
+          {{ t('components.home_hero.eyebrow') }}
         </span>
         <h1 id="hero-title">
-          {{ t('home.hero_name') }}
-          <span>{{ t('home.hero_surname') }}</span>
+          {{ t('components.home_hero.name') }}
+          <span>{{ t('components.home_hero.surname') }}</span>
         </h1>
         <p class="hero__lead">
-          {{ t('home.hero_text') }}
-          <span class="hero__welcome">{{ t('home.hero_welcome') }}</span>
+          {{ t('components.home_hero.text') }}
+          <span class="hero__welcome">
+            {{ t('components.home_hero.welcome') }}
+          </span>
         </p>
         <div class="hero__actions">
           <a
@@ -31,14 +33,14 @@
           <NuxtLink
             class="button button--light-outline"
             :to="localePath({ path: '/', hash: '#about' })">
-            {{ t('home.hero_discover') }}
+            {{ t('components.home_hero.discover') }}
             <Icon name="lucide:arrow-down-right" aria-hidden="true" />
           </NuxtLink>
         </div>
       </div>
       <div
         class="hero__visual"
-        :aria-label="t('home.hero_slideshow')"
+        :aria-label="t('components.home_hero.slideshow')"
         @mouseenter="hovered = true"
         @mouseleave="hovered = false"
         @focusin="focused = true"
@@ -47,7 +49,7 @@
           <Image
             :key="activeSlide"
             :src="`/images/slideshows/slideshow-${slides[activeSlide]}.webp`"
-            :alt="t(`home.hero_alts.${slides[activeSlide]}`)"
+            :alt="t(`components.home_hero.alts.${slides[activeSlide]}`)"
             loading="eager"
             :fetchpriority="activeSlide === 0 ? 'high' : 'auto'" />
         </Transition>
@@ -55,8 +57,8 @@
           <button
             class="icon-button"
             type="button"
-            :aria-label="t('gallery.previous')"
-            :data-tooltip="t('gallery.previous')"
+            :aria-label="t('components.home_hero.previous')"
+            :data-tooltip="t('components.home_hero.previous')"
             @click="moveSlide(-1)">
             <Icon name="lucide:chevron-left" aria-hidden="true" />
           </button>
@@ -66,7 +68,7 @@
             </span>
             <span class="sr-only">
               {{
-                t('gallery.count', {
+                t('components.home_hero.count', {
                   number: activeSlide + 1,
                   total: slides.length,
                 })
@@ -76,8 +78,8 @@
           <button
             class="icon-button"
             type="button"
-            :aria-label="t('gallery.next')"
-            :data-tooltip="t('gallery.next')"
+            :aria-label="t('components.home_hero.next')"
+            :data-tooltip="t('components.home_hero.next')"
             @click="moveSlide(1)">
             <Icon name="lucide:chevron-right" aria-hidden="true" />
           </button>
@@ -85,10 +87,18 @@
             class="icon-button"
             type="button"
             :aria-label="
-              t(paused || reducedMotion ? 'home.hero_play' : 'home.hero_pause')
+              t(
+                paused || reducedMotion
+                  ? 'components.home_hero.play'
+                  : 'components.home_hero.pause'
+              )
             "
             :data-tooltip="
-              t(paused || reducedMotion ? 'home.hero_play' : 'home.hero_pause')
+              t(
+                paused || reducedMotion
+                  ? 'components.home_hero.play'
+                  : 'components.home_hero.pause'
+              )
             "
             :disabled="reducedMotion"
             @click="paused = !paused">
