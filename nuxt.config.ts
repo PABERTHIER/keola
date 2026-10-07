@@ -96,7 +96,6 @@ export default defineNuxtConfig({
   css: [
     '@fontsource/kaushan-script/400.css',
     '@fontsource/plus-jakarta-sans/400.css',
-    '@fontsource/plus-jakarta-sans/500.css',
     '@fontsource/plus-jakarta-sans/700.css',
     '@fontsource/zen-maru-gothic/500.css',
     '@fontsource/zen-maru-gothic/700.css',
