@@ -41,7 +41,7 @@
           class="button button--primary site-header__live"
           :href="externalLinks.twitch"
           :aria-label="t('site.watch')"
-          :title="t('site.watch')"
+          :data-tooltip="t('site.watch')"
           target="_blank"
           rel="noopener noreferrer">
           <Icon
@@ -57,7 +57,7 @@
           class="menu-toggle icon-button"
           type="button"
           :aria-label="menuOpen ? t('site.close_menu') : t('site.menu')"
-          :title="menuOpen ? t('site.close_menu') : t('site.menu')"
+          :data-tooltip="menuOpen ? t('site.close_menu') : t('site.menu')"
           :aria-expanded="menuOpen"
           aria-controls="primary-nav"
           @click="toggleMenu">

@@ -4,7 +4,7 @@
       class="emote-surprise__trigger"
       type="button"
       :aria-label="t('keola.more.egg_action')"
-      :title="t('keola.more.egg_action')"
+      :data-tooltip="t('keola.more.egg_tooltip')"
       @click="releaseEmotes">
       <Image src="/images/misc/NYUH.webp" :alt="t('keola.more.egg_nyuh_alt')" />
     </button>

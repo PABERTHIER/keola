@@ -53,6 +53,7 @@
         <NuxtLink
           :to="localePath('/keola')"
           class="about-section__art"
+          :data-tooltip="t('home.about_discover')"
           :aria-label="t('home.about_discover')">
           <Image
             src="/images/fanarts/fanart-32-home.webp"
@@ -102,6 +103,7 @@
           <a
             class="partner"
             :href="externalLinks.safebear"
+            :data-tooltip="`${t('home.partner_link')} · ${t('site.safebear')}`"
             target="_blank"
             rel="noopener noreferrer">
             <Image
@@ -119,6 +121,7 @@
           <a
             class="partner"
             :href="externalLinks.holy"
+            :data-tooltip="`${t('home.partner_link')} · ${t('site.holy')}`"
             target="_blank"
             rel="noopener noreferrer">
             <Image

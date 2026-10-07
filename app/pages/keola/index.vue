@@ -215,6 +215,11 @@
                   name: t(`keola.models.${model.id}`),
                 })
               "
+              :data-tooltip="
+                t('keola.models.open_image', {
+                  name: t(`keola.models.${model.id}`),
+                })
+              "
               @click="openModelArtwork(index, $event)">
               <Image
                 :src="model.src"
@@ -240,6 +245,11 @@
               <button
                 type="button"
                 :aria-label="
+                  t('keola.models.open_image', {
+                    name: t(`keola.models.${reference.id}`),
+                  })
+                "
+                :data-tooltip="
                   t('keola.models.open_image', {
                     name: t(`keola.models.${reference.id}`),
                   })
@@ -278,6 +288,7 @@
           <a
             class="illustrated-link"
             :href="externalLinks.creatorCredits"
+            :data-tooltip="t('keola.more.credits_link')"
             target="_blank"
             rel="noopener noreferrer">
             <div class="illustrated-link__art">
@@ -297,6 +308,7 @@
           <a
             class="illustrated-link"
             :href="externalLinks.facts"
+            :data-tooltip="t('keola.more.facts_link')"
             target="_blank"
             rel="noopener noreferrer">
             <div class="illustrated-link__art">

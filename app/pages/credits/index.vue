@@ -13,6 +13,7 @@
             v-if="'url' in person"
             :href="person.url"
             :aria-label="t('credits.visit', { name: person.name })"
+            :data-tooltip="t('credits.visit', { name: person.name })"
             target="_blank"
             rel="noopener noreferrer">
             <span>

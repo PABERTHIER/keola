@@ -56,7 +56,7 @@
             class="icon-button"
             type="button"
             :aria-label="t('gallery.previous')"
-            :title="t('gallery.previous')"
+            :data-tooltip="t('gallery.previous')"
             @click="moveSlide(-1)">
             <Icon name="lucide:chevron-left" aria-hidden="true" />
           </button>
@@ -77,7 +77,7 @@
             class="icon-button"
             type="button"
             :aria-label="t('gallery.next')"
-            :title="t('gallery.next')"
+            :data-tooltip="t('gallery.next')"
             @click="moveSlide(1)">
             <Icon name="lucide:chevron-right" aria-hidden="true" />
           </button>
@@ -87,7 +87,7 @@
             :aria-label="
               t(paused || reducedMotion ? 'home.hero_play' : 'home.hero_pause')
             "
-            :title="
+            :data-tooltip="
               t(paused || reducedMotion ? 'home.hero_play' : 'home.hero_pause')
             "
             :disabled="reducedMotion"

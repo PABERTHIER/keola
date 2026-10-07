@@ -64,7 +64,7 @@
             :key="link.name"
             :href="link.url"
             :aria-label="`${link.name} · ${t(`social.${link.detail}`)}`"
-            :title="link.name"
+            :data-tooltip="`${link.name} · ${t(`social.${link.detail}`)}`"
             target="_blank"
             rel="noopener noreferrer">
             <Icon

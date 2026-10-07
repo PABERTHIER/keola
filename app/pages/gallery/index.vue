@@ -13,6 +13,7 @@
           class="gallery-item"
           type="button"
           :aria-label="`${t('gallery.open', { number })} : ${t(`gallery.image_descriptions.${number}`)}`"
+          :data-tooltip="t('gallery.open', { number })"
           @click="openArtwork(index, $event)">
           <Image
             class="gallery-item__image"

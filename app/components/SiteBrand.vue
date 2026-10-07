@@ -3,7 +3,8 @@
     :to="localePath('/')"
     class="brand"
     :class="{ 'brand--inverse': inverse }"
-    :aria-label="t('site.brand_name')">
+    :aria-label="`${t('site.brand_name')} · ${t('site.back_home')}`"
+    :data-tooltip="t('site.back_home')">
     <Image
       src="/images/logo.webp"
       :alt="t('site.brand_logo_alt')"

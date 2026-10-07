@@ -4,6 +4,7 @@
     <SiteHeader />
     <slot />
     <SiteFooter />
+    <SiteTooltip />
   </div>
 </template>
 
