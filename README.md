@@ -13,16 +13,17 @@ It uses Vercel for deployment and hosting.
 
 ## Explore The Site
 
-| Page      | Route           | Purpose                                        |
-| --------- | --------------- | ---------------------------------------------- |
-| Home      | `/fr`           | Keola, upcoming streams, fanart and her causes |
-| Keola     | `/fr/keola`     | Keola's profile, lore and model gallery        |
-| Gallery   | `/fr/gallery`   | Some fanarts                                   |
-| Credits   | `/fr/credits`   | Creators named on the previous site            |
-| Archives  | `/fr/archives`  | Historical 2023 and 2024 events                |
-| Media kit | `/fr/kit-media` | Existing media sheet and professional contact  |
+| Page      | Route           | Purpose                                       |
+| --------- | --------------- | --------------------------------------------- |
+| Home      | `/fr`           | Keola, schedule link, fanart and her causes   |
+| Keola     | `/fr/keola`     | Keola's profile, lore and model gallery       |
+| Gallery   | `/fr/gallery`   | Fanart collection and image viewer            |
+| Credits   | `/fr/credits`   | Creators named on the previous site           |
+| Archives  | `/fr/archives`  | Historical 2023 and 2024 events               |
+| Media kit | `/fr/kit-media` | Existing media sheet and professional contact |
 
-Replace `/fr` with `/en` or `/ja` for English or Japanese. `/` redirects to French.
+Replace `/fr` with `/en` or `/ja` for English or Japanese.
+`/` detects the visitor's language; French is the default when no preference is detected.
 The schedule opens Keola's official Twitch schedule; this website does not invent live dates or status.
 The gallery viewer supports keyboard navigation and Escape.
 
@@ -43,25 +44,18 @@ After enabling Corepack, `yarn` automatically uses the version pinned in `packag
 If the launcher is unavailable, use `corepack yarn <command>`.
 If PowerShell blocks `yarn.ps1`, use `yarn.cmd <command>` instead.
 
-Make sure to install the dependencies:
+Install the locked dependencies:
 
 ```bash
-# yarn
-yarn install
+yarn install --immutable
 ```
 
 ### Development Server
 
-Start the development server on <http://localhost:3000>
+Start the development server, normally on <http://localhost:3000>:
 
 ```bash
-
-# yarn
 yarn dev -o
-
-
-# fix lint
-yarn lint --fix
 ```
 
 ### Production
@@ -78,35 +72,76 @@ Locally preview production build:
 yarn preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+| Command                       | Use                                                                |
+| ----------------------------- | ------------------------------------------------------------------ |
+| `yarn format:check`           | Check authored Vue, TypeScript, SCSS and locale JSON formatting    |
+| `yarn format`                 | Format those files; prefer targeting changed files for small edits |
+| `yarn typecheck`              | Check Nuxt and Vue types                                           |
+| `yarn lint`                   | Run ESLint and its Prettier integration                            |
+| `yarn lint:fix`               | Apply lint fixes; review the resulting edits                       |
+| `yarn build` / `yarn preview` | Build SSR output and preview it locally                            |
+| `yarn profile`                | Profile a Nuxt build                                               |
+| `yarn generate`               | Generate static output; not the Vercel SSR deployment command      |
+| `yarn postinstall`            | Prepare Nuxt generated types; runs after installation              |
 
-`yarn format` formats authored Vue/TypeScript/SCSS, locales and project documentation.
-It deliberately excludes the supplied artwork and brand-source docs.
-The same checks run on Linux in `.github/workflows/ci.yml` with an immutable Yarn install.
+`format:check` and `format` exclude Markdown and root config files.
+CI currently runs `yarn lint` after an immutable install; run formatting, typecheck and build locally for code or config changes.
+
+## Direct Dependencies
+
+The table covers direct `package.json` entries without tying this guide to their versions.
+Entries in the last row have no direct import in authored source or configuration and need a toolchain check before any removal.
+
+| Dependency                                                                                               | Why it is present                                          |
+| -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| `nuxt`                                                                                                   | Server rendering, pages, build and preview                 |
+| `@nuxtjs/i18n`                                                                                           | Localized routes and translations                          |
+| `@nuxtjs/seo`                                                                                            | SEO modules, including sitemap and structured data         |
+| `@nuxt/icon`, `@iconify-json/lucide`                                                                     | Custom social logos and Lucide interface icons             |
+| `@fontsource/kaushan-script`, `@fontsource/plus-jakarta-sans`, `@fontsource/zen-maru-gothic`             | Locally served fonts                                       |
+| `lenis`                                                                                                  | Smooth scroll integration                                  |
+| `@nuxt/eslint`, `eslint`, `eslint-plugin-prettier`, `eslint-config-prettier`, `prettier`                 | Lint and formatting tools                                  |
+| `typescript`, `vue-tsc`, `@types/node`                                                                   | Nuxt, Vue and Node type checking                           |
+| `sass`                                                                                                   | SCSS compilation                                           |
+| `@nuxt/types`                                                                                            | Explicit `tsconfig.json` type entry                        |
+| `@vue/composition-api`, `@nuxt/eslint-config`, `@nuxtjs/eslint-config-typescript`, `globals`, `rolldown` | Existing direct entries; current direct use is unconfirmed |
 
 ## Project Map
 
-| Location                          | Responsibility                                       |
-| --------------------------------- | ---------------------------------------------------- |
-| `app/pages/`                      | Localized Nuxt routes                                |
-| `app/components/`, `app/layouts/` | Shared brand, navigation and page UI                 |
-| `app/data/site.ts`                | Verified links, fanart order and creator credits     |
-| `app/composables/usePageSeo.ts`   | Translated titles and social metadata                |
-| `app/styles/`                     | SCSS design tokens and minimal shared rules          |
-| `i18n/locales/`                   | Matching FR/EN/JA keys and page copy                 |
-| `public/images/`                  | Published artwork and downloads                      |
+| Location                              | Responsibility                                                                                    |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `.agents/`                            | Source brand evidence, design docs and shared skills                                              |
+| `.github/workflows/ci.yml`            | Immutable install and lint CI job                                                                 |
+| `app/pages/`                          | Localized Nuxt routes                                                                             |
+| `app/components/`, `app/layouts/`     | Shared brand, navigation, tooltip and page UI                                                     |
+| `app/data/site.ts`                    | Verified links, fanart order and creator credits                                                  |
+| `app/composables/usePageSeo.ts`       | Translated titles and social metadata                                                             |
+| `app/styles/`                         | Tokens (`variables`), base rules (`default`), reusable classes (`shared`) and cursors (`cursors`) |
+| `app/router.options.ts`               | Scroll restoration and anchor behavior via Lenis                                                  |
+| `app/plugins/smooth-scroll.client.ts` | Client-only Lenis setup and cleanup                                                               |
+| `app/data/imageDimensions.ts`         | Original artwork dimensions for reserved image space                                              |
+| `i18n/locales/`                       | Matching FR/EN/JA keys and page copy                                                              |
+| `.prettierrc`, `.editorconfig`        | Formatting and file conventions                                                                   |
+| `nuxt.config.ts`                      | Modules, locale routing, styling, URLs and SSR setup                                              |
+| `package.json`, `.yarnrc.yml`         | Scripts, direct dependencies and Yarn linker                                                      |
+| `tsconfig.json`, `eslint.config.mjs`  | Strict type configuration and lint rules                                                          |
+| `public/images/`                      | Published artwork and downloads                                                                   |
 
 Each named page lives in `app/pages/<route>/index.vue` (for example, `app/pages/gallery/index.vue`).
 The homepage stays at `app/pages/index.vue`.
+`app/layouts/default.vue` supplies `SiteHeader`, `SiteFooter` and `SiteTooltip`.
+The tooltip reads localized `data-tooltip` text from controls on mouse hover or keyboard focus; controls must remain clear on touch without it.
 
 Artwork belongs to its artists.
 
 ## Architecture And Design
 
 Nuxt 4 SSR, Vue 3 Composition API, TypeScript **6**, Yarn 4, and scoped SCSS.
-The shared `Image` component renders native images, `@nuxtjs/i18n` serves three locales, and `@nuxtjs/seo` provides sitemap, canonical and alternate-language metadata.
+The shared `Image` component renders native images, `@nuxtjs/i18n` serves three locales and generates canonical/alternate links through `app/app.vue`, and `@nuxtjs/seo` provides the sitemap and structured site metadata.
 Fonts are bundled locally: Kaushan Script for Keola's signature, Zen Maru Gothic for headings/Japanese and Plus Jakarta Sans for compact UI copy.
-Orange `#FF7B00` is the confirmed brand accent; warm paper and plum carry the new visual direction, with lilac kept to small spirit accents.
+Orange `#FF7B00` is the confirmed brand accent; warm paper and plum carry the visual direction, with lilac kept to small spirit accents.
+
+Read [AGENTS.md](AGENTS.md) for code conventions, the component and page workflow, and the map of Keola skills and Copilot instructions.
 
 ## Deploy On Vercel
 

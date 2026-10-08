@@ -4,7 +4,9 @@ const siteUrl =
     ? 'http://localhost:3000'
     : process.env.VERCEL_ENV === 'production'
       ? prodUrl
-      : `https://${process.env.VERCEL_URL}`
+      : process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : prodUrl
 
 export default defineNuxtConfig({
   app: {
