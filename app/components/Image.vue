@@ -52,8 +52,8 @@ function trackLoading() {
     return
   }
 
-  // Avoid a placeholder flash for cached and quickly loaded images. Keeping
-  // the native img visible also preserves progressive loading and no-JS use.
+  // Avoid a placeholder flash for cached and quickly loaded images
+  // Keeping the native img visible also preserves progressive loading and no-JS use
   placeholderTimer = setTimeout(() => {
     pending.value = !image.value?.complete
   }, 150)

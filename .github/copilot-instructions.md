@@ -14,21 +14,23 @@
 
 ## Shared Skills
 
-| Skill      | File                                                              | When to consult                          |
-| ---------- | ----------------------------------------------------------------- | ---------------------------------------- |
-| Design     | [keola-design](../.agents/skills/keola-design/SKILL.md)           | Palette, artwork and typography          |
-| Layout     | [keola-layout](../.agents/skills/keola-layout/SKILL.md)           | Navigation and responsive pages          |
-| Components | [keola-components](../.agents/skills/keola-components/SKILL.md)   | Controls, tooltip, gallery and footer    |
-| Content    | [keola-content](../.agents/skills/keola-content/SKILL.md)         | Microcopy and localization               |
-| Review     | [keola-review](../.agents/skills/keola-review/SKILL.md)           | Visual and accessibility QA              |
-| i18n       | [i18n](../.agents/skills/i18n/SKILL.md)                           | Translation parity and locale navigation |
-| Nuxt/Vue   | [nuxt-vue-patterns](../.agents/skills/nuxt-vue-patterns/SKILL.md) | SSR, components and client integrations  |
-| SEO        | [seo](../.agents/skills/seo/SKILL.md)                             | Metadata, social previews and indexing   |
+| Skill         | File                                                              | When to consult                           |
+| ------------- | ----------------------------------------------------------------- | ----------------------------------------- |
+| Design        | [keola-design](../.agents/skills/keola-design/SKILL.md)           | Palette, artwork and typography           |
+| Layout        | [keola-layout](../.agents/skills/keola-layout/SKILL.md)           | Navigation and responsive pages           |
+| Components    | [keola-components](../.agents/skills/keola-components/SKILL.md)   | Controls, tooltip, gallery and footer     |
+| Content       | [keola-content](../.agents/skills/keola-content/SKILL.md)         | Microcopy and localization                |
+| Review        | [keola-review](../.agents/skills/keola-review/SKILL.md)           | Visual and accessibility QA               |
+| Accessibility | [accessibility](../.agents/skills/accessibility/SKILL.md)         | Semantics, focus and screen reader checks |
+| i18n          | [i18n](../.agents/skills/i18n/SKILL.md)                           | Translation parity and locale navigation  |
+| Nuxt/Vue      | [nuxt-vue-patterns](../.agents/skills/nuxt-vue-patterns/SKILL.md) | SSR, components and client integrations   |
+| SEO           | [seo](../.agents/skills/seo/SKILL.md)                             | Metadata, social previews and indexing    |
 
 ## Scoped Instructions
 
-| Instruction | File                                          | Applied to                         |
-| ----------- | --------------------------------------------- | ---------------------------------- |
-| Nuxt/Vue    | [nuxt](instructions/nuxt.instructions.md)     | Vue pages, components, composables |
-| SCSS        | [styles](instructions/styles.instructions.md) | Vue styles and SCSS tokens         |
-| i18n        | [i18n](instructions/i18n.instructions.md)     | FR/EN/JA locale JSON               |
+| Instruction   | File                                                        | Applied to                         |
+| ------------- | ----------------------------------------------------------- | ---------------------------------- |
+| Nuxt/Vue      | [nuxt](instructions/nuxt.instructions.md)                   | Vue pages, components, composables |
+| SCSS          | [styles](instructions/styles.instructions.md)               | Vue styles and SCSS tokens         |
+| i18n          | [i18n](instructions/i18n.instructions.md)                   | FR/EN/JA locale JSON               |
+| Accessibility | [accessibility](instructions/accessibility.instructions.md) | Interactive Vue and route behavior |
