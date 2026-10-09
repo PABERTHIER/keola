@@ -7,6 +7,7 @@
       :data-tooltip="t('components.keola_emote_surprise.tooltip')"
       @click="releaseEmotes">
       <Image
+        :skeleton="false"
         src="/images/misc/NYUH.webp"
         :alt="t('components.keola_emote_surprise.nyuh_alt')" />
     </button>
@@ -22,10 +23,12 @@
       class="emote-surprise__still"
       aria-hidden="true">
       <Image
+        :skeleton="false"
         src="/images/emotes/keolaCandy.png"
         :alt="t('components.keola_emote_surprise.candy_alt')"
         loading="eager" />
       <Image
+        :skeleton="false"
         src="/images/emotes/keolaHeart.png"
         :alt="t('components.keola_emote_surprise.heart_alt')"
         loading="eager" />
@@ -38,7 +41,11 @@
           :key="emote.id"
           class="emote-surprise__drop"
           :style="emote.style">
-          <Image :src="emote.src" :alt="emote.alt" loading="eager" />
+          <Image
+            :skeleton="false"
+            :src="emote.src"
+            :alt="emote.alt"
+            loading="eager" />
         </span>
       </div>
     </Teleport>
