@@ -11,8 +11,8 @@ const legacyPaths = {
 } as const
 
 export const legacyRouteRules = Object.fromEntries(
-  Object.entries(legacyPaths).flatMap(([path, to]) => [
-    [path, { redirect: { to, statusCode: 301 as const } }],
-    [`${path}/`, { redirect: { to, statusCode: 301 as const } }],
+  Object.entries(legacyPaths).map(([path, to]) => [
+    path,
+    { redirect: { to, statusCode: 301 as const } },
   ])
 )
