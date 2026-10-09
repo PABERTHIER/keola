@@ -1,12 +1,14 @@
 // Fragments are never sent to the server, so old Carrd section bookmarks need a browser-side redirect after i18n has selected a locale
 const legacySections: Record<string, string> = {
   '#presentation': '/keola',
-  '#media-kit': '/media-kit',
   '#mediakit': '/media-kit',
-  '#galerie': '/gallery',
-  '#archives': '/archives',
-  '#credits': '/credits',
   '#partenaires': '/#partners-title',
+  '#fanart': '/gallery',
+  '#archive': '/archives',
+  '#goal': '/archives#redpandathon-title',
+  '#redpandathon': '/archives#redpandathon-title',
+  '#credits': '/credits',
+  '#topcredits': '/credits',
 }
 
 export default defineNuxtRouteMiddleware(to => {
