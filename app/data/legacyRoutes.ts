@@ -1,18 +1,24 @@
-// Handle old Carrd routes to prevent any 404 errors
-const legacyPaths = {
-  '/presentation': '/fr/keola',
-  '/media-kit': '/fr/media-kit',
-  '/mediakit': '/fr/media-kit',
-  '/galerie': '/fr/gallery',
-  '/gallery': '/fr/gallery',
-  '/archives': '/fr/archives',
-  '/credits': '/fr/credits',
-  '/partenaires': '/fr/#partners-title',
-} as const
+// Public Carrd bookmarks and the old standalone path aliases share destinations
+export const legacyDestinations: Record<string, string> = {
+  presentation: '/keola',
+  mediakit: '/media-kit',
+  'media-kit': '/media-kit',
+  partenaires: '/#partners-title',
+  fanart: '/gallery',
+  galerie: '/gallery',
+  gallery: '/gallery',
+  archive: '/archives',
+  archives: '/archives',
+  goal: '/archives#redpandathon-title',
+  redpandathon: '/archives#redpandathon-title',
+  RedPandathon: '/archives#redpandathon-title',
+  credits: '/credits',
+  topcredits: '/credits',
+}
 
 export const legacyRouteRules = Object.fromEntries(
-  Object.entries(legacyPaths).map(([path, to]) => [
-    path,
-    { redirect: { to, statusCode: 301 as const } },
+  Object.entries(legacyDestinations).map(([path, destination]) => [
+    `/${path}`,
+    { redirect: { to: `/fr${destination}`, statusCode: 301 as const } },
   ])
 )
