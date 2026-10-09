@@ -144,7 +144,9 @@
       "count": "{number} of {total}",
       "close": "Close image",
       "previous": "Previous image",
-      "next": "Next image"
+      "next": "Next image",
+      "loading": "Loading image…",
+      "unavailable": "This image could not be loaded."
     }
   },
   "home": {
@@ -298,6 +300,7 @@
     "image_alt": "Fanart {number}: {description}",
     "open": "Enlarge fanart number {number}",
     "credit_note": "Artists retain the rights to their work. Individual attributions are being verified.",
+    "image_unavailable": "Image unavailable",
     "image_descriptions": {
       "1": "Keola sits on steps beside the water in a Japanese garden",
       "2": "Keola leaps through waves beneath a blue sky, holding orange pom-poms",

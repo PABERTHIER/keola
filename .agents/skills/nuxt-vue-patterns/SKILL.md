@@ -58,7 +58,7 @@ When editing overlays, preserve Escape handling, keyboard navigation and focus r
 ## Styles And Images
 
 Sass variables are injected through Vite; use tokens from [variables.scss](../../../app/styles/variables.scss) without repeating its import.
-Page/component rules stay scoped; `default.scss` holds base rules, `shared.scss` reusable classes and `cursors.scss` cursor styling.
+Page/component rules stay scoped; `default.scss` holds base rules, `keyframes.scss` shared animations, `shared.scss` reusable classes and `cursors.scss` cursor styling.
 Consult [keola-layout](../keola-layout/SKILL.md) when changing responsive composition and [keola-components](../keola-components/SKILL.md) for visual component choices.
 
 Use the shared `Image` component, which renders one native `img` and serves original public assets.

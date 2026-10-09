@@ -2,7 +2,7 @@
 
 This document records design direction and proposed options.
 For the implemented palette, spacing, radii and breakpoints, use [`app/styles/variables.scss`](../../app/styles/variables.scss);
-for global rule ownership, see [`default.scss`](../../app/styles/default.scss), [`shared.scss`](../../app/styles/shared.scss) and [`cursors.scss`](../../app/styles/cursors.scss).
+for global rule ownership, see [`default.scss`](../../app/styles/default.scss), [`keyframes.scss`](../../app/styles/keyframes.scss), [`shared.scss`](../../app/styles/shared.scss) and [`cursors.scss`](../../app/styles/cursors.scss).
 
 ## 1. Design direction
 
