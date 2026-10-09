@@ -17,6 +17,22 @@
     "back_home": "Retour à l'accueil",
     "og_alt": "Keola Kumaneko, VTuber panda roux"
   },
+  "error": {
+    "code": "Erreur {code}",
+    "eyebrow": "Un détour au temple",
+    "explore_gallery": "Explorer la galerie",
+    "art_caption": "Keola mène l'enquête, loupe en main.",
+    "not_found": {
+      "title": "Page introuvable - Keola Kumaneko",
+      "heading": "Cette piste s'arrête ici.",
+      "description": "Même avec sa loupe, Keola ne trouve pas cette page. Le lien a peut-être changé. Retrouvons-nous à l'accueil, ou faisons un détour par la galerie."
+    },
+    "unexpected": {
+      "title": "Un petit contretemps - Keola Kumaneko",
+      "heading": "Un petit contretemps au temple.",
+      "description": "Cette page ne peut pas s'afficher pour le moment. Tu peux revenir à l'accueil ou réessayer un peu plus tard."
+    }
+  },
   "social": {
     "live": "Lives",
     "videos": "Vidéos",

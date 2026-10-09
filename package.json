@@ -15,8 +15,8 @@
     "lint:fix": "eslint . --fix",
     "profile": "nuxt build --profile",
     "typecheck": "nuxt typecheck",
-    "format": "prettier --write \"app/**/*.{vue,ts,scss}\" \"i18n/locales/*.json\" nuxt.config.ts eslint.config.mjs README.md",
-    "format:check": "prettier --check \"app/**/*.{vue,ts,scss}\" \"i18n/locales/*.json\" nuxt.config.ts eslint.config.mjs README.md"
+    "format": "prettier --write \"app/**/*.{vue,ts,scss}\" \"i18n/locales/*.json\"",
+    "format:check": "prettier --check \"app/**/*.{vue,ts,scss}\" \"i18n/locales/*.json\""
   },
   "dependencies": {
     "@fontsource/kaushan-script": "^5.3.0",

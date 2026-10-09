@@ -1,3 +1,5 @@
+export const siteName = 'Keola Kumaneko'
+
 export const externalLinks = {
   twitch: 'https://www.twitch.tv/keola',
   twitchSchedule: 'https://www.twitch.tv/keola/schedule',
