@@ -1,22 +1,12 @@
-// Fragments are never sent to the server, so old Carrd section bookmarks need a browser-side redirect after i18n has selected a locale
-const legacySections: Record<string, string> = {
-  '#presentation': '/keola',
-  '#mediakit': '/media-kit',
-  '#partenaires': '/#partners-title',
-  '#fanart': '/gallery',
-  '#archive': '/archives',
-  '#goal': '/archives#redpandathon-title',
-  '#redpandathon': '/archives#redpandathon-title',
-  '#credits': '/credits',
-  '#topcredits': '/credits',
-}
+import { legacyDestinations } from '~/data/legacyRoutes'
 
+// Fragments never reach the server, so section bookmarks need a browser-side redirect after i18n has selected a locale
 export default defineNuxtRouteMiddleware(to => {
   if (import.meta.server || !/^\/(fr|en|ja)\/?$/.test(to.path)) {
     return
   }
 
-  const destination = legacySections[to.hash.toLowerCase()]
+  const destination = legacyDestinations[to.hash.slice(1).toLowerCase()]
 
   if (!destination) {
     return
@@ -24,5 +14,23 @@ export default defineNuxtRouteMiddleware(to => {
 
   const localePath = useLocalePath()
 
-  return navigateTo(localePath(destination), { replace: true })
+  const target = localePath(destination)
+  const nuxtApp = useNuxtApp()
+
+  // The server rendered the homepage without its fragment
+  // Hydrate that HTML before replacing it, or Vue will patch the new page into the wrong DOM
+  if (nuxtApp.isHydrating) {
+    const source = to.fullPath
+    const router = useRouter()
+
+    onNuxtReady(() => {
+      if (router.currentRoute.value.fullPath === source) {
+        void navigateTo(target, { replace: true })
+      }
+    })
+
+    return
+  }
+
+  return navigateTo(target, { replace: true })
 })
