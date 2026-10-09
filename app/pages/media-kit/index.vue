@@ -9,7 +9,7 @@
         <Image src="/images/misc/Mediakit.webp" :alt="t('media.preview_alt')" />
         <a
           class="button button--dark"
-          href="/images/misc/Mediakit.webp"
+          href="/images/misc/Mediakit.webp?download=mediakit"
           download="keola-kumaneko-mediakit.webp">
           <Icon name="lucide:download" aria-hidden="true" />
           {{ t('media.download') }}
