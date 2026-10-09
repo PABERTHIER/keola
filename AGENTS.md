@@ -133,7 +133,8 @@ When adding or substantially changing a page:
 2. Render one `<main id="main-content">` and one H1.
    The default layout owns the skip link, header and footer; do not duplicate them in pages.
 3. Add page copy and `seo.<page>.title` / `seo.<page>.description` in all three locales.
-   For a new page identity, extend `PageName` in `usePageSeo.ts` and call `useHead(usePageSeo('pageName'))` from the page.
+   For a new page identity, add its route, schema type, social image/alt key and sitemap artwork to `app/data/seo.ts`; `PageName` is derived from that registry.
+   Call `useHead(usePageSeo('pageName'))` from the page and keep image dimensions in `app/data/imageDimensions.ts` accurate.
 4. Use `NuxtLink` with `useLocalePath()` for internal destinations, including home-page anchors.
    Preserve the current route when switching language with `useSwitchLocalePath()`.
 5. Update relevant navigation in `SiteHeader.vue`, `SiteFooter.vue` and page links.
@@ -141,8 +142,14 @@ When adding or substantially changing a page:
 6. Verify the page in all locales, including navigation, assets and generated metadata.
 
 Keep locale head links centralized in `app/app.vue` through `useLocaleHead({ seo: true })`.
+Retain the three configured language alternates and `x-default`, one canonical, and the generated OG locales.
+The standalone `app/error.vue` uses localized `error.*` copy, preserves HTTP status, emits noindex metadata/headers and omits canonical/hreflang links.
+Its recovery links clear the error before redirecting; do not register error pages in the sitemap.
 Use the configured base URL rather than hardcoding a domain in individual pages.
 The final domain is awaiting confirmation; do not silently replace deployment URLs with `keola.tv`.
+See [SEO.md](.agents/docs/SEO.md) for metadata ownership, image sitemaps, indexing and launch verification.
+The site name is `Keola Kumaneko`; keep existing branded titles from receiving a second suffix.
+Fonts are self-hosted with Fontsource and swap; do not add a duplicate Google Fonts stylesheet.
 
 ## Vue, TypeScript And Styling
 
@@ -307,7 +314,12 @@ Leave the Output Directory override disabled so the Nuxt/Nitro integration contr
 Images use the same direct `/images/...` URLs locally and on Vercel.
 After deployment, verify those requests return HTTP 200 with an image content type.
 Responsive CSS changes display size; visitors download the original assets.
-Build/preview URL behavior depends on `NODE_ENV`, `VERCEL_ENV` and `VERCEL_URL` in `nuxt.config.ts`; inspect the resolved URLs when verifying metadata outside Vercel.
+Build/preview behavior depends on `NODE_ENV`, `VERCEL_ENV` and build-time `NUXT_SITE_URL` in `nuxt.config.ts`.
+Development uses localhost; Vercel previews use their `VERCEL_URL` origin with indexing disabled.
+Production and local production builds use the production origin and allow indexing.
+Inspect resolved metadata, robots and sitemaps in each environment.
+Use `/robots.txt?mockProductionEnv` to inspect production-style rules locally; blocked development output does not mean production policies were removed.
+Check Unhead metadata warnings as well as hydration and translation errors in the development browser console.
 
 Report what changed, checks actually run and any remaining limitations.
 Do not claim browser, locale or build validation that was not performed.

@@ -11,6 +11,9 @@ applyTo: 'app/**/*.vue,app/composables/**/*.ts,nuxt.config.ts'
 - Use the local SFC order: `<template>`, `<script setup lang="ts">`, `<style lang="scss" scoped>`.
   Prefer Nuxt auto-imports for composables and explicit imports for shared data or types.
 - Pages render inside the shared layout, have one `<main id="main-content">` and one H1, and call `useHead(usePageSeo('pageName'))` with their matching translated SEO keys.
+  Register routes, social images, image-description keys, schema types and sitemap artwork in `app/data/seo.ts`; follow [SEO.md](../../.agents/docs/SEO.md).
+  Keep canonical/hreflang and OG locale generation in `app/app.vue`; preserve reactive metadata and JSON-LD during navigation.
+  The standalone `app/error.vue` preserves status, supplies localized noindex metadata and clears the error before recovery navigation; it is not a sitemap page.
 - Route internal links through `useLocalePath()`.
   Keep external URLs in `app/data/site.ts` when shared across pages, and mark new-tab links with `rel="noopener noreferrer"`.
 - Use the shared `Image` component for artwork with localized alt text.

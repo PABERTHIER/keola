@@ -9,6 +9,7 @@
 - Follow the nearest page/component pattern: `<script setup lang="ts">`, Nuxt auto-imports, a focused template and `<style lang="scss" scoped>`.
 - Import shared data and types explicitly.
   Put verified external destinations in `app/data/site.ts`; use `useLocalePath()` for internal links and `useHead(usePageSeo('pageName'))` for translated page metadata.
+  Follow [SEO.md](../.agents/docs/SEO.md) and the SEO skill when registering a page or changing images, structured data, URLs or indexing.
 - Use the applicable skill from the shared map below for visual direction, component behavior, copy, responsive layout or technical implementation.
 
 ## Shared Skills

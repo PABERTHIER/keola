@@ -17,6 +17,22 @@
     "back_home": "Back to home",
     "og_alt": "Keola Kumaneko, red panda VTuber"
   },
+  "error": {
+    "code": "Error {code}",
+    "eyebrow": "A detour at the temple",
+    "explore_gallery": "Explore the gallery",
+    "art_caption": "Keola is on the case, magnifying glass in hand.",
+    "not_found": {
+      "title": "Page not found - Keola Kumaneko",
+      "heading": "The trail ends here.",
+      "description": "Even with her magnifying glass, Keola can't find this page. The link may have changed. Head back home, or take a detour through the gallery."
+    },
+    "unexpected": {
+      "title": "A little setback - Keola Kumaneko",
+      "heading": "A little setback at the temple.",
+      "description": "This page can't be displayed right now. You can head back home or try again a little later."
+    }
+  },
   "social": {
     "live": "Livestreams",
     "videos": "Videos",

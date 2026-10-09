@@ -5,70 +5,85 @@ description: Implement or review Keola's localized page metadata, canonical and 
 
 # Keola SEO
 
-Follow [AGENTS.md](../../../AGENTS.md) for verified content, deployment and checks.
-Inspect the existing metadata owners before editing.
-Keep page-specific metadata in the shared flow instead of duplicating head tags in each page.
+Follow [AGENTS.md](../../../AGENTS.md) for verified content and required checks.
+Read [SEO.md](../../docs/SEO.md) for maintenance, deployment behavior and launch checks.
+Inspect source and rendered output before changing metadata.
 
-## Metadata Ownership
+## Ownership
 
-| Concern                      | Owner                                                           |
-| ---------------------------- | --------------------------------------------------------------- |
-| Title and descriptions       | `app/composables/usePageSeo.ts` and `seo.<page>.*` translations |
-| OG image, URL and locale     | `app/composables/usePageSeo.ts`                                 |
-| HTML language and alternates | `app/app.vue` using `useLocaleHead({ seo: true })`              |
-| Site URL and identity        | `nuxt.config.ts`: `site`, `schemaOrg`, i18n and runtime config  |
-| Social preview artwork       | `public/images/og-image.webp`                                   |
+| Concern                                                      | Owner                                             |
+| ------------------------------------------------------------ | ------------------------------------------------- |
+| Page routes, schema types, social images and sitemap artwork | `app/data/seo.ts`                                 |
+| Translated titles and descriptions                           | `seo.<page>.*` in all three locales               |
+| Reactive OG/X metadata and page JSON-LD                      | `app/composables/usePageSeo.ts`                   |
+| Canonical, hreflang, language/direction and OG locales       | `app/app.vue` with `useLocaleHead({ seo: true })` |
+| Full brand name and verified profile URLs                    | `app/data/site.ts`                                |
+| Image dimensions                                             | `app/data/imageDimensions.ts`                     |
+| Site URL, indexability, sitemap and Person identity          | `nuxt.config.ts`                                  |
 
-## Page Metadata Changes
+## Page changes
 
-Use the existing page call, for example `useHead(usePageSeo('gallery'))`.
-For a new page, extend `PageName` in [usePageSeo.ts](../../../app/composables/usePageSeo.ts) and add its title and description in all three locale files.
-Keep the helper's title and description reactive so they update on route and language changes.
-Use [i18n](../i18n/SKILL.md) for key and placeholder parity.
+Keep the page call `useHead(usePageSeo('gallery'))`.
+Add new identities to `pageSeo`; `PageName` is derived from that registry.
+Add title/description keys in FR/EN/JA using [i18n](../i18n/SKILL.md).
+Reuse image-description keys when possible.
+Update the social image path, alt key, dimensions and MIME type together.
+Titles should be specific and branded with Keola Kumaneko; preserve `%s` as the title template and never use `|` in translations.
 
-Write a specific title and concise description of the page's actual content.
-Keep Keola's name and confirmed subject matter natural in each language; avoid invented biography, current sponsorship, event dates or live status.
-Preserve the existing `titleTemplate: '%s'` behavior so already branded titles are not branded twice.
-Use a dash or other supported punctuation, never `|` in translated titles.
+Use filenames and existing descriptions to select artwork unless visual analysis is requested.
+Previews use original public WebP files; portrait images may be cropped by platforms.
+Sitemap artwork must belong to the page or its viewer.
+Automatic image discovery requires prerendering; the explicit registry supports SSR.
+Preserve `fanartNumbers` as the gallery sequence.
+Do not add fictional modification dates, priorities, keywords, article metadata or unsupported structured claims.
 
-The existing pages use `ogType: 'website'`.
-Do not add article metadata, keyword inventories or per-page app icons merely because another site's template includes them.
+## URLs, identity and indexing
 
-## Canonical, Alternates And Deployment URLs
+Keep canonical/alternate generation centralized; no second per-page hreflang list.
+Queries/fragments must not become page identities.
+Confirm reciprocal localized links and French `x-default`.
+Keep root language detection dynamic, not prerendered.
 
-Keep canonical and alternate-language generation in the locale-head integration in [app.vue](../../../app/app.vue).
-Inspect rendered tags before adding overrides; avoid competing canonical tags or a second hand-built hreflang list.
+`NUXT_SITE_URL` is the production origin, set at build time in Vercel's Production scope only; the fallback is `https://keola.vercel.app`.
+Leave it unset in Preview/Development because Site Config also reads it as a higher-priority override.
+Keep Vercel system environment variables enabled for preview detection.
+Do not silently switch to `keola.tv`.
+Development uses localhost; preview uses its `VERCEL_URL` origin with indexing disabled.
+Production/local production builds are indexable by default.
+Keep I18n and Site Config URL consumers aligned and test the actual environment.
 
-Verify that each localized page has a canonical URL for that page and alternates for FR/EN/JA.
-Check any generated `x-default` against the configured default locale and root routing behavior.
-Preserve locale prefixes; query parameters and fragments must not accidentally become a second page identity in OG URLs.
+Nuxt Schema.org owns WebSite/Person; the helper extends WebPage and primary image.
+Preserve reactive navigation, the AboutPage's Person reference and verified profile links.
+Use truthful schema types, never invented events or reviews.
+Keep `schemaOrg.reactive` and the Unhead treeshake exclusion for `app/composables/usePageSeo.ts` together with the helper's reactive schema URL/path template parameters.
+The installed Unhead transform otherwise removes page schema calls on the client.
+Recheck hydration and navigation after any dependency upgrade before simplifying this setup.
 
-Read URL configuration in [nuxt.config.ts](../../../nuxt.config.ts) when testing builds or previews.
-The current configuration uses localhost in development, `prodUrl` for Vercel production or local builds without `VERCEL_URL`, and `VERCEL_URL` for preview builds.
-A successful build alone does not validate public metadata; inspect rendered URLs in each environment.
-`site.url` and the runtime i18n base URL have separate consumers, so check their resolved output for unintended host mismatches.
+Nuxt Robots merges `public/_robots.txt`, including its existing content-use policy.
+Keep `robotsContent` shared between the root robots options, `usePageSeo` and the error page so HTTP/SSR and client recovery agree.
+Let the sitemap module supply its URL.
+Do not hardcode a second sitemap host.
+Fonts already load locally with swap; no Google Fonts link is missing.
+Use `/robots.txt?mockProductionEnv` to inspect production-style rules locally; the blocked development output intentionally omits the production group.
+The installed Unhead validator deprecates Twitter tags (except for twitter:card and twitter:site); use complete Open Graph metadata.
+Keep three configured hreflang alternates plus `x-default`; preserve the generated OG locale tags.
+Only add `worksFor` for a verified employer; `VTuber` is the confirmed job title.
+A Person does not have a `logo` property.
 
-Keep fixes within the requested scope.
-Do not change the final public domain without confirmed input; `keola.tv` migration is still in progress.
+## Error pages
 
-## Images, Structured Data And Indexing
-
-The helper currently declares `/images/og-image.webp` as WebP at 1444 by 840 pixels with translated `site.og_alt`.
-If replacing it, verify the actual asset, dimensions, MIME type and absolute URL together.
-The `ogImage` generation module is disabled; that does not remove the manually supplied OG metadata.
-
-When auditing structured identity, verify every referenced asset and URL.
-The configured identity logo is `/images/logo.webp`; `nuxt.config.ts` has a TODO to replace it with an SVG later. Do not assume that SVG exists.
-Use confirmed identity data only; report missing evidence rather than inventing a logo or claims.
-
-For an indexing or launch task, inspect the installed SEO modules' generated sitemap and robots output and the applicable environment settings.
-Do not assume `public/_robots.txt` is the served `/robots.txt` or that preview deployments are automatically excluded from indexing.
-Keep indexing changes within task scope.
+`app/error.vue` owns the standalone localized error shell and `error.*` messages.
+Preserve HTTP status, emit noindex metadata/headers, omit canonical/hreflang and provide complete valid OG metadata.
+Do not register error pages in the sitemap. Recovery must clear the error and reach a valid localized route.
+Verify 404 and generic-error behavior, keyboard/touch recovery and responsive layouts with the review skill.
 
 ## Verification
 
-Run the required application checks for metadata or configuration changes.
-Inspect server-rendered HTML on affected FR/EN/JA routes for a single intended title, description and canonical, correct alternates, localized OG values and valid URLs.
-Then switch routes and locales in the browser to check that head values update.
-Confirm the social image resolves; check sitemap, robots and structured data when those concerns changed.
-Record actual checks and unresolved issues separately.
+Run required application checks and check edited Markdown/root config formatting.
+Inspect SSR HTML for all affected locales: one title/description/canonical, correct alternates, localized social cards, absolute image URLs and consistent JSON-LD.
+Switch pages/locales without reloading and ensure metadata and schema update.
+Check assets, dimensions, robots headers/meta, sitemap index and child image entries.
+Verify root language redirects, query/trailing-slash normalization and HTTP 404s.
+Test production and non-indexable preview behavior separately.
+Check all Unhead console warnings in development, not only hydration errors.
+Report unavailable deployment, external validator and Search Console coverage rather than claiming it.

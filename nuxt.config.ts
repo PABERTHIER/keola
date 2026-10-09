@@ -1,4 +1,11 @@
-const prodUrl = 'https://keola.vercel.app'
+import { pageSeo, robotsContent } from './app/data/seo'
+import { externalLinks, siteName } from './app/data/site'
+
+// Set NUXT_SITE_URL at build time when the final production domain is confirmed.
+const prodUrl = (
+  process.env.NUXT_SITE_URL || 'https://keola.vercel.app'
+).replace(/\/$/, '')
+
 const siteUrl =
   process.env.NODE_ENV === 'development'
     ? 'http://localhost:3000'
@@ -8,6 +15,10 @@ const siteUrl =
         ? `https://${process.env.VERCEL_URL}`
         : prodUrl
 
+const indexable =
+  process.env.NODE_ENV !== 'development' &&
+  (!process.env.VERCEL_ENV || process.env.VERCEL_ENV === 'production')
+
 export default defineNuxtConfig({
   app: {
     head: {
@@ -15,19 +26,19 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', href: '/favicon.png' }, // TODO: Replace with /favicon.ico
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
       ],
-      title: 'Keola',
+      title: siteName,
       meta: [
         {
           name: 'viewport',
           content: 'width=device-width, initial-scale=1, viewport-fit=cover',
         },
-        { name: 'application-name', content: 'Keola' },
+        { name: 'application-name', content: siteName },
         { name: 'apple-mobile-web-app-capable', content: 'yes' },
         { name: 'mobile-web-app-capable', content: 'yes' },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
         {
           name: 'apple-mobile-web-app-title',
-          content: 'Keola',
+          content: siteName,
         },
         { name: 'theme-color', content: '#ff7b00' },
       ],
@@ -37,12 +48,6 @@ export default defineNuxtConfig({
     },
   },
   ssr: true,
-  nitro: {
-    prerender: {
-      crawlLinks: true,
-      routes: ['/'],
-    },
-  },
   components: [
     {
       path: '~/components',
@@ -129,24 +134,54 @@ export default defineNuxtConfig({
     enabled: true,
   },
   site: {
-    url: prodUrl,
-    name: 'Keola Kumaneko',
-    identity: {
-      type: 'Person',
-    },
-    indexable: true,
-    robots: {
-      index: true,
-      follow: true,
-    },
+    url: siteUrl,
+    name: siteName,
+    defaultLocale: 'fr-FR',
+    trailingSlash: false,
+    indexable,
+  },
+  robots: {
+    robotsEnabledValue: robotsContent.indexable,
+    robotsDisabledValue: robotsContent.blocked,
+  },
+  sitemap: {
+    // Runtime SSR pages aren't crawled for images by the sitemap module.
+    // i18n expands each record into FR/EN/JA with reciprocal alternates.
+    urls: Object.values(pageSeo).map(page => ({
+      loc: page.path,
+      _i18nTransform: true,
+      images: page.images.map(loc => ({ loc })),
+    })),
   },
   schemaOrg: {
+    reactive: true,
     identity: {
       type: 'Person',
-      name: 'Keola Kumaneko',
-      url: prodUrl,
-      logo: `${prodUrl}/images/logo.webp`, // TODO: Need a svg logo
-      image: `${prodUrl}/images/og-image.webp`,
+      name: siteName,
+      jobTitle: 'VTuber',
+      worksFor: 'Keola',
+      url: siteUrl,
+      logo: `${siteUrl}/images/logo.webp`, // TODO: Need a svg logo
+      image: `${siteUrl}/images/models/Keola_v3_portrait.webp`,
+      sameAs: [
+        externalLinks.twitch,
+        externalLinks.youtube,
+        externalLinks.bluesky,
+        externalLinks.instagram,
+        externalLinks.tiktok,
+        externalLinks.x,
+      ],
+    },
+  },
+  unhead: {
+    vite: {
+      // Preserve this helper's reactive useSchemaOrg call on the client.
+      // Other server-only composables can still be removed normally.
+      treeshake: {
+        filter: {
+          exclude: [/[/\\]app[/\\]composables[/\\]usePageSeo\.ts(?:\?|$)/],
+        },
+      },
     },
   },
   ogImage: {
