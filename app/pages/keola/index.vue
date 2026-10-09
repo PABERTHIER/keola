@@ -1,5 +1,5 @@
 <template>
-  <main id="main-content" ref="page" class="keola-page">
+  <main id="main-content" ref="page" class="keola-page" tabindex="-1">
     <section class="portrait-section" aria-labelledby="keola-title">
       <div class="shell portrait-section__grid">
         <div class="portrait-section__copy">

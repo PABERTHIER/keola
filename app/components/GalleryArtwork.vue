@@ -1,49 +1,62 @@
 <template>
-  <button
-    ref="button"
+  <div
     class="gallery-item"
+    :data-gallery-number="number"
     :class="[
       `gallery-item--${imageState}`,
       {
         'gallery-item--awaiting-view': !revealed,
         'gallery-item--intro': intro,
       },
-    ]"
-    type="button"
-    :disabled="imageState === 'error'"
-    :aria-label="
-      imageState === 'error'
-        ? t('gallery.image_unavailable')
-        : `${t('gallery.open', { number })} : ${t(`gallery.image_descriptions.${number}`)}`
-    "
-    :data-tooltip="
-      imageState === 'error'
-        ? t('gallery.image_unavailable')
-        : t('gallery.open', { number })
-    "
-    @click="emit('open', $event)">
-    <Image
-      class="gallery-item__image"
-      :src="`/images/fanarts/fanart-${number}.webp`"
-      :alt="
+    ]">
+    <button
+      ref="button"
+      class="gallery-item__button"
+      type="button"
+      :disabled="imageState === 'error'"
+      :aria-label="
+        imageState === 'error'
+          ? t('gallery.image_unavailable')
+          : `${t('gallery.open', { number })} : ${t(`gallery.image_descriptions.${number}`)}`
+      "
+      :data-tooltip="
+        imageState === 'error'
+          ? t('gallery.image_unavailable')
+          : t('gallery.open', { number })
+      "
+      @click="emit('open', $event)">
+      <Image
+        class="gallery-item__image"
+        :src="`/images/fanarts/fanart-${number}.webp`"
+        :alt="
+          t('gallery.image_alt', {
+            number,
+            description: t(`gallery.image_descriptions.${number}`),
+          })
+        "
+        @load="imageState = 'loaded'"
+        @error="imageState = 'error'" />
+      <span
+        v-if="imageState === 'error'"
+        class="gallery-item__error"
+        aria-hidden="true">
+        <Icon name="lucide:image-off" aria-hidden="true" />
+        {{ t('gallery.image_unavailable') }}
+      </span>
+      <span class="gallery-item__badge" aria-hidden="true">
+        <Icon class="gallery-item__icon" name="lucide:expand" />
+      </span>
+    </button>
+    <span v-if="imageState === 'error'" class="sr-only" role="status">
+      {{
         t('gallery.image_alt', {
           number,
           description: t(`gallery.image_descriptions.${number}`),
         })
-      "
-      @load="imageState = 'loaded'"
-      @error="imageState = 'error'" />
-    <span
-      v-if="imageState === 'error'"
-      class="gallery-item__error"
-      aria-hidden="true">
-      <Icon name="lucide:image-off" aria-hidden="true" />
+      }}:
       {{ t('gallery.image_unavailable') }}
     </span>
-    <span class="gallery-item__badge" aria-hidden="true">
-      <Icon class="gallery-item__icon" name="lucide:expand" />
-    </span>
-  </button>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -67,17 +80,22 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .gallery-item {
-  position: relative;
-  display: block;
-  width: 100%;
-  min-height: $control-size;
-  padding: 0;
-  overflow: hidden;
-  border: $border-width solid $line;
-  border-radius: $radius-control;
-  background: $peach;
+  margin: 0 0 $space-13;
+  break-inside: avoid;
 
-  &--loaded {
+  &__button {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: $control-size;
+    padding: 0;
+    overflow: hidden;
+    border: $border-width solid $line;
+    border-radius: $radius-control;
+    background: $peach;
+  }
+
+  &--loaded &__button {
     background: $white;
   }
 
@@ -132,13 +150,19 @@ onMounted(() => {
   }
 }
 
+@media (max-width: $breakpoint-mobile) {
+  .gallery-item {
+    margin-bottom: $space-9;
+  }
+}
+
 @media (hover: none), (pointer: coarse) {
   .gallery-item--loaded .gallery-item__badge {
     opacity: 1;
   }
 }
 
-.gallery-item:focus-visible .gallery-item__badge {
+.gallery-item__button:focus-visible .gallery-item__badge {
   opacity: 1;
 }
 
@@ -164,11 +188,20 @@ onMounted(() => {
     transform: translateY(12px) scale(0.985);
   }
 
+  .gallery-item--awaiting-view
+    .gallery-item__button:focus-visible
+    .gallery-item__image {
+    opacity: 1;
+    transform: none;
+  }
+
   .gallery-item--intro {
     animation: gallery-intro 0.5s ease-out both;
   }
 
-  .gallery-item--loaded:focus-visible .gallery-item__image {
+  .gallery-item--loaded
+    .gallery-item__button:focus-visible
+    .gallery-item__image {
     transform: scale($artwork-hover-scale);
   }
 

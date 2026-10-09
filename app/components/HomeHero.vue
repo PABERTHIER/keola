@@ -44,6 +44,7 @@
       <div
         ref="heroVisual"
         class="hero__visual"
+        role="group"
         :aria-label="t('components.home_hero.slideshow')"
         @pointerenter="handlePointerEnter"
         @pointerleave="hovered = false"

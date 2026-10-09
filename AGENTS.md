@@ -83,6 +83,7 @@ The last row identifies entries whose current necessity should be checked before
 | Page metadata                   | `app/composables/usePageSeo.ts`                                                              | Translated titles, descriptions and OG metadata                                          |
 | Styling                         | `app/styles/variables.scss`, `default.scss`, `keyframes.scss`, `shared.scss`, `cursors.scss` | Tokens, base rules, shared keyframes, shared classes and cursors; keep page rules scoped |
 | Browser-only integrations       | `app/plugins/smooth-scroll.client.ts`                                                        | Lenis scrolling; keep DOM code out of SSR                                                |
+| Navigation focus                | `app/plugins/navigation-focus.client.ts`                                                     | Focus the destination after client-side page and anchor navigation                       |
 | Route scroll behavior           | `app/router.options.ts`                                                                      | Lenis history restoration and hash scrolling                                             |
 | Locale metadata and site config | `app/app.vue`, `nuxt.config.ts`                                                              | Language, canonical, hreflang and site identity                                          |
 | Translations                    | `i18n/locales/fr-FR.json`, `en-US.json`, `ja-JP.json`                                        | Align keys and placeholders across locales                                               |
@@ -262,6 +263,7 @@ Keep that signature sparingly, Zen Maru Gothic for warm headings/Japanese, and P
 | UI components         | [.agents/skills/keola-components/SKILL.md](.agents/skills/keola-components/SKILL.md) | Controls, galleries and footer             |
 | Copy and localization | [.agents/skills/keola-content/SKILL.md](.agents/skills/keola-content/SKILL.md)       | French-first voice and translated text     |
 | Visual QA             | [.agents/skills/keola-review/SKILL.md](.agents/skills/keola-review/SKILL.md)         | Brand, accessibility and responsive checks |
+| Accessibility         | [.agents/docs/accessibility.md](.agents/docs/accessibility.md)                       | Accessibility ownership and release audit  |
 
 ## Technical Skills
 
@@ -273,6 +275,7 @@ the design and content skills above remain responsible for visual direction and 
 | i18n              | [.agents/skills/i18n/SKILL.md](.agents/skills/i18n/SKILL.md)                           | Translation parity, reactive copy and locale routes |
 | Nuxt/Vue patterns | [.agents/skills/nuxt-vue-patterns/SKILL.md](.agents/skills/nuxt-vue-patterns/SKILL.md) | Pages, components, SSR and client integrations      |
 | SEO               | [.agents/skills/seo/SKILL.md](.agents/skills/seo/SKILL.md)                             | Localized metadata, social previews and indexing    |
+| Accessibility     | [.agents/skills/accessibility/SKILL.md](.agents/skills/accessibility/SKILL.md)         | Semantics, focus, motion and accessible interaction |
 
 ## Tool Integration And Scoped Instructions
 
@@ -283,11 +286,12 @@ Before editing files, read and follow the relevant scoped instructions listed be
 This applies to all coding agents, including Codex.
 For Codex, use the table's applicability column to select files to read; do not rely on automatic processing of Copilot's `applyTo` metadata.
 
-| File                                                                                       | Applies to                        |
-| ------------------------------------------------------------------------------------------ | --------------------------------- |
-| [.github/instructions/nuxt.instructions.md](.github/instructions/nuxt.instructions.md)     | Nuxt, Vue and composables         |
-| [.github/instructions/styles.instructions.md](.github/instructions/styles.instructions.md) | Scoped SCSS and responsive design |
-| [.github/instructions/i18n.instructions.md](.github/instructions/i18n.instructions.md)     | FR/EN/JA translations             |
+| File                                                                                                     | Applies to                        |
+| -------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| [.github/instructions/nuxt.instructions.md](.github/instructions/nuxt.instructions.md)                   | Nuxt, Vue and composables         |
+| [.github/instructions/styles.instructions.md](.github/instructions/styles.instructions.md)               | Scoped SCSS and responsive design |
+| [.github/instructions/i18n.instructions.md](.github/instructions/i18n.instructions.md)                   | FR/EN/JA translations             |
+| [.github/instructions/accessibility.instructions.md](.github/instructions/accessibility.instructions.md) | Interactive accessibility work    |
 
 ## Verification
 

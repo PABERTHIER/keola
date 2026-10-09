@@ -1,5 +1,5 @@
 <template>
-  <main id="main-content" ref="page" class="home-page">
+  <main id="main-content" ref="page" class="home-page" tabindex="-1">
     <HomeHero />
 
     <section

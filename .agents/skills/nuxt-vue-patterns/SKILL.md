@@ -21,6 +21,7 @@ Check [nuxt.config.ts](../../../nuxt.config.ts) and [package.json](../../../pack
 | Local artwork       | `Image`; public asset paths start with `/images/`                                      |
 | Interface icons     | `Icon` with `lucide:` names; social logos use `keo-icon:`                              |
 | Browser integration | `app/plugins/smooth-scroll.client.ts` owns Lenis                                       |
+| Navigation focus    | `app/plugins/navigation-focus.client.ts` focuses page and anchor destinations          |
 | Route scrolling     | `app/router.options.ts` restores history and handles anchors through Lenis             |
 
 ## Component And Page Implementation

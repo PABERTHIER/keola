@@ -37,6 +37,7 @@ Treat proposals as design guidance and verify implemented details in the source 
 | [Brand context](docs/brand-context.md)         | Personality, audience, themes and brand vocabulary |
 | [Design system](docs/design-system.md)         | Visual system and proposed tokens                  |
 | [UX principles](docs/ux-principles.md)         | Layout, accessibility and interaction              |
+| [Accessibility](docs/accessibility.md)         | Accessibility ownership, audit and release checks  |
 | [Content direction](docs/content-direction.md) | Tone, content hierarchy and editorial guidance     |
 
 ## Skills
@@ -48,6 +49,7 @@ Treat proposals as design guidance and verify implemented details in the source 
 | [keola-components](skills/keola-components/SKILL.md)   | Visual language for controls, tooltips, galleries and footer |
 | [keola-content](skills/keola-content/SKILL.md)         | French-first voice and microcopy                             |
 | [keola-review](skills/keola-review/SKILL.md)           | Visual QA and accessibility review                           |
+| [accessibility](skills/accessibility/SKILL.md)         | Accessibility audits, implementation and verification        |
 | [i18n](skills/i18n/SKILL.md)                           | FR/EN/JA key parity, reactive copy and locale routes         |
 | [nuxt-vue-patterns](skills/nuxt-vue-patterns/SKILL.md) | Pages, components, SSR and client integrations               |
 | [seo](skills/seo/SKILL.md)                             | Localized metadata, social previews and indexing             |

@@ -1,5 +1,5 @@
 <template>
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
     <PageIntro
       :eyebrow="t('gallery.eyebrow')"
       :title="t('gallery.title')"
@@ -10,9 +10,7 @@
         <GalleryArtwork
           v-for="(number, index) in fanartNumbers"
           :key="number"
-          class="gallery-item"
           :number="number"
-          :data-gallery-number="number"
           :revealed="!revealEnabled || revealedNumbers.has(number)"
           :intro="introNumbers.has(number)"
           @open="openArtwork(index, $event)" />
@@ -130,11 +128,6 @@ function openArtwork(index: number, event: MouseEvent) {
   column-gap: $space-13;
 }
 
-.gallery-item {
-  margin: 0 0 $space-13;
-  break-inside: avoid;
-}
-
 .gallery-page__note {
   max-width: 650px;
   margin: 35px 0 0;
@@ -149,10 +142,6 @@ function openArtwork(index: number, event: MouseEvent) {
 
   .gallery-wall {
     column-gap: $space-9;
-  }
-
-  .gallery-item {
-    margin-bottom: $space-9;
   }
 }
 </style>

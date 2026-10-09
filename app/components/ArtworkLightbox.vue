@@ -52,7 +52,7 @@
         @click="move(-1)">
         <Icon name="lucide:arrow-left" aria-hidden="true" />
       </button>
-      <span v-if="activeIndex !== null">
+      <span v-if="activeIndex !== null" aria-live="polite" aria-atomic="true">
         {{
           t('components.artwork_lightbox.count', {
             number: activeIndex + 1,
