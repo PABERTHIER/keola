@@ -17,6 +17,22 @@
     "back_home": "ホームに戻る",
     "og_alt": "レッサーパンダのVTuber、Keola Kumaneko"
   },
+  "error": {
+    "code": "エラー {code}",
+    "eyebrow": "お寺でちょっと寄り道",
+    "explore_gallery": "ギャラリーを見る",
+    "art_caption": "虫眼鏡を手に、Keolaが調査中。",
+    "not_found": {
+      "title": "ページが見つかりません - Keola Kumaneko",
+      "heading": "手がかりはここまで。",
+      "description": "虫眼鏡で探しても、このページは見つからないみたい。リンクが変わったのかもしれません。ホームに戻るか、ギャラリーに寄り道してみてね。"
+    },
+    "unexpected": {
+      "title": "ちょっとしたトラブル - Keola Kumaneko",
+      "heading": "お寺でちょっとしたトラブル。",
+      "description": "今はこのページを表示できません。ホームに戻るか、少し時間をおいてもう一度試してみてね。"
+    }
+  },
   "social": {
     "live": "配信",
     "videos": "動画",

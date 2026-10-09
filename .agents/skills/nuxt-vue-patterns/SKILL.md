@@ -37,7 +37,7 @@ Check [nuxt.config.ts](../../../nuxt.config.ts) and [package.json](../../../pack
   Preserve readonly inputs such as the lightbox's number sequence; derive display state without mutating shared data.
 - Keep shared URLs, credits and fanart ordering in `app/data/site.ts`.
   Translate reactive display values at their consumer, using [i18n](../i18n/SKILL.md) when needed.
-- New routes need matching locale keys, a `PageName` entry in `usePageSeo.ts` and relevant navigation updates.
+- New routes need matching locale keys, a page entry in `app/data/seo.ts` (which derives `PageName`) and relevant navigation updates.
   Use the page workflow in AGENTS.md and the [seo skill](../seo/SKILL.md) for metadata changes.
 
 ## Server Rendering And Lifecycle

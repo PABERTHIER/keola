@@ -17,12 +17,15 @@ translations must match the page's actual behavior and confirmed content.
 | `en`       | English  | [en-US.json](../../../i18n/locales/en-US.json)          |
 | `ja`       | Japanese | [ja-JP.json](../../../i18n/locales/ja-JP.json)          |
 
-Use existing namespaces: `site`, `social`, `seo`, `components`, `home`, `keola`, `gallery`, `credits`, `archives` and `media`.
+Use existing namespaces: `site`, `social`, `seo`, `components`, `home`, `keola`, `gallery`, `credits`, `archives`, `media` and `error`.
+`error.*` owns the standalone error page's UI and metadata; verify all three locales on unknown URLs and after recovery.
 Keep copy owned by a component under `components.<component>.*`, even when that component currently appears on one page.
 Shared labels and content data stay under their site or page namespace.
 Search for an existing label before adding a key.
 Page SEO uses `seo.<page>.title` and `seo.<page>.description`;
 key identities such as `gallery` and `media` differ from route segments `/gallery` and `/kit-media`.
+The page registry in `app/data/seo.ts` also references translated social-image descriptions; verify these dynamic keys in all locales when changing artwork.
+Keep the full site name `Keola Kumaneko` in SEO titles.
 
 ## Changing Messages
 

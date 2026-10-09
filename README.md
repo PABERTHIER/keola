@@ -145,6 +145,15 @@ Read [AGENTS.md](AGENTS.md) for code conventions, the component and page workflo
 
 ## Deploy On Vercel
 
+See [SEO maintenance](.agents/docs/SEO.md) for page-specific social images, localized metadata, image sitemaps, deployment indexing and the launch checklist.
+Fonts already load locally through Fontsource; no Google Fonts stylesheet is required.
+
+Set `NUXT_SITE_URL` at build time when the final production origin is confirmed.
+The fallback is `https://keola.vercel.app`.
+Vercel previews use their own `VERCEL_URL` origin with indexing disabled; production builds use the production origin and permit indexing.
+Use `/robots.txt?mockProductionEnv` to inspect production-style rules on the local development server.
+Unknown URLs have a localized custom error page with noindex metadata and links back to valid pages.
+
 Select the Nuxt preset, install with `yarn install --immutable` and build with `yarn build`.
 Leave the Output Directory override disabled; Nuxt/Nitro prepares the Vercel deployment output.
 Use Node.js 24 and the Yarn version pinned in `package.json`.

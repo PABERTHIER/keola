@@ -160,4 +160,5 @@ export const imageDimensions: Record<string, readonly [number, number]> = {
   '/images/redpanda/RedPandathon_2024_goals.webp': [1920, 1080],
   '/images/redpanda/RedPandathon_2024_impossible_goals.webp': [1922, 1073],
   '/images/logo.webp': [294, 220],
+  '/images/og-image.webp': [1444, 840],
 }
