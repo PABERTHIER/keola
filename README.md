@@ -108,24 +108,24 @@ Entries in the last row have no direct import in authored source or configuratio
 
 ## Project Map
 
-| Location                              | Responsibility                                                                                    |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `.agents/`                            | Source brand evidence, design docs and shared skills                                              |
-| `.github/workflows/ci.yml`            | Immutable install and lint CI job                                                                 |
-| `app/pages/`                          | Localized Nuxt routes                                                                             |
-| `app/components/`, `app/layouts/`     | Shared brand, navigation, tooltip and page UI                                                     |
-| `app/data/site.ts`                    | Verified links, fanart order and creator credits                                                  |
-| `app/composables/usePageSeo.ts`       | Translated titles and social metadata                                                             |
-| `app/styles/`                         | Tokens (`variables`), base rules (`default`), reusable classes (`shared`) and cursors (`cursors`) |
-| `app/router.options.ts`               | Scroll restoration and anchor behavior via Lenis                                                  |
-| `app/plugins/smooth-scroll.client.ts` | Client-only Lenis setup and cleanup                                                               |
-| `app/data/imageDimensions.ts`         | Original artwork dimensions for reserved image space                                              |
-| `i18n/locales/`                       | Matching FR/EN/JA keys and page copy                                                              |
-| `.prettierrc`, `.editorconfig`        | Formatting and file conventions                                                                   |
-| `nuxt.config.ts`                      | Modules, locale routing, styling, URLs and SSR setup                                              |
-| `package.json`, `.yarnrc.yml`         | Scripts, direct dependencies and Yarn linker                                                      |
-| `tsconfig.json`, `eslint.config.mjs`  | Strict type configuration and lint rules                                                          |
-| `public/images/`                      | Published artwork and downloads                                                                   |
+| Location                              | Responsibility                                                                                                                     |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `.agents/`                            | Source brand evidence, design docs and shared skills                                                                               |
+| `.github/workflows/ci.yml`            | Immutable install and lint CI job                                                                                                  |
+| `app/pages/`                          | Localized Nuxt routes                                                                                                              |
+| `app/components/`, `app/layouts/`     | Shared brand, navigation, tooltip and page UI                                                                                      |
+| `app/data/site.ts`                    | Verified links, fanart order and creator credits                                                                                   |
+| `app/composables/usePageSeo.ts`       | Translated titles and social metadata                                                                                              |
+| `app/styles/`                         | Tokens (`variables`), base rules (`default`), shared animations (`keyframes`), reusable classes (`shared`) and cursors (`cursors`) |
+| `app/router.options.ts`               | Scroll restoration and anchor behavior via Lenis                                                                                   |
+| `app/plugins/smooth-scroll.client.ts` | Client-only Lenis setup and cleanup                                                                                                |
+| `app/data/imageDimensions.ts`         | Original artwork dimensions for reserved image space                                                                               |
+| `i18n/locales/`                       | Matching FR/EN/JA keys and page copy                                                                                               |
+| `.prettierrc`, `.editorconfig`        | Formatting and file conventions                                                                                                    |
+| `nuxt.config.ts`                      | Modules, locale routing, styling, URLs and SSR setup                                                                               |
+| `package.json`, `.yarnrc.yml`         | Scripts, direct dependencies and Yarn linker                                                                                       |
+| `tsconfig.json`, `eslint.config.mjs`  | Strict type configuration and lint rules                                                                                           |
+| `public/images/`                      | Published artwork and downloads                                                                                                    |
 
 Each named page lives in `app/pages/<route>/index.vue` (for example, `app/pages/gallery/index.vue`).
 The homepage stays at `app/pages/index.vue`.

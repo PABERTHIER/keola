@@ -6,28 +6,16 @@
       :intro="t('gallery.intro')" />
     <section class="gallery-page shell" aria-labelledby="gallery-heading">
       <h2 id="gallery-heading" class="sr-only">{{ t('site.gallery') }}</h2>
-      <div class="gallery-wall">
-        <button
+      <div ref="galleryWall" class="gallery-wall">
+        <GalleryArtwork
           v-for="(number, index) in fanartNumbers"
           :key="number"
           class="gallery-item"
-          type="button"
-          :aria-label="`${t('gallery.open', { number })} : ${t(`gallery.image_descriptions.${number}`)}`"
-          :data-tooltip="t('gallery.open', { number })"
-          @click="openArtwork(index, $event)">
-          <Image
-            class="gallery-item__image"
-            :src="`/images/fanarts/fanart-${number}.webp`"
-            :alt="
-              t('gallery.image_alt', {
-                number,
-                description: t(`gallery.image_descriptions.${number}`),
-              })
-            " />
-          <span class="gallery-item__badge" aria-hidden="true">
-            <Icon class="gallery-item__icon" name="lucide:expand" />
-          </span>
-        </button>
+          :number="number"
+          :data-gallery-number="number"
+          :revealed="!revealEnabled || revealedNumbers.has(number)"
+          :intro="introNumbers.has(number)"
+          @open="openArtwork(index, $event)" />
       </div>
       <p class="gallery-page__note">{{ t('gallery.credit_note') }}</p>
     </section>
@@ -43,9 +31,18 @@
 import { fanartNumbers } from '~/data/site'
 
 const { t } = useI18n()
+
 const viewer = ref<{
   open: (index: number, trigger?: HTMLElement) => void
 } | null>(null)
+const galleryWall = ref<HTMLElement | null>(null)
+const revealEnabled = ref(false)
+
+const revealedNumbers = shallowRef(new Set<number>())
+const introNumbers = shallowRef(new Set<number>())
+
+let revealObserver: IntersectionObserver | null = null
+
 const artworks = computed(() =>
   fanartNumbers.map(number => ({
     src: `/images/fanarts/fanart-${number}.webp`,
@@ -58,6 +55,66 @@ const artworks = computed(() =>
 
 useHead(usePageSeo('gallery'))
 
+onMounted(() => {
+  if (
+    !galleryWall.value ||
+    !('IntersectionObserver' in window) ||
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  ) {
+    return
+  }
+
+  const alreadyVisible = new Set<number>()
+  const intro = new Set<number>()
+  const waiting: HTMLElement[] = []
+
+  for (const item of galleryWall.value.querySelectorAll<HTMLElement>(
+    '[data-gallery-number]'
+  )) {
+    const number = Number(item.dataset.galleryNumber)
+    const bounds = item.getBoundingClientRect()
+
+    if (bounds.top < window.innerHeight && bounds.bottom > 0) {
+      alreadyVisible.add(number)
+      intro.add(number)
+    } else if (bounds.top < window.innerHeight) {
+      alreadyVisible.add(number)
+    } else {
+      waiting.push(item)
+    }
+  }
+
+  revealedNumbers.value = alreadyVisible
+  introNumbers.value = intro
+  revealEnabled.value = true
+
+  revealObserver = new IntersectionObserver(
+    entries => {
+      const next = new Set(revealedNumbers.value)
+
+      for (const entry of entries) {
+        if (!entry.isIntersecting) {
+          continue
+        }
+
+        next.add(Number((entry.target as HTMLElement).dataset.galleryNumber))
+        revealObserver?.unobserve(entry.target)
+      }
+
+      if (next.size !== revealedNumbers.value.size) {
+        revealedNumbers.value = next
+      }
+    },
+    { rootMargin: '0px 0px 40px 0px', threshold: 0.01 }
+  )
+
+  for (const item of waiting) {
+    revealObserver.observe(item)
+  }
+})
+
+onBeforeUnmount(() => revealObserver?.disconnect())
+
 function openArtwork(index: number, event: MouseEvent) {
   viewer.value?.open(index, event.currentTarget as HTMLElement)
 }
@@ -67,69 +124,17 @@ function openArtwork(index: number, event: MouseEvent) {
 .gallery-page {
   padding-block: 65px $space-100;
 }
+
 .gallery-wall {
   columns: $gallery-column-width 4;
   column-gap: $space-13;
 }
+
 .gallery-item {
-  position: relative;
-  display: block;
-  width: 100%;
   margin: 0 0 $space-13;
-  padding: 0;
-  overflow: hidden;
   break-inside: avoid;
-  border: $border-width solid $line;
-  border-radius: $radius-control;
-  background: $white;
-  &__image {
-    width: 100%;
-    height: auto;
-  }
-  &__badge {
-    position: absolute;
-    z-index: $z-artwork;
-    right: $space-10;
-    bottom: $space-10;
-    width: $gallery-badge-size;
-    height: $gallery-badge-size;
-    display: grid;
-    place-items: center;
-    border-radius: $radius-small;
-    background: $white;
-    color: $ink;
-    pointer-events: none;
-    transition: opacity $transition-ui;
-  }
-  &__icon {
-    width: $gallery-icon-size;
-    height: $gallery-icon-size;
-  }
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .gallery-item__badge {
-    opacity: 0;
-  }
-  .gallery-item:hover .gallery-item__badge,
-  .gallery-item:focus-visible .gallery-item__badge {
-    opacity: 1;
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .gallery-item__image {
-    transition: transform $transition-artwork;
-  }
-  .gallery-item:focus-visible .gallery-item__image {
-    transform: scale($artwork-hover-scale);
-  }
-  @media (hover: hover) and (pointer: fine) {
-    .gallery-item:hover .gallery-item__image {
-      transform: scale($artwork-hover-scale);
-    }
-  }
-}
 .gallery-page__note {
   max-width: 650px;
   margin: 35px 0 0;
@@ -141,9 +146,11 @@ function openArtwork(index: number, event: MouseEvent) {
   .gallery-page {
     padding-block: $space-38 $space-70;
   }
+
   .gallery-wall {
     column-gap: $space-9;
   }
+
   .gallery-item {
     margin-bottom: $space-9;
   }

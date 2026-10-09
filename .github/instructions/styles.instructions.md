@@ -8,7 +8,7 @@ applyTo: 'app/**/*.vue,app/styles/**/*.scss'
 - Treat the [mobile acceptance criteria](../../AGENTS.md#mobile-experience-acceptance-criteria) as required for UI completion.
   Compose for small touch screens first, then enhance for wider viewports; preserve core functionality in every locale.
 - Use `<style lang="scss" scoped>` for page and component rules.
-  `app/styles/default.scss` holds resets and base element rules, `shared.scss` holds reusable classes, and `cursors.scss` holds cursor rules.
+  `app/styles/default.scss` holds resets and base element rules, `keyframes.scss` holds shared animations, `shared.scss` holds reusable classes, and `cursors.scss` holds cursor rules.
   `variables.scss` contains Sass tokens injected by `nuxt.config.ts`.
 - Keep the character-led paper/plum/orange direction in [.agents/skills/keola-design/SKILL.md](../../.agents/skills/keola-design/SKILL.md).
   Nature colors are small supporting accents, not full-width surfaces.

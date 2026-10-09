@@ -144,7 +144,9 @@
       "count": "{total} 枚中 {number} 枚目",
       "close": "画像を閉じる",
       "previous": "前の画像",
-      "next": "次の画像"
+      "next": "次の画像",
+      "loading": "画像を読み込み中…",
+      "unavailable": "画像を読み込めませんでした。"
     }
   },
   "home": {
@@ -298,6 +300,7 @@
     "image_alt": "ファンアート{number}：{description}",
     "open": "ファンアート {number} を拡大",
     "credit_note": "作品の権利は各アーティストに帰属します。個別のクレジットを確認中です。",
+    "image_unavailable": "画像を読み込めませんでした",
     "image_descriptions": {
       "1": "日本庭園の水辺の階段に座るKeola",
       "2": "オレンジ色のポンポンを持ち、青空の下で波の間を跳ぶKeola",

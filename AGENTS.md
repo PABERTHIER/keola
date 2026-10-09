@@ -13,7 +13,7 @@ This file is the shared entry point for coding agents. Keep guidance specific to
 - Mobile usability is a release requirement.
   Design and implement the small-screen, touch experience first, then enhance it for tablet and desktop.
   A page is not finished merely because it fits a narrow viewport; its core journeys must be comfortable and reliable.
-- Use tokens in `app/styles/variables.scss`, resets and base rules in `app/styles/default.scss`, reusable classes in `app/styles/shared.scss`, cursor rules in `app/styles/cursors.scss`, and scoped SCSS beside each Vue component.
+- Use tokens in `app/styles/variables.scss`, resets and base rules in `app/styles/default.scss`, shared animation definitions in `app/styles/keyframes.scss`, reusable classes in `app/styles/shared.scss`, cursor rules in `app/styles/cursors.scss`, and scoped SCSS beside each Vue component.
   No `main.css`.
 - French is the default locale.
   Add translation keys to all three locale files together, preserving placeholders.
@@ -75,20 +75,20 @@ The last row identifies entries whose current necessity should be checked before
 
 ## Architecture
 
-| Concern                         | Owner                                                                      | Convention                                                             |
-| ------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| Routes and page content         | `app/pages/`                                                               | One main and H1 per page; localize internal links                      |
-| Shared UI                       | `app/components/`, `app/layouts/default.vue`                               | Header, footer, tooltip, page patterns and lightbox                    |
-| Verified links and credits      | `app/data/site.ts`                                                         | Shared URLs, social links, fanart order and credits                    |
-| Page metadata                   | `app/composables/usePageSeo.ts`                                            | Translated titles, descriptions and OG metadata                        |
-| Styling                         | `app/styles/variables.scss`, `default.scss`, `shared.scss`, `cursors.scss` | Tokens, base rules, shared classes and cursors; keep page rules scoped |
-| Browser-only integrations       | `app/plugins/smooth-scroll.client.ts`                                      | Lenis scrolling; keep DOM code out of SSR                              |
-| Route scroll behavior           | `app/router.options.ts`                                                    | Lenis history restoration and hash scrolling                           |
-| Locale metadata and site config | `app/app.vue`, `nuxt.config.ts`                                            | Language, canonical, hreflang and site identity                        |
-| Translations                    | `i18n/locales/fr-FR.json`, `en-US.json`, `ja-JP.json`                      | Align keys and placeholders across locales                             |
-| Published assets                | `public/images/`                                                           | Local artwork and downloads                                            |
-| Icon configuration              | `nuxt.config.ts`, `app/assets/svg/`                                        | Nuxt Icon and the configured `keo-icon` collection                     |
-| Tooling and CI                  | `package.json`, `.github/workflows/ci.yml`                                 | Available scripts and checks actually automated                        |
+| Concern                         | Owner                                                                                        | Convention                                                                               |
+| ------------------------------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Routes and page content         | `app/pages/`                                                                                 | One main and H1 per page; localize internal links                                        |
+| Shared UI                       | `app/components/`, `app/layouts/default.vue`                                                 | Header, footer, tooltip, page patterns and lightbox                                      |
+| Verified links and credits      | `app/data/site.ts`                                                                           | Shared URLs, social links, fanart order and credits                                      |
+| Page metadata                   | `app/composables/usePageSeo.ts`                                                              | Translated titles, descriptions and OG metadata                                          |
+| Styling                         | `app/styles/variables.scss`, `default.scss`, `keyframes.scss`, `shared.scss`, `cursors.scss` | Tokens, base rules, shared keyframes, shared classes and cursors; keep page rules scoped |
+| Browser-only integrations       | `app/plugins/smooth-scroll.client.ts`                                                        | Lenis scrolling; keep DOM code out of SSR                                                |
+| Route scroll behavior           | `app/router.options.ts`                                                                      | Lenis history restoration and hash scrolling                                             |
+| Locale metadata and site config | `app/app.vue`, `nuxt.config.ts`                                                              | Language, canonical, hreflang and site identity                                          |
+| Translations                    | `i18n/locales/fr-FR.json`, `en-US.json`, `ja-JP.json`                                        | Align keys and placeholders across locales                                               |
+| Published assets                | `public/images/`                                                                             | Local artwork and downloads                                                              |
+| Icon configuration              | `nuxt.config.ts`, `app/assets/svg/`                                                          | Nuxt Icon and the configured `keo-icon` collection                                       |
+| Tooling and CI                  | `package.json`, `.github/workflows/ci.yml`                                                   | Available scripts and checks actually automated                                          |
 
 The current shared components are grouped by use:
 

@@ -109,6 +109,7 @@ export default defineNuxtConfig({
     '@fontsource/zen-maru-gothic/500.css',
     '@fontsource/zen-maru-gothic/700.css',
     '~/styles/default.scss',
+    '~/styles/keyframes.scss',
     '~/styles/shared.scss',
     '~/styles/cursors.scss',
   ],
