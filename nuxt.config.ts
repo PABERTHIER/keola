@@ -1,3 +1,4 @@
+import { legacyRouteRules } from './app/data/legacyRoutes'
 import { pageSeo, robotsContent } from './app/data/seo'
 import { externalLinks, siteName } from './app/data/site'
 
@@ -20,6 +21,7 @@ const indexable =
   (!process.env.VERCEL_ENV || process.env.VERCEL_ENV === 'production')
 
 export default defineNuxtConfig({
+  routeRules: legacyRouteRules,
   app: {
     head: {
       link: [
