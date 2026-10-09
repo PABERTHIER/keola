@@ -23,7 +23,7 @@ Keep copy owned by a component under `components.<component>.*`, even when that 
 Shared labels and content data stay under their site or page namespace.
 Search for an existing label before adding a key.
 Page SEO uses `seo.<page>.title` and `seo.<page>.description`;
-key identities such as `gallery` and `media` differ from route segments `/gallery` and `/kit-media`.
+key identities such as `gallery` and `media` differ from route segments `/gallery` and `/media-kit`.
 The page registry in `app/data/seo.ts` also references translated social-image descriptions; verify these dynamic keys in all locales when changing artwork.
 Keep the full site name `Keola Kumaneko` in SEO titles.
 

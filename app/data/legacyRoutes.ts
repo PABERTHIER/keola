@@ -1,8 +1,8 @@
 // Handle old Carrd routes to prevent any 404 errors
 const legacyPaths = {
   '/presentation': '/fr/keola',
-  '/media-kit': '/fr/kit-media',
-  '/mediakit': '/fr/kit-media',
+  '/media-kit': '/fr/media-kit',
+  '/mediakit': '/fr/media-kit',
   '/galerie': '/fr/gallery',
   '/gallery': '/fr/gallery',
   '/archives': '/fr/archives',

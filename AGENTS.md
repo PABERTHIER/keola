@@ -121,7 +121,7 @@ Nuxt I18n uses the `prefix` strategy: French routes also have a `/fr` prefix, wi
 | Gallery   | `app/pages/gallery/index.vue`   | `/fr/gallery`   | `seo.gallery`  |
 | Credits   | `app/pages/credits/index.vue`   | `/fr/credits`   | `seo.credits`  |
 | Archives  | `app/pages/archives/index.vue`  | `/fr/archives`  | `seo.archives` |
-| Media kit | `app/pages/kit-media/index.vue` | `/fr/kit-media` | `seo.media`    |
+| Media kit | `app/pages/media-kit/index.vue` | `/fr/media-kit` | `seo.media`    |
 
 Keep each named page in `app/pages/<route>/index.vue`.
 The homepage stays at `app/pages/index.vue` so it serves the locale root.
