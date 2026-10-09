@@ -20,7 +20,7 @@ It uses Vercel for deployment and hosting.
 | Gallery   | `/fr/gallery`   | Fanart collection and image viewer            |
 | Credits   | `/fr/credits`   | Creators named on the previous site           |
 | Archives  | `/fr/archives`  | Historical 2023 and 2024 events               |
-| Media kit | `/fr/kit-media` | Existing media sheet and professional contact |
+| Media kit | `/fr/media-kit` | Existing media sheet and professional contact |
 
 Replace `/fr` with `/en` or `/ja` for English or Japanese.
 `/` detects the visitor's language; French is the default when no preference is detected.
