@@ -25,6 +25,7 @@
       <Image
         v-if="activeArtwork"
         :key="activeArtwork.src"
+        :skeleton="false"
         :src="activeArtwork.src"
         :alt="activeArtwork.alt"
         :aria-hidden="imageState !== 'loaded'"

@@ -6,6 +6,7 @@
     :aria-label="`${t('components.site_brand.brand_name')} · ${t('site.back_home')}`"
     :data-tooltip="t('site.back_home')">
     <Image
+      :skeleton="false"
       src="/images/logo.webp"
       :alt="t('components.site_brand.brand_logo_alt')"
       loading="eager" />

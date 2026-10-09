@@ -5,7 +5,6 @@
     :class="[
       `gallery-item--${imageState}`,
       {
-        'gallery-item--enhanced': enhanced,
         'gallery-item--awaiting-view': !revealed,
         'gallery-item--intro': intro,
       },
@@ -56,7 +55,6 @@ const { t } = useI18n()
 
 const button = ref<HTMLButtonElement | null>(null)
 const imageState = ref<'loading' | 'loaded' | 'error'>('loading')
-const enhanced = ref(false)
 
 onMounted(() => {
   const image = button.value?.querySelector('img')
@@ -64,8 +62,6 @@ onMounted(() => {
   if (image?.complete && image.currentSrc) {
     imageState.value = image.naturalWidth ? 'loaded' : 'error'
   }
-
-  enhanced.value = true
 })
 </script>
 
@@ -85,22 +81,9 @@ onMounted(() => {
     background: $white;
   }
 
-  &::before {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(110deg, $peach 20%, $spirit 50%, $peach 80%);
-    background-size: 200% 100%;
-    content: '';
-    pointer-events: none;
-  }
-
   &__image {
     width: 100%;
     height: auto;
-  }
-
-  &--loaded::before {
-    content: none;
   }
 
   &--error &__image {
@@ -149,10 +132,6 @@ onMounted(() => {
   }
 }
 
-.gallery-item--enhanced.gallery-item--loading .gallery-item__image {
-  opacity: 0;
-}
-
 @media (hover: none), (pointer: coarse) {
   .gallery-item--loaded .gallery-item__badge {
     opacity: 1;
@@ -170,8 +149,8 @@ onMounted(() => {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .gallery-item--loading:not(.gallery-item--awaiting-view)::before {
-    animation: artwork-skeleton 1.8s ease-in-out infinite;
+  .gallery-item--awaiting-view :deep(.image--loading) {
+    animation-play-state: paused;
   }
 
   .gallery-item__image {
