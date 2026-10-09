@@ -1,0 +1,25 @@
+@keyframes artwork-skeleton {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: -100% 0;
+  }
+}
+
+@keyframes spirit-float {
+  50% {
+    transform: translateY(-4px) rotate(2deg);
+  }
+}
+
+@keyframes model-art-parallax {
+  from {
+    translate: 0 -14px;
+  }
+
+  to {
+    translate: 0 14px;
+  }
+}

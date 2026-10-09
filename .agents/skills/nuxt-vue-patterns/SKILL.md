@@ -21,6 +21,7 @@ Check [nuxt.config.ts](../../../nuxt.config.ts) and [package.json](../../../pack
 | Local artwork       | `Image`; public asset paths start with `/images/`                                      |
 | Interface icons     | `Icon` with `lucide:` names; social logos use `keo-icon:`                              |
 | Browser integration | `app/plugins/smooth-scroll.client.ts` owns Lenis                                       |
+| Navigation focus    | `app/plugins/navigation-focus.client.ts` focuses page and anchor destinations          |
 | Route scrolling     | `app/router.options.ts` restores history and handles anchors through Lenis             |
 
 ## Component And Page Implementation
@@ -58,7 +59,7 @@ When editing overlays, preserve Escape handling, keyboard navigation and focus r
 ## Styles And Images
 
 Sass variables are injected through Vite; use tokens from [variables.scss](../../../app/styles/variables.scss) without repeating its import.
-Page/component rules stay scoped; `default.scss` holds base rules, `shared.scss` reusable classes and `cursors.scss` cursor styling.
+Page/component rules stay scoped; `default.scss` holds base rules, `keyframes.scss` shared animations, `shared.scss` reusable classes and `cursors.scss` cursor styling.
 Consult [keola-layout](../keola-layout/SKILL.md) when changing responsive composition and [keola-components](../keola-components/SKILL.md) for visual component choices.
 
 Use the shared `Image` component, which renders one native `img` and serves original public assets.

@@ -1,5 +1,8 @@
 <template>
-  <section class="hero" aria-labelledby="hero-title">
+  <section
+    class="hero"
+    :class="{ 'hero--offscreen': !heroInView }"
+    aria-labelledby="hero-title">
     <div class="shell hero__inner">
       <div class="hero__content">
         <span class="eyebrow eyebrow--light">
@@ -39,7 +42,9 @@
         </div>
       </div>
       <div
+        ref="heroVisual"
         class="hero__visual"
+        role="group"
         :aria-label="t('components.home_hero.slideshow')"
         @pointerenter="handlePointerEnter"
         @pointerleave="hovered = false"
@@ -126,6 +131,8 @@ const reducedMotion = ref(false)
 const hovered = ref(false)
 const focused = ref(false)
 const pageHidden = ref(false)
+const heroInView = ref(true)
+const heroVisual = ref<HTMLElement | null>(null)
 
 const autoplayPaused = computed(
   () =>
@@ -133,11 +140,14 @@ const autoplayPaused = computed(
     reducedMotion.value ||
     (playback.value === 'auto' && (hovered.value || focused.value))
 )
-const canAutoplay = computed(() => !autoplayPaused.value && !pageHidden.value)
+const canAutoplay = computed(
+  () => !autoplayPaused.value && !pageHidden.value && heroInView.value
+)
 const preloads = new Map<number, Promise<void>>()
 
 let timer: ReturnType<typeof setTimeout> | undefined
 let motionPreference: MediaQueryList | undefined
+let visibilityObserver: IntersectionObserver | undefined
 
 let mounted = false
 let slideRequest = 0
@@ -160,6 +170,7 @@ function preloadSlide(index: number) {
   })
 
   preloads.set(index, decoded)
+
   return decoded
 }
 
@@ -299,6 +310,20 @@ onMounted(() => {
   document.addEventListener('visibilitychange', updateVisibility)
   document.addEventListener('keydown', resetTouchInteraction)
 
+  if ('IntersectionObserver' in window && heroVisual.value) {
+    const bounds = heroVisual.value.getBoundingClientRect()
+    heroInView.value = bounds.top < window.innerHeight && bounds.bottom > 0
+
+    visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        heroInView.value = entry?.isIntersecting ?? true
+      },
+      { threshold: 0.1 }
+    )
+
+    visibilityObserver.observe(heroVisual.value)
+  }
+
   if (canAutoplay.value) {
     preloadNextSlide()
   }
@@ -310,6 +335,7 @@ onBeforeUnmount(() => {
   mounted = false
   slideRequest++
   clearTimeout(timer)
+  visibilityObserver?.disconnect()
   motionPreference?.removeEventListener('change', updateMotionPreference)
   document.removeEventListener('visibilitychange', updateVisibility)
   document.removeEventListener('keydown', resetTouchInteraction)
@@ -319,6 +345,7 @@ onBeforeUnmount(() => {
 <style lang="scss" scoped>
 .hero {
   --focus-color: #{$orange};
+  isolation: isolate;
   overflow: hidden;
   background: $plum;
   color: $white-pure;
@@ -328,6 +355,7 @@ onBeforeUnmount(() => {
     display: grid;
     grid-template-columns: 55% 45%;
   }
+
   &__content {
     min-width: 0;
     align-self: center;
@@ -335,6 +363,45 @@ onBeforeUnmount(() => {
     z-index: $z-content;
     padding: $space-38 $space-32 $space-42 0;
   }
+
+  h1 {
+    position: relative;
+  }
+
+  h1::before,
+  h1::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    background: $hero-accent;
+    clip-path: polygon(
+      50% 0,
+      59% 41%,
+      100% 50%,
+      59% 59%,
+      50% 100%,
+      41% 59%,
+      0 50%,
+      41% 41%
+    );
+  }
+
+  h1::before {
+    top: 0.12em;
+    left: 3.25em;
+    width: 14px;
+    height: 14px;
+    opacity: 0.55;
+  }
+
+  h1::after {
+    top: 0.52em;
+    left: 3.7em;
+    width: 7px;
+    height: 7px;
+    opacity: 0.35;
+  }
+
   h1 {
     margin: 27px 0 $space-22;
     font-family: $signature;
@@ -343,10 +410,12 @@ onBeforeUnmount(() => {
     line-height: 1.08;
     overflow-wrap: anywhere;
   }
+
   h1 span {
     display: block;
     color: $hero-accent;
   }
+
   &__lead {
     max-width: 500px;
     margin-bottom: 31px;
@@ -354,6 +423,7 @@ onBeforeUnmount(() => {
     font-size: 1.13rem;
     line-height: $line-height-copy;
   }
+
   &__welcome {
     display: block;
     margin-top: $space-8;
@@ -361,11 +431,13 @@ onBeforeUnmount(() => {
     font-weight: $weight-bold;
     color: $white-pure;
   }
+
   &__actions {
     display: flex;
     flex-wrap: wrap;
     gap: $space-11;
   }
+
   &__visual {
     position: relative;
     min-height: 100%;
@@ -374,6 +446,7 @@ onBeforeUnmount(() => {
     );
     overflow: hidden;
   }
+
   &__visual img {
     position: absolute;
     inset: 0 0 0 auto;
@@ -382,6 +455,7 @@ onBeforeUnmount(() => {
     object-fit: cover;
     object-position: center 16%;
   }
+
   &__carousel-controls {
     position: absolute;
     right: $space-20;
@@ -393,6 +467,7 @@ onBeforeUnmount(() => {
     padding: $space-10;
     border-radius: $radius-control;
     background: $plum-deep;
+    transform: translateY(calc(0px - var(--hero-control-lift, 0px)));
 
     .icon-button {
       color: $white-pure;
@@ -402,6 +477,7 @@ onBeforeUnmount(() => {
       opacity: 0.5;
     }
   }
+
   &__slide-count {
     min-width: 48px;
     text-align: center;
@@ -414,11 +490,45 @@ onBeforeUnmount(() => {
 .hero-slide-leave-active {
   transition: opacity 550ms ease;
 }
+
 .hero-slide-enter-active {
   z-index: 1;
 }
+
 .hero-slide-enter-from {
   opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1::before,
+  .hero h1::after {
+    animation: hero-sparkle 5s ease-in-out infinite;
+  }
+
+  .hero h1::after {
+    animation-delay: -2.5s;
+  }
+
+  .hero--offscreen h1::before,
+  .hero--offscreen h1::after {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes hero-sparkle {
+  0% {
+    opacity: 0.35;
+    transform: scale(0.85) rotate(-8deg);
+  }
+  12% {
+    opacity: 0.9;
+    transform: scale(1.2) rotate(8deg);
+  }
+  28%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.85) rotate(-8deg);
+  }
 }
 
 @media (max-width: $breakpoint-desktop) {
@@ -431,9 +541,11 @@ onBeforeUnmount(() => {
   .hero__visual {
     margin-right: -$shell-gutter-tablet;
   }
+
   .hero h1 {
     font-size: 4.3rem;
   }
+
   .hero__inner {
     min-height: clamp(520px, 72svh, 650px);
   }
@@ -446,28 +558,34 @@ onBeforeUnmount(() => {
     height: auto;
     min-height: 0;
   }
+
   .hero__content {
     align-self: stretch;
     padding: 43px 0 29px;
   }
+
   .hero h1 {
     margin: $space-17 0 $space-15;
     font-size: 3.65rem;
   }
+
   .hero__lead {
     max-width: 550px;
     margin-bottom: $space-22;
     font-size: $font-size-intro-mobile;
     line-height: $line-height-compact;
   }
+
   .hero__actions {
     gap: $space-8;
   }
+
   .hero__actions .button {
     min-height: $control-size;
     padding: $space-9 $space-12;
     font-size: $font-size-action-small;
   }
+
   .hero__visual {
     --hero-art-height: clamp(300px, 85vw, 480px);
     display: grid;
@@ -480,6 +598,7 @@ onBeforeUnmount(() => {
     margin-left: -$shell-gutter-mobile;
     margin-right: -$shell-gutter-mobile;
   }
+
   .hero__visual img {
     right: auto;
     left: 50%;
@@ -489,12 +608,14 @@ onBeforeUnmount(() => {
     border-radius: $radius-art;
     transform: translateX(-50%);
   }
+
   .hero__carousel-controls {
     position: static;
     grid-row: 2;
     flex-wrap: wrap;
     justify-content: center;
     max-width: calc(100% - #{$shell-gutter-mobile * 2});
+    transform: none;
   }
 }
 
@@ -502,6 +623,7 @@ onBeforeUnmount(() => {
   .hero h1 {
     font-size: 3rem;
   }
+
   .hero__actions .button {
     max-width: 100%;
   }
@@ -511,10 +633,12 @@ onBeforeUnmount(() => {
   .hero__content {
     padding: $space-24 0 $space-12;
   }
+
   .hero h1 {
     margin: $space-9 0 $space-8;
     font-size: 2.85rem;
   }
+
   .hero__lead {
     margin-bottom: $space-13;
     line-height: 1.45;

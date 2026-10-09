@@ -1,5 +1,5 @@
 <template>
-  <main id="main-content">
+  <main id="main-content" ref="page" class="home-page" tabindex="-1">
     <HomeHero />
 
     <section
@@ -172,10 +172,145 @@ import { externalLinks } from '~/data/site'
 const { t } = useI18n()
 const localePath = useLocalePath()
 
+const page = ref<HTMLElement | null>(null)
+
+let sections: HTMLElement[] = []
+let offsets: number[] = []
+let motionPreference: MediaQueryList | undefined
+let frame = 0
+
+function updateSectionProgress() {
+  frame = 0
+
+  const distance = Math.max(240, Math.min(720, window.innerHeight * 0.9))
+  const mobile = window.innerWidth <= 720
+  const heroHandoff = mobile ? 16 : 30
+  const sectionTravel = mobile ? 50 : 60
+  const positions = sections.map(
+    (section, index) =>
+      section.getBoundingClientRect().top - (offsets[index] ?? 0)
+  )
+
+  sections.forEach((section, index) => {
+    const progress = Math.max(
+      0,
+      Math.min(1, (window.innerHeight - (positions[index] ?? 0)) / distance)
+    )
+
+    const handoffProgress = Math.min(progress, window.scrollY / distance)
+    let offset = Math.round(sectionTravel * 10 * (1 - progress)) / 10
+
+    if (index === 0) {
+      offset = -Math.round(heroHandoff * 10 * handoffProgress) / 10
+    } else if (index === 1) {
+      offset = Math.round(120 * (1 - handoffProgress)) / 10
+    }
+
+    if (section.contains(document.activeElement)) {
+      offset = 0
+    }
+
+    if (offset !== offsets[index]) {
+      offsets[index] = offset
+      section.style.setProperty('--entry-y', `${offset}px`)
+
+      if (index === 0) {
+        page.value?.style.setProperty('--hero-control-lift', `${-offset}px`)
+      }
+    }
+  })
+}
+
+function scheduleSectionUpdate() {
+  if (!frame) {
+    frame = window.requestAnimationFrame(updateSectionProgress)
+  }
+}
+
+function updateMotionPreference() {
+  if (motionPreference?.matches) {
+    window.removeEventListener('scroll', scheduleSectionUpdate)
+    window.removeEventListener('resize', scheduleSectionUpdate)
+    window.cancelAnimationFrame(frame)
+
+    frame = 0
+    offsets = []
+
+    sections.forEach(section => section.style.removeProperty('--entry-y'))
+    page.value?.style.removeProperty('--hero-control-lift')
+  } else {
+    window.addEventListener('scroll', scheduleSectionUpdate, { passive: true })
+    window.addEventListener('resize', scheduleSectionUpdate)
+
+    scheduleSectionUpdate()
+  }
+}
+
+onMounted(() => {
+  if (!page.value) {
+    return
+  }
+
+  sections = Array.from(
+    page.value.querySelectorAll<HTMLElement>(
+      ':scope > section:not(:first-child)'
+    )
+  )
+  motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)')
+  motionPreference.addEventListener('change', updateMotionPreference)
+
+  updateMotionPreference()
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', scheduleSectionUpdate)
+  window.removeEventListener('resize', scheduleSectionUpdate)
+  motionPreference?.removeEventListener('change', updateMotionPreference)
+  window.cancelAnimationFrame(frame)
+})
+
 useHead(usePageSeo('home'))
 </script>
 
 <style lang="scss" scoped>
+.home-page > section {
+  position: relative;
+}
+
+.home-page > section:not(:first-child) {
+  z-index: $z-artwork;
+}
+
+.home-page > section:nth-child(n + 3) {
+  margin-top: -$space-100;
+  border-radius: $space-12 $space-12 0 0;
+}
+
+.home-page > #about {
+  margin-top: -$space-12;
+}
+
+.home-page > .section {
+  padding-block: ($section-spacing - $space-45) ($section-spacing + $space-45);
+}
+
+.about-section,
+.community-section {
+  background: $paper;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .home-page > section:not(:first-child) {
+    transform: translateY(var(--entry-y, 0px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page > #about {
+    margin-top: 0;
+  }
+}
+
 .section-title {
   overflow-wrap: anywhere;
 }
@@ -190,6 +325,7 @@ useHead(usePageSeo('home'))
     gap: $space-24;
     padding-block: $space-28;
   }
+
   &__icon {
     width: 58px;
     height: 58px;
@@ -201,15 +337,18 @@ useHead(usePageSeo('home'))
     color: $schedule-icon;
     font-size: 25px;
   }
+
   &__copy {
     flex: 1;
     min-width: 0;
     overflow-wrap: anywhere;
   }
+
   h2 {
     margin: 2px 0 3px;
     font-size: 1.6rem;
   }
+
   p {
     max-width: 630px;
     margin: 0;
@@ -217,6 +356,7 @@ useHead(usePageSeo('home'))
     font-size: 0.84rem;
     line-height: $line-height-compact;
   }
+
   &__actions {
     display: flex;
     flex-wrap: wrap;
@@ -238,6 +378,7 @@ useHead(usePageSeo('home'))
     align-items: center;
     gap: min(8vw, 114px);
   }
+
   &__art {
     position: relative;
     display: block;
@@ -246,6 +387,7 @@ useHead(usePageSeo('home'))
     border-radius: $radius-art;
     background: $about-art-background;
   }
+
   &__art img {
     width: 100%;
     height: 100%;
@@ -253,16 +395,19 @@ useHead(usePageSeo('home'))
     object-position: center 20%;
     transition: transform $transition-artwork;
   }
+
   &__art:hover img,
   &__art:focus-visible img {
     transform: scale($artwork-hover-scale);
   }
+
   @media (prefers-reduced-motion: reduce) {
     &__art:hover img,
     &__art:focus-visible img {
       transform: none;
     }
   }
+
   &__art-label {
     position: absolute;
     left: 0;
@@ -277,9 +422,11 @@ useHead(usePageSeo('home'))
     font-size: $font-size-caption;
     font-weight: $weight-heavy;
   }
+
   &__copy .section-lead {
     margin-bottom: $space-30;
   }
+
   &__quote {
     max-width: 470px;
     margin-bottom: $space-30;
@@ -294,14 +441,17 @@ useHead(usePageSeo('home'))
 .partners-section {
   background: $spirit;
 }
+
 .partners-section .section-title {
   margin-bottom: $space-34;
 }
+
 .partners-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: $space-15;
 }
+
 .partner {
   display: flex;
   align-items: center;
@@ -318,12 +468,14 @@ useHead(usePageSeo('home'))
       transform: translateY(-3px);
     }
   }
+
   img {
     width: 96px;
     max-height: 110px;
     flex: none;
     object-fit: contain;
   }
+
   > span {
     min-width: 0;
     overflow-wrap: anywhere;
@@ -331,16 +483,19 @@ useHead(usePageSeo('home'))
     flex-direction: column;
     gap: $space-8;
   }
+
   strong {
     font-family: $display;
     font-size: 1.45rem;
     font-weight: $weight-semibold;
   }
+
   small {
     color: $muted;
     font-size: $font-size-note;
     line-height: $line-height-body;
   }
+
   em {
     display: inline-flex;
     align-items: center;
@@ -364,16 +519,20 @@ useHead(usePageSeo('home'))
     align-items: center;
     gap: $space-24;
   }
+
   &__peek {
     width: 140px;
   }
+
   h2 {
     margin: $space-8 0;
     font-size: 2.45rem;
   }
+
   p {
     margin: 0;
   }
+
   .eyebrow {
     color: $closing-eyebrow;
   }
@@ -384,73 +543,99 @@ useHead(usePageSeo('home'))
     grid-template-columns: 54px minmax(0, 1fr);
     gap: $space-12;
   }
+
   .closing-section__inner > div {
     grid-column: 1 / -1;
     grid-row: 1;
   }
+
   .closing-section__peek {
     grid-row: 2;
     width: 54px;
   }
+
   .closing-section__inner > a {
     grid-column: 2;
     grid-row: 2;
     width: fit-content;
     justify-self: end;
   }
+
   .schedule-band__inner {
     flex-wrap: wrap;
   }
+
   .schedule-band__actions {
     margin-left: 82px;
     max-width: calc(100% - 82px);
   }
+
   .about-section__grid {
     gap: $space-40;
   }
+
   .about-section__art {
     height: 460px;
   }
 }
 
 @media (max-width: $breakpoint-mobile) {
+  .home-page > section:nth-child(n + 3) {
+    margin-top: -$space-70;
+  }
+
+  .home-page > .section {
+    padding-block: ($section-spacing-mobile - $space-25)
+      ($section-spacing-mobile + $space-25);
+  }
+
   .schedule-band__inner {
     gap: $space-14;
     padding-block: $space-22;
   }
+
   .schedule-band__icon {
     width: 44px;
     height: 44px;
     font-size: 21px;
   }
+
   .schedule-band__copy {
     flex-basis: calc(100% - 58px);
   }
+
   .schedule-band h2 {
     font-size: 1.3rem;
   }
+
   .schedule-band__actions {
     width: 100%;
     max-width: 100%;
     margin-left: 0;
     flex-wrap: wrap;
   }
+
   .about-section__grid {
     grid-template-columns: 1fr;
     gap: $space-33;
   }
+
   .about-section__art {
     height: 350px;
   }
+
   .about-section__art img {
     object-position: center 22%;
   }
+
   .partners-grid {
     grid-template-columns: 1fr;
   }
+
   .closing-section__inner {
     gap: $space-12;
   }
+
   .closing-section__peek {
     width: 54px;
   }
@@ -460,21 +645,25 @@ useHead(usePageSeo('home'))
   .closing-section__inner {
     grid-template-columns: minmax(0, 1fr);
   }
+
   .closing-section__peek {
     grid-column: 1;
     grid-row: 3;
     width: 48px;
   }
+
   .closing-section__inner > a {
     grid-column: 1;
     grid-row: 2;
     width: fit-content;
     justify-self: start;
   }
+
   .partner {
     padding: $space-17;
     gap: $space-14;
   }
+
   .partner img {
     width: 70px;
   }

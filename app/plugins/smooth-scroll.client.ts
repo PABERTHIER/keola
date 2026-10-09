@@ -7,6 +7,8 @@ export default defineNuxtPlugin(nuxtApp => {
     autoRaf: true,
     duration: 1.2,
     syncTouch: false,
+    virtualScroll: () =>
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches,
   })
 
   const removeNavigationGuard = router.beforeEach(() => {

@@ -1,5 +1,5 @@
 <template>
-  <main id="main-content" class="keola-page">
+  <main id="main-content" ref="page" class="keola-page" tabindex="-1">
     <section class="portrait-section" aria-labelledby="keola-title">
       <div class="shell portrait-section__grid">
         <div class="portrait-section__copy">
@@ -8,6 +8,8 @@
           <p class="portrait-section__welcome">
             <span>{{ t('keola.welcome') }}</span>
             <Image
+              :skeleton="false"
+              loading="eager"
               src="/images/misc/Esprit_violet.webp"
               :alt="t('keola.welcome_spirit_alt')"
               class="portrait-section__spirit" />
@@ -110,6 +112,22 @@
           </h2>
           <p class="section-lead">{{ t('keola.lore.intro') }}</p>
         </header>
+        <nav
+          id="lore-contents"
+          tabindex="-1"
+          class="lore-contents"
+          :aria-label="t('keola.lore.contents')">
+          <NuxtLink
+            v-for="(chapter, index) in loreChapters"
+            :key="chapter.id"
+            :to="localePath({ path: '/keola', hash: `#lore-${chapter.id}` })">
+            <span aria-hidden="true">
+              {{ String(index + 1).padStart(2, '0') }}
+            </span>
+            {{ t(`keola.lore.${chapter.id}.title`) }}
+            <Icon name="lucide:arrow-down" aria-hidden="true" />
+          </NuxtLink>
+        </nav>
         <article class="lore-story" aria-labelledby="lore-title">
           <section
             v-for="(chapter, index) in loreChapters"
@@ -120,7 +138,7 @@
               {{ String(index + 1).padStart(2, '0') }}
             </span>
             <div>
-              <h3 :id="`lore-${chapter.id}`">
+              <h3 :id="`lore-${chapter.id}`" tabindex="-1">
                 {{ t(`keola.lore.${chapter.id}.title`) }}
               </h3>
               <Image
@@ -128,7 +146,10 @@
                 class="lore-story__guardian-art"
                 src="/images/keola/Keola_left_side_inclined_v2.webp"
                 :alt="t('keola.lore.guardian_alt')" />
-              <p v-for="paragraph in chapter.paragraphs" :key="paragraph">
+              <p
+                v-for="paragraph in chapter.paragraphs"
+                :key="paragraph"
+                data-scroll-reveal>
                 {{ t(`keola.lore.${chapter.id}.${paragraph}`) }}
               </p>
               <div
@@ -149,6 +170,12 @@
                   :alt="t('keola.lore.spirits_alt')" />
                 <figcaption>{{ t('keola.lore.spirits_caption') }}</figcaption>
               </figure>
+              <NuxtLink
+                class="text-link lore-story__return"
+                :to="localePath({ path: '/keola', hash: '#lore-contents' })">
+                {{ t('keola.lore.back_to_contents') }}
+                <Icon name="lucide:arrow-up" aria-hidden="true" />
+              </NuxtLink>
             </div>
           </section>
         </article>
@@ -205,7 +232,10 @@
           <figcaption>{{ t('keola.models.evolution') }}</figcaption>
         </figure>
         <div class="models-section__gallery">
-          <figure v-for="(model, index) in models" :key="model.id">
+          <figure
+            v-for="(model, index) in models"
+            :key="model.id"
+            data-scroll-reveal>
             <button
               class="models-section__art"
               type="button"
@@ -352,6 +382,64 @@ import { externalLinks } from '~/data/site'
 
 const { t } = useI18n()
 const localePath = useLocalePath()
+const route = useRoute()
+
+const page = ref<HTMLElement | null>(null)
+
+let revealObserver: IntersectionObserver | undefined
+
+onMounted(() => {
+  if (!page.value || !('IntersectionObserver' in window)) {
+    return
+  }
+
+  revealObserver = new IntersectionObserver(
+    entries => {
+      for (const { target, isIntersecting, boundingClientRect } of entries) {
+        target.classList.toggle('is-visible', isIntersecting)
+
+        if (!isIntersecting) {
+          ;(target as HTMLElement).style.setProperty(
+            '--reveal-y',
+            boundingClientRect.top < 0 ? '-16px' : '16px'
+          )
+        }
+      }
+    },
+    { rootMargin: '0px 0px -10% 0px' }
+  )
+
+  page.value
+    .querySelectorAll<HTMLElement>('[data-scroll-reveal]')
+    .forEach(item => {
+      const bounds = item.getBoundingClientRect()
+
+      if (bounds.top < window.innerHeight * 0.9 && bounds.bottom > 0) {
+        item.classList.add('is-visible')
+      } else {
+        item.style.setProperty('--reveal-y', bounds.top < 0 ? '-16px' : '16px')
+      }
+
+      item.classList.add('is-scroll-reveal-ready')
+      revealObserver?.observe(item)
+    })
+})
+
+onBeforeUnmount(() => revealObserver?.disconnect())
+
+// Move keyboard reading order with the local story links; Lenis owns scrolling
+watch(
+  () => route.hash,
+  hash => {
+    if (import.meta.server || !hash.startsWith('#lore-')) {
+      return
+    }
+
+    document.getElementById(hash.slice(1))?.focus({ preventScroll: true })
+  },
+  { flush: 'post' }
+)
+
 const sections = ['video', 'lore', 'beginnings', 'models', 'more'] as const
 const profileTopics = [
   { id: 'games', icon: 'lucide:gamepad-2' },
@@ -375,9 +463,11 @@ const modelReferences = [
   { id: 'referenceV5', src: '/images/models/Keola_Ref_model_v5.webp' },
   { id: 'sheet2026', src: '/images/models/Keola_Refsheet_2026.webp' },
 ] as const
+
 const modelViewer = ref<{
   open: (index: number, trigger?: HTMLElement) => void
 } | null>(null)
+
 const modelArtworks = computed(() => [
   ...models.map(model => ({
     src: model.src,
@@ -408,18 +498,22 @@ useHead(usePageSeo('keola'))
   figure {
     margin: 0;
   }
+
   figure.models-section__evolution {
     margin: $space-40 auto 0;
   }
+
   figure.debut-section__teaser {
     margin: 0 auto $space-24;
   }
+
   figcaption {
     margin-top: $space-16;
     color: $muted;
     font-size: $font-size-secondary;
     text-align: center;
   }
+
   .text-link {
     display: inline-flex;
     align-items: center;
@@ -436,11 +530,13 @@ useHead(usePageSeo('keola'))
     display: grid;
     gap: $space-28;
   }
+
   h1 {
     margin: $space-14 0 $space-16;
     font-size: 2.5rem;
     overflow-wrap: anywhere;
   }
+
   &__welcome {
     display: flex;
     align-items: center;
@@ -454,18 +550,22 @@ useHead(usePageSeo('keola'))
       min-width: 0;
     }
   }
+
   &__spirit {
     flex: 0 0 auto;
     width: 42px;
     object-fit: contain;
   }
+
   .section-lead {
     margin-bottom: $space-24;
   }
+
   &__art {
     min-width: 0;
     text-align: center;
   }
+
   &__art img {
     width: auto;
     height: 280px;
@@ -491,6 +591,7 @@ useHead(usePageSeo('keola'))
     font-size: $font-size-secondary;
     font-weight: $weight-bold;
   }
+
   a:hover {
     color: $link-hover;
   }
@@ -502,20 +603,24 @@ useHead(usePageSeo('keola'))
     gap: $space-32;
     margin-top: $space-36;
   }
+
   &__topics > div {
     padding-top: $space-24;
     border-top: 2px solid $orange-pale;
   }
+
   .iconify {
     font-size: 28px;
     color: $eyebrow-text;
     margin-bottom: $space-20;
   }
+
   h3 {
     font-size: 1.4rem;
     line-height: 1.3;
     margin-bottom: $space-16;
   }
+
   p {
     color: $muted;
     margin-bottom: 0;
@@ -534,6 +639,7 @@ useHead(usePageSeo('keola'))
     border-radius: $radius-art;
     overflow: hidden;
   }
+
   iframe {
     display: block;
     width: 100%;
@@ -561,38 +667,54 @@ useHead(usePageSeo('keola'))
     gap: $space-16;
     padding-bottom: $space-48;
   }
+
+  &__return {
+    margin-top: $space-16;
+    color: $link-hover;
+    font-size: $font-size-secondary;
+    font-weight: $weight-bold;
+  }
+
   &__chapter + &__chapter {
     padding-top: $space-36;
     border-top: $border-width solid $line;
   }
+
   &__chapter:last-child {
     padding-bottom: 0;
   }
+
   &__number {
     color: $eyebrow-text;
     font-family: $display;
     font-size: 1.5rem;
   }
+
   h3 {
     font-size: 1.65rem;
     margin-bottom: $space-24;
   }
+
   p {
     line-height: 1.9;
     margin-bottom: $space-22;
   }
+
   &__spirits {
     padding-top: $space-14;
   }
+
   &__spirits img {
     width: min(100%, 360px);
     margin-inline: auto;
   }
+
   &__guardian-art {
     float: left;
     width: clamp(105px, 22vw, 182px);
     margin: $space-12 $space-6 $space-12 0;
   }
+
   &__stream-art {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -602,11 +724,44 @@ useHead(usePageSeo('keola'))
     margin: $space-30 auto 0;
     border-bottom: 2px solid $orange-pale;
   }
+
   &__stream-art .image {
     width: 100%;
     height: clamp(180px, 30vw, 300px);
     object-fit: contain;
     object-position: bottom;
+  }
+}
+
+.lore-contents {
+  display: grid;
+  gap: $space-8;
+  max-width: 780px;
+  margin: 0 auto $space-48;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: $space-14;
+    min-height: $control-size;
+    padding-block: $space-10;
+    border-bottom: $border-width solid $line;
+    font-family: $display;
+    font-weight: $weight-bold;
+  }
+
+  a:hover {
+    color: $link-hover;
+  }
+
+  span {
+    color: $eyebrow-text;
+    font-size: $font-size-secondary;
+  }
+
+  .iconify {
+    flex-shrink: 0;
+    margin-left: auto;
   }
 }
 
@@ -618,27 +773,33 @@ useHead(usePageSeo('keola'))
     align-items: center;
     gap: $space-40;
   }
+
   &__poster img {
     width: min(100%, 360px);
     margin-inline: auto;
     border-radius: $radius-art;
     box-shadow: 8px 8px 0 $orange-pale;
   }
+
   &__teaser {
     width: min(100%, 280px);
   }
+
   &__teaser img {
     width: 100%;
     border-radius: $radius-art;
     box-shadow: 5px 5px 0 $orange-pale;
   }
+
   &__teaser figcaption {
     margin-top: $space-10;
   }
+
   &__actions {
     display: flex;
     justify-content: center;
   }
+
   .section-lead {
     margin-bottom: $space-30;
   }
@@ -648,14 +809,17 @@ useHead(usePageSeo('keola'))
   > .shell > .section-lead {
     max-width: none;
   }
+
   &__evolution {
     max-width: 800px;
   }
+
   &__evolution img,
   &__reference-grid img {
     width: 100%;
     border-radius: $radius-art;
   }
+
   &__reference-grid button {
     display: flex;
     flex-direction: column;
@@ -667,6 +831,7 @@ useHead(usePageSeo('keola'))
     color: $link-hover;
     text-align: left;
   }
+
   &__reference-grid button > span {
     display: inline-flex;
     align-items: center;
@@ -675,46 +840,57 @@ useHead(usePageSeo('keola'))
     font-size: $font-size-secondary;
     font-weight: $weight-bold;
   }
+
   &__evolution figcaption,
   &__reference-grid figcaption {
     margin-top: $space-4;
   }
+
   &__references {
     margin-top: $space-60;
   }
+
   &__references h3 {
     font-size: 1.5rem;
   }
+
   &__references > p {
     color: $muted;
   }
+
   &__reference-grid {
     display: grid;
     gap: $space-32;
     margin-top: $space-24;
   }
+
   &__reference-grid figure {
     display: grid;
     grid-template-rows: minmax(0, 1fr) auto;
     min-width: 0;
   }
+
   &__reference-grid button {
     justify-content: center;
   }
+
   &__gallery {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: $space-32 $space-16;
     margin-top: $space-40;
   }
+
   &__gallery figure {
     min-width: 0;
   }
+
   &__gallery figure:last-child:nth-child(odd) {
     grid-column: 1 / -1;
     justify-self: center;
     width: calc(50% - $space-8);
   }
+
   &__art {
     position: relative;
     display: grid;
@@ -728,6 +904,7 @@ useHead(usePageSeo('keola'))
     border-bottom: 2px solid $orange;
     background: linear-gradient(0deg, $orange-pale, transparent 75%);
   }
+
   &__expand {
     position: absolute;
     right: $space-10;
@@ -739,7 +916,10 @@ useHead(usePageSeo('keola'))
     background: $white;
     color: $ink;
   }
+
   &__art img {
+    position: relative;
+    z-index: $z-artwork;
     min-height: 0;
     max-height: 100%;
     height: 100%;
@@ -747,9 +927,35 @@ useHead(usePageSeo('keola'))
     object-fit: contain;
     transition: transform $transition-artwork;
   }
+
   @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
     &__art:hover img {
       transform: scale($artwork-hover-scale);
+    }
+  }
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .portrait-section__spirit {
+    animation: spirit-float 4s ease-in-out infinite;
+  }
+
+  .keola-page [data-scroll-reveal].is-scroll-reveal-ready {
+    transition:
+      opacity 0.55s ease,
+      transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .keola-page [data-scroll-reveal].is-scroll-reveal-ready:not(.is-visible) {
+    opacity: 0.75;
+    transform: translateY(var(--reveal-y, 16px));
+  }
+
+  @supports (animation-timeline: view()) {
+    .models-section__art img {
+      animation: model-art-parallax 1ms linear both;
+      animation-timeline: view();
+      animation-range: cover;
     }
   }
 }
@@ -763,6 +969,7 @@ useHead(usePageSeo('keola'))
     gap: $space-24;
     margin-top: $space-36;
   }
+
   &__community {
     display: flex;
     flex-wrap: wrap;
@@ -773,6 +980,7 @@ useHead(usePageSeo('keola'))
     padding-top: $space-32;
     border-top: $border-width solid $button-light-outline-border;
   }
+
   &__community p {
     max-width: 620px;
     margin: 0;
@@ -794,6 +1002,7 @@ useHead(usePageSeo('keola'))
     place-items: center;
     height: 180px;
   }
+
   img {
     width: 100%;
     max-width: 260px;
@@ -801,14 +1010,17 @@ useHead(usePageSeo('keola'))
     object-fit: contain;
     transition: transform $transition-artwork;
   }
+
   h3 {
     font-size: 1.5rem;
     margin-bottom: $space-14;
   }
+
   p {
     color: $muted;
     margin-bottom: $space-20;
   }
+
   span {
     display: inline-flex;
     align-items: center;
@@ -817,6 +1029,7 @@ useHead(usePageSeo('keola'))
     font-weight: $weight-bold;
     font-size: $font-size-secondary;
   }
+
   &:hover img,
   &:focus-visible img {
     transform: scale($artwork-hover-scale);
@@ -832,44 +1045,55 @@ useHead(usePageSeo('keola'))
       align-items: center;
       gap: $space-45;
     }
+
     h1 {
       font-size: 3.4rem;
     }
+
     &__art img {
       height: 420px;
     }
   }
+
   .lore-story__chapter {
     grid-template-columns: 60px minmax(0, 1fr);
     gap: $space-24;
   }
+
   .profile-section__topics {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: $space-30;
   }
+
   .debut-section__grid {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: $space-60;
   }
+
   .debut-section__actions {
     justify-content: flex-start;
   }
+
   .keola-page figure.debut-section__teaser {
     margin-left: 0;
   }
+
   .models-section__gallery {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: $space-24;
   }
+
   .models-section__gallery figure:last-child:nth-child(odd) {
     grid-column: auto;
     justify-self: stretch;
     width: auto;
   }
+
   .models-section__art {
     height: 320px;
     padding: $space-20;
   }
+
   .illustrated-link {
     grid-template-columns: 160px minmax(0, 1fr);
     align-items: center;
@@ -880,13 +1104,16 @@ useHead(usePageSeo('keola'))
   .more-section__links {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
   .models-section__art {
     height: 420px;
   }
+
   .models-section__reference-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: stretch;
   }
+
   .models-section__reference--wide {
     grid-column: 1 / -1;
   }
@@ -896,11 +1123,29 @@ useHead(usePageSeo('keola'))
   .chapter-nav {
     justify-content: start;
   }
+
   .portrait-section h1 {
     font-size: 2.15rem;
   }
+
   .portrait-section__spirit {
     width: 34px;
+  }
+
+  .models-section__gallery {
+    grid-template-columns: minmax(0, 1fr);
+    gap: $space-28;
+  }
+
+  .models-section__gallery figure:last-child:nth-child(odd) {
+    grid-column: auto;
+    justify-self: stretch;
+    width: auto;
+  }
+
+  .models-section__art {
+    height: clamp(280px, 54svh, 380px);
+    padding: $space-20;
   }
 }
 

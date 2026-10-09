@@ -1,7 +1,8 @@
+import { legacyRouteRules } from './app/data/legacyRoutes'
 import { pageSeo, robotsContent } from './app/data/seo'
 import { externalLinks, siteName } from './app/data/site'
 
-// Set NUXT_SITE_URL at build time when the final production domain is confirmed.
+// Set NUXT_SITE_URL at build time when the final production domain is confirmed
 const prodUrl = (
   process.env.NUXT_SITE_URL || 'https://keola.vercel.app'
 ).replace(/\/$/, '')
@@ -20,6 +21,7 @@ const indexable =
   (!process.env.VERCEL_ENV || process.env.VERCEL_ENV === 'production')
 
 export default defineNuxtConfig({
+  routeRules: legacyRouteRules, // Nitro handles old paths; the browser middleware handles fragment bookmarks
   app: {
     head: {
       link: [
@@ -107,6 +109,7 @@ export default defineNuxtConfig({
     '@fontsource/zen-maru-gothic/500.css',
     '@fontsource/zen-maru-gothic/700.css',
     '~/styles/default.scss',
+    '~/styles/keyframes.scss',
     '~/styles/shared.scss',
     '~/styles/cursors.scss',
   ],

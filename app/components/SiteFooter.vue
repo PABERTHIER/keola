@@ -42,7 +42,7 @@
         </div>
         <div class="site-footer__column">
           <h2>{{ t('site.contact') }}</h2>
-          <NuxtLink :to="localePath('/kit-media')">
+          <NuxtLink :to="localePath('/media-kit')">
             {{ t('site.media') }}
           </NuxtLink>
           <NuxtLink :to="localePath('/credits')">

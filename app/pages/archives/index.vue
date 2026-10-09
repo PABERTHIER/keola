@@ -1,5 +1,5 @@
 <template>
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
     <PageIntro
       :eyebrow="t('archives.eyebrow')"
       :title="t('archives.title')"

@@ -144,7 +144,9 @@
       "count": "{number} sur {total}",
       "close": "Fermer l'image",
       "previous": "Image précédente",
-      "next": "Image suivante"
+      "next": "Image suivante",
+      "loading": "Chargement de l’image…",
+      "unavailable": "Impossible de charger cette image."
     }
   },
   "home": {
@@ -242,7 +244,9 @@
         "p1": "Ayant pris conscience de cela, Keola ayant vécu plusieurs siècles en observant les humains et leurs méthodes avides, cupides et méprisables alors pour s'adapter elle étudia avec beaucoup de détails les moyens à sa disposition pour rallier des gens à sa cause et remplir à nouveau la trésorerie du temple Kumaneko pour pouvoir rendre à la réserve naturelle un coup de jeune ainsi qu'une nouvelle vie à celle-ci pour améliorer la vie des pandas roux y résidant.",
         "p2": "Prenant en compte tout cela Keola fit acheter tout le nécessaire pour se lancer dans le streaming sur une plate-forme de divertissement vidéoludique nommée « Twitch » , en apprenant les codes d'animation d'émission divertissante en combinant sa magie d'esprit panda roux elle créa une bulle magique lui permettant de se faire entendre par ses spectateurs tout en affichant ce qu'elle disait dans ces mêmes bulles magiques.",
         "p3": "À ce jour elle a réussi à s'entourer d'autres personnes dans ce monde vidéoludique qu'est le streaming et grâce à leur aide, à sa sagesse et ses efforts le temple Kumaneko est en train de revivre petit à petit et l'habitat des pandas roux s'en trouve restauré et embelli grâce aux donations des fidèles rejoignant le temple Kumaneko grâce aux émissions de Keola sur Internet."
-      }
+      },
+      "contents": "Les chapitres du lore",
+      "back_to_contents": "Revenir aux chapitres"
     },
     "debut": {
       "eyebrow": "Le premier rendez-vous",
@@ -298,6 +302,7 @@
     "image_alt": "Fanart {number} : {description}",
     "open": "Agrandir le fanart numéro {number}",
     "credit_note": "Les artistes conservent les droits sur leurs œuvres. Les attributions individuelles sont en cours de vérification.",
+    "image_unavailable": "Image indisponible",
     "image_descriptions": {
       "1": "Keola est assise sur des marches, au bord de l'eau, dans un jardin japonais",
       "2": "Keola, tenant des pompons orange, bondit au milieu des vagues sous un ciel bleu",

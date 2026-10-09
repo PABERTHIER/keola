@@ -15,22 +15,22 @@
         :inert="mobileNavigation && !menuOpen"
         data-lenis-prevent
         :aria-label="t('site.explore')">
-        <NuxtLink :to="localePath('/keola')" @click="closeMenu">
+        <NuxtLink :to="localePath('/keola')" @click="closeMenu()">
           {{ t('site.about') }}
         </NuxtLink>
-        <NuxtLink :to="localePath('/gallery')" @click="closeMenu">
+        <NuxtLink :to="localePath('/gallery')" @click="closeMenu()">
           {{ t('site.gallery') }}
         </NuxtLink>
         <NuxtLink
           :to="localePath({ path: '/', hash: '#mission' })"
           :aria-current-value="route.hash === '#mission' ? 'location' : 'false'"
-          @click="closeMenu">
+          @click="closeMenu()">
           {{ t('site.mission') }}
         </NuxtLink>
-        <NuxtLink :to="localePath('/archives')" @click="closeMenu">
+        <NuxtLink :to="localePath('/archives')" @click="closeMenu()">
           {{ t('site.archives') }}
         </NuxtLink>
-        <NuxtLink :to="localePath('/credits')" @click="closeMenu">
+        <NuxtLink :to="localePath('/credits')" @click="closeMenu()">
           {{ t('site.credits') }}
         </NuxtLink>
       </nav>
@@ -124,7 +124,7 @@ function measureHeader() {
 async function toggleMenu() {
   menuAnimated.value = true
   if (menuOpen.value) {
-    closeMenu()
+    closeMenu(true)
     return
   }
   menuOpen.value = true
@@ -135,7 +135,7 @@ async function toggleMenu() {
 function handleEscape(event: KeyboardEvent) {
   if (event.key === 'Escape' && menuOpen.value) {
     event.preventDefault()
-    closeMenu()
+    closeMenu(true)
   }
 }
 
@@ -158,10 +158,16 @@ function handleOutsidePointer(event: PointerEvent) {
   }
 }
 
-function closeMenu() {
-  if (!menuOpen.value) return
+function closeMenu(restoreFocus = false) {
+  if (!menuOpen.value) {
+    return
+  }
+
   menuOpen.value = false
-  menuToggle.value?.focus({ preventScroll: true })
+
+  if (restoreFocus) {
+    menuToggle.value?.focus({ preventScroll: true })
+  }
 }
 
 watch(

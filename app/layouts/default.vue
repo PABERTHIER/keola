@@ -1,6 +1,8 @@
 <template>
   <div>
-    <a class="skip-link" href="#main-content">{{ t('site.skip') }}</a>
+    <a class="skip-link" href="#main-content" @click="focusMain">
+      {{ t('site.skip') }}
+    </a>
     <SiteHeader />
     <slot />
     <SiteFooter />
@@ -10,6 +12,10 @@
 
 <script setup lang="ts">
 const { t } = useI18n()
+
+function focusMain() {
+  document.getElementById('main-content')?.focus({ preventScroll: true })
+}
 </script>
 
 <style lang="scss" scoped>

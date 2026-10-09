@@ -20,12 +20,16 @@ It uses Vercel for deployment and hosting.
 | Gallery   | `/fr/gallery`   | Fanart collection and image viewer            |
 | Credits   | `/fr/credits`   | Creators named on the previous site           |
 | Archives  | `/fr/archives`  | Historical 2023 and 2024 events               |
-| Media kit | `/fr/kit-media` | Existing media sheet and professional contact |
+| Media kit | `/fr/media-kit` | Existing media sheet and professional contact |
 
 Replace `/fr` with `/en` or `/ja` for English or Japanese.
 `/` detects the visitor's language; French is the default when no preference is detected.
 The schedule opens Keola's official Twitch schedule; this website does not invent live dates or status.
 The gallery viewer supports keyboard navigation and Escape.
+
+Accessibility is maintained against a WCAG 2.2 AA target.
+The site includes a skip link, keyboard focus handling for client navigation, localized control names and image descriptions, reduced-motion behavior, and a native artwork dialog.
+See the [accessibility maintenance guide](.agents/docs/accessibility.md) for audit and release checks.
 
 ## Develop Locally
 
@@ -108,24 +112,25 @@ Entries in the last row have no direct import in authored source or configuratio
 
 ## Project Map
 
-| Location                              | Responsibility                                                                                    |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `.agents/`                            | Source brand evidence, design docs and shared skills                                              |
-| `.github/workflows/ci.yml`            | Immutable install and lint CI job                                                                 |
-| `app/pages/`                          | Localized Nuxt routes                                                                             |
-| `app/components/`, `app/layouts/`     | Shared brand, navigation, tooltip and page UI                                                     |
-| `app/data/site.ts`                    | Verified links, fanart order and creator credits                                                  |
-| `app/composables/usePageSeo.ts`       | Translated titles and social metadata                                                             |
-| `app/styles/`                         | Tokens (`variables`), base rules (`default`), reusable classes (`shared`) and cursors (`cursors`) |
-| `app/router.options.ts`               | Scroll restoration and anchor behavior via Lenis                                                  |
-| `app/plugins/smooth-scroll.client.ts` | Client-only Lenis setup and cleanup                                                               |
-| `app/data/imageDimensions.ts`         | Original artwork dimensions for reserved image space                                              |
-| `i18n/locales/`                       | Matching FR/EN/JA keys and page copy                                                              |
-| `.prettierrc`, `.editorconfig`        | Formatting and file conventions                                                                   |
-| `nuxt.config.ts`                      | Modules, locale routing, styling, URLs and SSR setup                                              |
-| `package.json`, `.yarnrc.yml`         | Scripts, direct dependencies and Yarn linker                                                      |
-| `tsconfig.json`, `eslint.config.mjs`  | Strict type configuration and lint rules                                                          |
-| `public/images/`                      | Published artwork and downloads                                                                   |
+| Location                                 | Responsibility                                                                                                                     |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `.agents/`                               | Source brand evidence, design docs and shared skills                                                                               |
+| `.github/workflows/ci.yml`               | Immutable install and lint CI job                                                                                                  |
+| `app/pages/`                             | Localized Nuxt routes                                                                                                              |
+| `app/components/`, `app/layouts/`        | Shared brand, navigation, tooltip and page UI                                                                                      |
+| `app/data/site.ts`                       | Verified links, fanart order and creator credits                                                                                   |
+| `app/composables/usePageSeo.ts`          | Translated titles and social metadata                                                                                              |
+| `app/styles/`                            | Tokens (`variables`), base rules (`default`), shared animations (`keyframes`), reusable classes (`shared`) and cursors (`cursors`) |
+| `app/router.options.ts`                  | Scroll restoration and anchor behavior via Lenis                                                                                   |
+| `app/plugins/smooth-scroll.client.ts`    | Client-only Lenis setup and cleanup                                                                                                |
+| `app/plugins/navigation-focus.client.ts` | Move keyboard focus to the destination after client-side page and anchor navigation                                                |
+| `app/data/imageDimensions.ts`            | Original artwork dimensions for reserved image space                                                                               |
+| `i18n/locales/`                          | Matching FR/EN/JA keys and page copy                                                                                               |
+| `.prettierrc`, `.editorconfig`           | Formatting and file conventions                                                                                                    |
+| `nuxt.config.ts`                         | Modules, locale routing, styling, URLs and SSR setup                                                                               |
+| `package.json`, `.yarnrc.yml`            | Scripts, direct dependencies and Yarn linker                                                                                       |
+| `tsconfig.json`, `eslint.config.mjs`     | Strict type configuration and lint rules                                                                                           |
+| `public/images/`                         | Published artwork and downloads                                                                                                    |
 
 Each named page lives in `app/pages/<route>/index.vue` (for example, `app/pages/gallery/index.vue`).
 The homepage stays at `app/pages/index.vue`.

@@ -82,7 +82,7 @@ export const pageSeo = {
     ],
   },
   media: {
-    path: '/kit-media',
+    path: '/media-kit',
     type: 'ContactPage',
     image: '/images/misc/Mediakit.webp',
     imageAlt: 'media.preview_alt',

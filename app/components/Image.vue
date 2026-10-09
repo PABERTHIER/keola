@@ -1,12 +1,17 @@
 <template>
   <img
+    :key="src"
+    ref="image"
     class="image"
+    :class="{ 'image--loading': skeleton && pending }"
     :src="src"
     :alt="alt"
     :width="width ?? dimensions?.[0]"
     :height="height ?? dimensions?.[1]"
     :loading="loading"
-    decoding="async" />
+    decoding="async"
+    @load="settle"
+    @error="settle" />
 </template>
 
 <script setup lang="ts">
@@ -18,15 +23,47 @@ const {
   width = undefined,
   height = undefined,
   loading = 'lazy',
+  skeleton = true,
 } = defineProps<{
   src: string
   alt: string
   width?: number | string
   height?: number | string
   loading?: 'lazy' | 'eager'
+  skeleton?: boolean
 }>()
 
 const dimensions = computed(() => imageDimensions[src])
+
+const image = ref<HTMLImageElement | null>(null)
+const pending = ref(false)
+
+let placeholderTimer: ReturnType<typeof setTimeout> | undefined
+
+function settle() {
+  clearTimeout(placeholderTimer)
+  pending.value = false
+}
+
+function trackLoading() {
+  settle()
+
+  if (!skeleton || image.value?.complete) {
+    return
+  }
+
+  // Avoid a placeholder flash for cached and quickly loaded images
+  // Keeping the native img visible also preserves progressive loading and no-JS use
+  placeholderTimer = setTimeout(() => {
+    pending.value = !image.value?.complete
+  }, 150)
+}
+
+onMounted(trackLoading)
+
+watch([() => src, () => skeleton], trackLoading, { flush: 'post' })
+
+onBeforeUnmount(settle)
 </script>
 
 <style lang="scss" scoped>
@@ -36,5 +73,17 @@ const dimensions = computed(() => imageDimensions[src])
   max-width: 100%;
   height: auto;
   object-fit: contain;
+
+  &--loading {
+    background: linear-gradient(110deg, $peach 20%, $spirit 50%, $peach 80%);
+    background-size: 200% 100%;
+    border-radius: $radius-art;
+  }
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .image--loading {
+    animation: artwork-skeleton 1.8s ease-in-out infinite;
+  }
 }
 </style>
