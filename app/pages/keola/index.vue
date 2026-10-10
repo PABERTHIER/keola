@@ -742,7 +742,6 @@ useHead(usePageSeo('keola'))
   a {
     display: flex;
     align-items: center;
-    gap: $space-14;
     min-height: $control-size;
     padding-block: $space-10;
     border-bottom: $border-width solid $line;
@@ -754,7 +753,8 @@ useHead(usePageSeo('keola'))
     color: $link-hover;
   }
 
-  span {
+  a > span:first-child {
+    margin-right: $space-14;
     color: $eyebrow-text;
     font-size: $font-size-secondary;
   }
@@ -1119,11 +1119,56 @@ useHead(usePageSeo('keola'))
   }
 }
 
-@media (max-width: $breakpoint-small) {
-  .chapter-nav {
-    justify-content: start;
+@media (max-width: $breakpoint-mobile) {
+  .illustrated-link__copy {
+    text-align: center;
   }
 
+  .portrait-section__copy {
+    text-align: center;
+  }
+
+  .portrait-section__welcome {
+    justify-content: center;
+  }
+
+  .portrait-section .section-lead {
+    margin-inline: auto;
+  }
+
+  .profile-section > .shell > .eyebrow {
+    display: flex;
+    justify-content: center;
+  }
+
+  .debut-section__grid > div > .eyebrow,
+  .models-section > .shell > .eyebrow,
+  .more-section > .shell > .eyebrow {
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile-section > .shell > .section-title,
+  .debut-section .section-title,
+  .models-section > .shell > .section-title,
+  .more-section > .shell > .section-title {
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .more-section__community {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .keola-page .lore-story__return {
+    display: flex;
+    width: fit-content;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: $breakpoint-small) {
   .portrait-section h1 {
     font-size: 2.15rem;
   }

@@ -83,7 +83,8 @@
       "language": "Langue du site"
     },
     "site_footer": {
-      "footer_intro": "Des lives sans micro, une VTuber panda roux très expressive et ses petits esprits. Bienvenue au Temple Kumaneko.",
+      "footer_intro": "Des lives sans micro, une VTuber panda roux très expressive et ses petits esprits.",
+      "footer_welcome": "Bienvenue au Temple Kumaneko.",
       "copyright": "Keola Kumaneko. Les illustrations restent la propriété de leurs artistes.",
       "elsewhere": "Retrouver Keola"
     },
@@ -301,7 +302,8 @@
     "intro": "Une sélection de fanarts partagés autour de Keola.",
     "image_alt": "Fanart {number} : {description}",
     "open": "Agrandir le fanart numéro {number}",
-    "credit_note": "Les artistes conservent les droits sur leurs œuvres. Les attributions individuelles sont en cours de vérification.",
+    "credit_note": "Les artistes conservent les droits sur leurs œuvres.",
+    "attribution_note": "Les attributions individuelles sont en cours de vérification.",
     "image_unavailable": "Image indisponible",
     "image_descriptions": {
       "1": "Keola est assise sur des marches, au bord de l'eau, dans un jardin japonais",

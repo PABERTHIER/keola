@@ -321,6 +321,7 @@ useHead(usePageSeo('home'))
 
   &__inner {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: $space-24;
     padding-block: $space-28;
@@ -339,7 +340,7 @@ useHead(usePageSeo('home'))
   }
 
   &__copy {
-    flex: 1;
+    flex: 1 1 18rem;
     min-width: 0;
     overflow-wrap: anywhere;
   }
@@ -448,7 +449,7 @@ useHead(usePageSeo('home'))
 
 .partners-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
   gap: $space-15;
 }
 
@@ -561,8 +562,8 @@ useHead(usePageSeo('home'))
     justify-self: end;
   }
 
-  .schedule-band__inner {
-    flex-wrap: wrap;
+  .schedule-band__copy {
+    flex-basis: calc(100% - 82px);
   }
 
   .schedule-band__actions {
@@ -592,6 +593,8 @@ useHead(usePageSeo('home'))
   .schedule-band__inner {
     gap: $space-14;
     padding-block: $space-22;
+    justify-content: center;
+    text-align: center;
   }
 
   .schedule-band__icon {
@@ -601,7 +604,7 @@ useHead(usePageSeo('home'))
   }
 
   .schedule-band__copy {
-    flex-basis: calc(100% - 58px);
+    flex-basis: 100%;
   }
 
   .schedule-band h2 {
@@ -613,6 +616,25 @@ useHead(usePageSeo('home'))
     max-width: 100%;
     margin-left: 0;
     flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .about-section__copy > .eyebrow,
+  .partners-section > .shell > .eyebrow {
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-section__copy > .section-title,
+  .partners-section .section-title {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .about-section__copy > .button {
+    display: flex;
+    width: fit-content;
+    margin-inline: auto;
   }
 
   .about-section__grid {
@@ -631,32 +653,33 @@ useHead(usePageSeo('home'))
   .partners-grid {
     grid-template-columns: 1fr;
   }
-
-  .closing-section__inner {
-    gap: $space-12;
-  }
-
-  .closing-section__peek {
-    width: 54px;
-  }
 }
 
 @media (max-width: $breakpoint-small) {
+  .closing-section {
+    padding-bottom: $space-20;
+  }
+
   .closing-section__inner {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .closing-section__inner > div {
+    text-align: center;
   }
 
   .closing-section__peek {
     grid-column: 1;
     grid-row: 3;
+    justify-self: start;
     width: 48px;
+    padding-top: $space-20;
   }
 
   .closing-section__inner > a {
     grid-column: 1;
     grid-row: 2;
-    width: fit-content;
-    justify-self: start;
+    justify-self: center;
   }
 
   .partner {

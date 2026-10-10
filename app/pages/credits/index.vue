@@ -49,6 +49,7 @@
 import { credits } from '~/data/site'
 
 const { t } = useI18n()
+
 const localePath = useLocalePath()
 
 useHead(usePageSeo('credits'))
@@ -58,6 +59,7 @@ useHead(usePageSeo('credits'))
 .credits-page {
   padding-block: $space-70 $space-100;
 }
+
 .credits-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -66,10 +68,12 @@ useHead(usePageSeo('credits'))
   padding: 0;
   list-style: none;
 }
+
 .credits-list li {
   min-width: 0;
   border-top: $border-width solid $line;
 }
+
 .credits-list a,
 .credits-list__plain {
   display: flex;
@@ -79,29 +83,35 @@ useHead(usePageSeo('credits'))
   min-height: 95px;
   padding: $space-15 $space-5;
 }
+
 .credits-list a:hover {
   color: $link-hover;
 }
+
 .credits-list span span,
 .credits-list a span {
   display: flex;
   flex-direction: column;
   min-width: 0;
 }
+
 .credits-list strong {
   font-family: $display;
   font-size: 1.28rem;
   font-weight: $weight-semibold;
   overflow-wrap: anywhere;
 }
+
 .credits-list small {
   color: $muted;
   font-size: 0.79rem;
 }
+
 .credits-list .iconify {
   flex: none;
   font-size: 21px;
 }
+
 .credits-page__next {
   display: flex;
   align-items: end;
@@ -109,22 +119,30 @@ useHead(usePageSeo('credits'))
   gap: $space-18;
   margin-top: $space-42;
 }
+
 .credits-page__next img {
   width: auto;
   height: $button-min-height;
 }
+
 @media (max-width: $breakpoint-mobile) {
   .credits-page {
     padding-block: $space-40 $space-70;
   }
+
   .credits-list {
     grid-template-columns: 1fr;
+  }
+
+  .credits-page__next {
+    justify-content: center;
   }
 }
 @media (max-width: $breakpoint-small) {
   .credits-page__link {
     order: 0;
   }
+
   .credits-page__next img {
     order: 1;
   }

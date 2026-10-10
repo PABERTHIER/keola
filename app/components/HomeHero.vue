@@ -10,7 +10,7 @@
           {{ t('components.home_hero.eyebrow') }}
         </span>
         <h1 id="hero-title">
-          {{ t('components.home_hero.name') }}
+          <span class="hero__name">{{ t('components.home_hero.name') }}</span>
           <span>{{ t('components.home_hero.surname') }}</span>
         </h1>
         <p class="hero__lead">
@@ -369,7 +369,9 @@ onBeforeUnmount(() => {
   }
 
   h1::before,
-  h1::after {
+  h1::after,
+  &__name::before,
+  &__name::after {
     content: '';
     position: absolute;
     pointer-events: none;
@@ -388,7 +390,7 @@ onBeforeUnmount(() => {
 
   h1::before {
     top: 0.12em;
-    left: 3.25em;
+    left: min(3.25em, calc(100% - 14px));
     width: 14px;
     height: 14px;
     opacity: 0.55;
@@ -396,7 +398,7 @@ onBeforeUnmount(() => {
 
   h1::after {
     top: 0.52em;
-    left: 3.7em;
+    left: min(3.7em, calc(100% - 7px));
     width: 7px;
     height: 7px;
     opacity: 0.35;
@@ -414,6 +416,16 @@ onBeforeUnmount(() => {
   h1 span {
     display: block;
     color: $hero-accent;
+  }
+
+  h1 .hero__name {
+    position: relative;
+    color: inherit;
+  }
+
+  &__name::before,
+  &__name::after {
+    display: none;
   }
 
   &__lead {
@@ -501,16 +513,21 @@ onBeforeUnmount(() => {
 
 @media (prefers-reduced-motion: no-preference) {
   .hero h1::before,
-  .hero h1::after {
+  .hero h1::after,
+  .hero__name::before,
+  .hero__name::after {
     animation: hero-sparkle 5s ease-in-out infinite;
   }
 
-  .hero h1::after {
+  .hero h1::after,
+  .hero__name::after {
     animation-delay: -2.5s;
   }
 
   .hero--offscreen h1::before,
-  .hero--offscreen h1::after {
+  .hero--offscreen h1::after,
+  .hero--offscreen .hero__name::before,
+  .hero--offscreen .hero__name::after {
     animation-play-state: paused;
   }
 }
@@ -562,6 +579,7 @@ onBeforeUnmount(() => {
   .hero__content {
     align-self: stretch;
     padding: 43px 0 29px;
+    text-align: center;
   }
 
   .hero h1 {
@@ -569,14 +587,46 @@ onBeforeUnmount(() => {
     font-size: 3.65rem;
   }
 
+  .hero h1::before,
+  .hero h1::after {
+    display: none;
+  }
+
+  .hero__name {
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+    padding-right: $control-size;
+  }
+
+  .hero__name::before {
+    display: block;
+    top: 0.12em;
+    right: $space-8;
+    width: 14px;
+    height: 14px;
+    opacity: 0.55;
+  }
+
+  .hero__name::after {
+    display: block;
+    top: 0.52em;
+    right: 0px;
+    width: 7px;
+    height: 7px;
+    opacity: 0.35;
+  }
+
   .hero__lead {
     max-width: 550px;
+    margin-inline: auto;
     margin-bottom: $space-22;
     font-size: $font-size-intro-mobile;
     line-height: $line-height-compact;
   }
 
   .hero__actions {
+    justify-content: center;
     gap: $space-8;
   }
 
