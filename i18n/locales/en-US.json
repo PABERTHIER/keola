@@ -83,7 +83,8 @@
       "language": "Site language"
     },
     "site_footer": {
-      "footer_intro": "Mic-free streams, an expressive red panda VTuber and her little spirits. Welcome to Temple Kumaneko.",
+      "footer_intro": "Mic-free streams, an expressive red panda VTuber and her little spirits.",
+      "footer_welcome": "Welcome to Temple Kumaneko.",
       "copyright": "Keola Kumaneko. Illustrations remain the property of their respective artists.",
       "elsewhere": "Find Keola"
     },
@@ -301,7 +302,8 @@
     "intro": "A selection of fanart featuring Keola.",
     "image_alt": "Fanart {number}: {description}",
     "open": "Enlarge fanart number {number}",
-    "credit_note": "Artists retain the rights to their work. Individual attributions are being verified.",
+    "credit_note": "Artists retain the rights to their work.",
+    "attribution_note": "Individual attributions are being verified.",
     "image_unavailable": "Image unavailable",
     "image_descriptions": {
       "1": "Keola sits on steps beside the water in a Japanese garden",

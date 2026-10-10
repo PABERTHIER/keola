@@ -123,6 +123,7 @@ useHead(usePageSeo('archives'))
   overflow-wrap: anywhere;
   padding-block: $space-70 $space-40;
 }
+
 .archive-feature {
   --focus-color: #{$orange};
   display: grid;
@@ -134,38 +135,48 @@ useHead(usePageSeo('archives'))
   background: $plum;
   color: $white-pure;
 }
+
 .archive-feature__copy {
   max-width: 520px;
+  margin-inline: auto;
 }
+
 .archive-feature__copy .eyebrow {
   color: $archive-accent;
 }
+
 .archive-feature h2,
 .archive-timeline h2 {
   margin: $space-15 0;
   font-size: 2.55rem;
 }
+
 .archive-feature p {
   color: $archive-text;
   line-height: $line-height-copy;
 }
+
 .archive-feature .button {
   margin-top: $space-13;
   background: $orange;
   color: $plum-deep;
 }
+
 .archive-feature__images {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: start;
   gap: $space-10;
 }
+
 .archive-feature__images img {
   max-height: 345px;
 }
+
 .archive-timeline {
   margin-top: $space-70;
 }
+
 .archive-timeline__item {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -174,6 +185,7 @@ useHead(usePageSeo('archives'))
   padding: $space-36 0;
   border-top: $border-width solid $line;
 }
+
 .archive-timeline__images {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -181,9 +193,11 @@ useHead(usePageSeo('archives'))
   gap: $space-8;
   min-width: 0;
 }
+
 .archive-timeline__images img {
   max-height: 300px;
 }
+
 .archive-artwork {
   display: grid;
   justify-items: center;
@@ -194,10 +208,12 @@ useHead(usePageSeo('archives'))
   background: transparent;
   color: $link-hover;
 }
+
 .archive-artwork img {
   width: 100%;
   border-radius: $radius-art;
 }
+
 .archive-artwork span {
   display: grid;
   place-items: center;
@@ -206,42 +222,68 @@ useHead(usePageSeo('archives'))
   font-weight: $weight-bold;
   text-align: center;
 }
+
 .archive-artwork:hover span,
 .archive-artwork:focus-visible span {
   text-decoration: underline;
 }
+
 .archive-feature .archive-artwork {
   color: $white-pure;
 }
+
 .archive-timeline__copy p {
   max-width: 440px;
   color: $muted;
 }
+
+@media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+  .archive-feature__images {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 @media (max-width: $breakpoint-mobile) {
   .archives-page {
     padding-block: $space-38 $space-30;
   }
+
   .archive-feature,
   .archive-timeline__item {
     grid-template-columns: minmax(0, 1fr);
     gap: $space-25;
   }
+
   .archive-feature {
     padding: $space-25;
   }
+
+  .archive-feature__copy,
+  .archive-timeline__copy {
+    text-align: center;
+  }
+
+  .archive-timeline__copy p {
+    margin-inline: auto;
+  }
+
   .archive-feature h2,
   .archive-timeline h2 {
     font-size: 2rem;
   }
+
   .archive-timeline {
     margin-top: $space-40;
   }
+
   .archive-timeline__item {
     gap: $space-10;
   }
+
   .archive-timeline__copy {
     order: -1;
   }
+
   .archive-timeline__images img {
     max-height: 260px;
   }

@@ -15,7 +15,11 @@
           :intro="introNumbers.has(number)"
           @open="openArtwork(index, $event)" />
       </div>
-      <p class="gallery-page__note">{{ t('gallery.credit_note') }}</p>
+      <p class="gallery-page__note">
+        {{ t('gallery.credit_note') }}
+        <br />
+        {{ t('gallery.attribution_note') }}
+      </p>
     </section>
 
     <ArtworkLightbox
@@ -50,8 +54,6 @@ const artworks = computed(() =>
     }),
   }))
 )
-
-useHead(usePageSeo('gallery'))
 
 onMounted(() => {
   if (
@@ -116,11 +118,13 @@ onBeforeUnmount(() => revealObserver?.disconnect())
 function openArtwork(index: number, event: MouseEvent) {
   viewer.value?.open(index, event.currentTarget as HTMLElement)
 }
+
+useHead(usePageSeo('gallery'))
 </script>
 
 <style lang="scss" scoped>
 .gallery-page {
-  padding-block: 65px $space-100;
+  padding-block: $space-65 $space-65;
 }
 
 .gallery-wall {

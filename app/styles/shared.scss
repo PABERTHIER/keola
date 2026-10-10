@@ -183,7 +183,8 @@
   margin-bottom: 0;
 }
 
-.section-heading .button {
+.section-heading .button,
+.section-heading .text-link {
   flex: none;
 }
 
@@ -206,6 +207,11 @@
   .section-heading {
     display: block;
     margin-bottom: $space-28;
+    text-align: center;
+  }
+  .section-heading .section-title,
+  .section-heading .section-lead {
+    margin-inline: auto;
   }
   .section-heading .button {
     margin-top: $space-18;

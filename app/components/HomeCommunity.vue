@@ -92,26 +92,31 @@ onBeforeUnmount(() => titleObserver?.disconnect())
   justify-self: start;
   object-fit: contain;
 }
+
 .community-section__intro {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
   column-gap: $space-12;
 }
+
 .community-section__intro > .section-title {
   grid-column: 2;
   grid-row: 2;
 }
+
 .community-section__intro > .eyebrow,
 .community-section__intro > .section-lead {
   grid-column: 1 / -1;
 }
+
 .community-section__grid {
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
   gap: $space-110;
   overflow-wrap: anywhere;
 }
+
 .community-links {
   border-top: $border-width solid $line;
 
@@ -126,10 +131,12 @@ onBeforeUnmount(() => titleObserver?.disconnect())
       padding $transition-ui,
       background-color $transition-ui;
   }
+
   a:hover {
     padding-left: $space-16;
     background: $community-background;
   }
+
   .social-icon {
     flex: 0 0 $control-size;
     width: $control-size;
@@ -138,6 +145,7 @@ onBeforeUnmount(() => titleObserver?.disconnect())
     border-radius: $radius-control;
     background: $plum-deep;
   }
+
   &__copy {
     display: flex;
     flex-direction: column;
@@ -145,16 +153,19 @@ onBeforeUnmount(() => titleObserver?.disconnect())
     min-width: 0;
     overflow-wrap: anywhere;
   }
+
   strong {
     font-family: $display;
     font-size: 1.25rem;
     font-weight: $weight-semibold;
     line-height: 1.2;
   }
+
   small {
     color: $muted;
     font-size: $font-size-small;
   }
+
   &__arrow {
     flex: none;
     width: 20px;
@@ -180,15 +191,25 @@ onBeforeUnmount(() => titleObserver?.disconnect())
     grid-template-columns: minmax(0, 1fr);
     gap: $space-33;
   }
+
+  .community-section__intro > .eyebrow {
+    justify-content: center;
+  }
+
+  .community-section__intro > .section-title {
+    text-align: center;
+  }
 }
 
 @media (max-width: $breakpoint-small) {
   .community-section__intro {
     grid-template-columns: minmax(0, 1fr);
   }
+
   .community-section__intro > .section-title {
     grid-column: 1;
   }
+
   .community-section__character {
     grid-column: 1;
     grid-row: 3;

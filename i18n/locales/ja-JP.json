@@ -83,7 +83,8 @@
       "language": "サイトの言語"
     },
     "site_footer": {
-      "footer_intro": "マイクなしでも表情豊かなレッサーパンダVTuberと、小さな精霊たち。Temple Kumanekoへようこそ。",
+      "footer_intro": "マイクなしでも表情豊かなレッサーパンダVTuberと、小さな精霊たち。",
+      "footer_welcome": "Temple Kumanekoへようこそ。",
       "copyright": "Keola Kumaneko。作品の権利は各アーティストに帰属します。",
       "elsewhere": "ほかの場所でもKeolaに会おう"
     },
@@ -301,7 +302,8 @@
     "intro": "Keolaをめぐって共有されたファンアートの一部を紹介します。",
     "image_alt": "ファンアート{number}：{description}",
     "open": "ファンアート {number} を拡大",
-    "credit_note": "作品の権利は各アーティストに帰属します。個別のクレジットを確認中です。",
+    "credit_note": "作品の権利は各アーティストに帰属します。",
+    "attribution_note": "個別のクレジットを確認中です。",
     "image_unavailable": "画像を読み込めませんでした",
     "image_descriptions": {
       "1": "日本庭園の水辺の階段に座るKeola",
