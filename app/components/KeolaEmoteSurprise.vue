@@ -152,7 +152,7 @@ onUnmounted(() => {
 
   &__caption {
     margin: 0;
-    color: $plum;
+    color: $plum-text;
     font-family: $display;
     font-size: $font-size-secondary;
     font-weight: $weight-bold;

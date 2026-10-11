@@ -79,6 +79,10 @@
       "menu": "メニューを開く",
       "close_menu": "メニューを閉じる"
     },
+    "theme_toggle": {
+      "dark": "ダークモードに切り替える",
+      "light": "ライトモードに切り替える"
+    },
     "language_switcher": {
       "language": "サイトの言語"
     },

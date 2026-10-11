@@ -36,6 +36,7 @@
       </nav>
 
       <div class="site-header__actions">
+        <ThemeToggle />
         <LanguageSwitcher />
         <a
           class="button button--primary site-header__live"
