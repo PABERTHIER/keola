@@ -21,7 +21,13 @@ const indexable =
   (!process.env.VERCEL_ENV || process.env.VERCEL_ENV === 'production')
 
 export default defineNuxtConfig({
-  routeRules: legacyRouteRules, // Nitro handles old paths; the browser middleware handles fragment bookmarks
+  routeRules: {
+    ...legacyRouteRules, // Nitro handles old paths; the browser middleware handles fragment bookmarks
+    // Nuxt discovers page routes for sitemaps; these rules also set HTTP noindex
+    '/fr/nyuh': { robots: robotsContent.blocked, sitemap: false },
+    '/en/nyuh': { robots: robotsContent.blocked, sitemap: false },
+    '/ja/nyuh': { robots: robotsContent.blocked, sitemap: false },
+  },
   app: {
     head: {
       link: [
@@ -148,8 +154,8 @@ export default defineNuxtConfig({
     robotsDisabledValue: robotsContent.blocked,
   },
   sitemap: {
-    // Runtime SSR pages aren't crawled for images by the sitemap module.
-    // i18n expands each record into FR/EN/JA with reciprocal alternates.
+    // Runtime SSR pages aren't crawled for images by the sitemap module
+    // i18n expands each record into FR/EN/JA with reciprocal alternates
     urls: Object.values(pageSeo).map(page => ({
       loc: page.path,
       _i18nTransform: true,
@@ -178,8 +184,8 @@ export default defineNuxtConfig({
   },
   unhead: {
     vite: {
-      // Preserve this helper's reactive useSchemaOrg call on the client.
-      // Other server-only composables can still be removed normally.
+      // Preserve this helper's reactive useSchemaOrg call on the client
+      // Other server-only composables can still be removed normally
       treeshake: {
         filter: {
           exclude: [/[/\\]app[/\\]composables[/\\]usePageSeo\.ts(?:\?|$)/],

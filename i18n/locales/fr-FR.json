@@ -34,6 +34,15 @@
       "description": "Cette page ne peut pas s'afficher pour le moment. Tu peux revenir à l'accueil ou réessayer un peu plus tard."
     }
   },
+  "nyuh": {
+    "title": "Nyuh ! - Keola Kumaneko",
+    "description": "La carte de Keola Kumaneko qui autorise les patpats. Un petit secret à faire bouger du bout des doigts.",
+    "heading": "Nyuh !",
+    "hint": "Fais bouger la carte, puis offre un patpat à Keola.",
+    "pat": "Faire un patpat à Keola",
+    "patted": "Patpat !",
+    "image_alt": "Carte de Keola autorisant les patpats"
+  },
   "social": {
     "live": "Lives",
     "videos": "Vidéos",
