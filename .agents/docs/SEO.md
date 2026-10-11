@@ -23,7 +23,7 @@ Actual image dimensions come from [imageDimensions.ts](../../app/data/imageDimen
 | Home      | `/images/og-image.webp`                         |
 | Keola     | `/images/models/Keola_v3_portrait.webp`         |
 | Gallery   | `/images/fanarts/fanart-92.webp`                |
-| Credits   | `/images/keola/Keola_magnifying_glass.webp`     |
+| Credits   | `/images/misc/Credits.webp.webp`                |
 | Archives  | `/images/redpanda/RedPandathon_2024_goals.webp` |
 | Media kit | `/images/misc/Mediakit.webp`                    |
 

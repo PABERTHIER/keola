@@ -124,7 +124,8 @@ import { externalLinks } from '~/data/site'
 const { t } = useI18n()
 const localePath = useLocalePath()
 
-const slides = [1, 2, 3, 4, 5, 6, 7, 8, 9] as const
+const slides = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] as const
+
 const activeSlide = ref(0)
 const playback = ref<'auto' | 'paused' | 'playing'>('auto')
 const reducedMotion = ref(false)

@@ -32,8 +32,8 @@
       </ul>
       <div class="credits-page__next">
         <Image
-          src="/images/keola/Keola_magnifying_glass.webp"
-          :alt="t('credits.magnifying_glass_alt')" />
+          src="/images/emotes/keolaRun.gif"
+          :alt="t('credits.keola_run_alt')" />
         <NuxtLink
           class="button button--outline credits-page__link"
           :to="localePath('/gallery')">
