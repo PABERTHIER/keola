@@ -52,19 +52,27 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { featuredSocialLinks } from '~/data/site'
 
 const { t } = useI18n()
+
 const communityTitle = ref<HTMLElement | null>(null)
 const characterHeight = ref(36)
+
 let titleObserver: ResizeObserver | undefined
 
 onMounted(() => {
-  if (!communityTitle.value) return
+  if (!communityTitle.value) {
+    return
+  }
 
   const updateCharacterHeight = () => {
-    if (!communityTitle.value) return
+    if (!communityTitle.value) {
+      return
+    }
+
     const titleHeight = communityTitle.value.getBoundingClientRect().height
     const lineHeight = Number.parseFloat(
       window.getComputedStyle(communityTitle.value).lineHeight
     )
+
     const lineCount = lineHeight > 0 ? Math.round(titleHeight / lineHeight) : 1
     const scale = lineCount >= 4 ? 0.9 : 0.82
     const maxHeight = lineCount >= 4 ? 180 : 160
@@ -76,6 +84,7 @@ onMounted(() => {
   }
 
   updateCharacterHeight()
+
   titleObserver = new ResizeObserver(updateCharacterHeight)
   titleObserver.observe(communityTitle.value)
 })

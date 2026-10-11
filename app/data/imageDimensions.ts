@@ -157,6 +157,8 @@ export const imageDimensions: Record<string, readonly [number, number]> = {
   '/images/slideshows/slideshow-7.webp': [2560, 3540],
   '/images/slideshows/slideshow-8.webp': [3508, 4961],
   '/images/slideshows/slideshow-9.webp': [2894, 4522],
+  '/images/slideshows/slideshow-10.webp': [3984, 5000],
+  '/images/slideshows/slideshow-11.webp': [2388, 3000],
   '/images/redpanda/RedPandaNetwork_logo.webp': [544, 500],
   '/images/redpanda/RedPandathon_2024_goals.webp': [1920, 1080],
   '/images/redpanda/RedPandathon_2024_impossible_goals.webp': [1922, 1073],
