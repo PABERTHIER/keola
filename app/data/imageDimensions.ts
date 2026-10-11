@@ -148,6 +148,7 @@ export const imageDimensions: Record<string, readonly [number, number]> = {
   '/images/misc/Credits.webp': [320, 200],
   '/images/misc/Esprit_violet.webp': [107, 103],
   '/images/misc/Facts.webp': [708, 768],
+  '/images/misc/Keola_license.webp': [3231, 1894],
   '/images/misc/Mediakit.webp': [2114, 2994],
   '/images/misc/NYUH.webp': [500, 500],
   '/images/misc/Petits_esprits.webp': [1800, 1800],

@@ -34,6 +34,15 @@
       "description": "This page can't be displayed right now. You can head back home or try again a little later."
     }
   },
+  "nyuh": {
+    "title": "Nyuh! - Keola Kumaneko",
+    "description": "Keola Kumaneko's license to be patpat. Move the card and discover this little secret.",
+    "heading": "Nyuh!",
+    "hint": "Move the card, then give Keola a patpat.",
+    "pat": "Give Keola a patpat",
+    "patted": "Patpat!",
+    "image_alt": "Keola license card to be patpat"
+  },
   "social": {
     "live": "Livestreams",
     "videos": "Videos",

@@ -34,6 +34,15 @@
       "description": "今はこのページを表示できません。ホームに戻るか、少し時間をおいてもう一度試してみてね。"
     }
   },
+  "nyuh": {
+    "title": "にゅっ！ - Keola Kumaneko",
+    "description": "Keola Kumanekoのなでなでライセンス。カードを動かして、小さな秘密を楽しんでね。",
+    "heading": "にゅっ！",
+    "hint": "カードを動かして、Keolaをなでなでしてね。",
+    "pat": "Keolaをなでなでする",
+    "patted": "なでなで！",
+    "image_alt": "Keolaをなでなでするためのライセンスカード"
+  },
   "social": {
     "live": "配信",
     "videos": "動画",
