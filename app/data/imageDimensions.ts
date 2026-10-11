@@ -148,7 +148,7 @@ export const imageDimensions: Record<string, readonly [number, number]> = {
   '/images/models/Keola_Ref_model_v5.webp': [3000, 1699],
   '/images/models/Keola_Refsheet_2025.webp': [4766, 3839],
   '/images/models/Keola_Refsheet_2026.webp': [4611, 1620],
-  '/images/slideshows/slideshow-1.webp': [2243, 3081],
+  '/images/slideshows/slideshow-1.webp': [993, 1229],
   '/images/slideshows/slideshow-2.webp': [1282, 2560],
   '/images/slideshows/slideshow-3.webp': [1811, 2560],
   '/images/slideshows/slideshow-4.webp': [1817, 2560],
