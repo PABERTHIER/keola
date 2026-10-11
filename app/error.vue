@@ -46,7 +46,7 @@
         </span>
         <Image
           src="/images/keola/Keola_magnifying_glass.webp"
-          :alt="t('credits.magnifying_glass_alt')"
+          :alt="t('error.image_alt')"
           loading="eager"
           fetchpriority="high" />
         <figcaption>{{ t('error.art_caption') }}</figcaption>
@@ -93,7 +93,7 @@ useSeoMeta({
   ogUrl: () => new URL(route.path, site.url).href,
   ogLocale: () => localeProperties.value.language?.replace('-', '_'),
   ogImage: () => new URL(imagePath, site.url).href,
-  ogImageAlt: () => t('credits.magnifying_glass_alt'),
+  ogImageAlt: () => t('error.image_alt'),
   ogImageWidth: imageWidth,
   ogImageHeight: imageHeight,
   ogImageType: 'image/webp',

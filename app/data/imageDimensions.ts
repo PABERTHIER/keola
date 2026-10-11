@@ -11,6 +11,7 @@ export const imageDimensions: Record<string, readonly [number, number]> = {
   '/images/debut/Keola_Redebut_2024_right_part.webp': [1921, 1081],
   '/images/emotes/keolaCandy.png': [112, 112],
   '/images/emotes/keolaHeart.png': [112, 112],
+  '/images/emotes/keolaRun.gif': [112, 112],
   '/images/fanarts/fanart-1.webp': [3876, 2180],
   '/images/fanarts/fanart-10.webp': [3413, 4096],
   '/images/fanarts/fanart-11.webp': [1200, 1084],

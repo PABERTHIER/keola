@@ -21,6 +21,7 @@
     "code": "エラー {code}",
     "eyebrow": "お寺でちょっと寄り道",
     "explore_gallery": "ギャラリーを見る",
+    "image_alt": "右目で虫眼鏡をのぞくKeola",
     "art_caption": "虫眼鏡を手に、Keolaが調査中。",
     "not_found": {
       "title": "ページが見つかりません - Keola Kumaneko",
@@ -430,7 +431,7 @@
     "title": "ひとつの寺院と、たくさんの才能。",
     "intro": "モデル、音楽、アニメーション、イラスト。多くの才能がKeolaとTemple Kumanekoに命を吹き込んでいます。",
     "visit": "{name} のプロフィールを見る",
-    "magnifying_glass_alt": "右目で虫眼鏡をのぞくKeola",
+    "keola_run_alt": "走るKeolaのアニメーションエモート",
     "roles": {
       "assistants": "サポート",
       "model": "モデルのイラスト・リギング",

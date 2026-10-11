@@ -64,7 +64,7 @@ export const pageSeo = {
     type: 'WebPage',
     image: '/images/misc/Credits.webp',
     imageAlt: 'keola.more.credits_art_alt',
-    images: ['/images/keola/Keola_magnifying_glass.webp'],
+    images: ['/images/emotes/keolaRun.gif'],
   },
   archives: {
     path: '/archives',

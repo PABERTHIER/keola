@@ -21,6 +21,7 @@
     "code": "Error {code}",
     "eyebrow": "A detour at the temple",
     "explore_gallery": "Explore the gallery",
+    "image_alt": "Keola looking through a magnifying glass with her right eye",
     "art_caption": "Keola is on the case, magnifying glass in hand.",
     "not_found": {
       "title": "Page not found - Keola Kumaneko",
@@ -430,7 +431,7 @@
     "title": "One temple, many talents.",
     "intro": "Models, music, animation, illustration: many talented people bring Keola and Temple Kumaneko to life.",
     "visit": "View {name}'s profile",
-    "magnifying_glass_alt": "Keola looking through a magnifying glass with her right eye",
+    "keola_run_alt": "Animated emote of Keola running",
     "roles": {
       "assistants": "Assistants",
       "model": "Model art and rigging",

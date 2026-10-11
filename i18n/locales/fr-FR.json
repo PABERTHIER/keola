@@ -21,6 +21,7 @@
     "code": "Erreur {code}",
     "eyebrow": "Un détour au temple",
     "explore_gallery": "Explorer la galerie",
+    "image_alt": "Keola regarde à travers une loupe avec son œil droit",
     "art_caption": "Keola mène l'enquête, loupe en main.",
     "not_found": {
       "title": "Page introuvable - Keola Kumaneko",
@@ -430,7 +431,7 @@
     "title": "Un temple, plein de talents.",
     "intro": "Modèles, musiques, animations, illustrations : de nombreux talents donnent vie à Keola et au Temple Kumaneko.",
     "visit": "Voir le profil de {name}",
-    "magnifying_glass_alt": "Keola regarde à travers une loupe avec son œil droit",
+    "keola_run_alt": "Emote animée de Keola qui court",
     "roles": {
       "assistants": "Aides de camp",
       "model": "Illustration et rig du modèle",
