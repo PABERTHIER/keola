@@ -79,6 +79,10 @@
       "menu": "Open menu",
       "close_menu": "Close menu"
     },
+    "theme_toggle": {
+      "dark": "Switch to dark mode",
+      "light": "Switch to light mode"
+    },
     "language_switcher": {
       "language": "Site language"
     },

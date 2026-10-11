@@ -79,6 +79,10 @@
       "menu": "Ouvrir le menu",
       "close_menu": "Fermer le menu"
     },
+    "theme_toggle": {
+      "dark": "Activer le mode sombre",
+      "light": "Activer le mode clair"
+    },
     "language_switcher": {
       "language": "Langue du site"
     },

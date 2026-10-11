@@ -279,6 +279,7 @@ function changeLocale(code: string) {
   &__option:hover,
   &__option[aria-checked='true'] {
     background: $selection-background;
+    color: $plum-deep;
   }
 
   &__option:focus-visible {

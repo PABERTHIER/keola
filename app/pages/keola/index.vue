@@ -541,7 +541,7 @@ useHead(usePageSeo('keola'))
     display: flex;
     align-items: center;
     gap: $space-10;
-    color: $plum;
+    color: $plum-text;
     font-family: $display;
     font-size: 1.3rem;
     margin-bottom: $space-16;

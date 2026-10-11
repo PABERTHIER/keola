@@ -1,3 +1,80 @@
+// Shared page colors
+// Artwork-led plum and orange sections keep their own palette
+:root {
+  color-scheme: light;
+  --color-paper: #fff8f3;
+  --color-surface: #fffdf9;
+  --color-ink: #342630;
+  --color-plum-text: #493047;
+  --color-muted: #665961;
+  --color-orange-pale: #f7dfc5;
+  --color-peach: #f2e4d6;
+  --color-spirit: #eee8f3;
+  --color-line: #d9dbd2;
+  --color-link-hover: #a85012;
+  --color-light-outline-border: #baa6b7;
+  --color-light-hover: #f1f3ea;
+  --color-eyebrow: #8d4b1b;
+  --color-community: #f8e9ee;
+  --color-gallery-peach: #e7d7c8;
+  --color-gallery-lilac: #e8dceb;
+  --color-gallery-rose: #e1d6df;
+  --color-gallery-sage: #dbe3e2;
+  --color-schedule-icon: #a95000;
+  --color-about-art: #ddd4c6;
+  --color-partner-border: #d8c7d9;
+  --color-page-intro-eyebrow: #a64d10;
+  --color-header-border: #e6e4dc;
+  --color-header-link-hover: #a54a00;
+  --color-header-shadow: #102d2a18;
+  --color-tooltip-background: #302137;
+  --color-tooltip-text: #fff;
+  --color-tooltip-border: #f7dfc5;
+}
+
+@mixin dark-colors {
+  color-scheme: dark;
+  --focus-color: #ffc184;
+  --color-paper: #211a22;
+  --color-surface: #2d242e;
+  --color-ink: #f7eee9;
+  --color-plum-text: #ebc8df;
+  --color-muted: #cbbdc7;
+  --color-orange-pale: #503b32;
+  --color-peach: #392d35;
+  --color-spirit: #342b3e;
+  --color-line: #675665;
+  --color-link-hover: #ffbd83;
+  --color-light-outline-border: #a88fa3;
+  --color-light-hover: #443847;
+  --color-eyebrow: #ffbd83;
+  --color-community: #392a38;
+  --color-gallery-peach: #46342f;
+  --color-gallery-lilac: #423449;
+  --color-gallery-rose: #44323d;
+  --color-gallery-sage: #354241;
+  --color-schedule-icon: #ffc184;
+  --color-about-art: #3f3540;
+  --color-partner-border: #786375;
+  --color-page-intro-eyebrow: #ffbd83;
+  --color-header-border: #675665;
+  --color-header-link-hover: #ffbd83;
+  --color-header-shadow: #100c13a8;
+  --color-tooltip-background: #fff8f3;
+  --color-tooltip-text: #302137;
+  --color-tooltip-border: #c8a58a;
+}
+
+:root[data-theme='dark'] {
+  @include dark-colors;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    @include dark-colors;
+  }
+}
+
 *,
 *::before,
 *::after {

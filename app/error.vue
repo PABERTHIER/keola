@@ -67,6 +67,7 @@ const { t, localeProperties } = useI18n()
 const localePath = useLocalePath()
 const site = useSiteConfig()
 const route = useRoute()
+const { theme } = useSiteTheme()
 
 const statusCode = computed(() => props.error.status || 500)
 const errorKind = computed(() =>
@@ -103,6 +104,7 @@ useHead(() => ({
   htmlAttrs: {
     lang: localeProperties.value.language,
     dir: localeProperties.value.dir || 'ltr',
+    'data-theme': theme.value ?? undefined,
   },
 }))
 
@@ -226,7 +228,7 @@ async function recover(path: string) {
   &__number {
     position: absolute;
     top: $space-8;
-    color: $plum;
+    color: $plum-text;
     font-family: $display;
     font-size: clamp(5rem, 17vw, 9rem);
     font-weight: $weight-bold;
