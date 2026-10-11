@@ -140,7 +140,7 @@ export const imageDimensions: Record<string, readonly [number, number]> = {
   '/images/misc/NYUH.webp': [500, 500],
   '/images/misc/Petits_esprits.webp': [1800, 1800],
   '/images/models/Keola_models_evolution.webp': [2381, 1684],
-  '/images/models/Keola_v3.webp': [578, 1075],
+  '/images/models/Keola_v3.webp': [1000, 1514],
   '/images/models/Keola_v3_portrait.webp': [1122, 1368],
   '/images/models/Keola_v4.webp': [892, 1275],
   '/images/models/Keola_v5.webp': [1197, 2089],
