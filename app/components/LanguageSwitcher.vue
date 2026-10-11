@@ -30,7 +30,6 @@
           role="menuitemradio"
           class="language-switcher__option"
           :aria-label="item.name"
-          :data-tooltip="item.name"
           :aria-checked="item.code === locale"
           :tabindex="item.code === locale ? 0 : -1"
           @click="changeLocale(item.code)">
@@ -46,11 +45,14 @@
 
 <script setup lang="ts">
 const { t, locale, locales } = useI18n()
+
 const switchLocalePath = useSwitchLocalePath()
 const route = useRoute()
+
 const menuOpen = ref(false)
 const root = ref<HTMLElement | null>(null)
 const trigger = ref<HTMLButtonElement | null>(null)
+
 const currentLocale = computed(() =>
   locales.value.find(item => item.code === locale.value)
 )
@@ -78,8 +80,10 @@ watch(
 function toggleMenu() {
   if (menuOpen.value) {
     closeMenu()
+
     return
   }
+
   menuOpen.value = true
   void nextTick(() => focusSelectedOption())
 }
@@ -130,6 +134,7 @@ function handleKeydown(event: KeyboardEvent) {
   }
 
   event.preventDefault()
+
   const options = Array.from(
     root.value?.querySelectorAll<HTMLButtonElement>('[role="menuitemradio"]') ??
       []
@@ -174,6 +179,7 @@ function handleKeydown(event: KeyboardEvent) {
 
 function changeLocale(code: string) {
   const selectedLocale = locales.value.find(item => item.code === code)
+
   closeMenu(true)
 
   if (selectedLocale) {
@@ -197,6 +203,7 @@ function changeLocale(code: string) {
     outline: $focus-width solid $orange;
     outline-offset: $focus-offset;
   }
+
   > .iconify {
     position: absolute;
     left: $space-5;
@@ -205,6 +212,7 @@ function changeLocale(code: string) {
     height: 17px;
     flex: none;
   }
+
   &__trigger {
     display: inline-flex;
     align-items: center;
@@ -220,19 +228,23 @@ function changeLocale(code: string) {
     font-size: 1rem;
     font-weight: $weight-heavy;
   }
+
   &__trigger:focus-visible {
     outline: none;
   }
+
   button {
     cursor:
       url('/images/cursors/Location.cur') 0 0,
       pointer;
   }
+
   &__trigger .iconify {
     position: static;
     width: 14px;
     height: 14px;
   }
+
   &__menu {
     position: absolute;
     z-index: 1;
@@ -247,6 +259,7 @@ function changeLocale(code: string) {
     background: $white;
     box-shadow: 0 10px 24px $header-menu-shadow;
   }
+
   &__option {
     display: flex;
     align-items: center;
@@ -262,14 +275,18 @@ function changeLocale(code: string) {
     font: inherit;
     text-align: left;
   }
+
   &__option:hover,
   &__option[aria-checked='true'] {
     background: $selection-background;
+    color: $plum-deep;
   }
+
   &__option:focus-visible {
     outline: $focus-width solid $orange;
     outline-offset: -$focus-width;
   }
+
   &__code {
     display: none;
     font-size: $font-size-small;
@@ -281,16 +298,20 @@ function changeLocale(code: string) {
   .language-switcher > .iconify {
     display: none;
   }
+
   .language-switcher__trigger {
     min-width: max(#{$control-size}, 3.1rem);
     padding-left: $space-5;
   }
+
   .language-switcher__menu {
     min-width: max(100%, 4.5rem);
   }
+
   .language-switcher__name {
     display: none;
   }
+
   .language-switcher__code {
     display: inline;
   }

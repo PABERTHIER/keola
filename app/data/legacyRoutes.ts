@@ -11,7 +11,6 @@ export const legacyDestinations: Record<string, string> = {
   archives: '/archives',
   goal: '/archives#redpandathon-title',
   redpandathon: '/archives#redpandathon-title',
-  RedPandathon: '/archives#redpandathon-title',
   credits: '/credits',
   topcredits: '/credits',
 }

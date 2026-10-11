@@ -54,13 +54,16 @@ const { t } = useI18n()
     align-items: center;
     gap: $space-70;
   }
+
   .section-title {
     max-width: 660px;
   }
+
   .section-lead {
     color: $mission-text;
     margin-bottom: $space-30;
   }
+
   &__art {
     position: relative;
     display: flex;
@@ -72,6 +75,7 @@ const { t } = useI18n()
     border-radius: $radius-art;
     background: $mission-art-background;
   }
+
   &__art img {
     position: relative;
     z-index: $z-artwork;
@@ -79,6 +83,7 @@ const { t } = useI18n()
     width: 60%;
     object-fit: contain;
   }
+
   &__art > span:last-child {
     position: absolute;
     bottom: $space-20;
@@ -97,6 +102,23 @@ const { t } = useI18n()
     grid-template-columns: minmax(0, 1fr);
     gap: $space-33;
   }
+
+  .mission-section .eyebrow {
+    display: flex;
+    justify-content: center;
+  }
+
+  .mission-section .section-title {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .mission-section .button {
+    display: flex;
+    width: fit-content;
+    margin-inline: auto;
+  }
+
   .mission-section__art {
     min-height: 265px;
   }

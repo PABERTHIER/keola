@@ -21,6 +21,7 @@
     "code": "Erreur {code}",
     "eyebrow": "Un détour au temple",
     "explore_gallery": "Explorer la galerie",
+    "image_alt": "Keola regarde à travers une loupe avec son œil droit",
     "art_caption": "Keola mène l'enquête, loupe en main.",
     "not_found": {
       "title": "Page introuvable - Keola Kumaneko",
@@ -32,6 +33,15 @@
       "heading": "Un petit contretemps au temple.",
       "description": "Cette page ne peut pas s'afficher pour le moment. Tu peux revenir à l'accueil ou réessayer un peu plus tard."
     }
+  },
+  "nyuh": {
+    "title": "Nyuh ! - Keola Kumaneko",
+    "description": "La carte de Keola Kumaneko qui autorise les patpats. Un petit secret à faire bouger du bout des doigts.",
+    "heading": "Nyuh !",
+    "hint": "Fais bouger la carte, puis offre un patpat à Keola.",
+    "pat": "Faire un patpat à Keola",
+    "patted": "Patpat !",
+    "image_alt": "Carte de Keola autorisant les patpats"
   },
   "social": {
     "live": "Lives",
@@ -79,11 +89,16 @@
       "menu": "Ouvrir le menu",
       "close_menu": "Fermer le menu"
     },
+    "theme_toggle": {
+      "dark": "Activer le mode sombre",
+      "light": "Activer le mode clair"
+    },
     "language_switcher": {
       "language": "Langue du site"
     },
     "site_footer": {
-      "footer_intro": "Des lives sans micro, une VTuber panda roux très expressive et ses petits esprits. Bienvenue au Temple Kumaneko.",
+      "footer_intro": "Des lives sans micro, une VTuber panda roux très expressive et ses petits esprits.",
+      "footer_welcome": "Bienvenue au Temple Kumaneko.",
       "copyright": "Keola Kumaneko. Les illustrations restent la propriété de leurs artistes.",
       "elsewhere": "Retrouver Keola"
     },
@@ -98,16 +113,17 @@
       "pause": "Mettre le diaporama en pause",
       "play": "Lancer le diaporama",
       "alts": {
-        "1": "Keola fait un clin d'œil, un masque de renard sur la tête et un masque à gaz autour du cou",
+        "1": "Keola en tenue pirate, assise sur son siège de capitaine",
         "2": "Keola, en tenue de motard, est allongée sur une moto",
         "3": "Keola, en tenue de boxeuse, donne un coup de poing",
         "4": "Keola, tenant des pompons orange, bondit au milieu des vagues sous un ciel bleu",
         "5": "Keola en combinaison spatiale tend la main vers un petit esprit astronaute",
-        "6": "Keola est allongée près d'un petit esprit violet qui mange une tranche de pastèque",
-        "7": "Keola dans l'armure du clan Kumaneko, dans une scène épique",
-        "8": "Keola et une amie posent côte à côte en tenues japonaises",
-        "9": "Keola Zelda, une épée dans les mains, en pleine action",
-        "10": "Keola en tenue japonaise regarde le ciel, d'où tombent des pétales de fleurs de cerisier"
+        "6": "Keola dans l'armure du clan Kumaneko, dans une scène épique",
+        "7": "Keola et une amie posent côte à côte en tenues japonaises",
+        "8": "Keola Zelda, une épée dans les mains, en pleine action",
+        "9": "Keola en tenue japonaise regarde le ciel, d'où tombent des pétales de fleurs de cerisier",
+        "10": "Keola en tenue de sorcière, une flamme dans la main, est assise sur son balai",
+        "11": "Keola, face à un panda roux géant, dans une scène épique"
       },
       "previous": "Diapositive précédente",
       "next": "Diapositive suivante",
@@ -301,7 +317,8 @@
     "intro": "Une sélection de fanarts partagés autour de Keola.",
     "image_alt": "Fanart {number} : {description}",
     "open": "Agrandir le fanart numéro {number}",
-    "credit_note": "Les artistes conservent les droits sur leurs œuvres. Les attributions individuelles sont en cours de vérification.",
+    "credit_note": "Les artistes conservent les droits sur leurs œuvres.",
+    "attribution_note": "Les attributions individuelles sont en cours de vérification.",
     "image_unavailable": "Image indisponible",
     "image_descriptions": {
       "1": "Keola est assise sur des marches, au bord de l'eau, dans un jardin japonais",
@@ -324,7 +341,7 @@
       "18": "Keola en tenue japonaise fait un signe de la main",
       "19": "Keola, assise sur une pierre, en pleine invocation",
       "20": "Keola avec un air pensif devant un fond rouge et orange",
-      "21": "Keola se détend dans un bain naturel avec des capybaras",
+      "21": "Keola allongée sur un lit, le regard au premier plan",
       "22": "Portrait rapproché de Keola tirant la langue",
       "23": "Keola fait un clin d'œil et serre un œuf orange",
       "24": "Keola assise, souriante, dans une tenue cosy avec une tasse dans les mains",
@@ -416,7 +433,18 @@
       "110": "Keola dans l'armure du clan Kumaneko, dans une scène épique",
       "111": "Keola à la plage, accompagnée d'un petit esprit violet dans une bouée",
       "112": "Keola fait un clin d'œil, un masque de renard sur la tête et un masque à gaz autour du cou",
-      "113": "Keola sur une colline, une lanterne à la main, regarde le ciel étoilé"
+      "113": "Keola sur une colline, une lanterne à la main, regarde le ciel étoilé",
+      "114": "Portrait de Keola pirate, sur fond jaune",
+      "115": "Selfie de Keola en tenue pirate avec Nozomi",
+      "116": "Keola en tenue japonaise, dans un jardin japonais avec des pétales de fleurs de cerisier qui tombent",
+      "117": "Keola, de profil, qui fait un câlin à une amie",
+      "118": "Keola, vue de haut",
+      "119": "Portait de Keola qui fait un cœur avec ses doigts",
+      "120": "Keola, face à un panda roux géant, dans une scène épique",
+      "121": "Keola Chibi pirate prête à partir à l'aventure",
+      "122": "Portait de Keola avec des couleurs éclatantes",
+      "123": "Keola qui fait un câlin à Ganony",
+      "124": "Keola en tenue Onimusha, une épée à la main"
     }
   },
   "credits": {
@@ -424,7 +452,7 @@
     "title": "Un temple, plein de talents.",
     "intro": "Modèles, musiques, animations, illustrations : de nombreux talents donnent vie à Keola et au Temple Kumaneko.",
     "visit": "Voir le profil de {name}",
-    "magnifying_glass_alt": "Keola regarde à travers une loupe avec son œil droit",
+    "keola_run_alt": "Emote animée de Keola qui court",
     "roles": {
       "assistants": "Aides de camp",
       "model": "Illustration et rig du modèle",

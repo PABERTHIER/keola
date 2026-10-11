@@ -1,14 +1,14 @@
 import { fanartNumbers, homeGalleryFanartNumbers } from './site'
 
-// Shared by Nuxt Robots (HTTP/SSR), content pages and error recovery (client).
+// Shared by Nuxt Robots (HTTP/SSR), content pages and error recovery (client)
 export const robotsContent = {
   indexable:
     'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
   blocked: 'noindex, nofollow',
 } as const
 
-// Keep each selected artwork with its existing translated description.
-// Sitemap images describe content available on the page, including its viewer.
+// Keep each selected artwork with its existing translated description
+// Sitemap images describe content available on the page, including its viewer
 export const pageSeo = {
   home: {
     path: '/',
@@ -17,7 +17,7 @@ export const pageSeo = {
     imageAlt: 'components.home_hero.alts.4',
     images: [
       ...Array.from(
-        { length: 9 },
+        { length: 11 },
         (_, i) => `/images/slideshows/slideshow-${i + 1}.webp`
       ),
       ...homeGalleryFanartNumbers.map(
@@ -64,7 +64,7 @@ export const pageSeo = {
     type: 'WebPage',
     image: '/images/misc/Credits.webp',
     imageAlt: 'keola.more.credits_art_alt',
-    images: ['/images/keola/Keola_magnifying_glass.webp'],
+    images: ['/images/emotes/keolaRun.gif'],
   },
   archives: {
     path: '/archives',

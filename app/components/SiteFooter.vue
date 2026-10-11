@@ -4,7 +4,11 @@
       <div class="site-footer__main">
         <div class="site-footer__identity">
           <SiteBrand inverse />
-          <p>{{ t('components.site_footer.footer_intro') }}</p>
+          <p>
+            {{ t('components.site_footer.footer_intro') }}
+            <br />
+            {{ t('components.site_footer.footer_welcome') }}
+          </p>
           <a class="footer-email" :href="externalLinks.email">
             {{ externalLinks.email.slice('mailto:'.length) }}
             <Icon name="lucide:arrow-up-right" aria-hidden="true" />
@@ -87,8 +91,10 @@
 import { externalLinks, featuredSocialLinks, socialLinks } from '~/data/site'
 
 const { t } = useI18n()
+
 const localePath = useLocalePath()
 const route = useRoute()
+
 const year = new Date().getFullYear()
 </script>
 
@@ -105,15 +111,18 @@ const year = new Date().getFullYear()
     gap: $space-45;
     padding-bottom: $space-70;
   }
+
   &__identity p {
     max-width: 310px;
     margin: $space-22 0;
     color: $footer-description-text;
     font-size: 0.88rem;
   }
+
   &__identity {
     min-width: 0;
   }
+
   &__column {
     display: flex;
     flex-direction: column;
@@ -131,6 +140,7 @@ const year = new Date().getFullYear()
       font-weight: $weight-heavy;
       text-transform: uppercase;
     }
+
     a {
       display: inline-flex;
       align-items: center;
@@ -139,10 +149,12 @@ const year = new Date().getFullYear()
       max-width: 100%;
       font-size: 0.8rem;
     }
+
     a:hover {
       color: $footer-link-hover;
     }
   }
+
   &__bottom {
     display: flex;
     justify-content: space-between;
@@ -151,6 +163,7 @@ const year = new Date().getFullYear()
     padding: $space-18 0 $space-24;
     border-top: $border-width solid $footer-border;
   }
+
   &__bottom p {
     margin: 0;
     color: $footer-copyright-text;
@@ -187,6 +200,7 @@ const year = new Date().getFullYear()
     border: $border-width solid $footer-border;
     border-radius: $radius-social;
   }
+
   a:hover {
     background: $footer-social-hover;
   }
@@ -196,6 +210,7 @@ const year = new Date().getFullYear()
   .site-footer__main {
     grid-template-columns: 1.5fr 1fr 1fr;
   }
+
   .site-footer__column:last-child {
     grid-column: 2 / 4;
   }
@@ -205,17 +220,21 @@ const year = new Date().getFullYear()
   .site-footer {
     padding-top: 58px;
   }
+
   .site-footer__main {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: $space-36 $space-22;
     padding-bottom: $space-45;
   }
+
   .site-footer__identity {
     grid-column: 1 / -1;
   }
+
   .site-footer__column:last-child {
     grid-column: auto;
   }
+
   .site-footer__bottom {
     align-items: start;
     flex-direction: column-reverse;

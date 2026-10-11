@@ -242,10 +242,10 @@ watch(() => route.fullPath, hide)
   width: max-content;
   max-width: min(280px, calc(100vw - 24px));
   padding: $space-8 $space-12;
-  border: $border-width solid $orange-pale;
+  border: $border-width solid $tooltip-border;
   border-radius: $radius-control;
-  background: $plum-deep;
-  color: $white-pure;
+  background: $tooltip-background;
+  color: $tooltip-text;
   box-shadow: 0 8px 22px #30213733;
   font-family: $body;
   font-size: $font-size-note;

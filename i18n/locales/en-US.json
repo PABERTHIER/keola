@@ -21,6 +21,7 @@
     "code": "Error {code}",
     "eyebrow": "A detour at the temple",
     "explore_gallery": "Explore the gallery",
+    "image_alt": "Keola looking through a magnifying glass with her right eye",
     "art_caption": "Keola is on the case, magnifying glass in hand.",
     "not_found": {
       "title": "Page not found - Keola Kumaneko",
@@ -32,6 +33,15 @@
       "heading": "A little setback at the temple.",
       "description": "This page can't be displayed right now. You can head back home or try again a little later."
     }
+  },
+  "nyuh": {
+    "title": "Nyuh! - Keola Kumaneko",
+    "description": "Keola Kumaneko's license to be patpat. Move the card and discover this little secret.",
+    "heading": "Nyuh!",
+    "hint": "Move the card, then give Keola a patpat.",
+    "pat": "Give Keola a patpat",
+    "patted": "Patpat!",
+    "image_alt": "Keola license card to be patpat"
   },
   "social": {
     "live": "Livestreams",
@@ -79,11 +89,16 @@
       "menu": "Open menu",
       "close_menu": "Close menu"
     },
+    "theme_toggle": {
+      "dark": "Switch to dark mode",
+      "light": "Switch to light mode"
+    },
     "language_switcher": {
       "language": "Site language"
     },
     "site_footer": {
-      "footer_intro": "Mic-free streams, an expressive red panda VTuber and her little spirits. Welcome to Temple Kumaneko.",
+      "footer_intro": "Mic-free streams, an expressive red panda VTuber and her little spirits.",
+      "footer_welcome": "Welcome to Temple Kumaneko.",
       "copyright": "Keola Kumaneko. Illustrations remain the property of their respective artists.",
       "elsewhere": "Find Keola"
     },
@@ -98,16 +113,17 @@
       "pause": "Pause slideshow",
       "play": "Play slideshow",
       "alts": {
-        "1": "Keola winks with a fox mask on her head and a gas mask around her neck",
+        "1": "Keola sits in her captain's chair in a pirate outfit",
         "2": "Keola in biker gear lies across a motorcycle",
         "3": "Keola in boxing gear throws a punch",
         "4": "Keola leaps through waves beneath a blue sky, holding orange pom-poms",
         "5": "Keola in a spacesuit reaches toward a little spirit astronaut",
-        "6": "Keola lies beside a little purple spirit eating a slice of watermelon",
-        "7": "Keola in Kumaneko clan armor in an epic scene",
-        "8": "Keola and a friend pose side by side in Japanese outfits",
-        "9": "Keola as Zelda, sword in hand, in the heat of battle",
-        "10": "Keola in a Japanese outfit looks up at the sky as cherry blossom petals fall"
+        "6": "Keola in Kumaneko clan armor in an epic scene",
+        "7": "Keola and a friend pose side by side in Japanese outfits",
+        "8": "Keola as Zelda, sword in hand, in the heat of battle",
+        "9": "Keola in a Japanese outfit looks up at the sky as cherry blossom petals fall",
+        "10": "Keola dressed as a witch sits on her broom with a flame in her hand",
+        "11": "Keola faces a giant red panda in an epic scene"
       },
       "previous": "Previous slide",
       "next": "Next slide",
@@ -301,7 +317,8 @@
     "intro": "A selection of fanart featuring Keola.",
     "image_alt": "Fanart {number}: {description}",
     "open": "Enlarge fanart number {number}",
-    "credit_note": "Artists retain the rights to their work. Individual attributions are being verified.",
+    "credit_note": "Artists retain the rights to their work.",
+    "attribution_note": "Individual attributions are being verified.",
     "image_unavailable": "Image unavailable",
     "image_descriptions": {
       "1": "Keola sits on steps beside the water in a Japanese garden",
@@ -324,7 +341,7 @@
       "18": "Keola waves in a Japanese outfit",
       "19": "Keola sits on a rock, performing a summoning",
       "20": "Keola looks thoughtful against a red and orange background",
-      "21": "Keola relaxes in a natural bath with capybaras",
+      "21": "Keola lying on a bed, her gaze in the foreground",
       "22": "Close-up of Keola sticking out her tongue",
       "23": "Keola winks and hugs an orange egg",
       "24": "Keola sits smiling in a cozy outfit, holding a cup",
@@ -416,7 +433,18 @@
       "110": "Keola in Kumaneko clan armor in an epic scene",
       "111": "Keola at the beach, accompanied by a little purple spirit in a float",
       "112": "Keola winks with a fox mask on her head and a gas mask around her neck",
-      "113": "Keola on a hill, holding a lantern and gazing at the starry sky"
+      "113": "Keola on a hill, holding a lantern and gazing at the starry sky",
+      "114": "Portrait of pirate Keola against a yellow background",
+      "115": "Selfie of Keola in a pirate outfit with Nozomi",
+      "116": "Keola in a Japanese outfit in a Japanese garden as cherry blossom petals fall",
+      "117": "Keola, seen in profile, hugging a friend",
+      "118": "Keola seen from above",
+      "119": "Portrait of Keola making a heart with her fingers",
+      "120": "Keola faces a giant red panda in an epic scene",
+      "121": "Chibi pirate Keola is ready to set off on an adventure",
+      "122": "Portrait of Keola in vivid colors",
+      "123": "Keola hugging Ganony",
+      "124": "Keola in an Onimusha outfit, sword in hand"
     }
   },
   "credits": {
@@ -424,7 +452,7 @@
     "title": "One temple, many talents.",
     "intro": "Models, music, animation, illustration: many talented people bring Keola and Temple Kumaneko to life.",
     "visit": "View {name}'s profile",
-    "magnifying_glass_alt": "Keola looking through a magnifying glass with her right eye",
+    "keola_run_alt": "Animated emote of Keola running",
     "roles": {
       "assistants": "Assistants",
       "model": "Model art and rigging",
