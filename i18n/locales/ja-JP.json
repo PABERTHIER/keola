@@ -12,7 +12,7 @@
     "archives": "アーカイブ",
     "media": "メディアキット",
     "watch": "配信を見る",
-    "contact": "Keolaに連絡",
+    "contact": "私へのお問い合わせ",
     "explore": "もっと見る",
     "back_home": "ホームに戻る",
     "og_alt": "レッサーパンダのVTuber、Keola Kumaneko"
@@ -22,11 +22,11 @@
     "eyebrow": "お寺でちょっと寄り道",
     "explore_gallery": "ギャラリーを見る",
     "image_alt": "右目で虫眼鏡をのぞくKeola",
-    "art_caption": "虫眼鏡を手に、Keolaが調査中。",
+    "art_caption": "虫眼鏡を手に、私が調査中。",
     "not_found": {
       "title": "ページが見つかりません - Keola Kumaneko",
       "heading": "手がかりはここまで。",
-      "description": "虫眼鏡で探しても、このページは見つからないみたい。リンクが変わったのかもしれません。ホームに戻るか、ギャラリーに寄り道してみてね。"
+      "description": "虫眼鏡で探しても、このページは見つけられなかったよ。リンクが変わったのかも。ホームでまた会おうね。ギャラリーへの寄り道もおすすめ！"
     },
     "unexpected": {
       "title": "ちょっとしたトラブル - Keola Kumaneko",
@@ -36,10 +36,10 @@
   },
   "nyuh": {
     "title": "にゅっ！ - Keola Kumaneko",
-    "description": "Keola Kumanekoのなでなでライセンス。カードを動かして、小さな秘密を楽しんでね。",
+    "description": "私のなでなでカード！ 指先で動かして、小さな秘密を見つけてね。",
     "heading": "にゅっ！",
-    "hint": "カードを動かして、Keolaをなでなでしてね。",
-    "pat": "Keolaをなでなでする",
+    "hint": "カードを動かしたら、私をなでなでしてね。",
+    "pat": "私をなでなでする",
     "patted": "なでなで！",
     "image_alt": "Keolaをなでなでするためのライセンスカード"
   },
@@ -55,27 +55,27 @@
   "seo": {
     "keola": {
       "title": "自己紹介と物語 - Keola Kumaneko",
-      "description": "Keola Kumanekoの紹介動画、Temple Kumanekoの物語、配信の始まり、そしてモデルの変化を紹介します。"
+      "description": "私はレッサーパンダVTuberのKeola Kumaneko。私の紹介動画、Temple Kumanekoの物語、配信の始まりやモデルを見てね。"
     },
     "home": {
       "title": "Keola Kumaneko - レッサーパンダVTuber",
-      "description": "フランス語で活動するレッサーパンダVTuber、Keola Kumaneko。マイクを使わない配信、ソロやコミュニティでのゲーム、小さな精霊たち、保護活動を紹介します。"
+      "description": "私はKeola Kumaneko。フランス語で活動するレッサーパンダVTuberで、声を出すことができません。ゲームや動画、小さな精霊たち、レッサーパンダの保護活動を紹介します。"
     },
     "gallery": {
       "title": "ファンアートギャラリー - Keola Kumaneko",
-      "description": "レッサーパンダVTuber、Keola Kumanekoのファンアートとコミュニティの作品を紹介します。"
+      "description": "私の世界から生まれたファンアートを見てね。レッサーパンダVTuberを描いてくれたアーティストたちの作品です。"
     },
     "credits": {
       "title": "クレジット - Keola Kumaneko",
-      "description": "Keola Kumanekoの世界をつくったアーティストやクリエイターを紹介します。"
+      "description": "私の世界とTemple Kumanekoに命を吹き込むアーティストやクリエイターを紹介します。"
     },
     "archives": {
       "title": "アーカイブ - Keola Kumaneko",
-      "description": "Red Pandathonや2023年・2024年のリデビューなど、Keola Kumanekoの過去のイベントを振り返ります。"
+      "description": "Red Pandathonや2023年・2024年のリデビューなど、私のこれまでのイベントを振り返ります。"
     },
     "media": {
       "title": "メディアキット - Keola Kumaneko",
-      "description": "レッサーパンダVTuber、Keola Kumanekoのメディア資料、公式リンク、お問い合わせ先。"
+      "description": "私はKeola Kumaneko。フランス語で活動するレッサーパンダVTuberで、声を出すことができません。メディア資料、公式リンク、お仕事の連絡先はこちら。"
     }
   },
   "components": {
@@ -97,19 +97,19 @@
       "language": "サイトの言語"
     },
     "site_footer": {
-      "footer_intro": "マイクなしでも表情豊かなレッサーパンダVTuberと、小さな精霊たち。",
+      "footer_intro": "私はレッサーパンダVTuberのKeola。声を出すことはできません。小さな精霊たちと一緒に遊んで、おしゃべりしよう！",
       "footer_welcome": "Temple Kumanekoへようこそ。",
       "copyright": "Keola Kumaneko。作品の権利は各アーティストに帰属します。",
-      "elsewhere": "ほかの場所でもKeolaに会おう"
+      "elsewhere": "ほかの場所でも私に会おう"
     },
     "home_hero": {
       "eyebrow": "レッサーパンダVTuber · Temple Kumaneko",
       "name": "Keola",
       "surname": "Kumaneko",
-      "text": "マイクなしでも、遊び心はいっぱい。私の小さな精霊たちと、ゲームもリアクションも楽しい時間も一緒に。",
-      "welcome": "さあ、入って。あなたを待っていたよ。",
-      "discover": "Keolaの世界へ",
-      "slideshow": "Keolaのイラスト",
+      "text": "私はKeola。表情豊かなレッサーパンダVTuberで、声を出すことができません。配信で一緒にゲームをしたり、動画を見たり、おしゃべりしよう 🧡",
+      "welcome": "さあ、入って。待っていたよ！",
+      "discover": "私の世界を見てみる",
+      "slideshow": "私のイラスト",
       "pause": "スライドショーを一時停止",
       "play": "スライドショーを再生",
       "alts": {
@@ -131,26 +131,26 @@
     },
     "home_gallery": {
       "eyebrow": "コミュニティの作品",
-      "title": "アーティストたちが描くKeola。",
-      "text": "色もスタイルもさまざま。Keolaのサイトで公開されたファンアートから、いくつかを紹介します。",
+      "title": "みんなのファンアートがつくる世界。",
+      "text": "みんなが想像する私を見るのが大好き！ ギャラリーから、いくつかの作品を紹介するね。",
       "link": "ギャラリーを見る"
     },
     "home_mission": {
       "eyebrow": "大切な活動",
       "title": "レッサーパンダを、現実の世界でも守る。",
-      "text": "KeolaはRed Panda Networkを支援するRed Pandathonを主催し、ほかのチャリティーイベントにも参加しています。現実の世界で、この団体は地域の人々と共に野生のレッサーパンダと生息地を守っています。",
+      "text": "レッサーパンダの保護は、私にとって大切なこと。Red Panda Networkを支援するRed Pandathonを主催し、ほかのチャリティーイベントにも参加しています。この団体は地域の人々と共に、野生のレッサーパンダとその生息地を守っています。",
       "link": "Red Panda Networkを見る"
     },
     "home_community": {
       "eyebrow": "私の小さな精霊たち",
       "title": "おしゃべりは、ほかでも続く。",
-      "text": "一緒にゲームをしたり、Discordで話したり。小さな精霊たちがTemple Kumanekoをにぎやかにしています。Keolaの配信、動画、お知らせはこちら。",
+      "text": "一緒にゲームをして、Discordでおしゃべり。私の小さな精霊たちと一緒に、配信や動画、お知らせをチェックしてね！",
       "art_alt": "ROM中のKeola Kumaneko"
     },
     "keola_emote_surprise": {
-      "action": "Keolaのエモートを降らせる",
+      "action": "私のエモートを降らせる",
       "tooltip": "NYUH！",
-      "hint": "ねえ、最後に小さな秘密があるよ？",
+      "hint": "ねえ...最後にもうひとつ、小さな秘密を見てみる？",
       "result": "NYUH！キャンディーとハートをどうぞ！",
       "nyuh_alt": "「NYUH！」と叫ぶKeola",
       "candy_alt": "Keolaのキャンディーエモート",
@@ -161,32 +161,32 @@
       "close": "画像を閉じる",
       "previous": "前の画像",
       "next": "次の画像",
-      "loading": "画像を読み込み中…",
+      "loading": "画像を読み込み中...",
       "unavailable": "画像を読み込めませんでした。"
     }
   },
   "home": {
     "schedule_eyebrow": "次の待ち合わせ",
     "schedule_title": "配信で会おう！",
-    "schedule_text": "最新の配信予定はTwitchで確認できます。次の配信をチェックして遊びに来てね。",
-    "schedule_link": "Twitchの配信予定を見る",
-    "schedule_watch": "チャンネルを開く",
+    "schedule_text": "配信予定はTwitchで更新しているよ。次の予定をチェックして、配信が始まったら遊びに来てね。",
+    "schedule_link": "Twitchで私の配信予定を見る",
+    "schedule_watch": "私のチャンネルを開く",
     "about_eyebrow": "Keolaについて",
     "about_title": "やさしさと、ちょっぴりいたずら心。",
     "about_alt": "Keola Kumanekoのイラスト",
-    "about_text": "Keola Kumanekoは、マイクを使わず、表情やアニメーション、リアクションで伝えるフランス語の配信をしています。ソロの冒険、みんなで遊ぶゲーム、穏やかな時間を、彼女が「私の小さな精霊たち」と呼ぶ仲間と分かち合っています。",
+    "about_text": "私はKeola Kumaneko。フランス語で活動するレッサーパンダVTuberで、声を出すことができません。テキストや表情、アニメーションで気持ちを伝えながら、一緒にゲームをしたり、動画を見たり、おしゃべりしているよ 🧡",
     "about_quote": "私の小さな精霊たち、寺院でくつろいでね。",
-    "about_discover": "Keolaについて知る",
+    "about_discover": "私のことを知る",
     "discord_link": "Discordに参加",
     "partners_eyebrow": "出会いとコラボレーション",
     "partners_title": "大切なつながり。",
-    "safebear_text": "Keolaは2025年にSafeBearのアンバサダーに加わりました。ネット上のハラスメントの証拠を集めるためのツールです。",
-    "holy_text": "Keolaがコラボレーションしたことのあるドリンクブランド。",
+    "safebear_text": "私は2025年にSafeBearのアンバサダーに加わりました。ネット上のハラスメントの証拠を集めるのに役立つツールです。",
+    "holy_text": "飲料ブランドのHOLYともコラボレーションしました。",
     "partner_link": "サイトを見る",
     "community_eyebrow": "私の小さな精霊たち",
     "closing_art_alt": "耳を立てて、縁から顔をのぞかせるKeola",
     "end_title": "また会おうね！",
-    "end_text": "ゲームも、おしゃべりも、一緒に過ごす時間も。Temple Kumanekoには、あなたの居場所があります。",
+    "end_text": "ゲームでも、おしゃべりでも、ただ一緒に過ごすだけでも。Temple Kumanekoには、いつでもあなたの居場所があるよ。",
     "end_link": "🍎Keola Sanctuary🍏"
   },
   "keola": {
@@ -194,37 +194,37 @@
     "eyebrow": "フランス語で活動するVTuber · レッサーパンダ",
     "title": "Keola Kumaneko",
     "welcome": "ようこそ、私の小さな精霊たち。",
-    "intro": "Keolaはフランス語で活動するレッサーパンダのVTuber。マイクを使わない配信で、ゲームや豊かな表情を通じて「私の小さな精霊たち」と呼ぶ仲間と交流しています。",
+    "intro": "私はKeola。フランス語で活動するレッサーパンダVTuberで、声を出すことができません。私のチャンネルでは、みんなとゲームをしたり、動画を見たり、おしゃべりしているよ。小さな精霊たち、遊びに来てね 🧡",
     "portrait_alt": "レッサーパンダの耳を持つKeola Kumanekoのポートレート",
-    "portrait_caption": "やさしい雰囲気に、遊び心を添えて。",
+    "portrait_caption": "一緒に遊んで、おしゃべりしようね 🧡",
     "contents": "このページの内容",
     "profile": {
       "eyebrow": "配信について",
-      "title": "マイクなしでも、個性はいっぱい。",
+      "title": "私のチャンネルで遊んで、おしゃべりしよう！",
       "games_title": "ゲームと仲間との時間",
-      "games_text": "ソロの冒険から小さな精霊たちと遊ぶゲームまで、Keolaはいろいろな楽しみ方が好き。ゲームの前後には、おしゃべりや料理、工作の動画を共有することもあります。",
-      "expression_title": "Keolaならではの伝え方",
-      "expression_text": "テキスト、表情、インタラクティブなツールで会話が生まれます。穏やかで落ち着いた雰囲気から、お茶目でいたずら好きな一面が顔を出すことも。",
+      "games_text": "私のチャンネルに来て、最高のゲームで遊んだり、料理や工作の動画を見たり、一緒におしゃべりしよう 🧡",
+      "expression_title": "私のおしゃべりのしかた",
+      "expression_text": "私は声を出すことができません。配信ではテキストやモデルの表情、インタラクティブなツールを使ってみんなと交流しています。のんびりした時間から、ちょっといたずらっぽい時間になることも！",
       "cause_title": "現実の世界でも守りたい",
-      "cause_text": "レッサーパンダはキャラクターのモチーフだけではありません。Red Pandathonやチャリティー活動を通じて、Keolaはコミュニティと一緒に保護を応援しています。"
+      "cause_text": "レッサーパンダは私にとって本当に大切な存在。Red Pandathonやほかのチャリティーイベントを通じて、コミュニティのみんなと一緒に保護活動を応援しています。"
     },
     "nav": {
-      "video": "紹介動画",
-      "lore": "物語",
-      "beginnings": "配信の始まり",
-      "models": "モデル",
-      "more": "もっとKeolaを知る"
+      "video": "私の紹介動画",
+      "lore": "私の物語",
+      "beginnings": "私の配信の始まり",
+      "models": "私のモデル",
+      "more": "もっと知る"
     },
     "video": {
-      "eyebrow": "Keolaとの出会い",
+      "eyebrow": "私のことを知ってね",
       "title": "すべては出会いから始まる。",
       "youtube": "YouTubeで見る",
       "frame_title": "Keola Kumanekoの紹介動画"
     },
     "lore": {
-      "eyebrow": "Keolaのロア",
+      "eyebrow": "私の物語",
       "title": "Temple Kumaneko",
-      "intro": "Keola自身が書いた、Temple Kumanekoの物語。",
+      "intro": "私が書いたTemple Kumanekoの物語を、一緒に見てみよう。",
       "spirits_alt": "レッサーパンダの姿をした、Temple Kumanekoの小さな青い精霊たち",
       "guardian_alt": "狐のお面を髪に飾り、横から身を乗り出すKeola",
       "pirate_heart_eyes_alt": "海賊姿で目をハートにし、紫の小さな精霊を腕に抱くKeola",
@@ -237,7 +237,7 @@
         "p3": "年を重ねるにつれて彼らの種がますます希少になるなか、一部の団体や有力な家族は、この小さな存在の保護と存続のため、聖域となる寺院をつくって行動することを決めました！",
         "p4": "しかし、もともとあれほど欲深く、うぬぼれていた人間たちが、このような目的のために働くようになったのは、一体何がきっかけだったのでしょうか？",
         "p5": "すべては25年前にさかのぼります。世界で最も年老いたレッサーパンダが、清めと、より良い世界への旅立ちを助ける儀式の最中に最期の息を迎えようとしていたとき、いつもとは違うことが起こりました！",
-        "p6": "儀式の最中に青い炎が現れ、まず小さな鬼火の姿を取りました。その後、輪郭が少しずつ変わり、レッサーパンダたちの姿になっていきました。まるで亡くなった者たちの精霊が、自分たちの最も年老いた代表の最期に付き添いに来たかのようでした……"
+        "p6": "儀式の最中に青い炎が現れ、まず小さな鬼火の姿を取りました。その後、輪郭が少しずつ変わり、レッサーパンダたちの姿になっていきました。まるで亡くなった者たちの精霊が、自分たちの最も年老いた代表の最期に付き添いに来たかのようでした…"
       },
       "inheritance": {
         "title": "思いがけない継承",
@@ -265,23 +265,23 @@
       "back_to_contents": "目次に戻る"
     },
     "debut": {
-      "eyebrow": "最初の待ち合わせ",
-      "title": "Twitchでの第一歩。",
-      "text": "Keolaは2022年9月に配信を始めました。新しいモデルやリデビューより前の、小さな精霊たちとの最初の出会い。このポスターは、その思い出です。",
+      "eyebrow": "小さな精霊たちとの最初の待ち合わせ",
+      "title": "Twitchでの私の第一歩。",
+      "text": "私は2022年9月に配信を始めました。新しいモデルやリデビューより前、小さな精霊たちと初めて会った日のポスターを紹介するね。",
       "alt": "2022年のKeolaの初配信プログラムを紹介するポスター",
-      "caption": "Keolaのデビューポスター · 2022年",
+      "caption": "私のデビューポスター · 2022年",
       "teaser_alt": "竹林を背景に、オレンジ色のKeolaのシルエットを描いたデビュー告知画像",
-      "teaser_caption": "初配信を前に、ちょっとだけドキドキ…",
+      "teaser_caption": "初配信を前に、ちょっとだけドキドキ...",
       "archives": "ほかの思い出を見る"
     },
     "models": {
-      "eyebrow": "モデルの移り変わり",
+      "eyebrow": "私のモデルの移り変わり",
       "title": "姿が変わっても、同じ心。",
-      "text": "キャラクターと細かなデザインは少しずつ変わってきました。Keolaのさまざまな姿を紹介します。",
-      "evolution": "Keolaの姿の移り変わり",
+      "text": "私のモデルは少しずつ変わってきました。細かなデザインを見返すのも楽しい！ これまでの姿をいくつか紹介するね。",
+      "evolution": "時とともに変わる私の姿",
       "evolution_alt": "中央のKeolaを囲むように、これまでのさまざまな姿を描いたイラスト",
       "references_title": "細部をもっと見る",
-      "references_intro": "設定資料を見て、衣装やキャラクターの細部を探してみよう。",
+      "references_intro": "私の設定資料を見て、衣装やその細かなデザインを探してみてね。",
       "open": "画像を見る",
       "open_image": "画像を見る：{name}",
       "sheet2025": "2025年の設定資料",
@@ -301,12 +301,12 @@
       "credits_art_alt": "虫眼鏡を持つKeolaと地図、「CREDITS」の文字",
       "facts_art_alt": "雪景色の中、紫色の小さな精霊の上に座るKeola",
       "eyebrow": "小さなことも大切に",
-      "title": "もっとKeolaを知る。",
-      "credits_title": "Keolaを支えるクリエイター",
-      "credits_text": "イラスト、モデル、音楽、アニメーション。この世界に命を吹き込む人々を紹介します。",
+      "title": "もう少し見ていく？",
+      "credits_title": "私を支えてくれるクリエイターたち",
+      "credits_text": "イラスト、モデル、音楽、アニメーション。私の世界に命を吹き込む人たちを紹介するね。",
       "credits_link": "すべてのクレジットを見る",
-      "facts_title": "小さな精霊たちの伝説",
-      "facts_text": "真面目すぎない「facts」、空想の大活躍、そしてたっぷりのユーモア。小さな精霊たちが語る、もうひとつのKeolaの伝説です。",
+      "facts_title": "私の小さな精霊たちの伝説",
+      "facts_text": "ちょっとふざけた「facts」に、空想の大活躍とたっぷりのユーモア。私の小さな精霊たちには、独自の伝説があるんだ。",
       "facts_link": "Keola factsを見る",
       "community": "物語は、私の小さな精霊たちと一緒に続いていきます。"
     }
@@ -314,7 +314,7 @@
   "gallery": {
     "eyebrow": "ギャラリー · 小さな精霊たち",
     "title": "みんなでつくる世界。",
-    "intro": "Keolaをめぐって共有されたファンアートの一部を紹介します。",
+    "intro": "私の世界から生まれたファンアートを見てね。素敵な作品をつくってくれたアーティストのみなさん、ありがとう 🧡",
     "image_alt": "ファンアート{number}：{description}",
     "open": "ファンアート {number} を拡大",
     "credit_note": "作品の権利は各アーティストに帰属します。",
@@ -448,9 +448,9 @@
     }
   },
   "credits": {
-    "eyebrow": "世界をつくる人たち",
+    "eyebrow": "私の世界をつくる人たち",
     "title": "ひとつの寺院と、たくさんの才能。",
-    "intro": "モデル、音楽、アニメーション、イラスト。多くの才能がKeolaとTemple Kumanekoに命を吹き込んでいます。",
+    "intro": "私のモデルや音楽、アニメーション、イラストは、ここにいるアーティストやクリエイターのおかげです。Temple Kumanekoに命を吹き込んでくれたみなさん、ありがとう！",
     "visit": "{name} のプロフィールを見る",
     "keola_run_alt": "走るKeolaのアニメーションエモート",
     "roles": {
@@ -475,31 +475,31 @@
   "archives": {
     "eyebrow": "寺院の思い出",
     "title": "これまでの物語。",
-    "intro": "過去のイベントや作品を紹介します。次の配信予定はTwitchで確認できます。",
+    "intro": "一緒に過ごした時間を振り返ってみない？ ここでは、ここ数年のイベントや作品を紹介します。これからの予定は私のTwitchの配信予定を見てね。",
     "redpandathon": "Red Pandathon · 2024",
     "redpandathon_eyebrow": "2024 / Red Panda Network",
-    "redpandathon_text": "2024年7月18日から21日まで開催された、Red Panda Networkを支援するチャリティーイベント。",
+    "redpandathon_text": "2024年7月18日から21日まで、Red Panda Networkを支援するRed Pandathonを開催しました。",
     "redpandathon_goals_alt": "2024年Red Pandathonの10〜2,000ユーロの目標一覧。達成した項目は赤線で消されている",
     "redpandathon_impossible_alt": "2024年Red Pandathonの2,000〜5,000ユーロの追加目標。4項目に取り消し線があり、2項目にはない",
     "redebut_2024": "リデビュー · 2024",
     "redebut_2023": "リデビュー · 2023",
-    "redebut_text": "Keolaの新しい章を彩ったイラストを紹介します。",
+    "redebut_text": "私の世界の新しい章を彩ったイラストを、いくつか紹介します。",
     "redebut_left_alt": "Keolaの{year}年リデビュー記念ビジュアルの左ページ",
     "redebut_right_alt": "Keolaの{year}年リデビュー記念ビジュアルの右ページ",
     "enlarge_image": "画像を拡大",
-    "schedule_link": "最新の配信予定を見る"
+    "schedule_link": "私の最新の配信予定を見る"
   },
   "media": {
     "eyebrow": "メディア・コラボレーション向け",
     "title": "必要な情報を、ひとつの場所に。",
-    "intro": "Keolaはフランス語で活動するレッサーパンダのVTuber。マイクを使わない配信やチャリティーイベントへの参加を続けています。既存のメディア資料、公式リンク、お仕事の連絡先はこちら。",
+    "intro": "私はKeola Kumaneko。フランス語で活動するレッサーパンダVTuberで、声を出すことができません。コミュニティのみんなとゲームや動画、楽しい時間を共有し、チャリティーイベントにも参加しています。メディア資料、公式リンク、お仕事の連絡先はこちら。",
     "preview_alt": "Keolaの紹介、当時の統計、コラボレーション、ゲーム、連絡先を載せたイラスト入りメディア資料",
     "pirate_blush_alt": "海賊姿で頬を赤らめ、小さな紫色の精霊を抱くKeola",
     "pirate_blep_alt": "海賊姿で舌を少し出すKeola",
-    "download": "メディア資料をダウンロード (WebP)",
+    "download": "私のメディア資料をダウンロード (WebP)",
     "contact_title": "お問い合わせ",
-    "contact_text": "お仕事のご相談やお問い合わせは、Keolaへ直接メールでご連絡ください。",
-    "email": "メールを送る",
-    "links_title": "公式リンク"
+    "contact_text": "お仕事のご相談やご質問は、私に直接メールをお送りください。",
+    "email": "私にメールする",
+    "links_title": "私の公式リンク"
   }
 }
