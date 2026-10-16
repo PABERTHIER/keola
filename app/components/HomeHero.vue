@@ -431,7 +431,7 @@ onBeforeUnmount(() => {
   }
 
   &__lead {
-    max-width: 500px;
+    max-width: 600px;
     margin-bottom: 31px;
     color: $hero-text;
     font-size: 1.13rem;
