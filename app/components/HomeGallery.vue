@@ -9,7 +9,10 @@
           <h2 id="gallery-title" class="section-title">
             {{ t('components.home_gallery.title') }}
           </h2>
-          <p class="section-lead">{{ t('components.home_gallery.text') }}</p>
+          <div class="section-lead">
+            <p>{{ t('components.home_gallery.text_1') }}</p>
+            <p>{{ t('components.home_gallery.text_2') }}</p>
+          </div>
         </div>
         <NuxtLink class="button button--outline" :to="localePath('/gallery')">
           {{ t('components.home_gallery.link') }}

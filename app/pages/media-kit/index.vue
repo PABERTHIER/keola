@@ -3,7 +3,7 @@
     <PageIntro
       :eyebrow="t('media.eyebrow')"
       :title="t('media.title')"
-      :intro="t('media.intro')" />
+      :intro="[t('media.intro_1'), t('media.intro_2'), t('media.intro_3')]" />
     <div class="media-page shell">
       <div class="media-page__sheet">
         <Image src="/images/misc/Mediakit.webp" :alt="t('media.preview_alt')" />

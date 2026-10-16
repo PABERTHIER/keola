@@ -11,7 +11,11 @@
         <h2 id="mission-title" class="section-title">
           {{ t('components.home_mission.title') }}
         </h2>
-        <p class="section-lead">{{ t('components.home_mission.text') }}</p>
+        <div class="section-lead">
+          <p>{{ t('components.home_mission.text_1') }}</p>
+          <p>{{ t('components.home_mission.text_2') }}</p>
+          <p>{{ t('components.home_mission.text_3') }}</p>
+        </div>
         <a
           class="button button--primary"
           :href="externalLinks.redPandaNetwork"

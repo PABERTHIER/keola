@@ -3,7 +3,11 @@
     <PageIntro
       :eyebrow="t('archives.eyebrow')"
       :title="t('archives.title')"
-      :intro="t('archives.intro')"
+      :intro="[
+        t('archives.intro_1'),
+        t('archives.intro_2'),
+        t('archives.intro_3'),
+      ]"
       tone="spirit" />
     <div class="archives-page shell">
       <article class="archive-feature" aria-labelledby="redpandathon-title">

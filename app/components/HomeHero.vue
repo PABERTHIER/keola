@@ -13,12 +13,13 @@
           <span class="hero__name">{{ t('components.home_hero.name') }}</span>
           <span>{{ t('components.home_hero.surname') }}</span>
         </h1>
-        <p class="hero__lead">
-          {{ t('components.home_hero.text') }}
-          <span class="hero__welcome">
+        <div class="hero__lead">
+          <p>{{ t('components.home_hero.text_1') }}</p>
+          <p>{{ t('components.home_hero.text_2') }}</p>
+          <p class="hero__welcome">
             {{ t('components.home_hero.welcome') }}
-          </span>
-        </p>
+          </p>
+        </div>
         <div class="hero__actions">
           <a
             class="button button--primary"
@@ -437,9 +438,16 @@ onBeforeUnmount(() => {
     line-height: $line-height-copy;
   }
 
+  &__lead p {
+    margin: 0;
+  }
+
+  &__lead .hero__welcome {
+    margin-top: $space-8;
+  }
+
   &__welcome {
     display: block;
-    margin-top: $space-8;
     font-family: $display;
     font-weight: $weight-bold;
     color: $white-pure;

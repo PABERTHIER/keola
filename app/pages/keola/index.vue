@@ -14,7 +14,10 @@
               :alt="t('keola.welcome_spirit_alt')"
               class="portrait-section__spirit" />
           </p>
-          <p class="section-lead">{{ t('keola.intro') }}</p>
+          <div class="section-lead">
+            <p>{{ t('keola.intro_1') }}</p>
+            <p>{{ t('keola.intro_2') }}</p>
+          </div>
           <a
             class="button button--primary"
             :href="externalLinks.twitch"
@@ -192,7 +195,10 @@
           <h2 id="debut-title" class="section-title">
             {{ t('keola.debut.title') }}
           </h2>
-          <p class="section-lead">{{ t('keola.debut.text') }}</p>
+          <div class="section-lead">
+            <p>{{ t('keola.debut.text_1') }}</p>
+            <p>{{ t('keola.debut.text_2') }}</p>
+          </div>
           <figure class="debut-section__teaser">
             <Image
               src="/images/debut/Keola_Debut.webp"
@@ -226,7 +232,10 @@
         <h2 id="models-title" class="section-title">
           {{ t('keola.models.title') }}
         </h2>
-        <p class="section-lead">{{ t('keola.models.text') }}</p>
+        <div class="section-lead">
+          <p>{{ t('keola.models.text_1') }}</p>
+          <p>{{ t('keola.models.text_2') }}</p>
+        </div>
         <figure class="models-section__evolution">
           <Image :src="evolutionImage" :alt="t('keola.models.evolution_alt')" />
           <figcaption>{{ t('keola.models.evolution') }}</figcaption>
@@ -1154,6 +1163,12 @@ useHead(usePageSeo('keola'))
   .more-section > .shell > .section-title {
     text-align: center;
     margin-inline: auto;
+  }
+
+  .debut-section .section-lead,
+  .models-section > .shell > .section-lead {
+    margin-inline: auto;
+    text-align: center;
   }
 
   .more-section__community {
