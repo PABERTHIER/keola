@@ -106,7 +106,8 @@
       "eyebrow": "Red panda VTuber · Temple Kumaneko",
       "name": "Keola",
       "surname": "Kumaneko",
-      "text": "I'm Keola, an expressive red panda VTuber, and I'm mute. Join me live to play games, watch videos and chat together 🧡",
+      "text_1": "I'm Keola, an expressive red panda VTuber, and I'm mute.",
+      "text_2": "Join me live to play games, watch videos and chat together 🧡",
       "welcome": "Come on in, I've been waiting for you!",
       "discover": "Discover my world",
       "slideshow": "My illustrations",
@@ -132,19 +133,23 @@
     "home_gallery": {
       "eyebrow": "Community creations",
       "title": "Your fanart, a whole world.",
-      "text": "I love seeing all the ways you imagine me! Here are a few creations you can explore in the gallery.",
+      "text_1": "I love seeing all the ways you imagine me!",
+      "text_2": "Here are a few creations you can explore in the gallery.",
       "link": "Explore the gallery"
     },
     "home_mission": {
       "eyebrow": "A cause that matters",
       "title": "Protecting red pandas, for real.",
-      "text": "Protecting red pandas means a lot to me. I organize the Red Pandathon to support Red Panda Network and take part in other charity events too. The organization protects wild red pandas and their habitat alongside local communities.",
+      "text_1": "Protecting red pandas means a lot to me.",
+      "text_2": "I organize the Red Pandathon to support Red Panda Network and take part in other charity events too.",
+      "text_3": "The organization protects wild red pandas and their habitat alongside local communities.",
       "link": "Discover Red Panda Network"
     },
     "home_community": {
       "eyebrow": "My little spirits",
       "title": "The conversation goes on elsewhere.",
-      "text": "We play together and chat on Discord. Join my little spirits to follow the streams, videos and announcements!",
+      "text_1": "We play together and chat on Discord.",
+      "text_2": "Join my little spirits to follow the streams, videos and announcements!",
       "art_alt": "Keola Kumaneko in lurk mode"
     },
     "keola_emote_surprise": {
@@ -168,13 +173,16 @@
   "home": {
     "schedule_eyebrow": "The next get-together",
     "schedule_title": "See you live?",
-    "schedule_text": "I keep my schedule up to date on Twitch. Check the next stream, or drop in when I go live.",
+    "schedule_text_1": "I keep my schedule up to date on Twitch.",
+    "schedule_text_2": "Check the next stream, or drop in when I go live.",
     "schedule_link": "See my Twitch schedule",
     "schedule_watch": "Open my channel",
     "about_eyebrow": "Get to know her",
     "about_title": "A little gentleness, a touch of mischief.",
     "about_alt": "Illustration of Keola Kumaneko",
-    "about_text": "I'm Keola Kumaneko, a French-speaking red panda VTuber, and I'm mute. I express myself through text, expressions and animations. We play games, watch videos and chat together 🧡",
+    "about_text_1": "I'm Keola Kumaneko, a French-speaking red panda VTuber, and I'm mute.",
+    "about_text_2": "I express myself through text, expressions and animations.",
+    "about_text_3": "We play games, watch videos and chat together 🧡",
     "about_quote": "My little spirits, make yourselves at home in the temple.",
     "about_discover": "Get to know me",
     "discord_link": "Join the Discord",
@@ -194,7 +202,8 @@
     "eyebrow": "French-speaking VTuber · Red panda",
     "title": "Keola Kumaneko",
     "welcome": "Welcome, my little spirits.",
-    "intro": "I'm Keola, a French-speaking red panda VTuber, and I'm mute. On my channel, I play games, watch videos and chat with you, my little spirits 🧡",
+    "intro_1": "I'm Keola, a French-speaking red panda VTuber, and I'm mute.",
+    "intro_2": "On my channel, I play games, watch videos and chat with you, my little spirits 🧡",
     "portrait_alt": "Portrait of Keola Kumaneko with her red panda ears",
     "portrait_caption": "I'll be here to play and chat with you 🧡",
     "contents": "In this introduction",
@@ -267,7 +276,8 @@
     "debut": {
       "eyebrow": "My first get-together",
       "title": "My first steps on Twitch.",
-      "text": "I started streaming in September 2022. Here's the poster from my very first get-together with my little spirits, before the new models and redebuts.",
+      "text_1": "I started streaming in September 2022.",
+      "text_2": "Here's the poster from my very first get-together with my little spirits, before the new models and redebuts.",
       "alt": "Schedule poster for Keola's first stream in 2022",
       "caption": "My debut poster · 2022",
       "teaser_alt": "Keola's orange silhouette against a bamboo forest in her debut announcement",
@@ -277,7 +287,8 @@
     "models": {
       "eyebrow": "Through my models",
       "title": "New silhouettes, the same spirit.",
-      "text": "My model has changed over time, and I love rediscovering every little detail. Here are a few of my different looks.",
+      "text_1": "My model has changed over time, and I love rediscovering every little detail.",
+      "text_2": "Here are a few of my different looks.",
       "evolution": "My looks through the years",
       "evolution_alt": "Illustrated montage of Keola's different looks surrounding her central figure",
       "references_title": "A closer look at the details",
@@ -314,7 +325,8 @@
   "gallery": {
     "eyebrow": "Gallery · The little spirits",
     "title": "A world made together.",
-    "intro": "Discover fanart inspired by my world. Thank you to the artists for all these lovely creations 🧡",
+    "intro_1": "Discover fanart inspired by my world.",
+    "intro_2": "Thank you to the artists for all these lovely creations 🧡",
     "image_alt": "Fanart {number}: {description}",
     "open": "Enlarge fanart number {number}",
     "credit_note": "Artists retain the rights to their work.",
@@ -450,7 +462,8 @@
   "credits": {
     "eyebrow": "The talent behind my world",
     "title": "One temple, many talents.",
-    "intro": "My models, music, animations and illustrations exist thanks to these artists and creators. Thank you to everyone who brings Temple Kumaneko to life!",
+    "intro_1": "My models, music, animations and illustrations exist thanks to these artists and creators.",
+    "intro_2": "Thank you to everyone who brings Temple Kumaneko to life!",
     "visit": "View {name}'s profile",
     "keola_run_alt": "Animated emote of Keola running",
     "roles": {
@@ -475,7 +488,9 @@
   "archives": {
     "eyebrow": "Temple memories",
     "title": "The chapters before this one.",
-    "intro": "Want to revisit some moments we shared? Explore the events and creations from the past few years. For what's next, check my Twitch schedule.",
+    "intro_1": "Want to revisit some moments we shared?",
+    "intro_2": "Explore the events and creations from the past few years.",
+    "intro_3": "For what's next, check my Twitch schedule.",
     "redpandathon": "Red Pandathon · 2024",
     "redpandathon_eyebrow": "2024 / Red Panda Network",
     "redpandathon_text": "From July 18 to 21, 2024, I organized the Red Pandathon to support Red Panda Network.",
@@ -492,7 +507,9 @@
   "media": {
     "eyebrow": "For press and collaborations",
     "title": "The essentials, all in one place.",
-    "intro": "I'm Keola Kumaneko, a French-speaking red panda VTuber, and I'm mute. I share games, videos and moments with my community, and I take part in charity events. Find my media sheet, official links and professional contact details here.",
+    "intro_1": "I'm Keola Kumaneko, a French-speaking red panda VTuber, and I'm mute.",
+    "intro_2": "I share games, videos and moments with my community, and I take part in charity events.",
+    "intro_3": "Find my media sheet, official links and professional contact details here.",
     "preview_alt": "Illustrated media sheet for Keola with her introduction, dated statistics, collaborations, games and contact address",
     "pirate_blush_alt": "Keola in a pirate outfit, blushing, while holding a little purple spirit",
     "pirate_blep_alt": "Keola in a pirate outfit, sticking out her tongue slightly",

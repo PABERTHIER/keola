@@ -165,10 +165,14 @@
 }
 
 .section-lead {
-  max-width: 610px;
+  max-width: min(100%, $lead-max-width);
   color: $muted;
   font-size: 1.03rem;
-  line-height: 1.8;
+  line-height: $line-height-body;
+}
+
+.section-lead > p {
+  margin: 0;
 }
 
 .section-heading {

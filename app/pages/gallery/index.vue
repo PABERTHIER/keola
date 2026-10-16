@@ -3,7 +3,7 @@
     <PageIntro
       :eyebrow="t('gallery.eyebrow')"
       :title="t('gallery.title')"
-      :intro="t('gallery.intro')" />
+      :intro="[t('gallery.intro_1'), t('gallery.intro_2')]" />
     <section class="gallery-page shell" aria-labelledby="gallery-heading">
       <h2 id="gallery-heading" class="sr-only">{{ t('site.gallery') }}</h2>
       <div ref="galleryWall" class="gallery-wall">

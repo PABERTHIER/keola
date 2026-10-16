@@ -106,7 +106,8 @@
       "eyebrow": "VTuber panda roux · Temple Kumaneko",
       "name": "Keola",
       "surname": "Kumaneko",
-      "text": "Je suis Keola, VTuber panda roux très expressive et muette. Retrouve-moi en live pour jouer, regarder des vidéos et papoter ensemble 🧡",
+      "text_1": "Je suis Keola, VTuber panda roux très expressive et muette.",
+      "text_2": "Retrouve-moi en live pour jouer, regarder des vidéos et papoter ensemble 🧡",
       "welcome": "Entre, je t'attendais !",
       "discover": "Découvrir mon univers",
       "slideshow": "Mes illustrations",
@@ -132,19 +133,23 @@
     "home_gallery": {
       "eyebrow": "Créations de la communauté",
       "title": "Vos fanarts, tout un univers.",
-      "text": "J'adore découvrir les façons dont vous m'imaginez ! Voici quelques créations à retrouver dans la galerie.",
+      "text_1": "J'adore découvrir les façons dont vous m'imaginez !",
+      "text_2": "Voici quelques créations à retrouver dans la galerie.",
       "link": "Explorer la galerie"
     },
     "home_mission": {
       "eyebrow": "Une cause qui compte",
       "title": "Protéger les pandas roux, pour de vrai.",
-      "text": "La protection des pandas roux me tient à cœur. J'organise le Red Pandathon pour soutenir Red Panda Network et je participe aussi à d'autres événements caritatifs. L'association protège les pandas roux sauvages et leur habitat avec les communautés locales.",
+      "text_1": "La protection des pandas roux me tient à cœur.",
+      "text_2": "J'organise le Red Pandathon pour soutenir Red Panda Network et je participe aussi à d'autres événements caritatifs.",
+      "text_3": "L'association protège les pandas roux sauvages et leur habitat avec les communautés locales.",
       "link": "Découvrir Red Panda Network"
     },
     "home_community": {
       "eyebrow": "Mes petits esprits",
       "title": "La conversation continue ailleurs.",
-      "text": "On joue ensemble, on papote sur Discord. Rejoins mes petits esprits pour suivre les lives, les vidéos et les annonces !",
+      "text_1": "On joue ensemble, on papote sur Discord.",
+      "text_2": "Rejoins mes petits esprits pour suivre les lives, les vidéos et les annonces !",
       "art_alt": "Keola Kumaneko en mode lurk"
     },
     "keola_emote_surprise": {
@@ -168,13 +173,16 @@
   "home": {
     "schedule_eyebrow": "Le prochain rendez-vous",
     "schedule_title": "On se retrouve en live ?",
-    "schedule_text": "Je mets mon planning à jour sur Twitch. Passe voir le prochain rendez-vous, ou installe-toi quand le live commence.",
+    "schedule_text_1": "Je mets mon planning à jour sur Twitch.",
+    "schedule_text_2": "Passe voir le prochain rendez-vous, ou installe-toi quand le live commence.",
     "schedule_link": "Voir mon planning Twitch",
     "schedule_watch": "Ouvrir ma chaîne",
     "about_eyebrow": "Fais connaissance",
     "about_title": "De la douceur, un brin de malice.",
     "about_alt": "Illustration de Keola Kumaneko",
-    "about_text": "Moi, c'est Keola Kumaneko, VTuber panda roux francophone et muette. Je m'exprime avec du texte, des expressions et des animations. On joue, on regarde des vidéos et on papote ensemble 🧡",
+    "about_text_1": "Moi, c'est Keola Kumaneko, VTuber panda roux francophone et muette.",
+    "about_text_2": "Je m'exprime avec du texte, des expressions et des animations.",
+    "about_text_3": "On joue, on regarde des vidéos et on papote ensemble 🧡",
     "about_quote": "Mes petits esprits, installez-vous au temple.",
     "about_discover": "Faire ma connaissance",
     "discord_link": "Rejoindre le Discord",
@@ -194,7 +202,8 @@
     "eyebrow": "VTuber francophone · Panda roux",
     "title": "Keola Kumaneko",
     "welcome": "Bienvenue, mes petits esprits.",
-    "intro": "Moi, c'est Keola, VTuber panda roux francophone et muette. Sur ma chaîne, je joue, je regarde des vidéos et je papote avec vous, mes petits esprits 🧡",
+    "intro_1": "Moi, c'est Keola, VTuber panda roux francophone et muette.",
+    "intro_2": "Sur ma chaîne, je joue, regarde des vidéos et papote avec vous, mes petits esprits 🧡",
     "portrait_alt": "Portrait de Keola Kumaneko, avec ses oreilles de panda roux",
     "portrait_caption": "Je t'attends pour jouer et papoter 🧡",
     "contents": "Dans cette présentation",
@@ -267,7 +276,8 @@
     "debut": {
       "eyebrow": "Mon premier rendez-vous",
       "title": "Mes premiers pas sur Twitch.",
-      "text": "J'ai commencé à streamer en septembre 2022. Voici l'affiche de mon tout premier rendez-vous avec mes petits esprits, avant les nouveaux modèles et les redebuts.",
+      "text_1": "J'ai commencé à streamer en septembre 2022.",
+      "text_2": "Voici l'affiche de mon tout premier rendez-vous avec mes petits esprits, avant les nouveaux modèles et les redebuts.",
       "alt": "Affiche du programme du premier stream de Keola en 2022",
       "caption": "L'affiche de mes débuts · 2022",
       "teaser_alt": "Silhouette orange de Keola devant une forêt de bambous, sur une annonce de ses débuts",
@@ -277,7 +287,8 @@
     "models": {
       "eyebrow": "Au fil de mes modèles",
       "title": "Des silhouettes, un même esprit.",
-      "text": "Mon modèle a changé au fil du temps, et j'aime redécouvrir chaque petit détail. Voici quelques-unes de mes apparences.",
+      "text_1": "Mon modèle a changé au fil du temps, et j'aime redécouvrir chaque petit détail.",
+      "text_2": "Voici quelques-unes de mes apparences.",
       "evolution": "Mes apparences au fil du temps",
       "evolution_alt": "Montage illustré montrant plusieurs apparences de Keola autour de sa silhouette centrale",
       "references_title": "Les détails de plus près",
@@ -314,7 +325,8 @@
   "gallery": {
     "eyebrow": "Galerie · Les petits esprits",
     "title": "Tout un monde, à plusieurs mains.",
-    "intro": "Découvre les fanarts inspirés de mon univers. Merci aux artistes pour toutes ces belles créations 🧡",
+    "intro_1": "Découvre les fanarts inspirés de mon univers.",
+    "intro_2": "Merci aux artistes pour toutes ces belles créations 🧡",
     "image_alt": "Fanart {number} : {description}",
     "open": "Agrandir le fanart numéro {number}",
     "credit_note": "Les artistes conservent les droits sur leurs œuvres.",
@@ -450,7 +462,8 @@
   "credits": {
     "eyebrow": "Les talents derrière mon univers",
     "title": "Un temple, plein de talents.",
-    "intro": "Mes modèles, musiques, animations et illustrations existent grâce à ces artistes et créateurs. Merci à toutes les personnes qui donnent vie au Temple Kumaneko !",
+    "intro_1": "Mes modèles, musiques, animations et illustrations existent grâce à ces artistes et créateurs.",
+    "intro_2": "Merci à toutes les personnes qui donnent vie au Temple Kumaneko !",
     "visit": "Voir le profil de {name}",
     "keola_run_alt": "Emote animée de Keola qui court",
     "roles": {
@@ -475,7 +488,9 @@
   "archives": {
     "eyebrow": "Souvenirs du temple",
     "title": "Les chapitres précédents.",
-    "intro": "Envie de revoir quelques moments passés ensemble ? Retrouve ici les événements et les créations de ces dernières années. Pour la suite, rendez-vous sur mon planning Twitch.",
+    "intro_1": "Envie de revoir quelques moments passés ensemble ?",
+    "intro_2": "Retrouve ici les événements et les créations de ces dernières années.",
+    "intro_3": "Pour la suite, rendez-vous sur mon planning Twitch.",
     "redpandathon": "Red Pandathon · 2024",
     "redpandathon_eyebrow": "2024 / Red Panda Network",
     "redpandathon_text": "Du 18 au 21 juillet 2024, j'ai organisé le Red Pandathon pour soutenir Red Panda Network.",
@@ -492,7 +507,9 @@
   "media": {
     "eyebrow": "Pour la presse et les collaborations",
     "title": "Les essentiels, au même endroit.",
-    "intro": "Je suis Keola Kumaneko, VTuber panda roux francophone et muette. Je partage des jeux, des vidéos et des moments avec ma communauté, et je participe à des événements caritatifs. Retrouve ici ma fiche média, mes liens officiels et mon contact professionnel.",
+    "intro_1": "Je suis Keola Kumaneko, VTuber panda roux francophone et muette.",
+    "intro_2": "Je partage des jeux, des vidéos et des moments avec ma communauté, et je participe à des événements caritatifs.",
+    "intro_3": "Retrouve ici ma fiche média, mes liens officiels et mon contact professionnel.",
     "preview_alt": "Fiche média illustrée de Keola avec sa présentation, des statistiques datées, des collaborations, des jeux et son adresse de contact",
     "pirate_blush_alt": "Keola en tenue de pirate, rougissante, tenant un petit esprit violet dans ses bras",
     "pirate_blep_alt": "Keola en tenue de pirate, la langue légèrement tirée",

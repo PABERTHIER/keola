@@ -13,7 +13,10 @@
         <div class="schedule-band__copy">
           <span class="eyebrow">{{ t('home.schedule_eyebrow') }}</span>
           <h2 id="schedule-title">{{ t('home.schedule_title') }}</h2>
-          <p>{{ t('home.schedule_text') }}</p>
+          <div class="schedule-band__lead">
+            <p>{{ t('home.schedule_text_1') }}</p>
+            <p>{{ t('home.schedule_text_2') }}</p>
+          </div>
         </div>
         <div class="schedule-band__actions">
           <a
@@ -68,7 +71,11 @@
           <h2 id="about-title" class="section-title">
             {{ t('home.about_title') }}
           </h2>
-          <p class="section-lead">{{ t('home.about_text') }}</p>
+          <div class="section-lead">
+            <p>{{ t('home.about_text_1') }}</p>
+            <p>{{ t('home.about_text_2') }}</p>
+            <p>{{ t('home.about_text_3') }}</p>
+          </div>
           <p class="about-section__quote">{{ t('home.about_quote') }}</p>
           <a
             class="button button--dark"
@@ -351,11 +358,14 @@ useHead(usePageSeo('home'))
   }
 
   p {
-    max-width: 630px;
     margin: 0;
     color: $muted;
     font-size: 0.84rem;
     line-height: $line-height-compact;
+  }
+
+  &__lead {
+    max-width: min(100%, $lead-max-width);
   }
 
   &__actions {

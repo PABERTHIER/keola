@@ -10,7 +10,11 @@
       </NuxtLink>
       <span class="eyebrow">{{ eyebrow }}</span>
       <h1 id="page-title">{{ title }}</h1>
-      <p>{{ intro }}</p>
+      <div class="page-intro__copy">
+        <p v-for="(paragraph, index) in intro" :key="index">
+          {{ paragraph }}
+        </p>
+      </div>
     </div>
   </section>
 </template>
@@ -20,7 +24,7 @@ withDefaults(
   defineProps<{
     eyebrow: string
     title: string
-    intro: string
+    intro: string[]
     tone?: 'peach' | 'spirit'
   }>(),
   { tone: 'peach' }
@@ -70,12 +74,15 @@ const localePath = useLocalePath()
     overflow-wrap: anywhere;
   }
 
+  &__copy {
+    max-width: min(100%, $lead-max-width);
+  }
+
   p {
-    max-width: 660px;
     margin: 0;
     color: $muted;
     font-size: 1.05rem;
-    line-height: $line-height-copy;
+    line-height: $line-height-body;
   }
 }
 
