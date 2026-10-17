@@ -210,7 +210,8 @@ function updateSectionProgress() {
     if (index === 0) {
       offset = -Math.round(heroHandoff * 10 * handoffProgress) / 10
     } else if (index === 1) {
-      offset = Math.round(120 * (1 - handoffProgress)) / 10
+      // Keep the clipped about artwork aligned to whole CSS pixels to prevent 0.1px steps
+      offset = Math.round(12 * (1 - handoffProgress))
     }
 
     if (section.contains(document.activeElement)) {
