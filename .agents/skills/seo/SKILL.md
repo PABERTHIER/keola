@@ -34,7 +34,8 @@ Use filenames and existing descriptions to select artwork unless visual analysis
 Previews use original public WebP files; portrait images may be cropped by platforms.
 Sitemap artwork must belong to the page or its viewer.
 Automatic image discovery requires prerendering; the explicit registry supports SSR.
-Preserve `fanartNumbers` as the gallery sequence.
+Preserve `galleryFanartNumbers` as the curated gallery and sitemap sequence; `homeGalleryFanartNumbers` is the home preview.
+`fanartNumbers` is the separate full catalogue.
 Do not add fictional modification dates, priorities, keywords, article metadata or unsupported structured claims.
 
 ## URLs, identity and indexing
@@ -63,10 +64,15 @@ Nuxt Robots merges `public/_robots.txt`, including its existing content-use poli
 Keep `robotsContent` shared between the root robots options, `usePageSeo` and the error page so HTTP/SSR and client recovery agree.
 Let the sitemap module supply its URL.
 Do not hardcode a second sitemap host.
+Nuxt SEO v6 bundles AI Ready and Skew Protection; both are disabled in `nuxt.config.ts`.
+Keep `/llms.txt` and page Markdown absent until an AI publishing policy is chosen.
+Production `robots.txt` should keep `Content-Usage: train-ai=n` without the AI Ready default `Content-Signal` line.
+Skew Protection needs persistent old-asset storage before it can help across clean Vercel builds.
 Fonts already load locally with swap; no Google Fonts link is missing.
 Use `/robots.txt?mockProductionEnv` to inspect production-style rules locally; the blocked development output intentionally omits the production group.
 The installed Unhead validator deprecates Twitter tags (except for twitter:card and twitter:site); use complete Open Graph metadata.
-Keep three configured hreflang alternates plus `x-default`; preserve the generated OG locale tags.
+Keep short and region-specific FR/EN/JA HTML alternates plus `x-default`; sitemaps use the three region-specific alternates and `x-default`.
+Preserve the generated OG locale tags.
 Only add `worksFor` for a verified employer; `VTuber` is the confirmed job title.
 A Person does not have a `logo` property.
 

@@ -1,4 +1,3 @@
-import { legacyRouteRules } from './app/data/legacyRoutes'
 import { pageSeo, robotsContent } from './app/data/seo'
 import { externalLinks, siteName } from './app/data/site'
 
@@ -22,7 +21,6 @@ const indexable =
 
 export default defineNuxtConfig({
   routeRules: {
-    ...legacyRouteRules, // Nitro handles old paths; the browser middleware handles fragment bookmarks
     // Nuxt discovers page routes for sitemaps; these rules also set HTTP noindex
     '/fr/nyuh': { robots: robotsContent.blocked, sitemap: false },
     '/en/nyuh': { robots: robotsContent.blocked, sitemap: false },
@@ -69,7 +67,14 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
-  modules: ['@nuxt/icon', '@nuxtjs/i18n', '@nuxtjs/seo', '@nuxt/eslint'],
+  modules: [
+    '@nuxt/icon',
+    '@nuxtjs/i18n',
+    '@nuxtjs/seo',
+    '@nuxt/eslint',
+    '@vercel/analytics',
+    '@vercel/speed-insights',
+  ],
   imports: {
     dirs: [],
   },
@@ -153,6 +158,8 @@ export default defineNuxtConfig({
     robotsEnabledValue: robotsContent.indexable,
     robotsDisabledValue: robotsContent.blocked,
   },
+  aiReady: false, // SEO v6 bundles AI Ready; this SSR site does not publish AI content endpoints
+  skewProtection: false, // Vercel builds do not share the local asset cache required by this module
   sitemap: {
     // Runtime SSR pages aren't crawled for images by the sitemap module
     // i18n expands each record into FR/EN/JA with reciprocal alternates

@@ -16,7 +16,10 @@
           src="/images/keola/Keola_left_side_inclined_v1.webp"
           :alt="t('components.home_community.art_alt')"
           :style="{ height: `${characterHeight}px` }" />
-        <p class="section-lead">{{ t('components.home_community.text') }}</p>
+        <div class="section-lead">
+          <p>{{ t('components.home_community.text_1') }}</p>
+          <p>{{ t('components.home_community.text_2') }}</p>
+        </div>
       </div>
       <div class="community-links">
         <a

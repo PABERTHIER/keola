@@ -94,21 +94,22 @@ CI currently runs `yarn lint` after an immutable install; run formatting, typech
 ## Direct Dependencies
 
 The table covers direct `package.json` entries without tying this guide to their versions.
-Entries in the last row have no direct import in authored source or configuration and need a toolchain check before any removal.
 
-| Dependency                                                                                               | Why it is present                                          |
-| -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| `nuxt`                                                                                                   | Server rendering, pages, build and preview                 |
-| `@nuxtjs/i18n`                                                                                           | Localized routes and translations                          |
-| `@nuxtjs/seo`                                                                                            | SEO modules, including sitemap and structured data         |
-| `@nuxt/icon`, `@iconify-json/lucide`                                                                     | Custom social logos and Lucide interface icons             |
-| `@fontsource/kaushan-script`, `@fontsource/plus-jakarta-sans`, `@fontsource/zen-maru-gothic`             | Locally served fonts                                       |
-| `lenis`                                                                                                  | Smooth scroll integration                                  |
-| `@nuxt/eslint`, `eslint`, `eslint-plugin-prettier`, `eslint-config-prettier`, `prettier`                 | Lint and formatting tools                                  |
-| `typescript`, `vue-tsc`, `@types/node`                                                                   | Nuxt, Vue and Node type checking                           |
-| `sass`                                                                                                   | SCSS compilation                                           |
-| `@nuxt/types`                                                                                            | Explicit `tsconfig.json` type entry                        |
-| `@vue/composition-api`, `@nuxt/eslint-config`, `@nuxtjs/eslint-config-typescript`, `globals`, `rolldown` | Existing direct entries; current direct use is unconfirmed |
+| Dependency                                                                                   | Why it is present                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| `nuxt`                                                                                       | Server rendering, pages, build and preview         |
+| `@nuxtjs/i18n`                                                                               | Localized routes and translations                  |
+| `@nuxtjs/seo`                                                                                | SEO modules, including sitemap and structured data |
+| `@vercel/analytics`                                                                          | Vercel Web Analytics for site traffic              |
+| `@vercel/speed-insights`                                                                     | Vercel Speed Insights for page performance         |
+| `@nuxt/icon`, `@iconify-json/lucide`                                                         | Custom social logos and Lucide interface icons     |
+| `@fontsource/kaushan-script`, `@fontsource/plus-jakarta-sans`, `@fontsource/zen-maru-gothic` | Locally served fonts                               |
+| `lenis`                                                                                      | Smooth scroll integration                          |
+| `@nuxt/eslint`, `eslint`, `eslint-plugin-prettier`, `eslint-config-prettier`, `prettier`     | Lint and formatting tools                          |
+| `typescript`, `vue-tsc`, `@types/node`                                                       | Nuxt, Vue and Node type checking                   |
+| `sass`                                                                                       | SCSS compilation                                   |
+| `@nuxt/types`                                                                                | Explicit `tsconfig.json` type entry                |
+| `rolldown`                                                                                   | Required peer dependency of Nuxt's build toolchain |
 
 ## Project Map
 
@@ -143,6 +144,7 @@ Artwork belongs to its artists.
 
 Nuxt 4 SSR, Vue 3 Composition API, TypeScript **6**, Yarn 4, and scoped SCSS.
 The shared `Image` component renders native images, `@nuxtjs/i18n` serves three locales and generates canonical/alternate links through `app/app.vue`, and `@nuxtjs/seo` provides the sitemap and structured site metadata.
+Nuxt SEO v6's bundled AI Ready and Skew Protection modules are disabled in `nuxt.config.ts`; social previews use static WebP images.
 Fonts are bundled locally: Kaushan Script for Keola's signature, Zen Maru Gothic for headings/Japanese and Plus Jakarta Sans for compact UI copy.
 Orange `#FF7B00` is the confirmed brand accent; warm paper and plum carry the visual direction, with lilac kept to small spirit accents.
 
@@ -157,6 +159,7 @@ Set `NUXT_SITE_URL` at build time when the final production origin is confirmed.
 The fallback is `https://keola.vercel.app`.
 Vercel previews use their own `VERCEL_URL` origin with indexing disabled; production builds use the production origin and permit indexing.
 Use `/robots.txt?mockProductionEnv` to inspect production-style rules on the local development server.
+Production `robots.txt` retains `Content-Usage: train-ai=n` and has no AI Ready `Content-Signal` line.
 Unknown URLs have a localized custom error page with noindex metadata and links back to valid pages.
 
 Select the Nuxt preset, install with `yarn install --immutable` and build with `yarn build`.
@@ -205,7 +208,7 @@ The gallery uses a preferred 16rem column width and a maximum of four columns, a
 Responsive display does not reduce download size: every device receives the original WebP.
 Keep source files reasonably sized; no resized variants are generated.
 
-[readme-image]: public/images/og-image.webp
+[readme-image]: public/images/og-images/og-image.webp
 
 [build-badge]: https://github.com/PABERTHIER/keola/actions/workflows/ci.yml/badge.svg
 [build-link]: https://github.com/PABERTHIER/keola/actions/workflows/ci.yml

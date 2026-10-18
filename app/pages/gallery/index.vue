@@ -3,12 +3,12 @@
     <PageIntro
       :eyebrow="t('gallery.eyebrow')"
       :title="t('gallery.title')"
-      :intro="t('gallery.intro')" />
+      :intro="[t('gallery.intro_1'), t('gallery.intro_2')]" />
     <section class="gallery-page shell" aria-labelledby="gallery-heading">
       <h2 id="gallery-heading" class="sr-only">{{ t('site.gallery') }}</h2>
       <div ref="galleryWall" class="gallery-wall">
         <GalleryArtwork
-          v-for="(number, index) in fanartNumbers"
+          v-for="(number, index) in galleryFanartNumbers"
           :key="number"
           :number="number"
           :revealed="!revealEnabled || revealedNumbers.has(number)"
@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { fanartNumbers } from '~/data/site'
+import { galleryFanartNumbers } from '~/data/site'
 
 const { t } = useI18n()
 
@@ -46,12 +46,15 @@ const introNumbers = shallowRef(new Set<number>())
 let revealObserver: IntersectionObserver | null = null
 
 const artworks = computed(() =>
-  fanartNumbers.map(number => ({
+  galleryFanartNumbers.map(number => ({
     src: `/images/fanarts/fanart-${number}.webp`,
     alt: t('gallery.image_alt', {
       number,
       description: t(`gallery.image_descriptions.${number}`),
     }),
+    title: t('components.artwork_lightbox.illustration_title', { number }),
+    // TODO: Temporary layout example only; replace after the artist credit is verified
+    // ...{ credit: 'Made by Toto in October 2025' },
   }))
 )
 

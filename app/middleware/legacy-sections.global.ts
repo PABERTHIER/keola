@@ -1,12 +1,19 @@
 import { legacyDestinations } from '~/data/legacyRoutes'
 
+// This client middleware handles old fragment bookmarks such as /fr/#gallery
 // Fragments never reach the server, so section bookmarks need a browser-side redirect after i18n has selected a locale
 export default defineNuxtRouteMiddleware(to => {
   if (import.meta.server || !/^\/(fr|en|ja)\/?$/.test(to.path)) {
     return
   }
 
-  const destination = legacyDestinations[to.hash.slice(1).toLowerCase()]
+  const legacySection = to.hash.slice(1).toLowerCase()
+  const destination = Object.prototype.hasOwnProperty.call(
+    legacyDestinations,
+    legacySection
+  )
+    ? legacyDestinations[legacySection]
+    : undefined
 
   if (!destination) {
     return

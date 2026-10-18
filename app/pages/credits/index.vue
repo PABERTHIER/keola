@@ -3,7 +3,7 @@
     <PageIntro
       :eyebrow="t('credits.eyebrow')"
       :title="t('credits.title')"
-      :intro="t('credits.intro')"
+      :intro="[t('credits.intro_1'), t('credits.intro_2')]"
       tone="spirit" />
     <section class="credits-page shell" aria-labelledby="credits-heading">
       <h2 id="credits-heading" class="sr-only">{{ t('site.credits') }}</h2>

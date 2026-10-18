@@ -95,7 +95,8 @@ a[rel~='alternate'],
     pointer;
 }
 
-input[type='range'] {
+input[type='range'],
+[data-cursor='precision']:not(:disabled) {
   cursor:
     url('/images/cursors/Precision.cur') 0 0,
     crosshair;
