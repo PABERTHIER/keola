@@ -1083,12 +1083,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@iconify-json/lucide@npm:^1.2.137":
-  version: 1.2.137
-  resolution: "@iconify-json/lucide@npm:1.2.137"
+"@iconify-json/lucide@npm:^1.2.146":
+  version: 1.2.146
+  resolution: "@iconify-json/lucide@npm:1.2.146"
   dependencies:
     "@iconify/types": "npm:*"
-  checksum: 10c0/4bbf45d9f765cb526e7566c9f414cc7d356678399fbdc8ce39954ec4466613dcbde252d729eef0e7457b4c335257eb8e41fde05b3cc141d4b966d41e36e93c4b
+  checksum: 10c0/af44b30ded328768e9107b56a99965fb2a9c11ef4cfd9b14868215acf4a4139d449f98f1ff1c883cfbdffc022f59cd3415bffb603c3f6a2ad6b366dea22c3d38
   languageName: node
   linkType: hard
 
@@ -7578,7 +7578,7 @@ __metadata:
     "@fontsource/kaushan-script": "npm:^5.3.0"
     "@fontsource/plus-jakarta-sans": "npm:^5.3.0"
     "@fontsource/zen-maru-gothic": "npm:^5.3.1"
-    "@iconify-json/lucide": "npm:^1.2.137"
+    "@iconify-json/lucide": "npm:^1.2.146"
     "@nuxt/eslint": "npm:1.17.0"
     "@nuxt/icon": "npm:^2.5.1"
     "@nuxt/types": "npm:^2.18.1"
