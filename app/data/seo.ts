@@ -53,9 +53,9 @@ export const pageSeo = {
   gallery: {
     path: '/gallery',
     type: 'CollectionPage',
-    image: '/images/fanarts/fanart-92.webp',
-    imageAlt: 'gallery.image_descriptions.92',
-    images: fanartNumbers.map(
+    image: '/images/og-images/og-image-gallery.webp',
+    imageAlt: 'gallery.image_descriptions.95',
+    images: galleryFanartNumbers.map(
       number => `/images/fanarts/fanart-${number}.webp`
     ),
   },

@@ -8,7 +8,7 @@
       <h2 id="gallery-heading" class="sr-only">{{ t('site.gallery') }}</h2>
       <div ref="galleryWall" class="gallery-wall">
         <GalleryArtwork
-          v-for="(number, index) in fanartNumbers"
+          v-for="(number, index) in galleryFanartNumbers"
           :key="number"
           :number="number"
           :revealed="!revealEnabled || revealedNumbers.has(number)"
@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { fanartNumbers } from '~/data/site'
+import { galleryFanartNumbers } from '~/data/site'
 
 const { t } = useI18n()
 
@@ -46,7 +46,7 @@ const introNumbers = shallowRef(new Set<number>())
 let revealObserver: IntersectionObserver | null = null
 
 const artworks = computed(() =>
-  fanartNumbers.map(number => ({
+  galleryFanartNumbers.map(number => ({
     src: `/images/fanarts/fanart-${number}.webp`,
     alt: t('gallery.image_alt', {
       number,
