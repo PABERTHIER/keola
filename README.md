@@ -205,7 +205,7 @@ The gallery uses a preferred 16rem column width and a maximum of four columns, a
 Responsive display does not reduce download size: every device receives the original WebP.
 Keep source files reasonably sized; no resized variants are generated.
 
-[readme-image]: public/images/og-image.webp
+[readme-image]: public/images/og-images/og-image.webp
 
 [build-badge]: https://github.com/PABERTHIER/keola/actions/workflows/ci.yml/badge.svg
 [build-link]: https://github.com/PABERTHIER/keola/actions/workflows/ci.yml

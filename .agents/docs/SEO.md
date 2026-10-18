@@ -20,12 +20,13 @@ Actual image dimensions come from [imageDimensions.ts](../../app/data/imageDimen
 
 | Page      | Social image                                    |
 | --------- | ----------------------------------------------- |
-| Home      | `/images/og-image.webp`                         |
-| Keola     | `/images/models/Keola_v3_portrait.webp`         |
-| Gallery   | `/images/fanarts/fanart-92.webp`                |
-| Credits   | `/images/misc/Credits.webp.webp`                |
-| Archives  | `/images/redpanda/RedPandathon_2024_goals.webp` |
-| Media kit | `/images/misc/Mediakit.webp`                    |
+| Home      | `/images/og-images/og-image.webp`               |
+| Keola     | `/images/og-images/og-image-keola.webp`         |
+| Gallery   | `/images/og-images/og-image-gallery.webp`       |
+| Credits   | `/images/og-images/og-image-credits.webp`       |
+| Archives  | `/images/og-images/og-image-archives.webp`      |
+| Media kit | `/images/og-images/og-image-mediakit.webp`      |
+| Nyuh      | `/images/og-images/og-image-nyuh.webp`          |
 
 These are existing WebP assets, served directly with their original proportions.
 Social platforms can crop portrait artwork differently; check the rendered card on the target platform after deployment.
