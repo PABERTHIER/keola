@@ -57,21 +57,22 @@ Do not edit generated `.nuxt/`, `.output/`, or dependency files.
 ## Direct Dependencies
 
 These are the direct entries in `package.json`; consult that file for versions.
-The last row identifies entries whose current necessity should be checked before a future dependency cleanup.
 
-| Dependency                                                                                               | Purpose in this repository                                                                                                 |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `nuxt`                                                                                                   | SSR framework, routing, build and preview commands                                                                         |
-| `@nuxtjs/i18n`                                                                                           | FR/EN/JA routes and translations                                                                                           |
-| `@nuxtjs/seo`                                                                                            | Site metadata, sitemap and structured data                                                                                 |
-| `@nuxt/icon`, `@iconify-json/lucide`                                                                     | Social SVG collection and Lucide interface icons                                                                           |
-| `@fontsource/kaushan-script`, `@fontsource/plus-jakarta-sans`, `@fontsource/zen-maru-gothic`             | Locally bundled brand, body and Japanese fonts                                                                             |
-| `lenis`                                                                                                  | Client-side smooth scrolling and route scroll behavior                                                                     |
-| `@nuxt/eslint`, `eslint`, `eslint-plugin-prettier`, `eslint-config-prettier`, `prettier`                 | Nuxt-aware linting and formatting                                                                                          |
-| `typescript`, `vue-tsc`, `@types/node`                                                                   | Type checking for Nuxt, Vue and Node configuration                                                                         |
-| `sass`                                                                                                   | Compile global and scoped SCSS                                                                                             |
-| `@nuxt/types`                                                                                            | Explicitly listed in `tsconfig.json` type libraries                                                                        |
-| `@vue/composition-api`, `@nuxt/eslint-config`, `@nuxtjs/eslint-config-typescript`, `globals`, `rolldown` | Direct entries with no direct import found in authored source or configuration; verify their toolchain role before removal |
+| Dependency                                                                                   | Purpose in this repository                             |
+| -------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| `nuxt`                                                                                       | SSR framework, routing, build and preview commands     |
+| `@nuxtjs/i18n`                                                                               | FR/EN/JA routes and translations                       |
+| `@nuxtjs/seo`                                                                                | Site metadata, sitemap and structured data             |
+| `@vercel/analytics`                                                                          | Vercel Web Analytics for site traffic                  |
+| `@vercel/speed-insights`                                                                     | Vercel Speed Insights for page performance             |
+| `@nuxt/icon`, `@iconify-json/lucide`                                                         | Social SVG collection and Lucide interface icons       |
+| `@fontsource/kaushan-script`, `@fontsource/plus-jakarta-sans`, `@fontsource/zen-maru-gothic` | Locally bundled brand, body and Japanese fonts         |
+| `lenis`                                                                                      | Client-side smooth scrolling and route scroll behavior |
+| `@nuxt/eslint`, `eslint`, `eslint-plugin-prettier`, `eslint-config-prettier`, `prettier`     | Nuxt-aware linting and formatting                      |
+| `typescript`, `vue-tsc`, `@types/node`                                                       | Type checking for Nuxt, Vue and Node configuration     |
+| `sass`                                                                                       | Compile global and scoped SCSS                         |
+| `@nuxt/types`                                                                                | Explicitly listed in `tsconfig.json` type libraries    |
+| `rolldown`                                                                                   | Required peer dependency of Nuxt's build toolchain     |
 
 ## Architecture
 
