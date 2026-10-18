@@ -67,7 +67,13 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
-  modules: ['@nuxt/icon', '@nuxtjs/i18n', '@nuxtjs/seo', '@nuxt/eslint'],
+  modules: [
+    '@nuxt/icon',
+    '@nuxtjs/i18n',
+    '@nuxtjs/seo',
+    '@nuxt/eslint',
+    '@vercel/analytics',
+  ],
   imports: {
     dirs: [],
   },
