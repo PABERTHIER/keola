@@ -205,10 +205,10 @@ function updateSectionProgress() {
     )
 
     const handoffProgress = Math.min(progress, window.scrollY / distance)
-    let offset = Math.round(sectionTravel * 10 * (1 - progress)) / 10
+    let offset = Math.round(sectionTravel * (1 - progress))
 
     if (index === 0) {
-      offset = -Math.round(heroHandoff * 10 * handoffProgress) / 10
+      offset = -Math.round(heroHandoff * handoffProgress)
     } else if (index === 1) {
       // Keep the clipped about artwork aligned to whole CSS pixels to prevent 0.1px steps
       offset = Math.round(12 * (1 - handoffProgress))
@@ -310,6 +310,11 @@ useHead(usePageSeo('home'))
 @media (prefers-reduced-motion: no-preference) {
   .home-page > section:not(:first-child) {
     transform: translateY(var(--entry-y, 0px));
+  }
+
+  .home-page > section.gallery-section {
+    top: var(--entry-y, 0px);
+    transform: none;
   }
 }
 
