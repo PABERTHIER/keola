@@ -3,6 +3,23 @@
 Keola Kumaneko uses server-rendered Nuxt pages, Nuxt I18n and the Nuxt SEO modules.
 The site name is **Keola Kumaneko** in every locale. Page labels may still use Keola.
 
+## Nuxt SEO v6 configuration
+
+`@nuxtjs/seo` v6 requires Nuxt 4.6.1 or later; the current Nuxt and I18n versions are in `package.json`, and CI uses Node 24.
+The site uses Nuxt Robots, Sitemap, Schema.org, Site Config, SEO Utils and Link Checker through that bundle.
+`ogImage.enabled: false` keeps the generated OG image service off; page previews use static WebP files.
+The v7 generated-image signing-secret requirement therefore does not apply to the current previews.
+SEO DevTools panels need the optional `nuxtseo-devtools-host` package, which is not installed; this does not affect rendered metadata.
+
+Nuxt SEO v6 also bundles AI Ready and Skew Protection by default.
+`nuxt.config.ts` sets `aiReady: false` because the site has no AI Markdown publishing workflow; `/llms.txt` and page `.md` endpoints should return 404.
+It sets `skewProtection: false` because the current Vercel build setup does not persist the module's old-asset cache between deployments.
+Before enabling either module, decide on the public AI content policy or configure shared asset storage, then verify the new endpoints and deployment behavior.
+
+With AI Ready enabled, its default `Content-Signal: search=yes, ai-input=yes` allows search and AI retrieval but states no AI-training preference in that directive.
+With AI Ready disabled, that line is absent; the existing `Content-Usage: train-ai=n` remains in production `robots.txt`.
+These content-use directives express preferences for crawlers to honor; they are not access control.
+
 ## Page metadata and artwork
 
 Every page calls `useHead(usePageSeo('pageName'))` once.
@@ -18,15 +35,15 @@ route, Schema.org page type, social image, translated image-description key and 
 Change `image` and `imageAlt` together to change a page's preview.
 Actual image dimensions come from [imageDimensions.ts](../../app/data/imageDimensions.ts).
 
-| Page      | Social image                                    |
-| --------- | ----------------------------------------------- |
-| Home      | `/images/og-images/og-image.webp`               |
-| Keola     | `/images/og-images/og-image-keola.webp`         |
-| Gallery   | `/images/og-images/og-image-gallery.webp`       |
-| Credits   | `/images/og-images/og-image-credits.webp`       |
-| Archives  | `/images/og-images/og-image-archives.webp`      |
-| Media kit | `/images/og-images/og-image-mediakit.webp`      |
-| Nyuh      | `/images/og-images/og-image-nyuh.webp`          |
+| Page      | Social image                               |
+| --------- | ------------------------------------------ |
+| Home      | `/images/og-images/og-image.webp`          |
+| Keola     | `/images/og-images/og-image-keola.webp`    |
+| Gallery   | `/images/og-images/og-image-gallery.webp`  |
+| Credits   | `/images/og-images/og-image-credits.webp`  |
+| Archives  | `/images/og-images/og-image-archives.webp` |
+| Media kit | `/images/og-images/og-image-mediakit.webp` |
+| Nyuh      | `/images/og-images/og-image-nyuh.webp`     |
 
 These are existing WebP assets, served directly with their original proportions.
 Social platforms can crop portrait artwork differently; check the rendered card on the target platform after deployment.
@@ -63,7 +80,8 @@ Preview protection on the hosting platform remains useful; robots directives are
 
 `app/app.vue` owns canonical URLs, hreflang, HTML language/direction and OG locales through `useLocaleHead({ seo: true })`.
 I18n generates both short-language and region-specific aliases by default; these are valid, not duplicate canonicals.
-The app retains only FR-FR, EN-US, JA-JP and `x-default`, matching the sitemap cluster, plus one canonical.
+Rendered HTML currently has `fr`, `fr-FR`, `en`, `en-US`, `ja`, `ja-JP` and `x-default` hreflang links, plus one canonical.
+The sitemap alternates use the three region-specific languages and `x-default`.
 Keep `og:locale` and the two `og:locale:alternate` values; they are not replaced by hreflang links.
 Do not add competing per-page canonicals.
 Tracking queries, hashes and trailing slashes are absent from page identities.
@@ -77,7 +95,9 @@ Each locale has six canonical pages with reciprocal language alternates.
 Follow the index rather than guessing child filenames.
 
 Sitemap images come explicitly from `pageSeo.images`, so development and runtime SSR do not depend on a prerender crawler.
-Gallery entries reuse `fanartNumbers`; preserve that sequence and check assets when adding artwork.
+`galleryFanartNumbers` supplies the curated gallery and its sitemap images; `homeGalleryFanartNumbers` supplies the home preview.
+`fanartNumbers` is the separate full 1–124 catalogue.
+Preserve the curated order and check assets when adding artwork.
 List content accessible on the page or in its viewer, not every file in `public/`.
 Shared decorative artwork need not appear under every page.
 
@@ -90,6 +110,7 @@ Add dates only from a real content-change source.
 `public/_robots.txt` is merged by Nuxt Robots and preserves the existing `Content-Usage: train-ai=n` policy.
 The sitemap module supplies the sitemap URL; do not add a hardcoded domain or another public `robots.txt`.
 One sitemap-index declaration is enough: `/sitemap.xml` redirects to `/sitemap_index.xml`, so listing both repeats the same index.
+With the current `aiReady: false` setting, production `robots.txt` has no `Content-Signal` line.
 
 Normal development and preview output deliberately contains `Disallow: /`.
 Nuxt Robots replaces the entire group in non-indexable environments, so `Allow`, the sitemap and `Content-Usage` are not printed there.
@@ -147,12 +168,14 @@ Meta keywords, repeated app icons and blanket article tags add no useful setup h
 | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `prodUrl` and `siteUrl`                    | Keep the configured production origin separate from the current environment's origin, then use the same resolved origin in I18n, Site Config, images and identity.               |
 | `site.indexable` and root `robots` options | Control the environment's indexability and directive strings. `site.robots.index/follow` is not the Nuxt Robots configuration API.                                               |
+| `aiReady: false`                           | Keep unplanned `llms.txt` and page Markdown endpoints disabled; preserve the existing content-use policy without a new Content-Signal line.                                      |
+| `skewProtection: false`                    | Avoid a local old-asset cache that the current clean Vercel builds do not persist between deployments.                                                                           |
 | No root `nitro.prerender` crawl            | `/` is a request-dependent language redirect. Pages remain SSR; explicit sitemap images do not require prerendering. Add targeted prerender routes only for a demonstrated need. |
 | No explicit `autoLastmod`                  | The installed sitemap module already defaults to false. No build-time dates are fabricated.                                                                                      |
 | No returned `meta` array in `usePageSeo`   | Its former `og:title` entry is now supplied once by `useSeoMeta({ ogTitle })`; no metadata was lost.                                                                             |
 | No `ogLocale` in `usePageSeo`              | `useLocaleHead` owns it, including the alternate locales. The standalone error page supplies its own locale.                                                                     |
 | Registry-based `ogUrl`                     | `localePath(pageData.path)` resolves the intended localized page and excludes query/hash/trailing-slash variants. Its origin follows the environment.                            |
-| Reactive schema and template parameters    | Preserve the correct page type, URL, identity references and images after hydration and client navigation. These are verified in production builds.                              |
+| Reactive schema and template parameters    | Preserve the correct page type, URL, identity references and images after hydration and client navigation; verify them in a browser after dependency upgrades.                   |
 
 ## Verification and launch
 
@@ -166,6 +189,7 @@ Inspect production SSR HTML on all 18 localized routes and test browser navigati
   X/Twitter fields and localized JSON-LD without duplicate page entities.
 - Images return HTTP 200 with image MIME types and matching declared dimensions.
 - Three child sitemaps, six URLs each, no redirect/error URLs and populated images.
+- AI Ready endpoints remain absent and production robots retains `Content-Usage: train-ai=n` without `Content-Signal`.
 - Production allows indexing; preview and development return noindex directives.
 - Root redirects respect language preferences; unknown URLs return HTTP 404.
 - Error pages have noindex metadata/headers, no canonical/hreflang, valid OG metadata and working recovery links in all locales.
@@ -194,3 +218,5 @@ External accounts, DNS and old-host redirects require access outside this reposi
 - [Nuxt I18n: SEO](https://i18n.nuxtjs.org/docs/guide/seo)
 - [Unhead: titles and legacy Twitter metadata](https://unhead.unjs.io/docs/head/guides/core-concepts/titles)
 - [Schema.org: worksFor](https://schema.org/worksFor)
+- [Nuxt SEO: v5 to v6 migration](https://nuxtseo.com/docs/nuxt-seo/migration-guide/v5-to-v6)
+- [Nuxt AI Ready: Content Signal configuration](https://nuxtseo.com/docs/ai-ready/api/config)

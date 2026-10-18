@@ -144,6 +144,7 @@ Artwork belongs to its artists.
 
 Nuxt 4 SSR, Vue 3 Composition API, TypeScript **6**, Yarn 4, and scoped SCSS.
 The shared `Image` component renders native images, `@nuxtjs/i18n` serves three locales and generates canonical/alternate links through `app/app.vue`, and `@nuxtjs/seo` provides the sitemap and structured site metadata.
+Nuxt SEO v6's bundled AI Ready and Skew Protection modules are disabled in `nuxt.config.ts`; social previews use static WebP images.
 Fonts are bundled locally: Kaushan Script for Keola's signature, Zen Maru Gothic for headings/Japanese and Plus Jakarta Sans for compact UI copy.
 Orange `#FF7B00` is the confirmed brand accent; warm paper and plum carry the visual direction, with lilac kept to small spirit accents.
 
@@ -158,6 +159,7 @@ Set `NUXT_SITE_URL` at build time when the final production origin is confirmed.
 The fallback is `https://keola.vercel.app`.
 Vercel previews use their own `VERCEL_URL` origin with indexing disabled; production builds use the production origin and permit indexing.
 Use `/robots.txt?mockProductionEnv` to inspect production-style rules on the local development server.
+Production `robots.txt` retains `Content-Usage: train-ai=n` and has no AI Ready `Content-Signal` line.
 Unknown URLs have a localized custom error page with noindex metadata and links back to valid pages.
 
 Select the Nuxt preset, install with `yarn install --immutable` and build with `yarn build`.

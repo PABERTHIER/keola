@@ -144,12 +144,15 @@ When adding or substantially changing a page:
 6. Verify the page in all locales, including navigation, assets and generated metadata.
 
 Keep locale head links centralized in `app/app.vue` through `useLocaleHead({ seo: true })`.
-Retain the three configured language alternates and `x-default`, one canonical, and the generated OG locales.
+Retain the short and region-specific FR/EN/JA HTML alternates and `x-default`, one canonical, and the generated OG locales.
+The sitemap alternates use FR-FR, EN-US, JA-JP and `x-default`.
 The standalone `app/error.vue` uses localized `error.*` copy, preserves HTTP status, emits noindex metadata/headers and omits canonical/hreflang links.
 Its recovery links clear the error before redirecting; do not register error pages in the sitemap.
 Use the configured base URL rather than hardcoding a domain in individual pages.
 The final domain is awaiting confirmation; do not silently replace deployment URLs with `keola.tv`.
 See [SEO.md](.agents/docs/SEO.md) for metadata ownership, image sitemaps, indexing and launch verification.
+Nuxt SEO v6 bundles AI Ready and Skew Protection; both are explicitly disabled in `nuxt.config.ts` until the site has an AI publishing policy or persistent old-asset storage.
+The production robots policy remains `Content-Usage: train-ai=n` without a `Content-Signal` line.
 The site name is `Keola Kumaneko`; keep existing branded titles from receiving a second suffix.
 Fonts are self-hosted with Fontsource and swap; do not add a duplicate Google Fonts stylesheet.
 
@@ -213,9 +216,9 @@ Do not invent artist credits, permissions, media-kit updates, personal details o
   Use `loading="eager"` for the brand, hero and opened lightbox, plus `fetchpriority="high"` for the hero.
   Pages own layout sizing; the component does not generate resized files.
   Gallery previews, the lightbox and downloads all use the original public assets.
-- Treat `fanartNumbers` in `app/data/site.ts` as the shared gallery sequence (currently 1–113).
-  Preserve its order and check the files before adding entries.
-  Both the home preview and full gallery consume it.
+- Treat `fanartNumbers` in `app/data/site.ts` as the full catalogue (currently 1–124).
+  `galleryFanartNumbers` is the curated gallery sequence; `homeGalleryFanartNumbers` is the home preview sequence.
+  Preserve their order and check the files before adding entries.
   Do not infer authorship from filenames.
 - Social logos use Nuxt Icon's `keo-icon:` collection from `app/assets/svg/`; interface symbols use `lucide:` names.
   `nuxt.config.ts` includes custom collections in the client bundle so dynamic social icon names need no runtime icon request.
