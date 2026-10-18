@@ -30,16 +30,16 @@
           <span class="preview-grid__artwork">
             <Image
               class="preview-grid__image"
-              :src="`/images/fanarts/fanart-${number}.webp`"
+              :src="`/images/home-gallery/fanart-${number}.webp`"
               :alt="
                 t('gallery.image_alt', {
                   number,
                   description: t(`gallery.image_descriptions.${number}`),
                 })
               " />
-          </span>
-          <span class="preview-grid__badge" aria-hidden="true">
-            <Icon class="preview-grid__icon" name="lucide:arrow-up-right" />
+            <span class="preview-grid__badge" aria-hidden="true">
+              <Icon class="preview-grid__icon" name="lucide:arrow-up-right" />
+            </span>
           </span>
         </NuxtLink>
       </div>
@@ -58,6 +58,7 @@ const localePath = useLocalePath()
 .gallery-section {
   background: $peach;
 }
+
 .preview-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -72,28 +73,41 @@ const localePath = useLocalePath()
     border-radius: $radius-control;
     background: $gallery-background-peach;
   }
+
   &__item:nth-child(2) {
     background: $gallery-background-lilac;
   }
+
   &__item:nth-child(3) {
     background: $gallery-background-rose;
   }
+
   &__item:nth-child(4) {
     background: $gallery-background-sage;
   }
+
   &__artwork {
+    position: relative;
     display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
   }
-  &__image {
+
+  &__artwork &__image {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: auto;
+    object-fit: cover;
+    object-position: center top;
   }
+
   &__badge {
     position: absolute;
     z-index: $z-artwork;
-    right: $space-10;
-    bottom: $space-10;
+    right: 0;
+    bottom: 0;
     width: $gallery-badge-size;
     height: $gallery-badge-size;
     display: grid;
@@ -103,6 +117,7 @@ const localePath = useLocalePath()
     color: $ink;
     pointer-events: none;
   }
+
   &__icon {
     width: $gallery-icon-size;
     height: $gallery-icon-size;
@@ -113,9 +128,11 @@ const localePath = useLocalePath()
   .preview-grid__image {
     transition: transform $transition-artwork;
   }
+
   .preview-grid__item:focus-visible .preview-grid__image {
     transform: scale($artwork-hover-scale);
   }
+
   @media (hover: hover) and (pointer: fine) {
     .preview-grid__item:hover .preview-grid__image {
       transform: scale($artwork-hover-scale);
@@ -132,6 +149,10 @@ const localePath = useLocalePath()
 @media (min-width: $breakpoint-desktop) {
   .preview-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .preview-grid__artwork {
+    max-height: 150px;
   }
 }
 </style>

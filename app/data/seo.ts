@@ -21,7 +21,7 @@ export const pageSeo = {
         (_, i) => `/images/slideshows/slideshow-${i + 1}.webp`
       ),
       ...homeGalleryFanartNumbers.map(
-        number => `/images/fanarts/fanart-${number}.webp`
+        number => `/images/home-gallery/fanart-${number}.webp`
       ),
       '/images/fanarts/fanart-32-home.webp',
       '/images/keola/Keola_left_side_inclined_v1.webp',
