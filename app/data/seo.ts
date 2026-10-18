@@ -1,4 +1,4 @@
-import { fanartNumbers, homeGalleryFanartNumbers } from './site'
+import { galleryFanartNumbers, homeGalleryFanartNumbers } from './site'
 
 // Shared by Nuxt Robots (HTTP/SSR), content pages and error recovery (client)
 export const robotsContent = {
@@ -13,7 +13,7 @@ export const pageSeo = {
   home: {
     path: '/',
     type: 'WebPage',
-    image: '/images/og-image.webp',
+    image: '/images/og-images/og-image.webp',
     imageAlt: 'components.home_hero.alts.4',
     images: [
       ...Array.from(
@@ -31,7 +31,7 @@ export const pageSeo = {
   keola: {
     path: '/keola',
     type: 'AboutPage',
-    image: '/images/models/Keola_v3_portrait.webp',
+    image: '/images/og-images/og-image-keola.webp',
     imageAlt: 'keola.portrait_alt',
     images: [
       '/images/models/Keola_v3_portrait.webp',
@@ -62,14 +62,14 @@ export const pageSeo = {
   credits: {
     path: '/credits',
     type: 'WebPage',
-    image: '/images/misc/Credits.webp',
+    image: '/images/og-images/og-image-credits.webp',
     imageAlt: 'keola.more.credits_art_alt',
     images: ['/images/emotes/keolaRun.gif'],
   },
   archives: {
     path: '/archives',
     type: 'CollectionPage',
-    image: '/images/models/Keola_Refsheet_2025.webp',
+    image: '/images/og-images/og-image-archives.webp',
     imageAlt: 'keola.models.sheet2025_alt',
     images: [
       '/images/redpanda/RedPandathon_2024_goals.webp',
@@ -84,7 +84,7 @@ export const pageSeo = {
   media: {
     path: '/media-kit',
     type: 'ContactPage',
-    image: '/images/misc/Mediakit.webp',
+    image: '/images/og-images/og-image-mediakit.webp',
     imageAlt: 'media.preview_alt',
     images: [
       '/images/misc/Mediakit.webp',
