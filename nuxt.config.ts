@@ -1,4 +1,3 @@
-import { legacyRouteRules } from './app/data/legacyRoutes'
 import { pageSeo, robotsContent } from './app/data/seo'
 import { externalLinks, siteName } from './app/data/site'
 
@@ -22,7 +21,6 @@ const indexable =
 
 export default defineNuxtConfig({
   routeRules: {
-    ...legacyRouteRules, // Nitro handles old paths; the browser middleware handles fragment bookmarks
     // Nuxt discovers page routes for sitemaps; these rules also set HTTP noindex
     '/fr/nyuh': { robots: robotsContent.blocked, sitemap: false },
     '/en/nyuh': { robots: robotsContent.blocked, sitemap: false },

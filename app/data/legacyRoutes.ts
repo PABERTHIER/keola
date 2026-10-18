@@ -1,4 +1,4 @@
-// Public Carrd bookmarks and the old standalone path aliases share destinations
+// Server redirects live in server/middleware so sitemap locale matching does not treat an unprefixed redirect as a rule for every localized page
 export const legacyDestinations: Record<string, string> = {
   presentation: '/keola',
   mediakit: '/media-kit',
@@ -14,10 +14,3 @@ export const legacyDestinations: Record<string, string> = {
   credits: '/credits',
   topcredits: '/credits',
 }
-
-export const legacyRouteRules = Object.fromEntries(
-  Object.entries(legacyDestinations).map(([path, destination]) => [
-    `/${path}`,
-    { redirect: { to: `/fr${destination}`, statusCode: 301 as const } },
-  ])
-)
