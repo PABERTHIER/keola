@@ -91,10 +91,12 @@ const featuredArtworks = [
   {
     src: '/images/redpanda/RedPandathon_2024_goals.webp',
     altKey: 'redpandathon_goals_alt',
+    titleKey: 'redpandathon_goals_title',
   },
   {
     src: '/images/redpanda/RedPandathon_2024_impossible_goals.webp',
     altKey: 'redpandathon_impossible_alt',
+    titleKey: 'redpandathon_impossible_title',
   },
 ] as const
 const redebutYears = [2024, 2023] as const
@@ -103,11 +105,13 @@ const artworks = computed(() => [
   ...featuredArtworks.map(artwork => ({
     src: artwork.src,
     alt: t(`archives.${artwork.altKey}`),
+    title: t(`archives.${artwork.titleKey}`),
   })),
   ...redebutYears.flatMap(year =>
     redebutSides.map(side => ({
       src: `/images/debut/Keola_Redebut_${year}_${side}_part.webp`,
       alt: t(`archives.redebut_${side}_alt`, { year }),
+      title: t(`archives.redebut_${side}_title`, { year }),
     }))
   ),
 ])

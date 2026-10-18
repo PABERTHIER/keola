@@ -162,6 +162,11 @@
       "heart_alt": "Keolaのハートエモート"
     },
     "artwork_lightbox": {
+      "illustration_title": "イラスト {number} 番",
+      "zoom_group": "イラストの拡大・縮小",
+      "zoom_in": "イラストを拡大",
+      "zoom_out": "イラストを縮小",
+      "zoom_reset": "拡大率をリセット",
       "count": "{total} 枚中 {number} 枚目",
       "close": "画像を閉じる",
       "previous": "前の画像",
@@ -495,12 +500,16 @@
     "redpandathon_eyebrow": "2024 / Red Panda Network",
     "redpandathon_text": "2024年7月18日から21日まで、Red Panda Networkを支援するRed Pandathonを開催しました。",
     "redpandathon_goals_alt": "2024年Red Pandathonの10〜2,000ユーロの目標一覧。達成した項目は赤線で消されている",
+    "redpandathon_goals_title": "Red Pandathon 2024 の目標",
     "redpandathon_impossible_alt": "2024年Red Pandathonの2,000〜5,000ユーロの追加目標。4項目に取り消し線があり、2項目にはない",
+    "redpandathon_impossible_title": "Red Pandathon 2024 の追加目標",
     "redebut_2024": "リデビュー · 2024",
     "redebut_2023": "リデビュー · 2023",
     "redebut_text": "私の世界の新しい章を彩ったイラストを、いくつか紹介します。",
     "redebut_left_alt": "Keolaの{year}年リデビュー記念ビジュアルの左ページ",
+    "redebut_left_title": "{year}年リデビュー · 左ページ",
     "redebut_right_alt": "Keolaの{year}年リデビュー記念ビジュアルの右ページ",
+    "redebut_right_title": "{year}年リデビュー · 右ページ",
     "enlarge_image": "画像を拡大",
     "schedule_link": "私の最新の配信予定を見る"
   },

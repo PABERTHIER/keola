@@ -162,6 +162,11 @@
       "heart_alt": "Keola heart emote"
     },
     "artwork_lightbox": {
+      "illustration_title": "Illustration number {number}",
+      "zoom_group": "Artwork zoom",
+      "zoom_in": "Zoom in on artwork",
+      "zoom_out": "Zoom out of artwork",
+      "zoom_reset": "Reset zoom",
       "count": "{number} of {total}",
       "close": "Close image",
       "previous": "Previous image",
@@ -495,12 +500,16 @@
     "redpandathon_eyebrow": "2024 / Red Panda Network",
     "redpandathon_text": "From July 18 to 21, 2024, I organized the Red Pandathon to support Red Panda Network.",
     "redpandathon_goals_alt": "Red Pandathon 2024 goal chart, from 10 to 2,000 euros, with completed goals crossed out in red",
+    "redpandathon_goals_title": "Red Pandathon 2024 goals",
     "redpandathon_impossible_alt": "Additional Red Pandathon 2024 goals from 2,000 to 5,000 euros: four goals crossed out and two not crossed out",
+    "redpandathon_impossible_title": "Red Pandathon 2024 extra goals",
     "redebut_2024": "Redebut · 2024",
     "redebut_2023": "Redebut · 2023",
     "redebut_text": "Here's some artwork from this new chapter in my world.",
     "redebut_left_alt": "Left page of Keola's {year} redebut artwork",
+    "redebut_left_title": "{year} redebut · Left page",
     "redebut_right_alt": "Right page of Keola's {year} redebut artwork",
+    "redebut_right_title": "{year} redebut · Right page",
     "enlarge_image": "Enlarge image",
     "schedule_link": "See my current schedule"
   },

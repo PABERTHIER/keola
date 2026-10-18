@@ -481,10 +481,12 @@ const modelArtworks = computed(() => [
   ...models.map(model => ({
     src: model.src,
     alt: t(`keola.models.${model.id}_alt`),
+    title: t(`keola.models.${model.id}`),
   })),
   ...modelReferences.map(reference => ({
     src: reference.src,
     alt: t(`keola.models.${reference.id}_alt`),
+    title: t(`keola.models.${reference.id}`),
   })),
 ])
 

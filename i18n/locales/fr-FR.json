@@ -162,6 +162,11 @@
       "heart_alt": "Emote cœur de Keola"
     },
     "artwork_lightbox": {
+      "illustration_title": "Illustration numéro {number}",
+      "zoom_group": "Zoom de l’illustration",
+      "zoom_in": "Agrandir l’illustration",
+      "zoom_out": "Réduire l’illustration",
+      "zoom_reset": "Réinitialiser le zoom",
       "count": "{number} sur {total}",
       "close": "Fermer l'image",
       "previous": "Image précédente",
@@ -495,12 +500,16 @@
     "redpandathon_eyebrow": "2024 / Red Panda Network",
     "redpandathon_text": "Du 18 au 21 juillet 2024, j'ai organisé le Red Pandathon pour soutenir Red Panda Network.",
     "redpandathon_goals_alt": "Tableau des paliers du Red Pandathon 2024, de 10 à 2 000 euros, avec les objectifs atteints barrés en rouge",
+    "redpandathon_goals_title": "Paliers du Red Pandathon 2024",
     "redpandathon_impossible_alt": "Objectifs supplémentaires du Red Pandathon 2024, de 2 000 à 5 000 euros : quatre paliers barrés et deux non barrés",
+    "redpandathon_impossible_title": "Paliers supplémentaires du Red Pandathon 2024",
     "redebut_2024": "Redebut · 2024",
     "redebut_2023": "Redebut · 2023",
     "redebut_text": "Voici quelques visuels de cette nouvelle étape de mon univers.",
     "redebut_left_alt": "Page de gauche des visuels du redebut de Keola en {year}",
+    "redebut_left_title": "Redebut {year} · Page gauche",
     "redebut_right_alt": "Page de droite des visuels du redebut de Keola en {year}",
+    "redebut_right_title": "Redebut {year} · Page droite",
     "enlarge_image": "Agrandir l'image",
     "schedule_link": "Voir mon planning actuel"
   },

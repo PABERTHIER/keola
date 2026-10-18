@@ -52,6 +52,9 @@ const artworks = computed(() =>
       number,
       description: t(`gallery.image_descriptions.${number}`),
     }),
+    title: t('components.artwork_lightbox.illustration_title', { number }),
+    // TODO: Temporary layout example only; replace after the artist credit is verified
+    // ...{ credit: 'Made by Toto in October 2025' },
   }))
 )
 
