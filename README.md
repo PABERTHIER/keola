@@ -94,21 +94,22 @@ CI currently runs `yarn lint` after an immutable install; run formatting, typech
 ## Direct Dependencies
 
 The table covers direct `package.json` entries without tying this guide to their versions.
-Entries in the last row have no direct import in authored source or configuration and need a toolchain check before any removal.
 
-| Dependency                                                                                               | Why it is present                                          |
-| -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| `nuxt`                                                                                                   | Server rendering, pages, build and preview                 |
-| `@nuxtjs/i18n`                                                                                           | Localized routes and translations                          |
-| `@nuxtjs/seo`                                                                                            | SEO modules, including sitemap and structured data         |
-| `@nuxt/icon`, `@iconify-json/lucide`                                                                     | Custom social logos and Lucide interface icons             |
-| `@fontsource/kaushan-script`, `@fontsource/plus-jakarta-sans`, `@fontsource/zen-maru-gothic`             | Locally served fonts                                       |
-| `lenis`                                                                                                  | Smooth scroll integration                                  |
-| `@nuxt/eslint`, `eslint`, `eslint-plugin-prettier`, `eslint-config-prettier`, `prettier`                 | Lint and formatting tools                                  |
-| `typescript`, `vue-tsc`, `@types/node`                                                                   | Nuxt, Vue and Node type checking                           |
-| `sass`                                                                                                   | SCSS compilation                                           |
-| `@nuxt/types`                                                                                            | Explicit `tsconfig.json` type entry                        |
-| `@vue/composition-api`, `@nuxt/eslint-config`, `@nuxtjs/eslint-config-typescript`, `globals`, `rolldown` | Existing direct entries; current direct use is unconfirmed |
+| Dependency                                                                                   | Why it is present                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| `nuxt`                                                                                       | Server rendering, pages, build and preview         |
+| `@nuxtjs/i18n`                                                                               | Localized routes and translations                  |
+| `@nuxtjs/seo`                                                                                | SEO modules, including sitemap and structured data |
+| `@vercel/analytics`                                                                          | Vercel Web Analytics for site traffic              |
+| `@vercel/speed-insights`                                                                     | Vercel Speed Insights for page performance         |
+| `@nuxt/icon`, `@iconify-json/lucide`                                                         | Custom social logos and Lucide interface icons     |
+| `@fontsource/kaushan-script`, `@fontsource/plus-jakarta-sans`, `@fontsource/zen-maru-gothic` | Locally served fonts                               |
+| `lenis`                                                                                      | Smooth scroll integration                          |
+| `@nuxt/eslint`, `eslint`, `eslint-plugin-prettier`, `eslint-config-prettier`, `prettier`     | Lint and formatting tools                          |
+| `typescript`, `vue-tsc`, `@types/node`                                                       | Nuxt, Vue and Node type checking                   |
+| `sass`                                                                                       | SCSS compilation                                   |
+| `@nuxt/types`                                                                                | Explicit `tsconfig.json` type entry                |
+| `rolldown`                                                                                   | Required peer dependency of Nuxt's build toolchain |
 
 ## Project Map
 
