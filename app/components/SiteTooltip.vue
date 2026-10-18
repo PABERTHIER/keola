@@ -2,7 +2,9 @@
   <Teleport :to="container">
     <div
       v-if="visible"
+      ref="tooltip"
       class="site-tooltip"
+      :class="{ 'site-tooltip--dialog': container !== 'body' }"
       role="tooltip"
       :style="{
         left: `${position.x}px`,
@@ -21,6 +23,7 @@ const route = useRoute()
 const visible = ref(false)
 const label = ref('')
 const container = shallowRef<HTMLElement | 'body'>('body')
+const tooltip = ref<HTMLElement | null>(null)
 const position = ref({ x: 0, y: 0, above: true })
 
 let activeTarget: HTMLElement | null = null
@@ -65,29 +68,42 @@ function updatePosition(target: HTMLElement) {
   }
 
   const rect = target.getBoundingClientRect()
+  const dialog = container.value === 'body' ? null : container.value
+  const containerRect = dialog?.getBoundingClientRect()
 
   if (
-    rect.bottom < 0 ||
-    rect.top > window.innerHeight ||
-    rect.right < 0 ||
-    rect.left > window.innerWidth
+    rect.bottom < (containerRect?.top ?? 0) ||
+    rect.top > (containerRect?.bottom ?? window.innerHeight) ||
+    rect.right < (containerRect?.left ?? 0) ||
+    rect.left > (containerRect?.right ?? window.innerWidth)
   ) {
     hide()
     return
   }
 
-  const halfWidth = Math.min(140, (window.innerWidth - 24) / 2)
+  const left = containerRect?.left ?? 0
+  const top = containerRect?.top ?? 0
+  const width = containerRect?.width ?? window.innerWidth
+  const bottom = containerRect?.bottom ?? window.innerHeight
+
+  const halfWidth = dialog
+    ? Math.min((tooltip.value?.offsetWidth ?? 280) / 2, (width - 24) / 2)
+    : Math.min(140, (width - 24) / 2)
+
   const above =
-    rect.top >= 112 ||
-    (rect.bottom + 112 > window.innerHeight &&
-      rect.top > window.innerHeight - rect.bottom)
+    rect.top - top >= 112 ||
+    (rect.bottom + 112 > bottom && rect.top - top > bottom - rect.bottom)
 
   position.value = {
-    x: Math.max(
-      halfWidth + 12,
-      Math.min(rect.left + rect.width / 2, window.innerWidth - halfWidth - 12)
-    ),
-    y: above ? rect.top - 18 : rect.bottom + 18,
+    x:
+      Math.max(
+        halfWidth + 12,
+        Math.min(rect.left + rect.width / 2 - left, width - halfWidth - 12)
+      ) + (dialog?.scrollLeft ?? 0),
+    y:
+      (above ? rect.top - 18 : rect.bottom + 18) -
+      top +
+      (dialog?.scrollTop ?? 0),
     above,
   }
 }
@@ -111,6 +127,12 @@ function show(target: HTMLElement, fromFocus = false) {
   }
 
   visible.value = true
+
+  void nextTick(() => {
+    if (activeTarget === target) {
+      updatePosition(target)
+    }
+  })
 }
 
 function schedulePosition() {
@@ -254,5 +276,10 @@ watch(() => route.fullPath, hide)
   text-align: center;
   overflow-wrap: anywhere;
   pointer-events: none;
+
+  &--dialog {
+    position: absolute;
+    max-width: min(280px, calc(100% - 24px));
+  }
 }
 </style>
