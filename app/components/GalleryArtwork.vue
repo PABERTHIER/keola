@@ -144,6 +144,10 @@ onMounted(() => {
     transition: opacity $transition-ui;
   }
 
+  &__button:focus-visible &__badge {
+    opacity: 1;
+  }
+
   &__icon {
     width: $gallery-icon-size;
     height: $gallery-icon-size;
@@ -157,14 +161,10 @@ onMounted(() => {
 }
 
 @media (hover: none), (pointer: coarse) {
-  .gallery-item--loaded .gallery-item__badge {
-    opacity: 1;
-  }
-}
-
-.gallery-item {
-  &__button:focus-visible &__badge {
-    opacity: 1;
+  .gallery-item {
+    &--loaded &__badge {
+      opacity: 1;
+    }
   }
 }
 

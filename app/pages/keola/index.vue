@@ -14,7 +14,7 @@
               :alt="t('keola.welcome_spirit_alt')"
               class="portrait-section__spirit" />
           </p>
-          <div class="section-lead">
+          <div class="section-lead portrait-section__lead">
             <p>{{ t('keola.intro_1') }}</p>
             <p>{{ t('keola.intro_2') }}</p>
           </div>
@@ -195,7 +195,7 @@
           <h2 id="debut-title" class="section-title">
             {{ t('keola.debut.title') }}
           </h2>
-          <div class="section-lead">
+          <div class="section-lead debut-section__lead">
             <p>{{ t('keola.debut.text_1') }}</p>
             <p>{{ t('keola.debut.text_2') }}</p>
           </div>
@@ -232,7 +232,7 @@
         <h2 id="models-title" class="section-title">
           {{ t('keola.models.title') }}
         </h2>
-        <div class="section-lead">
+        <div class="section-lead models-section__lead">
           <p>{{ t('keola.models.text_1') }}</p>
           <p>{{ t('keola.models.text_2') }}</p>
         </div>
@@ -568,7 +568,7 @@ useHead(usePageSeo('keola'))
     object-fit: contain;
   }
 
-  .section-lead {
+  &__lead {
     margin-bottom: $space-24;
   }
 
@@ -813,13 +813,13 @@ useHead(usePageSeo('keola'))
     justify-content: center;
   }
 
-  .section-lead {
+  &__lead {
     margin-bottom: $space-30;
   }
 }
 
 .models-section {
-  > .shell > .section-lead {
+  &__lead {
     max-width: none;
   }
 
@@ -946,8 +946,10 @@ useHead(usePageSeo('keola'))
 }
 
 @media screen and (prefers-reduced-motion: no-preference) {
-  .portrait-section__spirit {
-    animation: spirit-float 4s ease-in-out infinite;
+  .portrait-section {
+    &__spirit {
+      animation: spirit-float 4s ease-in-out infinite;
+    }
   }
 
   .keola-page [data-scroll-reveal].is-scroll-reveal-ready {
@@ -962,10 +964,12 @@ useHead(usePageSeo('keola'))
   }
 
   @supports (animation-timeline: view()) {
-    .models-section__art img {
-      animation: model-art-parallax 1ms linear both;
-      animation-timeline: view();
-      animation-range: cover;
+    .models-section {
+      &__art img {
+        animation: model-art-parallax 1ms linear both;
+        animation-timeline: view();
+        animation-range: cover;
+      }
     }
   }
 }
@@ -1065,43 +1069,51 @@ useHead(usePageSeo('keola'))
     }
   }
 
-  .lore-story__chapter {
-    grid-template-columns: 60px minmax(0, 1fr);
-    gap: $space-24;
+  .lore-story {
+    &__chapter {
+      grid-template-columns: 60px minmax(0, 1fr);
+      gap: $space-24;
+    }
   }
 
-  .profile-section__topics {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: $space-30;
+  .profile-section {
+    &__topics {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: $space-30;
+    }
   }
 
-  .debut-section__grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: $space-60;
-  }
+  .debut-section {
+    &__grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: $space-60;
+    }
 
-  .debut-section__actions {
-    justify-content: flex-start;
+    &__actions {
+      justify-content: flex-start;
+    }
   }
 
   .keola-page figure.debut-section__teaser {
     margin-left: 0;
   }
 
-  .models-section__gallery {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: $space-24;
-  }
+  .models-section {
+    &__gallery {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: $space-24;
 
-  .models-section__gallery figure:last-child:nth-child(odd) {
-    grid-column: auto;
-    justify-self: stretch;
-    width: auto;
-  }
+      figure:last-child:nth-child(odd) {
+        grid-column: auto;
+        justify-self: stretch;
+        width: auto;
+      }
+    }
 
-  .models-section__art {
-    height: 320px;
-    padding: $space-20;
+    &__art {
+      height: 320px;
+      padding: $space-20;
+    }
   }
 
   .illustrated-link {
@@ -1111,70 +1123,112 @@ useHead(usePageSeo('keola'))
 }
 
 @media (min-width: $breakpoint-desktop) {
-  .more-section__links {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .more-section {
+    &__links {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 
-  .models-section__art {
-    height: 420px;
-  }
+  .models-section {
+    &__art {
+      height: 420px;
+    }
 
-  .models-section__reference-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: stretch;
-  }
+    &__reference-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+    }
 
-  .models-section__reference--wide {
-    grid-column: 1 / -1;
+    &__reference--wide {
+      grid-column: 1 / -1;
+    }
   }
 }
 
 @media (max-width: $breakpoint-mobile) {
-  .illustrated-link__copy {
-    text-align: center;
+  .illustrated-link {
+    &__copy {
+      text-align: center;
+    }
   }
 
-  .portrait-section__copy {
-    text-align: center;
+  .portrait-section {
+    &__copy {
+      text-align: center;
+    }
+
+    &__welcome {
+      justify-content: center;
+    }
+
+    &__lead {
+      margin-inline: auto;
+    }
   }
 
-  .portrait-section__welcome {
-    justify-content: center;
+  .profile-section {
+    > .shell > .eyebrow {
+      display: flex;
+      justify-content: center;
+    }
+
+    > .shell > .section-title {
+      text-align: center;
+      margin-inline: auto;
+    }
   }
 
-  .portrait-section .section-lead {
-    margin-inline: auto;
+  .debut-section {
+    &__grid > div > .eyebrow {
+      display: flex;
+      justify-content: center;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-inline: auto;
+    }
+
+    &__lead {
+      margin-inline: auto;
+      text-align: center;
+    }
   }
 
-  .profile-section > .shell > .eyebrow {
-    display: flex;
-    justify-content: center;
+  .models-section {
+    > .shell > .eyebrow {
+      display: flex;
+      justify-content: center;
+    }
+
+    > .shell > .section-title {
+      text-align: center;
+      margin-inline: auto;
+    }
+
+    &__lead {
+      margin-inline: auto;
+      text-align: center;
+    }
   }
 
-  .debut-section__grid > div > .eyebrow,
-  .models-section > .shell > .eyebrow,
-  .more-section > .shell > .eyebrow {
-    display: flex;
-    justify-content: center;
+  .more-section {
+    > .shell > .eyebrow {
+      display: flex;
+      justify-content: center;
+    }
+
+    > .shell > .section-title {
+      text-align: center;
+      margin-inline: auto;
+    }
   }
 
-  .profile-section > .shell > .section-title,
-  .debut-section .section-title,
-  .models-section > .shell > .section-title,
-  .more-section > .shell > .section-title {
-    text-align: center;
-    margin-inline: auto;
-  }
-
-  .debut-section .section-lead,
-  .models-section > .shell > .section-lead {
-    margin-inline: auto;
-    text-align: center;
-  }
-
-  .more-section__community {
-    justify-content: center;
-    text-align: center;
+  .more-section {
+    &__community {
+      justify-content: center;
+      text-align: center;
+    }
   }
 
   .keola-page .lore-story__return {
@@ -1185,35 +1239,41 @@ useHead(usePageSeo('keola'))
 }
 
 @media (max-width: $breakpoint-small) {
-  .portrait-section h1 {
-    font-size: 2.15rem;
+  .portrait-section {
+    h1 {
+      font-size: 2.15rem;
+    }
+
+    &__spirit {
+      width: 34px;
+    }
   }
 
-  .portrait-section__spirit {
-    width: 34px;
-  }
+  .models-section {
+    &__gallery {
+      grid-template-columns: minmax(0, 1fr);
+      gap: $space-28;
 
-  .models-section__gallery {
-    grid-template-columns: minmax(0, 1fr);
-    gap: $space-28;
-  }
+      figure:last-child:nth-child(odd) {
+        grid-column: auto;
+        justify-self: stretch;
+        width: auto;
+      }
+    }
 
-  .models-section__gallery figure:last-child:nth-child(odd) {
-    grid-column: auto;
-    justify-self: stretch;
-    width: auto;
-  }
-
-  .models-section__art {
-    height: clamp(280px, 54svh, 380px);
-    padding: $space-20;
+    &__art {
+      height: clamp(280px, 54svh, 380px);
+      padding: $space-20;
+    }
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .illustrated-link:hover img,
-  .illustrated-link:focus-visible img {
-    transform: none;
+  .illustrated-link {
+    &:hover img,
+    &:focus-visible img {
+      transform: none;
+    }
   }
 }
 </style>

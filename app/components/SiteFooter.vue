@@ -112,15 +112,15 @@ const year = new Date().getFullYear()
     padding-bottom: $space-70;
   }
 
-  &__identity p {
-    max-width: 310px;
-    margin: $space-22 0;
-    color: $footer-description-text;
-    font-size: 0.88rem;
-  }
-
   &__identity {
     min-width: 0;
+
+    p {
+      max-width: 310px;
+      margin: $space-22 0;
+      color: $footer-description-text;
+      font-size: 0.88rem;
+    }
   }
 
   &__column {

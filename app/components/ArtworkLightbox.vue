@@ -877,12 +877,14 @@ defineExpose({ open })
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .lightbox__image img {
-    transition: opacity 0.28s ease;
-  }
+  .lightbox {
+    &__image img {
+      transition: opacity 0.28s ease;
+    }
 
-  .lightbox__placeholder {
-    animation: artwork-skeleton 1.8s ease-in-out infinite;
+    &__placeholder {
+      animation: artwork-skeleton 1.8s ease-in-out infinite;
+    }
   }
 }
 </style>

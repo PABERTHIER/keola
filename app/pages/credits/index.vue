@@ -133,17 +133,21 @@ useHead(usePageSeo('credits'))
     grid-template-columns: 1fr;
   }
 
-  .credits-page__next {
-    justify-content: center;
+  .credits-page {
+    &__next {
+      justify-content: center;
+    }
   }
 }
 @media (max-width: $breakpoint-small) {
-  .credits-page__link {
-    order: 0;
-  }
+  .credits-page {
+    &__link {
+      order: 0;
+    }
 
-  .credits-page__next img {
-    order: 1;
+    &__next img {
+      order: 1;
+    }
   }
 }
 </style>

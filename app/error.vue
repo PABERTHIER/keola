@@ -238,20 +238,22 @@ async function recover(path: string) {
 }
 
 @media (min-width: $breakpoint-mobile) {
-  .error-page__main {
-    grid-template-columns: 1.1fr 0.9fr;
-    align-items: center;
-    min-height: calc(100svh - 100px);
-    gap: $space-48;
-    padding-block: $space-60;
-  }
+  .error-page {
+    &__main {
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      min-height: calc(100svh - 100px);
+      gap: $space-48;
+      padding-block: $space-60;
+    }
 
-  .error-page__actions .button {
-    width: auto;
-  }
+    &__actions .button {
+      width: auto;
+    }
 
-  .error-page__art {
-    padding: $space-32;
+    &__art {
+      padding: $space-32;
+    }
   }
 }
 </style>

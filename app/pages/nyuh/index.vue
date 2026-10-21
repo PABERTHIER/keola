@@ -281,20 +281,24 @@ useHead(() => ({ title: title.value, titleTemplate: '%s' }))
       max($space-8, env(safe-area-inset-bottom));
   }
 
-  .nyuh-page__card {
-    width: min(84vw, 72dvh);
+  .nyuh-page {
+    &__card {
+      width: min(84vw, 72dvh);
+    }
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nyuh-page__card {
-    transform: none;
-    transition: none;
-  }
+  .nyuh-page {
+    &__card {
+      transform: none;
+      transition: none;
+    }
 
-  .nyuh-page__image {
-    transform: none;
-    transition: none;
+    &__image {
+      transform: none;
+      transition: none;
+    }
   }
 }
 </style>

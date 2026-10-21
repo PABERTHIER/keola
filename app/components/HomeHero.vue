@@ -368,6 +368,12 @@ onBeforeUnmount(() => {
 
   h1 {
     position: relative;
+    margin: 27px 0 $space-22;
+    font-family: $signature;
+    font-size: 6rem;
+    font-weight: $weight-regular;
+    line-height: 1.08;
+    overflow-wrap: anywhere;
   }
 
   h1::before,
@@ -404,15 +410,6 @@ onBeforeUnmount(() => {
     width: 7px;
     height: 7px;
     opacity: 0.35;
-  }
-
-  h1 {
-    margin: 27px 0 $space-22;
-    font-family: $signature;
-    font-size: 6rem;
-    font-weight: $weight-regular;
-    line-height: 1.08;
-    overflow-wrap: anywhere;
   }
 
   h1 span {
@@ -522,23 +519,27 @@ onBeforeUnmount(() => {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .hero h1::before,
-  .hero h1::after,
-  .hero__name::before,
-  .hero__name::after {
-    animation: hero-sparkle 5s ease-in-out infinite;
-  }
+  .hero {
+    h1::before,
+    h1::after,
+    &__name::before,
+    &__name::after {
+      animation: hero-sparkle 5s ease-in-out infinite;
+    }
 
-  .hero h1::after,
-  .hero__name::after {
-    animation-delay: -2.5s;
-  }
+    h1::after,
+    &__name::after {
+      animation-delay: -2.5s;
+    }
 
-  .hero--offscreen h1::before,
-  .hero--offscreen h1::after,
-  .hero--offscreen .hero__name::before,
-  .hero--offscreen .hero__name::after {
-    animation-play-state: paused;
+    &--offscreen {
+      h1::before,
+      h1::after,
+      .hero__name::before,
+      .hero__name::after {
+        animation-play-state: paused;
+      }
+    }
   }
 }
 
@@ -559,149 +560,159 @@ onBeforeUnmount(() => {
 }
 
 @media (max-width: $breakpoint-desktop) {
-  .hero h1 {
-    font-size: 4.9rem;
+  .hero {
+    h1 {
+      font-size: 4.9rem;
+    }
   }
 }
 
 @media (max-width: $breakpoint-tablet) {
-  .hero__visual {
-    margin-right: -$shell-gutter-tablet;
-  }
+  .hero {
+    &__visual {
+      margin-right: -$shell-gutter-tablet;
+    }
 
-  .hero h1 {
-    font-size: 4.3rem;
-  }
+    h1 {
+      font-size: 4.3rem;
+    }
 
-  .hero__inner {
-    min-height: clamp(520px, 72svh, 650px);
+    &__inner {
+      min-height: clamp(520px, 72svh, 650px);
+    }
   }
 }
 
 @media (max-width: $breakpoint-mobile) {
-  .hero__inner {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    min-height: 0;
-  }
+  .hero {
+    &__inner {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      min-height: 0;
+    }
 
-  .hero__content {
-    align-self: stretch;
-    padding: 43px 0 29px;
-    text-align: center;
-  }
+    &__content {
+      align-self: stretch;
+      padding: 43px 0 29px;
+      text-align: center;
+    }
 
-  .hero h1 {
-    margin: $space-17 0 $space-15;
-    font-size: 3.65rem;
-  }
+    h1 {
+      margin: $space-17 0 $space-15;
+      font-size: 3.65rem;
+    }
 
-  .hero h1::before,
-  .hero h1::after {
-    display: none;
-  }
+    h1::before,
+    h1::after {
+      display: none;
+    }
 
-  .hero__name {
-    width: fit-content;
-    max-width: 100%;
-    margin-inline: auto;
-    padding-right: $control-size;
-  }
+    &__name {
+      width: fit-content;
+      max-width: 100%;
+      margin-inline: auto;
+      padding-right: $control-size;
+    }
 
-  .hero__name::before {
-    display: block;
-    top: 0.12em;
-    right: $space-8;
-    width: 14px;
-    height: 14px;
-    opacity: 0.55;
-  }
+    &__name::before {
+      display: block;
+      top: 0.12em;
+      right: $space-8;
+      width: 14px;
+      height: 14px;
+      opacity: 0.55;
+    }
 
-  .hero__name::after {
-    display: block;
-    top: 0.52em;
-    right: 0px;
-    width: 7px;
-    height: 7px;
-    opacity: 0.35;
-  }
+    &__name::after {
+      display: block;
+      top: 0.52em;
+      right: 0px;
+      width: 7px;
+      height: 7px;
+      opacity: 0.35;
+    }
 
-  .hero__lead {
-    max-width: 550px;
-    margin-inline: auto;
-    margin-bottom: $space-22;
-    font-size: $font-size-intro-mobile;
-    line-height: $line-height-compact;
-  }
+    &__lead {
+      max-width: 550px;
+      margin-inline: auto;
+      margin-bottom: $space-22;
+      font-size: $font-size-intro-mobile;
+      line-height: $line-height-compact;
+    }
 
-  .hero__actions {
-    justify-content: center;
-    gap: $space-8;
-  }
+    &__actions {
+      justify-content: center;
+      gap: $space-8;
+    }
 
-  .hero__actions .button {
-    min-height: $control-size;
-    padding: $space-9 $space-12;
-    font-size: $font-size-action-small;
-  }
+    &__actions .button {
+      min-height: $control-size;
+      padding: $space-9 $space-12;
+      font-size: $font-size-action-small;
+    }
 
-  .hero__visual {
-    --hero-art-height: clamp(300px, 85vw, 480px);
-    display: grid;
-    grid-template-rows: var(--hero-art-height) auto;
-    justify-items: center;
-    gap: $space-12;
-    height: auto;
-    min-height: 0;
-    padding-bottom: $space-16;
-    margin-left: -$shell-gutter-mobile;
-    margin-right: -$shell-gutter-mobile;
-  }
+    &__visual {
+      --hero-art-height: clamp(300px, 85vw, 480px);
+      display: grid;
+      grid-template-rows: var(--hero-art-height) auto;
+      justify-items: center;
+      gap: $space-12;
+      height: auto;
+      min-height: 0;
+      padding-bottom: $space-16;
+      margin-left: -$shell-gutter-mobile;
+      margin-right: -$shell-gutter-mobile;
+    }
 
-  .hero__visual img {
-    right: auto;
-    left: 50%;
-    width: min(calc(100% - #{$shell-gutter-mobile * 2}), 520px);
-    height: var(--hero-art-height);
-    object-position: center 19%;
-    border-radius: $radius-art;
-    transform: translateX(-50%);
-  }
+    &__visual img {
+      right: auto;
+      left: 50%;
+      width: min(calc(100% - #{$shell-gutter-mobile * 2}), 520px);
+      height: var(--hero-art-height);
+      object-position: center 19%;
+      border-radius: $radius-art;
+      transform: translateX(-50%);
+    }
 
-  .hero__carousel-controls {
-    position: static;
-    grid-row: 2;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: calc(100% - #{$shell-gutter-mobile * 2});
-    transform: none;
+    &__carousel-controls {
+      position: static;
+      grid-row: 2;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: calc(100% - #{$shell-gutter-mobile * 2});
+      transform: none;
+    }
   }
 }
 
 @media (max-width: $breakpoint-small) {
-  .hero h1 {
-    font-size: 3rem;
-  }
+  .hero {
+    h1 {
+      font-size: 3rem;
+    }
 
-  .hero__actions .button {
-    max-width: 100%;
+    &__actions .button {
+      max-width: 100%;
+    }
   }
 }
 
 @media (max-width: $breakpoint-compact) and (max-height: $breakpoint-short-height) {
-  .hero__content {
-    padding: $space-24 0 $space-12;
-  }
+  .hero {
+    &__content {
+      padding: $space-24 0 $space-12;
+    }
 
-  .hero h1 {
-    margin: $space-9 0 $space-8;
-    font-size: 2.85rem;
-  }
+    h1 {
+      margin: $space-9 0 $space-8;
+      font-size: 2.85rem;
+    }
 
-  .hero__lead {
-    margin-bottom: $space-13;
-    line-height: 1.45;
+    &__lead {
+      margin-bottom: $space-13;
+      line-height: 1.45;
+    }
   }
 }
 </style>

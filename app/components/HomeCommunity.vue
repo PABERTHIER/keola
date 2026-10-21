@@ -188,15 +188,19 @@ onBeforeUnmount(() => titleObserver?.disconnect())
 }
 
 @media (max-width: $breakpoint-desktop) {
-  .community-section__grid {
-    gap: $space-60;
+  .community-section {
+    &__grid {
+      gap: $space-60;
+    }
   }
 }
 
 @media (max-width: $breakpoint-tablet) {
-  .community-section__grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: $space-40;
+  .community-section {
+    &__grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: $space-40;
+    }
   }
 }
 

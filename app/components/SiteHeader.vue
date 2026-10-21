@@ -235,13 +235,13 @@ watch(
     padding: $space-9 $space-13;
     font-size: 0.78rem;
     white-space: nowrap;
+  }
 
-    .site-header__live-icon {
-      color: $white-pure;
-      width: 20px;
-      height: 20px;
-      flex: none;
-    }
+  &__live-icon {
+    color: $white-pure;
+    width: 20px;
+    height: 20px;
+    flex: none;
   }
 }
 
@@ -355,8 +355,10 @@ watch(
 }
 
 @media (max-width: $breakpoint-small) {
-  .site-header__actions {
-    gap: $space-4;
+  .site-header {
+    &__actions {
+      gap: $space-4;
+    }
   }
 }
 
