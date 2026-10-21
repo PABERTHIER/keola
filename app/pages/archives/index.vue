@@ -87,6 +87,7 @@
 import { externalLinks } from '~/data/site'
 
 const { t } = useI18n()
+
 const featuredArtworks = [
   {
     src: '/images/redpanda/RedPandathon_2024_goals.webp',
@@ -99,8 +100,10 @@ const featuredArtworks = [
     titleKey: 'redpandathon_impossible_title',
   },
 ] as const
+
 const redebutYears = [2024, 2023] as const
 const redebutSides = ['left', 'right'] as const
+
 const artworks = computed(() => [
   ...featuredArtworks.map(artwork => ({
     src: artwork.src,
@@ -115,6 +118,7 @@ const artworks = computed(() => [
     }))
   ),
 ])
+
 const viewer = ref<{
   open: (index: number, trigger?: HTMLElement) => void
 } | null>(null)

@@ -20,6 +20,7 @@
 
 <script setup lang="ts">
 const route = useRoute()
+
 const visible = ref(false)
 const label = ref('')
 const container = shallowRef<HTMLElement | 'body'>('body')
@@ -120,6 +121,7 @@ function show(target: HTMLElement, fromFocus = false) {
   openedByFocus = fromFocus
   label.value = text
   container.value = target.closest('dialog[open]') ?? 'body'
+
   updatePosition(target)
 
   if (activeTarget !== target) {
@@ -228,12 +230,14 @@ function handleKeydown(event: KeyboardEvent) {
 
 onMounted(() => {
   hoverMedia = window.matchMedia('(hover: hover) and (pointer: fine)')
+
   document.addEventListener('pointerover', handlePointerOver)
   document.addEventListener('pointerout', handlePointerOut)
   document.addEventListener('focusin', handleFocusIn)
   document.addEventListener('focusout', handleFocusOut)
   document.addEventListener('pointerdown', hide)
   document.addEventListener('keydown', handleKeydown)
+
   window.addEventListener('scroll', schedulePosition, {
     capture: true,
     passive: true,
@@ -243,13 +247,16 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   hide()
+
   hoverMedia = null
+
   document.removeEventListener('pointerover', handlePointerOver)
   document.removeEventListener('pointerout', handlePointerOut)
   document.removeEventListener('focusin', handleFocusIn)
   document.removeEventListener('focusout', handleFocusOut)
   document.removeEventListener('pointerdown', hide)
   document.removeEventListener('keydown', handleKeydown)
+
   window.removeEventListener('scroll', schedulePosition, true)
   window.removeEventListener('resize', schedulePosition)
 })
