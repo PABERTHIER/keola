@@ -81,7 +81,7 @@ const galleryPath = computed(() => localePath('/gallery'))
 const imagePath = '/images/keola/Keola_magnifying_glass.webp'
 const [imageWidth, imageHeight] = imageDimensions[imagePath]!
 
-// Error pages preserve their HTTP status and must never become search results.
+// Error pages preserve their HTTP status and must never become search results
 useResponseHeader('X-Robots-Tag').value = robotsContent.blocked
 useSeoMeta({
   robots: robotsContent.blocked,

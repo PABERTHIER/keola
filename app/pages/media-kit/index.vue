@@ -86,17 +86,17 @@ useHead(usePageSeo('media'))
   align-items: start;
   flex-direction: column;
   gap: 23px;
+
+  img {
+    width: 100%;
+    height: auto;
+    border: $border-width solid $line;
+    border-radius: $radius-control;
+  }
 }
 
 .media-page .button {
   max-width: 100%;
-}
-
-.media-page__sheet img {
-  width: 100%;
-  height: auto;
-  border: $border-width solid $line;
-  border-radius: $radius-control;
 }
 
 .media-page__aside {
@@ -107,20 +107,20 @@ useHead(usePageSeo('media'))
   padding: $space-34;
   border-radius: $radius-control;
   background: $spirit;
-}
 
-.media-page__contact h2 {
-  margin: $space-15 0;
-  font-size: 2.2rem;
-}
+  h2 {
+    margin: $space-15 0;
+    font-size: 2.2rem;
+  }
 
-.media-page__contact p {
-  color: $muted;
-  line-height: 1.7;
-}
+  p {
+    color: $muted;
+    line-height: 1.7;
+  }
 
-.media-page__contact .button {
-  margin-top: $space-8;
+  .button {
+    margin-top: $space-8;
+  }
 }
 
 .media-page__characters {
@@ -140,47 +140,45 @@ useHead(usePageSeo('media'))
 
 .media-page__links {
   margin-top: $space-45;
-}
 
-.media-page__links h2 {
-  margin-bottom: $space-18;
-  font-size: 1.65rem;
-}
-
-.media-page__links a {
-  display: flex;
-  align-items: center;
-  gap: $space-16;
-  min-height: 54px;
-  padding: $space-10 $space-4;
-  border-top: $border-width solid $line;
-  font-size: $font-size-secondary;
-  font-weight: $weight-bold;
-  transition:
-    padding $transition-ui,
-    background-color $transition-ui;
-}
-
-.media-page__links a:hover,
-.media-page__links a:focus-visible {
-  padding-left: $space-13;
-  background: $community-background;
-  color: $link-hover;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .media-page__links a {
-    transition: none;
+  h2 {
+    margin-bottom: $space-18;
+    font-size: 1.65rem;
   }
-}
 
-.media-page__links .social-icon {
-  flex: 0 0 $control-size;
-  width: $control-size;
-  height: $control-size;
-  padding: $space-10;
-  border-radius: $radius-control;
-  background: $plum-deep;
+  a {
+    display: flex;
+    align-items: center;
+    gap: $space-16;
+    min-height: 54px;
+    padding: $space-10 $space-4;
+    border-top: $border-width solid $line;
+    font-size: $font-size-secondary;
+    font-weight: $weight-bold;
+    transition:
+      padding $transition-ui,
+      background-color $transition-ui;
+
+    &:hover,
+    &:focus-visible {
+      padding-left: $space-13;
+      background: $community-background;
+      color: $link-hover;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  .social-icon {
+    flex: 0 0 $control-size;
+    width: $control-size;
+    height: $control-size;
+    padding: $space-10;
+    border-radius: $radius-control;
+    background: $plum-deep;
+  }
 }
 
 .media-page__link-label {

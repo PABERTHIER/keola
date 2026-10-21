@@ -575,13 +575,13 @@ useHead(usePageSeo('keola'))
   &__art {
     min-width: 0;
     text-align: center;
-  }
 
-  &__art img {
-    width: auto;
-    height: 280px;
-    margin-inline: auto;
-    object-fit: contain;
+    img {
+      width: auto;
+      height: 280px;
+      margin-inline: auto;
+      object-fit: contain;
+    }
   }
 }
 
@@ -601,10 +601,10 @@ useHead(usePageSeo('keola'))
     min-height: $control-size;
     font-size: $font-size-secondary;
     font-weight: $weight-bold;
-  }
 
-  a:hover {
-    color: $link-hover;
+    &:hover {
+      color: $link-hover;
+    }
   }
 }
 
@@ -613,11 +613,11 @@ useHead(usePageSeo('keola'))
     display: grid;
     gap: $space-32;
     margin-top: $space-36;
-  }
 
-  &__topics > div {
-    padding-top: $space-24;
-    border-top: 2px solid $orange-pale;
+    > div {
+      padding-top: $space-24;
+      border-top: 2px solid $orange-pale;
+    }
   }
 
   .iconify {
@@ -677,6 +677,15 @@ useHead(usePageSeo('keola'))
     display: grid;
     gap: $space-16;
     padding-bottom: $space-48;
+
+    & + & {
+      padding-top: $space-36;
+      border-top: $border-width solid $line;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
   }
 
   &__return {
@@ -684,15 +693,6 @@ useHead(usePageSeo('keola'))
     color: $link-hover;
     font-size: $font-size-secondary;
     font-weight: $weight-bold;
-  }
-
-  &__chapter + &__chapter {
-    padding-top: $space-36;
-    border-top: $border-width solid $line;
-  }
-
-  &__chapter:last-child {
-    padding-bottom: 0;
   }
 
   &__number {
@@ -713,11 +713,11 @@ useHead(usePageSeo('keola'))
 
   &__spirits {
     padding-top: $space-14;
-  }
 
-  &__spirits img {
-    width: min(100%, 360px);
-    margin-inline: auto;
+    img {
+      width: min(100%, 360px);
+      margin-inline: auto;
+    }
   }
 
   &__guardian-art {
@@ -734,13 +734,13 @@ useHead(usePageSeo('keola'))
     max-width: 520px;
     margin: $space-30 auto 0;
     border-bottom: 2px solid $orange-pale;
-  }
 
-  &__stream-art .image {
-    width: 100%;
-    height: clamp(180px, 30vw, 300px);
-    object-fit: contain;
-    object-position: bottom;
+    .image {
+      width: 100%;
+      height: clamp(180px, 30vw, 300px);
+      object-fit: contain;
+      object-position: bottom;
+    }
   }
 }
 
@@ -758,16 +758,16 @@ useHead(usePageSeo('keola'))
     border-bottom: $border-width solid $line;
     font-family: $display;
     font-weight: $weight-bold;
-  }
 
-  a:hover {
-    color: $link-hover;
-  }
+    &:hover {
+      color: $link-hover;
+    }
 
-  a > span:first-child {
-    margin-right: $space-14;
-    color: $eyebrow-text;
-    font-size: $font-size-secondary;
+    > span:first-child {
+      margin-right: $space-14;
+      color: $eyebrow-text;
+      font-size: $font-size-secondary;
+    }
   }
 
   .iconify {
@@ -785,25 +785,27 @@ useHead(usePageSeo('keola'))
     gap: $space-40;
   }
 
-  &__poster img {
-    width: min(100%, 360px);
-    margin-inline: auto;
-    border-radius: $radius-art;
-    box-shadow: 8px 8px 0 $orange-pale;
+  &__poster {
+    img {
+      width: min(100%, 360px);
+      margin-inline: auto;
+      border-radius: $radius-art;
+      box-shadow: 8px 8px 0 $orange-pale;
+    }
   }
 
   &__teaser {
     width: min(100%, 280px);
-  }
 
-  &__teaser img {
-    width: 100%;
-    border-radius: $radius-art;
-    box-shadow: 5px 5px 0 $orange-pale;
-  }
+    img {
+      width: 100%;
+      border-radius: $radius-art;
+      box-shadow: 5px 5px 0 $orange-pale;
+    }
 
-  &__teaser figcaption {
-    margin-top: $space-10;
+    figcaption {
+      margin-top: $space-10;
+    }
   }
 
   &__actions {
@@ -831,27 +833,6 @@ useHead(usePageSeo('keola'))
     border-radius: $radius-art;
   }
 
-  &__reference-grid button {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: $link-hover;
-    text-align: left;
-  }
-
-  &__reference-grid button > span {
-    display: inline-flex;
-    align-items: center;
-    gap: $space-8;
-    min-height: $control-size;
-    font-size: $font-size-secondary;
-    font-weight: $weight-bold;
-  }
-
   &__evolution figcaption,
   &__reference-grid figcaption {
     margin-top: $space-4;
@@ -859,30 +840,48 @@ useHead(usePageSeo('keola'))
 
   &__references {
     margin-top: $space-60;
-  }
 
-  &__references h3 {
-    font-size: 1.5rem;
-  }
+    h3 {
+      font-size: 1.5rem;
+    }
 
-  &__references > p {
-    color: $muted;
+    > p {
+      color: $muted;
+    }
   }
 
   &__reference-grid {
     display: grid;
     gap: $space-32;
     margin-top: $space-24;
-  }
 
-  &__reference-grid figure {
-    display: grid;
-    grid-template-rows: minmax(0, 1fr) auto;
-    min-width: 0;
-  }
+    figure {
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      min-width: 0;
+    }
 
-  &__reference-grid button {
-    justify-content: center;
+    button {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: $link-hover;
+      text-align: left;
+
+      > span {
+        display: inline-flex;
+        align-items: center;
+        gap: $space-8;
+        min-height: $control-size;
+        font-size: $font-size-secondary;
+        font-weight: $weight-bold;
+      }
+    }
   }
 
   &__gallery {
@@ -890,16 +889,16 @@ useHead(usePageSeo('keola'))
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: $space-32 $space-16;
     margin-top: $space-40;
-  }
 
-  &__gallery figure {
-    min-width: 0;
-  }
+    figure {
+      min-width: 0;
 
-  &__gallery figure:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    justify-self: center;
-    width: calc(50% - $space-8);
+      &:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc(50% - $space-8);
+      }
+    }
   }
 
   &__art {
@@ -914,6 +913,23 @@ useHead(usePageSeo('keola'))
     border: 0;
     border-bottom: 2px solid $orange;
     background: linear-gradient(0deg, $orange-pale, transparent 75%);
+
+    img {
+      position: relative;
+      z-index: $z-artwork;
+      min-height: 0;
+      max-height: 100%;
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      transition: transform $transition-artwork;
+    }
+
+    @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+      &:hover img {
+        transform: scale($artwork-hover-scale);
+      }
+    }
   }
 
   &__expand {
@@ -926,23 +942,6 @@ useHead(usePageSeo('keola'))
     border-radius: $radius-small;
     background: $white;
     color: $ink;
-  }
-
-  &__art img {
-    position: relative;
-    z-index: $z-artwork;
-    min-height: 0;
-    max-height: 100%;
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-    transition: transform $transition-artwork;
-  }
-
-  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-    &__art:hover img {
-      transform: scale($artwork-hover-scale);
-    }
   }
 }
 
@@ -990,13 +989,13 @@ useHead(usePageSeo('keola'))
     margin-top: $space-48;
     padding-top: $space-32;
     border-top: $border-width solid $button-light-outline-border;
-  }
 
-  &__community p {
-    max-width: 620px;
-    margin: 0;
-    font-family: $display;
-    font-size: 1.3rem;
+    p {
+      max-width: 620px;
+      margin: 0;
+      font-family: $display;
+      font-size: 1.3rem;
+    }
   }
 }
 

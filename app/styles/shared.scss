@@ -34,10 +34,10 @@
   background: transparent;
   border-radius: $radius-control;
   color: $ink;
-}
 
-.icon-button .iconify {
-  font-size: 23px;
+  .iconify {
+    font-size: 23px;
+  }
 }
 
 .button {
@@ -59,6 +59,11 @@
     background-color $transition-ui,
     color $transition-ui,
     transform $transition-ui;
+
+  .iconify {
+    font-size: 18px;
+    flex: none;
+  }
 }
 
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
@@ -67,56 +72,51 @@
   }
 }
 
-.button .iconify {
-  font-size: 18px;
-  flex: none;
-}
-
 .button--primary {
   background: $orange;
   color: $button-primary-text;
-}
 
-.button--primary:hover {
-  background: $button-primary-hover;
+  &:hover {
+    background: $button-primary-hover;
+  }
 }
 
 .button--dark {
   background: $plum;
   color: $white-pure;
-}
 
-.button--dark:hover {
-  background: $button-dark-hover;
+  &:hover {
+    background: $button-dark-hover;
+  }
 }
 
 .button--outline {
   border-color: $ink;
   color: $ink;
-}
 
-.button--outline:hover {
-  background: $ink;
-  color: $paper;
+  &:hover {
+    background: $ink;
+    color: $paper;
+  }
 }
 
 .button--light-outline {
   border-color: $button-light-outline-border;
   color: $white-pure;
-}
 
-.button--light-outline:hover {
-  background: $white-pure;
-  color: $plum;
+  &:hover {
+    background: $white-pure;
+    color: $plum;
+  }
 }
 
 .button--light {
   background: $white;
   color: $ink;
-}
 
-.button--light:hover {
-  background: $button-light-hover;
+  &:hover {
+    background: $button-light-hover;
+  }
 }
 
 .text-link {
@@ -126,10 +126,10 @@
   font-size: 0.86rem;
   font-weight: $weight-bold;
   border-bottom: $border-width solid currentColor;
-}
 
-.text-link:hover {
-  color: $text-link-hover;
+  &:hover {
+    color: $text-link-hover;
+  }
 }
 
 .eyebrow {
@@ -169,10 +169,10 @@
   color: $muted;
   font-size: 1.03rem;
   line-height: $line-height-body;
-}
 
-.section-lead > p {
-  margin: 0;
+  > p {
+    margin: 0;
+  }
 }
 
 .section-heading {
@@ -181,15 +181,15 @@
   justify-content: space-between;
   gap: $space-30;
   margin-bottom: $space-36;
-}
 
-.section-heading .section-lead {
-  margin-bottom: 0;
-}
+  .section-lead {
+    margin-bottom: 0;
+  }
 
-.section-heading .button,
-.section-heading .text-link {
-  flex: none;
+  .button,
+  .text-link {
+    flex: none;
+  }
 }
 
 @media (max-width: $breakpoint-tablet) {

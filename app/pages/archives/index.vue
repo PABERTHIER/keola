@@ -146,68 +146,81 @@ useHead(usePageSeo('archives'))
   border-radius: $radius-control;
   background: $plum;
   color: $white-pure;
-}
 
-.archive-feature__copy {
-  max-width: 520px;
-  margin-inline: auto;
-}
+  &__copy {
+    max-width: 520px;
+    margin-inline: auto;
 
-.archive-feature__copy .eyebrow {
-  color: $archive-accent;
-}
+    .eyebrow {
+      color: $archive-accent;
+    }
+  }
 
-.archive-feature h2,
-.archive-timeline h2 {
-  margin: $space-15 0;
-  font-size: 2.55rem;
-}
+  h2 {
+    margin: $space-15 0;
+    font-size: 2.55rem;
+  }
 
-.archive-feature p {
-  color: $archive-text;
-  line-height: $line-height-copy;
-}
+  p {
+    color: $archive-text;
+    line-height: $line-height-copy;
+  }
 
-.archive-feature .button {
-  margin-top: $space-13;
-  background: $orange;
-  color: $plum-deep;
-}
+  .button {
+    margin-top: $space-13;
+    background: $orange;
+    color: $plum-deep;
+  }
 
-.archive-feature__images {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
-  gap: $space-10;
-}
+  &__images {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: $space-10;
 
-.archive-feature__images img {
-  max-height: 345px;
+    img {
+      max-height: 345px;
+    }
+  }
+
+  .archive-artwork {
+    color: $white-pure;
+  }
 }
 
 .archive-timeline {
   margin-top: $space-70;
-}
 
-.archive-timeline__item {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: $space-60;
-  align-items: center;
-  padding: $space-36 0;
-  border-top: $border-width solid $line;
-}
+  h2 {
+    margin: $space-15 0;
+    font-size: 2.55rem;
+  }
 
-.archive-timeline__images {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
-  gap: $space-8;
-  min-width: 0;
-}
+  &__item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: $space-60;
+    align-items: center;
+    padding: $space-36 0;
+    border-top: $border-width solid $line;
+  }
 
-.archive-timeline__images img {
-  max-height: 300px;
+  &__images {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: $space-8;
+    min-width: 0;
+
+    img {
+      max-height: 300px;
+    }
+  }
+
+  &__copy p {
+    max-width: 440px;
+    color: $muted;
+  }
 }
 
 .archive-artwork {
@@ -219,39 +232,32 @@ useHead(usePageSeo('archives'))
   border: 0;
   background: transparent;
   color: $link-hover;
-}
 
-.archive-artwork img {
-  width: 100%;
-  border-radius: $radius-art;
-}
+  img {
+    width: 100%;
+    border-radius: $radius-art;
+  }
 
-.archive-artwork span {
-  display: grid;
-  place-items: center;
-  min-height: $control-size;
-  font-size: $font-size-secondary;
-  font-weight: $weight-bold;
-  text-align: center;
-}
+  span {
+    display: grid;
+    place-items: center;
+    min-height: $control-size;
+    font-size: $font-size-secondary;
+    font-weight: $weight-bold;
+    text-align: center;
+  }
 
-.archive-artwork:hover span,
-.archive-artwork:focus-visible span {
-  text-decoration: underline;
-}
-
-.archive-feature .archive-artwork {
-  color: $white-pure;
-}
-
-.archive-timeline__copy p {
-  max-width: 440px;
-  color: $muted;
+  &:hover span,
+  &:focus-visible span {
+    text-decoration: underline;
+  }
 }
 
 @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
-  .archive-feature__images {
-    grid-template-columns: minmax(0, 1fr);
+  .archive-feature {
+    &__images {
+      grid-template-columns: minmax(0, 1fr);
+    }
   }
 }
 
@@ -260,44 +266,44 @@ useHead(usePageSeo('archives'))
     padding-block: $space-38 $space-30;
   }
 
-  .archive-feature,
-  .archive-timeline__item {
+  .archive-feature {
     grid-template-columns: minmax(0, 1fr);
     gap: $space-25;
-  }
-
-  .archive-feature {
     padding: $space-25;
-  }
 
-  .archive-feature__copy,
-  .archive-timeline__copy {
-    text-align: center;
-  }
+    &__copy {
+      text-align: center;
+    }
 
-  .archive-timeline__copy p {
-    margin-inline: auto;
-  }
-
-  .archive-feature h2,
-  .archive-timeline h2 {
-    font-size: 2rem;
+    h2 {
+      font-size: 2rem;
+    }
   }
 
   .archive-timeline {
     margin-top: $space-40;
-  }
 
-  .archive-timeline__item {
-    gap: $space-10;
-  }
+    h2 {
+      font-size: 2rem;
+    }
 
-  .archive-timeline__copy {
-    order: -1;
-  }
+    &__item {
+      grid-template-columns: minmax(0, 1fr);
+      gap: $space-10;
+    }
 
-  .archive-timeline__images img {
-    max-height: 260px;
+    &__copy {
+      text-align: center;
+      order: -1;
+
+      p {
+        margin-inline: auto;
+      }
+    }
+
+    &__images img {
+      max-height: 260px;
+    }
   }
 }
 </style>
