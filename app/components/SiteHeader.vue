@@ -260,12 +260,12 @@ watch(
     font-weight: $weight-bold;
     overflow-wrap: anywhere;
     transition: color $transition-ui;
-  }
 
-  a:hover,
-  a.router-link-exact-active:not([href*='#']),
-  a[aria-current='location'] {
-    color: $header-link-hover;
+    &:hover,
+    &.router-link-exact-active:not([href*='#']),
+    &[aria-current='location'] {
+      color: $header-link-hover;
+    }
   }
 }
 
@@ -282,10 +282,10 @@ watch(
 @media (max-width: $breakpoint-tablet) {
   .site-header {
     min-height: $header-height-mobile;
-  }
 
-  .site-header__inner {
-    min-height: calc($header-height-mobile - $border-width);
+    &__inner {
+      min-height: calc($header-height-mobile - $border-width);
+    }
   }
 
   .site-nav {
@@ -342,13 +342,15 @@ watch(
 }
 
 @media (max-width: $breakpoint-mobile) {
-  .site-header__live {
-    width: $control-size;
-    padding: 0;
-  }
+  .site-header {
+    &__live {
+      width: $control-size;
+      padding: 0;
+    }
 
-  .site-header__live-label {
-    display: none;
+    &__live-label {
+      display: none;
+    }
   }
 }
 
@@ -359,8 +361,10 @@ watch(
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .site-nav.is-animated {
-    transition: none;
+  .site-nav {
+    &.is-animated {
+      transition: none;
+    }
   }
 }
 </style>

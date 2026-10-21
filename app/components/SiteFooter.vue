@@ -148,10 +148,10 @@ const year = new Date().getFullYear()
       min-height: $control-size;
       max-width: 100%;
       font-size: 0.8rem;
-    }
 
-    a:hover {
-      color: $footer-link-hover;
+      &:hover {
+        color: $footer-link-hover;
+      }
     }
   }
 
@@ -162,12 +162,12 @@ const year = new Date().getFullYear()
     gap: $space-20;
     padding: $space-18 0 $space-24;
     border-top: $border-width solid $footer-border;
-  }
 
-  &__bottom p {
-    margin: 0;
-    color: $footer-copyright-text;
-    font-size: 0.7rem;
+    p {
+      margin: 0;
+      color: $footer-copyright-text;
+      font-size: 0.7rem;
+    }
   }
 }
 
@@ -199,45 +199,47 @@ const year = new Date().getFullYear()
     place-items: center;
     border: $border-width solid $footer-border;
     border-radius: $radius-social;
-  }
 
-  a:hover {
-    background: $footer-social-hover;
+    &:hover {
+      background: $footer-social-hover;
+    }
   }
 }
 
 @media (max-width: $breakpoint-tablet) {
-  .site-footer__main {
-    grid-template-columns: 1.5fr 1fr 1fr;
-  }
+  .site-footer {
+    &__main {
+      grid-template-columns: 1.5fr 1fr 1fr;
+    }
 
-  .site-footer__column:last-child {
-    grid-column: 2 / 4;
+    &__column:last-child {
+      grid-column: 2 / 4;
+    }
   }
 }
 
 @media (max-width: $breakpoint-mobile) {
   .site-footer {
     padding-top: 58px;
-  }
 
-  .site-footer__main {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: $space-36 $space-22;
-    padding-bottom: $space-45;
-  }
+    &__main {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: $space-36 $space-22;
+      padding-bottom: $space-45;
+    }
 
-  .site-footer__identity {
-    grid-column: 1 / -1;
-  }
+    &__identity {
+      grid-column: 1 / -1;
+    }
 
-  .site-footer__column:last-child {
-    grid-column: auto;
-  }
+    &__column:last-child {
+      grid-column: auto;
+    }
 
-  .site-footer__bottom {
-    align-items: start;
-    flex-direction: column-reverse;
+    &__bottom {
+      align-items: start;
+      flex-direction: column-reverse;
+    }
   }
 }
 </style>

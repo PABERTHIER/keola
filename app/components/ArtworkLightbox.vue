@@ -784,27 +784,27 @@ defineExpose({ open })
     border-radius: $radius-art;
     background: rgba($black, 0.16);
     touch-action: pan-y;
-  }
 
-  &__image--zoomed {
-    touch-action: none;
-  }
+    &--zoomed {
+      touch-action: none;
+    }
 
-  &__image img {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
-    min-height: 0;
-    object-fit: contain;
-    opacity: 0;
-    transform-origin: center;
-    user-select: none;
-    -webkit-user-drag: none;
-  }
+    img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      min-height: 0;
+      object-fit: contain;
+      opacity: 0;
+      transform-origin: center;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
 
-  &__image--loaded img {
-    opacity: 1;
+    &--loaded img {
+      opacity: 1;
+    }
   }
 
   &__placeholder,
@@ -833,10 +833,12 @@ defineExpose({ open })
     background-size: 200% 100%;
   }
 
-  &__error :deep(svg) {
-    width: $space-24;
-    height: $space-24;
-    margin-inline: auto;
+  &__error {
+    :deep(svg) {
+      width: $space-24;
+      height: $space-24;
+      margin-inline: auto;
+    }
   }
 
   &__controls {
@@ -845,11 +847,11 @@ defineExpose({ open })
     justify-content: space-between;
     gap: $space-10;
     min-height: $control-size;
-  }
 
-  &__controls span {
-    font-size: $font-size-nav;
-    font-weight: $weight-bold;
+    span {
+      font-size: $font-size-nav;
+      font-weight: $weight-bold;
+    }
   }
 }
 

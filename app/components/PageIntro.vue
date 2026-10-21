@@ -61,10 +61,10 @@ const localePath = useLocalePath()
     margin-bottom: 47px;
     font-size: $font-size-note;
     font-weight: $weight-bold;
-  }
 
-  &__back:hover {
-    color: $page-intro-eyebrow;
+    &:hover {
+      color: $page-intro-eyebrow;
+    }
   }
 
   h1 {
@@ -89,24 +89,24 @@ const localePath = useLocalePath()
 @media (max-width: $breakpoint-mobile) {
   .page-intro {
     padding: $space-24 0 $space-55;
-  }
 
-  .page-intro__inner {
-    align-items: center;
-    text-align: center;
-  }
+    &__inner {
+      align-items: center;
+      text-align: center;
+    }
 
-  .page-intro__back {
-    align-self: flex-start;
-    margin-bottom: $space-38;
-  }
+    &__back {
+      align-self: flex-start;
+      margin-bottom: $space-38;
+    }
 
-  .page-intro h1 {
-    font-size: 2.5rem;
-  }
+    h1 {
+      font-size: 2.5rem;
+    }
 
-  .page-intro p {
-    font-size: $font-size-intro-mobile;
+    p {
+      font-size: $font-size-intro-mobile;
+    }
   }
 }
 

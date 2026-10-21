@@ -120,11 +120,11 @@ onMounted(() => {
     color: $muted;
     font-size: $font-size-note;
     text-align: center;
-  }
 
-  &__error :deep(svg) {
-    width: $space-24;
-    height: $space-24;
+    :deep(svg) {
+      width: $space-24;
+      height: $space-24;
+    }
   }
 
   &__badge {
@@ -162,52 +162,54 @@ onMounted(() => {
   }
 }
 
-.gallery-item__button:focus-visible .gallery-item__badge {
-  opacity: 1;
+.gallery-item {
+  &__button:focus-visible &__badge {
+    opacity: 1;
+  }
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .gallery-item--loaded:hover .gallery-item__badge {
-    opacity: 1;
+  .gallery-item {
+    &--loaded:hover &__badge {
+      opacity: 1;
+    }
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .gallery-item--awaiting-view :deep(.image--loading) {
-    animation-play-state: paused;
-  }
+  .gallery-item {
+    &--awaiting-view :deep(.image--loading) {
+      animation-play-state: paused;
+    }
 
-  .gallery-item__image {
-    transition:
-      opacity 0.55s ease,
-      transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1);
-  }
+    &__image {
+      transition:
+        opacity 0.55s ease,
+        transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
 
-  .gallery-item--awaiting-view .gallery-item__image {
-    opacity: 0;
-    transform: translateY(12px) scale(0.985);
-  }
+    &--awaiting-view &__image {
+      opacity: 0;
+      transform: translateY(12px) scale(0.985);
+    }
 
-  .gallery-item--awaiting-view
-    .gallery-item__button:focus-visible
-    .gallery-item__image {
-    opacity: 1;
-    transform: none;
-  }
+    &--awaiting-view &__button:focus-visible &__image {
+      opacity: 1;
+      transform: none;
+    }
 
-  .gallery-item--intro {
-    animation: gallery-intro 0.5s ease-out both;
-  }
+    &--intro {
+      animation: gallery-intro 0.5s ease-out both;
+    }
 
-  .gallery-item--loaded
-    .gallery-item__button:focus-visible
-    .gallery-item__image {
-    transform: scale($artwork-hover-scale);
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .gallery-item--loaded:hover .gallery-item__image {
+    &--loaded &__button:focus-visible &__image {
       transform: scale($artwork-hover-scale);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &--loaded:hover &__image {
+        transform: scale($artwork-hover-scale);
+      }
     }
   }
 }

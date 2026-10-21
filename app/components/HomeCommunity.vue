@@ -96,37 +96,39 @@ onBeforeUnmount(() => titleObserver?.disconnect())
 </script>
 
 <style lang="scss" scoped>
-.community-section__character {
-  grid-column: 1;
-  grid-row: 2;
-  width: auto;
-  max-width: 120px;
-  justify-self: start;
-  object-fit: contain;
-}
+.community-section {
+  &__character {
+    grid-column: 1;
+    grid-row: 2;
+    width: auto;
+    max-width: 120px;
+    justify-self: start;
+    object-fit: contain;
+  }
 
-.community-section__intro {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: center;
-  column-gap: $space-12;
-}
+  &__intro {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    column-gap: $space-12;
 
-.community-section__intro > .section-title {
-  grid-column: 2;
-  grid-row: 2;
-}
+    > .section-title {
+      grid-column: 2;
+      grid-row: 2;
+    }
 
-.community-section__intro > .eyebrow,
-.community-section__intro > .section-lead {
-  grid-column: 1 / -1;
-}
+    > .eyebrow,
+    > .section-lead {
+      grid-column: 1 / -1;
+    }
+  }
 
-.community-section__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-  gap: $space-110;
-  overflow-wrap: anywhere;
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: $space-110;
+    overflow-wrap: anywhere;
+  }
 }
 
 .community-links {
@@ -142,11 +144,11 @@ onBeforeUnmount(() => titleObserver?.disconnect())
     transition:
       padding $transition-ui,
       background-color $transition-ui;
-  }
 
-  a:hover {
-    padding-left: $space-16;
-    background: $community-background;
+    &:hover {
+      padding-left: $space-16;
+      background: $community-background;
+    }
   }
 
   .social-icon {
@@ -199,32 +201,36 @@ onBeforeUnmount(() => titleObserver?.disconnect())
 }
 
 @media (max-width: $breakpoint-mobile) {
-  .community-section__grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: $space-33;
-  }
+  .community-section {
+    &__grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: $space-33;
+    }
 
-  .community-section__intro > .eyebrow {
-    justify-content: center;
-  }
+    &__intro > .eyebrow {
+      justify-content: center;
+    }
 
-  .community-section__intro > .section-title {
-    text-align: center;
+    &__intro > .section-title {
+      text-align: center;
+    }
   }
 }
 
 @media (max-width: $breakpoint-small) {
-  .community-section__intro {
-    grid-template-columns: minmax(0, 1fr);
-  }
+  .community-section {
+    &__intro {
+      grid-template-columns: minmax(0, 1fr);
 
-  .community-section__intro > .section-title {
-    grid-column: 1;
-  }
+      > .section-title {
+        grid-column: 1;
+      }
+    }
 
-  .community-section__character {
-    grid-column: 1;
-    grid-row: 3;
+    &__character {
+      grid-column: 1;
+      grid-row: 3;
+    }
   }
 }
 </style>

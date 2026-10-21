@@ -142,12 +142,12 @@ onUnmounted(() => {
     transition:
       transform $transition-ui,
       box-shadow $transition-ui;
-  }
 
-  &__trigger :deep(img) {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    :deep(img) {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   &__caption {
@@ -161,11 +161,11 @@ onUnmounted(() => {
   &__still {
     display: flex;
     gap: $space-10;
-  }
 
-  &__still :deep(img) {
-    width: 48px;
-    height: 48px;
+    :deep(img) {
+      width: 48px;
+      height: 48px;
+    }
   }
 
   @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
@@ -174,30 +174,30 @@ onUnmounted(() => {
       box-shadow: 6px 7px 0 $orange-pale;
     }
   }
-}
 
-.emote-surprise__rain {
-  position: fixed;
-  z-index: $z-skip-link - 1;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
+  &__rain {
+    position: fixed;
+    z-index: $z-skip-link - 1;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
 
-.emote-surprise__drop {
-  position: absolute;
-  top: 0;
-  display: block;
-  aspect-ratio: 1;
-  opacity: 0;
-  animation-name: emote-fall;
-  animation-timing-function: linear;
-  animation-fill-mode: both;
-}
+  &__drop {
+    position: absolute;
+    top: 0;
+    display: block;
+    aspect-ratio: 1;
+    opacity: 0;
+    animation-name: emote-fall;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
 
-.emote-surprise__drop :deep(img) {
-  width: 100%;
-  height: 100%;
+    :deep(img) {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 
 @keyframes emote-fall {
@@ -219,12 +219,15 @@ onUnmounted(() => {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .emote-surprise__trigger {
-    transition: none;
-  }
-  .emote-surprise__drop {
-    display: none;
-    animation: none;
+  .emote-surprise {
+    &__trigger {
+      transition: none;
+    }
+
+    &__drop {
+      display: none;
+      animation: none;
+    }
   }
 }
 </style>

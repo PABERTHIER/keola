@@ -436,14 +436,14 @@ onBeforeUnmount(() => {
     color: $hero-text;
     font-size: 1.13rem;
     line-height: $line-height-copy;
-  }
 
-  &__lead p {
-    margin: 0;
-  }
+    p {
+      margin: 0;
+    }
 
-  &__lead .hero__welcome {
-    margin-top: $space-8;
+    .hero__welcome {
+      margin-top: $space-8;
+    }
   }
 
   &__welcome {
@@ -466,15 +466,15 @@ onBeforeUnmount(() => {
       (min(100vw - $shell-gutter * 2, $shell-max-width) - 100vw) / 2
     );
     overflow: hidden;
-  }
 
-  &__visual img {
-    position: absolute;
-    inset: 0 0 0 auto;
-    width: min(100%, 800px);
-    height: 100%;
-    object-fit: cover;
-    object-position: center 16%;
+    img {
+      position: absolute;
+      inset: 0 0 0 auto;
+      width: min(100%, 800px);
+      height: 100%;
+      object-fit: cover;
+      object-position: center 16%;
+    }
   }
 
   &__carousel-controls {
@@ -493,9 +493,10 @@ onBeforeUnmount(() => {
     .icon-button {
       color: $white-pure;
       border-color: $lightbox-border;
-    }
-    .icon-button:disabled {
-      opacity: 0.5;
+
+      &:disabled {
+        opacity: 0.5;
+      }
     }
   }
 

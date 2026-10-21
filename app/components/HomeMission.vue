@@ -78,53 +78,55 @@ const { t } = useI18n()
     border: $border-width solid $mission-art-border;
     border-radius: $radius-art;
     background: $mission-art-background;
-  }
 
-  &__art img {
-    position: relative;
-    z-index: $z-artwork;
-    max-height: 210px;
-    width: 60%;
-    object-fit: contain;
-  }
+    img {
+      position: relative;
+      z-index: $z-artwork;
+      max-height: 210px;
+      width: 60%;
+      object-fit: contain;
+    }
 
-  &__art > span:last-child {
-    position: absolute;
-    bottom: $space-20;
-    left: $space-24;
-    right: $space-24;
-    display: flex;
-    gap: $space-8;
-    align-items: center;
-    font-size: $font-size-small;
-    font-weight: $weight-bold;
+    > span:last-child {
+      position: absolute;
+      bottom: $space-20;
+      left: $space-24;
+      right: $space-24;
+      display: flex;
+      gap: $space-8;
+      align-items: center;
+      font-size: $font-size-small;
+      font-weight: $weight-bold;
+    }
   }
 }
 
 @media (max-width: $breakpoint-mobile) {
-  .mission-section__grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: $space-33;
-  }
+  .mission-section {
+    &__grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: $space-33;
+    }
 
-  .mission-section .eyebrow {
-    display: flex;
-    justify-content: center;
-  }
+    .eyebrow {
+      display: flex;
+      justify-content: center;
+    }
 
-  .mission-section .section-title {
-    margin-inline: auto;
-    text-align: center;
-  }
+    .section-title {
+      margin-inline: auto;
+      text-align: center;
+    }
 
-  .mission-section .button {
-    display: flex;
-    width: fit-content;
-    margin-inline: auto;
-  }
+    .button {
+      display: flex;
+      width: fit-content;
+      margin-inline: auto;
+    }
 
-  .mission-section__art {
-    min-height: 265px;
+    &__art {
+      min-height: 265px;
+    }
   }
 }
 </style>
