@@ -20,8 +20,7 @@ export function usePageSeo(page: PageName) {
   const description = computed(() => t(`seo.${page}.description`))
 
   useSeoMeta({
-    // Nuxt Robots supplies SSR tags; also restore the policy after a client
-    // recovery from an error, where the error component's tag is disposed.
+    // Nuxt Robots supplies SSR tags; also restore the policy after a client recovery from an error, where the error component's tag is disposed
     robots: () =>
       String(site.indexable) === 'true'
         ? robotsContent.indexable
@@ -64,8 +63,7 @@ export function usePageSeo(page: PageName) {
   return computed(() => ({
     title: title.value,
     titleTemplate: '%s',
-    // The module initializes these on first load; keep the graph's default
-    // node IDs and actions aligned with the page during client navigation.
+    // The module initializes these on first load; keep the graph's default node IDs and actions aligned with the page during client navigation
     templateParams: {
       schemaOrg: {
         url: url.value,

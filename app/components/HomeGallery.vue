@@ -72,18 +72,18 @@ const localePath = useLocalePath()
     overflow: hidden;
     border-radius: $radius-control;
     background: $gallery-background-peach;
-  }
 
-  &__item:nth-child(2) {
-    background: $gallery-background-lilac;
-  }
+    &:nth-child(2) {
+      background: $gallery-background-lilac;
+    }
 
-  &__item:nth-child(3) {
-    background: $gallery-background-rose;
-  }
+    &:nth-child(3) {
+      background: $gallery-background-rose;
+    }
 
-  &__item:nth-child(4) {
-    background: $gallery-background-sage;
+    &:nth-child(4) {
+      background: $gallery-background-sage;
+    }
   }
 
   &__artwork {
@@ -125,17 +125,19 @@ const localePath = useLocalePath()
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .preview-grid__image {
-    transition: transform $transition-artwork;
-  }
+  .preview-grid {
+    &__image {
+      transition: transform $transition-artwork;
+    }
 
-  .preview-grid__item:focus-visible .preview-grid__image {
-    transform: scale($artwork-hover-scale);
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .preview-grid__item:hover .preview-grid__image {
+    &__item:focus-visible &__image {
       transform: scale($artwork-hover-scale);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &__item:hover &__image {
+        transform: scale($artwork-hover-scale);
+      }
     }
   }
 }
@@ -149,10 +151,10 @@ const localePath = useLocalePath()
 @media (min-width: $breakpoint-desktop) {
   .preview-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
 
-  .preview-grid__artwork {
-    max-height: 150px;
+    &__artwork {
+      max-height: 150px;
+    }
   }
 }
 </style>

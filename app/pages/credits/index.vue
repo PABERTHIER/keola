@@ -16,14 +16,14 @@
             :data-tooltip="t('credits.visit', { name: person.name })"
             target="_blank"
             rel="noopener noreferrer">
-            <span>
+            <span class="credits-list__details">
               <strong>{{ person.name }}</strong>
               <small>{{ t(`credits.roles.${person.role}`) }}</small>
             </span>
             <Icon name="lucide:arrow-up-right" aria-hidden="true" />
           </a>
           <span v-else class="credits-list__plain">
-            <span>
+            <span class="credits-list__details">
               <strong>{{ person.name }}</strong>
               <small>{{ t(`credits.roles.${person.role}`) }}</small>
             </span>
@@ -58,6 +58,19 @@ useHead(usePageSeo('credits'))
 <style lang="scss" scoped>
 .credits-page {
   padding-block: $space-70 $space-100;
+
+  &__next {
+    display: flex;
+    align-items: end;
+    flex-wrap: wrap;
+    gap: $space-18;
+    margin-top: $space-42;
+
+    img {
+      width: auto;
+      height: $button-min-height;
+    }
+  }
 }
 
 .credits-list {
@@ -67,62 +80,48 @@ useHead(usePageSeo('credits'))
   margin: 0;
   padding: 0;
   list-style: none;
-}
 
-.credits-list li {
-  min-width: 0;
-  border-top: $border-width solid $line;
-}
+  li {
+    min-width: 0;
+    border-top: $border-width solid $line;
+  }
 
-.credits-list a,
-.credits-list__plain {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: $space-16;
-  min-height: 95px;
-  padding: $space-15 $space-5;
-}
+  a,
+  &__plain {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-16;
+    min-height: 95px;
+    padding: $space-15 $space-5;
+  }
 
-.credits-list a:hover {
-  color: $link-hover;
-}
+  a:hover {
+    color: $link-hover;
+  }
 
-.credits-list span span,
-.credits-list a span {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
+  &__details {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
 
-.credits-list strong {
-  font-family: $display;
-  font-size: 1.28rem;
-  font-weight: $weight-semibold;
-  overflow-wrap: anywhere;
-}
+  strong {
+    font-family: $display;
+    font-size: 1.28rem;
+    font-weight: $weight-semibold;
+    overflow-wrap: anywhere;
+  }
 
-.credits-list small {
-  color: $muted;
-  font-size: 0.79rem;
-}
+  small {
+    color: $muted;
+    font-size: 0.79rem;
+  }
 
-.credits-list .iconify {
-  flex: none;
-  font-size: 21px;
-}
-
-.credits-page__next {
-  display: flex;
-  align-items: end;
-  flex-wrap: wrap;
-  gap: $space-18;
-  margin-top: $space-42;
-}
-
-.credits-page__next img {
-  width: auto;
-  height: $button-min-height;
+  .iconify {
+    flex: none;
+    font-size: 21px;
+  }
 }
 
 @media (max-width: $breakpoint-mobile) {
@@ -134,17 +133,21 @@ useHead(usePageSeo('credits'))
     grid-template-columns: 1fr;
   }
 
-  .credits-page__next {
-    justify-content: center;
+  .credits-page {
+    &__next {
+      justify-content: center;
+    }
   }
 }
 @media (max-width: $breakpoint-small) {
-  .credits-page__link {
-    order: 0;
-  }
+  .credits-page {
+    &__link {
+      order: 0;
+    }
 
-  .credits-page__next img {
-    order: 1;
+    &__next img {
+      order: 1;
+    }
   }
 }
 </style>

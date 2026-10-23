@@ -227,10 +227,10 @@ function changeLocale(code: string) {
     color: inherit;
     font-size: 1rem;
     font-weight: $weight-heavy;
-  }
 
-  &__trigger:focus-visible {
-    outline: none;
+    &:focus-visible {
+      outline: none;
+    }
   }
 
   button {
@@ -274,17 +274,17 @@ function changeLocale(code: string) {
     color: $ink;
     font: inherit;
     text-align: left;
-  }
 
-  &__option:hover,
-  &__option[aria-checked='true'] {
-    background: $selection-background;
-    color: $plum-deep;
-  }
+    &:hover,
+    &[aria-checked='true'] {
+      background: $selection-background;
+      color: $plum-deep;
+    }
 
-  &__option:focus-visible {
-    outline: $focus-width solid $orange;
-    outline-offset: -$focus-width;
+    &:focus-visible {
+      outline: $focus-width solid $orange;
+      outline-offset: -$focus-width;
+    }
   }
 
   &__code {
@@ -295,25 +295,27 @@ function changeLocale(code: string) {
 }
 
 @media (max-width: $breakpoint-mobile) {
-  .language-switcher > .iconify {
-    display: none;
-  }
+  .language-switcher {
+    > .iconify {
+      display: none;
+    }
 
-  .language-switcher__trigger {
-    min-width: max(#{$control-size}, 3.1rem);
-    padding-left: $space-5;
-  }
+    &__trigger {
+      min-width: max(#{$control-size}, 3.1rem);
+      padding-left: $space-5;
+    }
 
-  .language-switcher__menu {
-    min-width: max(100%, 4.5rem);
-  }
+    &__menu {
+      min-width: max(100%, 4.5rem);
+    }
 
-  .language-switcher__name {
-    display: none;
-  }
+    &__name {
+      display: none;
+    }
 
-  .language-switcher__code {
-    display: inline;
+    &__code {
+      display: inline;
+    }
   }
 }
 </style>

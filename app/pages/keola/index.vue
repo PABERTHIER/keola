@@ -14,7 +14,7 @@
               :alt="t('keola.welcome_spirit_alt')"
               class="portrait-section__spirit" />
           </p>
-          <div class="section-lead">
+          <div class="section-lead portrait-section__lead">
             <p>{{ t('keola.intro_1') }}</p>
             <p>{{ t('keola.intro_2') }}</p>
           </div>
@@ -195,7 +195,7 @@
           <h2 id="debut-title" class="section-title">
             {{ t('keola.debut.title') }}
           </h2>
-          <div class="section-lead">
+          <div class="section-lead debut-section__lead">
             <p>{{ t('keola.debut.text_1') }}</p>
             <p>{{ t('keola.debut.text_2') }}</p>
           </div>
@@ -232,7 +232,7 @@
         <h2 id="models-title" class="section-title">
           {{ t('keola.models.title') }}
         </h2>
-        <div class="section-lead">
+        <div class="section-lead models-section__lead">
           <p>{{ t('keola.models.text_1') }}</p>
           <p>{{ t('keola.models.text_2') }}</p>
         </div>
@@ -568,20 +568,20 @@ useHead(usePageSeo('keola'))
     object-fit: contain;
   }
 
-  .section-lead {
+  &__lead {
     margin-bottom: $space-24;
   }
 
   &__art {
     min-width: 0;
     text-align: center;
-  }
 
-  &__art img {
-    width: auto;
-    height: 280px;
-    margin-inline: auto;
-    object-fit: contain;
+    img {
+      width: auto;
+      height: 280px;
+      margin-inline: auto;
+      object-fit: contain;
+    }
   }
 }
 
@@ -601,10 +601,10 @@ useHead(usePageSeo('keola'))
     min-height: $control-size;
     font-size: $font-size-secondary;
     font-weight: $weight-bold;
-  }
 
-  a:hover {
-    color: $link-hover;
+    &:hover {
+      color: $link-hover;
+    }
   }
 }
 
@@ -613,11 +613,11 @@ useHead(usePageSeo('keola'))
     display: grid;
     gap: $space-32;
     margin-top: $space-36;
-  }
 
-  &__topics > div {
-    padding-top: $space-24;
-    border-top: 2px solid $orange-pale;
+    > div {
+      padding-top: $space-24;
+      border-top: 2px solid $orange-pale;
+    }
   }
 
   .iconify {
@@ -677,6 +677,15 @@ useHead(usePageSeo('keola'))
     display: grid;
     gap: $space-16;
     padding-bottom: $space-48;
+
+    & + & {
+      padding-top: $space-36;
+      border-top: $border-width solid $line;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
   }
 
   &__return {
@@ -684,15 +693,6 @@ useHead(usePageSeo('keola'))
     color: $link-hover;
     font-size: $font-size-secondary;
     font-weight: $weight-bold;
-  }
-
-  &__chapter + &__chapter {
-    padding-top: $space-36;
-    border-top: $border-width solid $line;
-  }
-
-  &__chapter:last-child {
-    padding-bottom: 0;
   }
 
   &__number {
@@ -713,11 +713,11 @@ useHead(usePageSeo('keola'))
 
   &__spirits {
     padding-top: $space-14;
-  }
 
-  &__spirits img {
-    width: min(100%, 360px);
-    margin-inline: auto;
+    img {
+      width: min(100%, 360px);
+      margin-inline: auto;
+    }
   }
 
   &__guardian-art {
@@ -734,13 +734,13 @@ useHead(usePageSeo('keola'))
     max-width: 520px;
     margin: $space-30 auto 0;
     border-bottom: 2px solid $orange-pale;
-  }
 
-  &__stream-art .image {
-    width: 100%;
-    height: clamp(180px, 30vw, 300px);
-    object-fit: contain;
-    object-position: bottom;
+    .image {
+      width: 100%;
+      height: clamp(180px, 30vw, 300px);
+      object-fit: contain;
+      object-position: bottom;
+    }
   }
 }
 
@@ -758,16 +758,16 @@ useHead(usePageSeo('keola'))
     border-bottom: $border-width solid $line;
     font-family: $display;
     font-weight: $weight-bold;
-  }
 
-  a:hover {
-    color: $link-hover;
-  }
+    &:hover {
+      color: $link-hover;
+    }
 
-  a > span:first-child {
-    margin-right: $space-14;
-    color: $eyebrow-text;
-    font-size: $font-size-secondary;
+    > span:first-child {
+      margin-right: $space-14;
+      color: $eyebrow-text;
+      font-size: $font-size-secondary;
+    }
   }
 
   .iconify {
@@ -785,25 +785,27 @@ useHead(usePageSeo('keola'))
     gap: $space-40;
   }
 
-  &__poster img {
-    width: min(100%, 360px);
-    margin-inline: auto;
-    border-radius: $radius-art;
-    box-shadow: 8px 8px 0 $orange-pale;
+  &__poster {
+    img {
+      width: min(100%, 360px);
+      margin-inline: auto;
+      border-radius: $radius-art;
+      box-shadow: 8px 8px 0 $orange-pale;
+    }
   }
 
   &__teaser {
     width: min(100%, 280px);
-  }
 
-  &__teaser img {
-    width: 100%;
-    border-radius: $radius-art;
-    box-shadow: 5px 5px 0 $orange-pale;
-  }
+    img {
+      width: 100%;
+      border-radius: $radius-art;
+      box-shadow: 5px 5px 0 $orange-pale;
+    }
 
-  &__teaser figcaption {
-    margin-top: $space-10;
+    figcaption {
+      margin-top: $space-10;
+    }
   }
 
   &__actions {
@@ -811,13 +813,13 @@ useHead(usePageSeo('keola'))
     justify-content: center;
   }
 
-  .section-lead {
+  &__lead {
     margin-bottom: $space-30;
   }
 }
 
 .models-section {
-  > .shell > .section-lead {
+  &__lead {
     max-width: none;
   }
 
@@ -831,27 +833,6 @@ useHead(usePageSeo('keola'))
     border-radius: $radius-art;
   }
 
-  &__reference-grid button {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: $link-hover;
-    text-align: left;
-  }
-
-  &__reference-grid button > span {
-    display: inline-flex;
-    align-items: center;
-    gap: $space-8;
-    min-height: $control-size;
-    font-size: $font-size-secondary;
-    font-weight: $weight-bold;
-  }
-
   &__evolution figcaption,
   &__reference-grid figcaption {
     margin-top: $space-4;
@@ -859,30 +840,48 @@ useHead(usePageSeo('keola'))
 
   &__references {
     margin-top: $space-60;
-  }
 
-  &__references h3 {
-    font-size: 1.5rem;
-  }
+    h3 {
+      font-size: 1.5rem;
+    }
 
-  &__references > p {
-    color: $muted;
+    > p {
+      color: $muted;
+    }
   }
 
   &__reference-grid {
     display: grid;
     gap: $space-32;
     margin-top: $space-24;
-  }
 
-  &__reference-grid figure {
-    display: grid;
-    grid-template-rows: minmax(0, 1fr) auto;
-    min-width: 0;
-  }
+    figure {
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      min-width: 0;
+    }
 
-  &__reference-grid button {
-    justify-content: center;
+    button {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: $link-hover;
+      text-align: left;
+
+      > span {
+        display: inline-flex;
+        align-items: center;
+        gap: $space-8;
+        min-height: $control-size;
+        font-size: $font-size-secondary;
+        font-weight: $weight-bold;
+      }
+    }
   }
 
   &__gallery {
@@ -890,16 +889,16 @@ useHead(usePageSeo('keola'))
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: $space-32 $space-16;
     margin-top: $space-40;
-  }
 
-  &__gallery figure {
-    min-width: 0;
-  }
+    figure {
+      min-width: 0;
 
-  &__gallery figure:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    justify-self: center;
-    width: calc(50% - $space-8);
+      &:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc(50% - $space-8);
+      }
+    }
   }
 
   &__art {
@@ -914,6 +913,23 @@ useHead(usePageSeo('keola'))
     border: 0;
     border-bottom: 2px solid $orange;
     background: linear-gradient(0deg, $orange-pale, transparent 75%);
+
+    img {
+      position: relative;
+      z-index: $z-artwork;
+      min-height: 0;
+      max-height: 100%;
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      transition: transform $transition-artwork;
+    }
+
+    @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+      &:hover img {
+        transform: scale($artwork-hover-scale);
+      }
+    }
   }
 
   &__expand {
@@ -927,28 +943,13 @@ useHead(usePageSeo('keola'))
     background: $white;
     color: $ink;
   }
-
-  &__art img {
-    position: relative;
-    z-index: $z-artwork;
-    min-height: 0;
-    max-height: 100%;
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-    transition: transform $transition-artwork;
-  }
-
-  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-    &__art:hover img {
-      transform: scale($artwork-hover-scale);
-    }
-  }
 }
 
 @media screen and (prefers-reduced-motion: no-preference) {
-  .portrait-section__spirit {
-    animation: spirit-float 4s ease-in-out infinite;
+  .portrait-section {
+    &__spirit {
+      animation: spirit-float 4s ease-in-out infinite;
+    }
   }
 
   .keola-page [data-scroll-reveal].is-scroll-reveal-ready {
@@ -963,10 +964,12 @@ useHead(usePageSeo('keola'))
   }
 
   @supports (animation-timeline: view()) {
-    .models-section__art img {
-      animation: model-art-parallax 1ms linear both;
-      animation-timeline: view();
-      animation-range: cover;
+    .models-section {
+      &__art img {
+        animation: model-art-parallax 1ms linear both;
+        animation-timeline: view();
+        animation-range: cover;
+      }
     }
   }
 }
@@ -990,13 +993,13 @@ useHead(usePageSeo('keola'))
     margin-top: $space-48;
     padding-top: $space-32;
     border-top: $border-width solid $button-light-outline-border;
-  }
 
-  &__community p {
-    max-width: 620px;
-    margin: 0;
-    font-family: $display;
-    font-size: 1.3rem;
+    p {
+      max-width: 620px;
+      margin: 0;
+      font-family: $display;
+      font-size: 1.3rem;
+    }
   }
 }
 
@@ -1066,43 +1069,51 @@ useHead(usePageSeo('keola'))
     }
   }
 
-  .lore-story__chapter {
-    grid-template-columns: 60px minmax(0, 1fr);
-    gap: $space-24;
+  .lore-story {
+    &__chapter {
+      grid-template-columns: 60px minmax(0, 1fr);
+      gap: $space-24;
+    }
   }
 
-  .profile-section__topics {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: $space-30;
+  .profile-section {
+    &__topics {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: $space-30;
+    }
   }
 
-  .debut-section__grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: $space-60;
-  }
+  .debut-section {
+    &__grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: $space-60;
+    }
 
-  .debut-section__actions {
-    justify-content: flex-start;
+    &__actions {
+      justify-content: flex-start;
+    }
   }
 
   .keola-page figure.debut-section__teaser {
     margin-left: 0;
   }
 
-  .models-section__gallery {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: $space-24;
-  }
+  .models-section {
+    &__gallery {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: $space-24;
 
-  .models-section__gallery figure:last-child:nth-child(odd) {
-    grid-column: auto;
-    justify-self: stretch;
-    width: auto;
-  }
+      figure:last-child:nth-child(odd) {
+        grid-column: auto;
+        justify-self: stretch;
+        width: auto;
+      }
+    }
 
-  .models-section__art {
-    height: 320px;
-    padding: $space-20;
+    &__art {
+      height: 320px;
+      padding: $space-20;
+    }
   }
 
   .illustrated-link {
@@ -1112,70 +1123,112 @@ useHead(usePageSeo('keola'))
 }
 
 @media (min-width: $breakpoint-desktop) {
-  .more-section__links {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .more-section {
+    &__links {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
   }
 
-  .models-section__art {
-    height: 420px;
-  }
+  .models-section {
+    &__art {
+      height: 420px;
+    }
 
-  .models-section__reference-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: stretch;
-  }
+    &__reference-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+    }
 
-  .models-section__reference--wide {
-    grid-column: 1 / -1;
+    &__reference--wide {
+      grid-column: 1 / -1;
+    }
   }
 }
 
 @media (max-width: $breakpoint-mobile) {
-  .illustrated-link__copy {
-    text-align: center;
+  .illustrated-link {
+    &__copy {
+      text-align: center;
+    }
   }
 
-  .portrait-section__copy {
-    text-align: center;
+  .portrait-section {
+    &__copy {
+      text-align: center;
+    }
+
+    &__welcome {
+      justify-content: center;
+    }
+
+    &__lead {
+      margin-inline: auto;
+    }
   }
 
-  .portrait-section__welcome {
-    justify-content: center;
+  .profile-section {
+    > .shell > .eyebrow {
+      display: flex;
+      justify-content: center;
+    }
+
+    > .shell > .section-title {
+      text-align: center;
+      margin-inline: auto;
+    }
   }
 
-  .portrait-section .section-lead {
-    margin-inline: auto;
+  .debut-section {
+    &__grid > div > .eyebrow {
+      display: flex;
+      justify-content: center;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-inline: auto;
+    }
+
+    &__lead {
+      margin-inline: auto;
+      text-align: center;
+    }
   }
 
-  .profile-section > .shell > .eyebrow {
-    display: flex;
-    justify-content: center;
+  .models-section {
+    > .shell > .eyebrow {
+      display: flex;
+      justify-content: center;
+    }
+
+    > .shell > .section-title {
+      text-align: center;
+      margin-inline: auto;
+    }
+
+    &__lead {
+      margin-inline: auto;
+      text-align: center;
+    }
   }
 
-  .debut-section__grid > div > .eyebrow,
-  .models-section > .shell > .eyebrow,
-  .more-section > .shell > .eyebrow {
-    display: flex;
-    justify-content: center;
+  .more-section {
+    > .shell > .eyebrow {
+      display: flex;
+      justify-content: center;
+    }
+
+    > .shell > .section-title {
+      text-align: center;
+      margin-inline: auto;
+    }
   }
 
-  .profile-section > .shell > .section-title,
-  .debut-section .section-title,
-  .models-section > .shell > .section-title,
-  .more-section > .shell > .section-title {
-    text-align: center;
-    margin-inline: auto;
-  }
-
-  .debut-section .section-lead,
-  .models-section > .shell > .section-lead {
-    margin-inline: auto;
-    text-align: center;
-  }
-
-  .more-section__community {
-    justify-content: center;
-    text-align: center;
+  .more-section {
+    &__community {
+      justify-content: center;
+      text-align: center;
+    }
   }
 
   .keola-page .lore-story__return {
@@ -1186,35 +1239,41 @@ useHead(usePageSeo('keola'))
 }
 
 @media (max-width: $breakpoint-small) {
-  .portrait-section h1 {
-    font-size: 2.15rem;
+  .portrait-section {
+    h1 {
+      font-size: 2.15rem;
+    }
+
+    &__spirit {
+      width: 34px;
+    }
   }
 
-  .portrait-section__spirit {
-    width: 34px;
-  }
+  .models-section {
+    &__gallery {
+      grid-template-columns: minmax(0, 1fr);
+      gap: $space-28;
 
-  .models-section__gallery {
-    grid-template-columns: minmax(0, 1fr);
-    gap: $space-28;
-  }
+      figure:last-child:nth-child(odd) {
+        grid-column: auto;
+        justify-self: stretch;
+        width: auto;
+      }
+    }
 
-  .models-section__gallery figure:last-child:nth-child(odd) {
-    grid-column: auto;
-    justify-self: stretch;
-    width: auto;
-  }
-
-  .models-section__art {
-    height: clamp(280px, 54svh, 380px);
-    padding: $space-20;
+    &__art {
+      height: clamp(280px, 54svh, 380px);
+      padding: $space-20;
+    }
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .illustrated-link:hover img,
-  .illustrated-link:focus-visible img {
-    transform: none;
+  .illustrated-link {
+    &:hover img,
+    &:focus-visible img {
+      transform: none;
+    }
   }
 }
 </style>

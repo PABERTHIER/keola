@@ -51,25 +51,25 @@ const localePath = useLocalePath()
   &__text {
     display: flex;
     flex-direction: column;
-  }
 
-  &__text span {
-    font-size: $font-size-secondary;
+    span {
+      font-size: $font-size-secondary;
+    }
   }
 }
 
 @media (max-width: $breakpoint-small) {
   .brand {
     font-size: $font-size-brand-mobile;
-  }
 
-  .brand img {
-    width: 36px;
-    height: 36px;
-  }
+    img {
+      width: 36px;
+      height: 36px;
+    }
 
-  .brand__text span {
-    font-size: $font-size-small;
+    &__text span {
+      font-size: $font-size-small;
+    }
   }
 }
 </style>

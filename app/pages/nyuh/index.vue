@@ -182,96 +182,96 @@ useHead(() => ({ title: title.value, titleTemplate: '%s' }))
     radial-gradient(circle at 12% 12%, #55394f 0, transparent 30%), $plum-deep;
   color: #fff4e7;
   text-align: center;
-}
 
-.nyuh-page__title {
-  margin: 0;
-  color: $eyebrow-light-text;
-  font-family: $signature;
-  font-size: clamp(1.35rem, 3.5vw, 2rem);
-  font-weight: $weight-regular;
-  letter-spacing: 0.02em;
-}
-
-.nyuh-page__stage {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  perspective: 1100px;
-}
-
-.nyuh-page__card {
-  --tilt-x: 0deg;
-  --tilt-y: 0deg;
-  --light-x: 50%;
-  --light-y: 50%;
-  --shadow-x: 0px;
-  --image-x: 0px;
-  --image-y: 0px;
-  position: relative;
-  display: block;
-  width: min(91vw, 900px, 102dvh);
-  aspect-ratio: 3231 / 1894;
-  padding: 0;
-  overflow: hidden;
-  border: 0;
-  border-radius: 8% / 13%;
-  background: #e59751;
-  box-shadow:
-    var(--shadow-x) 28px 48px #130d1b8c,
-    0 0 0 1px #ffdcba4d;
-  cursor: pointer;
-  transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
-  transform-style: preserve-3d;
-  transition:
-    transform 480ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    box-shadow 480ms ease;
-
-  &::after {
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: radial-gradient(
-      circle at var(--light-x) var(--light-y),
-      #fff9e745,
-      transparent 48%
-    );
-    content: '';
-    pointer-events: none;
+  &__title {
+    margin: 0;
+    color: $eyebrow-light-text;
+    font-family: $signature;
+    font-size: clamp(1.35rem, 3.5vw, 2rem);
+    font-weight: $weight-regular;
+    letter-spacing: 0.02em;
   }
 
-  &--moving {
-    transition-duration: 70ms;
+  &__stage {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    perspective: 1100px;
+  }
 
-    .nyuh-page__image {
+  &__card {
+    --tilt-x: 0deg;
+    --tilt-y: 0deg;
+    --light-x: 50%;
+    --light-y: 50%;
+    --shadow-x: 0px;
+    --image-x: 0px;
+    --image-y: 0px;
+    position: relative;
+    display: block;
+    width: min(91vw, 900px, 102dvh);
+    aspect-ratio: 3231 / 1894;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    border-radius: 8% / 13%;
+    background: #e59751;
+    box-shadow:
+      var(--shadow-x) 28px 48px #130d1b8c,
+      0 0 0 1px #ffdcba4d;
+    cursor: pointer;
+    transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+    transform-style: preserve-3d;
+    transition:
+      transform 480ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 480ms ease;
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(
+        circle at var(--light-x) var(--light-y),
+        #fff9e745,
+        transparent 48%
+      );
+      content: '';
+      pointer-events: none;
+    }
+
+    &--moving {
       transition-duration: 70ms;
+
+      .nyuh-page__image {
+        transition-duration: 70ms;
+      }
+    }
+
+    &--patted {
+      box-shadow:
+        var(--shadow-x) 28px 48px #130d1b8c,
+        0 0 0 4px $eyebrow-light-text,
+        0 0 54px rgba($eyebrow-light-text, 0.5);
     }
   }
 
-  &--patted {
-    box-shadow:
-      var(--shadow-x) 28px 48px #130d1b8c,
-      0 0 0 4px $eyebrow-light-text,
-      0 0 54px rgba($eyebrow-light-text, 0.5);
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform: translate(var(--image-x), var(--image-y)) scale(1.025);
+    transition: transform 480ms cubic-bezier(0.2, 0.8, 0.2, 1);
   }
-}
 
-.nyuh-page__image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  transform: translate(var(--image-x), var(--image-y)) scale(1.025);
-  transition: transform 480ms cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.nyuh-page__hint {
-  max-width: 34ch;
-  min-height: 1.6em;
-  margin: 0;
-  color: #fff4e7;
-  font-size: $font-size-secondary;
-  font-weight: $weight-semibold;
-  line-height: 1.6;
+  &__hint {
+    max-width: 34ch;
+    min-height: 1.6em;
+    margin: 0;
+    color: #fff4e7;
+    font-size: $font-size-secondary;
+    font-weight: $weight-semibold;
+    line-height: 1.6;
+  }
 }
 
 @media (max-height: 450px) {
@@ -281,20 +281,24 @@ useHead(() => ({ title: title.value, titleTemplate: '%s' }))
       max($space-8, env(safe-area-inset-bottom));
   }
 
-  .nyuh-page__card {
-    width: min(84vw, 72dvh);
+  .nyuh-page {
+    &__card {
+      width: min(84vw, 72dvh);
+    }
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nyuh-page__card {
-    transform: none;
-    transition: none;
-  }
+  .nyuh-page {
+    &__card {
+      transform: none;
+      transition: none;
+    }
 
-  .nyuh-page__image {
-    transform: none;
-    transition: none;
+    &__image {
+      transform: none;
+      transition: none;
+    }
   }
 }
 </style>

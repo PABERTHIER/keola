@@ -81,7 +81,7 @@ const galleryPath = computed(() => localePath('/gallery'))
 const imagePath = '/images/keola/Keola_magnifying_glass.webp'
 const [imageWidth, imageHeight] = imageDimensions[imagePath]!
 
-// Error pages preserve their HTTP status and must never become search results.
+// Error pages preserve their HTTP status and must never become search results
 useResponseHeader('X-Robots-Tag').value = robotsContent.blocked
 useSeoMeta({
   robots: robotsContent.blocked,
@@ -238,20 +238,22 @@ async function recover(path: string) {
 }
 
 @media (min-width: $breakpoint-mobile) {
-  .error-page__main {
-    grid-template-columns: 1.1fr 0.9fr;
-    align-items: center;
-    min-height: calc(100svh - 100px);
-    gap: $space-48;
-    padding-block: $space-60;
-  }
+  .error-page {
+    &__main {
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      min-height: calc(100svh - 100px);
+      gap: $space-48;
+      padding-block: $space-60;
+    }
 
-  .error-page__actions .button {
-    width: auto;
-  }
+    &__actions .button {
+      width: auto;
+    }
 
-  .error-page__art {
-    padding: $space-32;
+    &__art {
+      padding: $space-32;
+    }
   }
 }
 </style>

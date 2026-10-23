@@ -127,27 +127,25 @@ useHead(usePageSeo('gallery'))
 
 <style lang="scss" scoped>
 .gallery-page {
-  padding-block: $space-65 $space-65;
+  padding-block: $space-65;
+
+  &__note {
+    max-width: 650px;
+    margin: 35px 0 0;
+    color: $muted;
+    font-size: $font-size-note;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    padding-block: $space-38 $space-70;
+  }
 }
 
 .gallery-wall {
   columns: $gallery-column-width 4;
   column-gap: $space-13;
-}
 
-.gallery-page__note {
-  max-width: 650px;
-  margin: 35px 0 0;
-  color: $muted;
-  font-size: $font-size-note;
-}
-
-@media (max-width: $breakpoint-mobile) {
-  .gallery-page {
-    padding-block: $space-38 $space-70;
-  }
-
-  .gallery-wall {
+  @media (max-width: $breakpoint-mobile) {
     column-gap: $space-9;
   }
 }

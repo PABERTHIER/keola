@@ -1,5 +1,4 @@
-// Intrinsic pixel dimensions of the original artwork in public/images.
-// Update the matching entry when adding or replacing an image.
+// Intrinsic pixel dimensions of the original artwork in public/images
 export const imageDimensions: Record<string, readonly [number, number]> = {
   '/images/brands/holy-brand-logo.webp': [699, 700],
   '/images/brands/safebear-brand-logo.webp': [1680, 1680],

@@ -83,8 +83,10 @@
 import { externalLinks } from '~/data/site'
 
 const { t } = useI18n()
+
 const localePath = useLocalePath()
 const route = useRoute()
+
 const menuOpen = ref(false)
 const menuAnimated = ref(false)
 const mobileNavigation = ref(false)
@@ -92,19 +94,26 @@ const navigation = ref<HTMLElement | null>(null)
 const menuToggle = ref<HTMLButtonElement | null>(null)
 const header = ref<HTMLElement | null>(null)
 const headerHeight = ref(0)
+
 let headerObserver: ResizeObserver | undefined
 
 onMounted(() => {
   document.addEventListener('pointerdown', handleOutsidePointer)
   document.addEventListener('keydown', handleEscape)
-  if (!header.value) return
+
+  if (!header.value) {
+    return
+  }
+
   measureHeader()
+
   headerObserver = new ResizeObserver(measureHeader)
   headerObserver.observe(header.value)
 })
 
 onBeforeUnmount(() => {
   headerObserver?.disconnect()
+
   document.removeEventListener('pointerdown', handleOutsidePointer)
   document.removeEventListener('keydown', handleEscape)
   document.documentElement.style.removeProperty('--site-header-height')
@@ -112,30 +121,45 @@ onBeforeUnmount(() => {
 
 function measureHeader() {
   headerHeight.value = header.value?.offsetHeight ?? 0
+
   document.documentElement.style.setProperty(
     '--site-header-height',
     `${headerHeight.value}px`
   )
+
   const mobile = menuToggle.value?.offsetParent !== null
-  if (mobile !== mobileNavigation.value) menuAnimated.value = false
+
+  if (mobile !== mobileNavigation.value) {
+    menuAnimated.value = false
+  }
+
   mobileNavigation.value = mobile
-  if (!mobileNavigation.value) menuOpen.value = false
+
+  if (!mobileNavigation.value) {
+    menuOpen.value = false
+  }
 }
 
 async function toggleMenu() {
   menuAnimated.value = true
+
   if (menuOpen.value) {
     closeMenu(true)
+
     return
   }
+
   menuOpen.value = true
+
   await nextTick()
+
   navigation.value?.querySelector('a')?.focus({ preventScroll: true })
 }
 
 function handleEscape(event: KeyboardEvent) {
   if (event.key === 'Escape' && menuOpen.value) {
     event.preventDefault()
+
     closeMenu(true)
   }
 }
@@ -198,24 +222,26 @@ watch(
     gap: $space-20;
     row-gap: $space-8;
   }
+
   &__actions {
     display: flex;
     align-items: center;
     gap: $space-10;
     margin-left: auto;
   }
+
   &__live {
     min-height: $control-size;
     padding: $space-9 $space-13;
     font-size: 0.78rem;
     white-space: nowrap;
+  }
 
-    .site-header__live-icon {
-      color: $white-pure;
-      width: 20px;
-      height: 20px;
-      flex: none;
-    }
+  &__live-icon {
+    color: $white-pure;
+    width: 20px;
+    height: 20px;
+    flex: none;
   }
 }
 
@@ -234,11 +260,12 @@ watch(
     font-weight: $weight-bold;
     overflow-wrap: anywhere;
     transition: color $transition-ui;
-  }
-  a:hover,
-  a.router-link-exact-active:not([href*='#']),
-  a[aria-current='location'] {
-    color: $header-link-hover;
+
+    &:hover,
+    &.router-link-exact-active:not([href*='#']),
+    &[aria-current='location'] {
+      color: $header-link-hover;
+    }
   }
 }
 
@@ -255,10 +282,12 @@ watch(
 @media (max-width: $breakpoint-tablet) {
   .site-header {
     min-height: $header-height-mobile;
+
+    &__inner {
+      min-height: calc($header-height-mobile - $border-width);
+    }
   }
-  .site-header__inner {
-    min-height: calc($header-height-mobile - $border-width);
-  }
+
   .site-nav {
     position: absolute;
     top: 100%;
@@ -284,6 +313,7 @@ watch(
     opacity: 0;
     transform: translateY(-$space-8);
     pointer-events: none;
+
     &.is-animated {
       transition:
         opacity $transition-ui,
@@ -298,36 +328,45 @@ watch(
       pointer-events: auto;
       transition-delay: 0s;
     }
+
     a {
       padding: $space-13 $space-7;
       border-bottom: $border-width solid $line;
       font-size: 0.95rem;
     }
   }
+
   .menu-toggle {
     display: inline-grid;
   }
 }
 
 @media (max-width: $breakpoint-mobile) {
-  .site-header__live {
-    width: $control-size;
-    padding: 0;
-  }
-  .site-header__live-label {
-    display: none;
+  .site-header {
+    &__live {
+      width: $control-size;
+      padding: 0;
+    }
+
+    &__live-label {
+      display: none;
+    }
   }
 }
 
 @media (max-width: $breakpoint-small) {
-  .site-header__actions {
-    gap: $space-4;
+  .site-header {
+    &__actions {
+      gap: $space-4;
+    }
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .site-nav.is-animated {
-    transition: none;
+  .site-nav {
+    &.is-animated {
+      transition: none;
+    }
   }
 }
 </style>
