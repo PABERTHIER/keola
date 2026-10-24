@@ -97,8 +97,9 @@
       "language": "Langue du site"
     },
     "site_footer": {
-      "footer_intro": "Je suis Keola, VTuber panda roux et muette. Viens jouer et papoter avec mes petits esprits !",
-      "footer_welcome": "Bienvenue au Temple Kumaneko.",
+      "causes": "Causes à découvrir",
+      "footer_intro": "Je suis Keola, VTuber panda roux et muette.",
+      "footer_welcome": "Bienvenue au Temple Kumaneko !",
       "copyright": "Keola Kumaneko. Les illustrations restent la propriété de leurs artistes.",
       "elsewhere": "Me retrouver ailleurs"
     },
