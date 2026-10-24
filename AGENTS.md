@@ -1,6 +1,6 @@
 # Keola Website Guidance
 
-Keola Kumaneko's French-first Nuxt 4 website replaces `keola.tv`.
+Keola Kumaneko's French-first Nuxt 4 website is live at `https://keola.tv`.
 It is an original, character-led design, not a Carrd remake or a nature/conservation campaign site.
 The site uses Vue 3, TypeScript 6, Yarn 4, server rendering on Vercel, and FR/EN/JA routes.
 This file is the shared entry point for coding agents. Keep guidance specific to this repository and verify implementation details against the source before documenting them.
@@ -149,7 +149,8 @@ The sitemap alternates use FR-FR, EN-US, JA-JP and `x-default`.
 The standalone `app/error.vue` uses localized `error.*` copy, preserves HTTP status, emits noindex metadata/headers and omits canonical/hreflang links.
 Its recovery links clear the error before redirecting; do not register error pages in the sitemap.
 Use the configured base URL rather than hardcoding a domain in individual pages.
-The final domain is awaiting confirmation; do not silently replace deployment URLs with `keola.tv`.
+The production domain is `https://keola.tv`, supplied by `NUXT_SITE_URL` in Vercel's Production environment.
+Keep the `https://keola.vercel.app` fallback in `nuxt.config.ts`.
 See [SEO.md](.agents/docs/SEO.md) for metadata ownership, image sitemaps, indexing and launch verification.
 Nuxt SEO v6 bundles AI Ready and Skew Protection; both are explicitly disabled in `nuxt.config.ts` until the site has an AI publishing policy or persistent old-asset storage.
 The production robots policy remains `Content-Usage: train-ai=n` without a `Content-Signal` line.

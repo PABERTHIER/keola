@@ -1,7 +1,7 @@
 import { pageSeo, robotsContent } from './app/data/seo'
 import { externalLinks, siteName } from './app/data/site'
 
-// Set NUXT_SITE_URL at build time when the final production domain is confirmed
+// Production sets NUXT_SITE_URL to https://keola.tv; keep the Vercel URL as a fallback
 const prodUrl = (
   process.env.NUXT_SITE_URL || 'https://keola.vercel.app'
 ).replace(/\/$/, '')

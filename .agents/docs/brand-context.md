@@ -173,7 +173,7 @@ Avoid:
 
 ## 9. Original-site evidence and Nuxt-site strategy
 
-The original `keola.tv` site exposed a broad amount of content and many external destinations.
+The previous Carrd site at `keola.tv` exposed a broad amount of content and many external destinations.
 The current Nuxt site preserves that richness while improving hierarchy.
 Check its pages and `app/data/site.ts` before treating the suggestions below as current functionality.
 
