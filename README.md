@@ -152,11 +152,11 @@ Read [AGENTS.md](AGENTS.md) for code conventions, the component and page workflo
 
 ## Deploy On Vercel
 
-See [SEO maintenance](.agents/docs/SEO.md) for page-specific social images, localized metadata, image sitemaps, deployment indexing and the launch checklist.
+See [SEO maintenance](.agents/docs/SEO.md) for page-specific social images, localized metadata, image sitemaps, deployment indexing and production verification.
 Fonts already load locally through Fontsource; no Google Fonts stylesheet is required.
 
-Set `NUXT_SITE_URL` at build time when the final production origin is confirmed.
-The fallback is `https://keola.vercel.app`.
+The live production domain is `https://keola.tv`.
+Vercel's Production environment sets `NUXT_SITE_URL` to that origin at build time; `https://keola.vercel.app` remains the configured fallback.
 Vercel previews use their own `VERCEL_URL` origin with indexing disabled; production builds use the production origin and permit indexing.
 Use `/robots.txt?mockProductionEnv` to inspect production-style rules on the local development server.
 Production `robots.txt` retains `Content-Usage: train-ai=n` and has no AI Ready `Content-Signal` line.
@@ -213,5 +213,5 @@ Keep source files reasonably sized; no resized variants are generated.
 [build-badge]: https://github.com/PABERTHIER/keola/actions/workflows/ci.yml/badge.svg
 [build-link]: https://github.com/PABERTHIER/keola/actions/workflows/ci.yml
 
-[release-badge]: https://deploy-badge.vercel.app/?url=https://keola.vercel.app/&name=website
-[release-link]: https://keola.vercel.app
+[release-badge]: https://deploy-badge.vercel.app/?url=https://keola.tv/&name=website
+[release-link]: https://keola.tv

@@ -45,10 +45,10 @@ Queries/fragments must not become page identities.
 Confirm reciprocal localized links and French `x-default`.
 Keep root language detection dynamic, not prerendered.
 
-`NUXT_SITE_URL` is the production origin, set at build time in Vercel's Production scope only; the fallback is `https://keola.vercel.app`.
+`NUXT_SITE_URL` is set to `https://keola.tv` at build time in Vercel's Production scope only; the fallback remains `https://keola.vercel.app`.
 Leave it unset in Preview/Development because Site Config also reads it as a higher-priority override.
 Keep Vercel system environment variables enabled for preview detection.
-Do not silently switch to `keola.tv`.
+Keep `https://keola.tv` as the production origin and preserve the configured Vercel fallback.
 Development uses localhost; preview uses its `VERCEL_URL` origin with indexing disabled.
 Production/local production builds are indexable by default.
 Keep I18n and Site Config URL consumers aligned and test the actual environment.
