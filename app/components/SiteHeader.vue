@@ -33,6 +33,9 @@
         <NuxtLink :to="localePath('/credits')" @click="closeMenu()">
           {{ t('site.credits') }}
         </NuxtLink>
+        <NuxtLink :to="localePath('/media-kit')" @click="closeMenu()">
+          {{ t('site.media') }}
+        </NuxtLink>
       </nav>
 
       <div class="site-header__actions">
