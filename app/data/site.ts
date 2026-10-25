@@ -1,3 +1,5 @@
+import type { TemporaryMenuLink } from '~/types/site'
+
 export const siteName = 'Keola Kumaneko'
 
 export const externalLinks = {
@@ -85,9 +87,9 @@ export const socialLinks = [
 ] as const
 
 // Temporary campaigns appear after the permanent links in the primary menu
-export const temporaryMenuLinks = [
+export const temporaryMenuLinks: readonly TemporaryMenuLink[] = [
   { path: '/vtafr/2026', labelKey: 'site.vtafr_2026' },
-] as const
+]
 
 export const featuredSocialLinks = socialLinks.filter(link =>
   ['Twitch', 'YouTube', 'Discord', 'Ko-fi'].includes(link.name)
