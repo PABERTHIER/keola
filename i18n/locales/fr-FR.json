@@ -11,6 +11,7 @@
     "credits": "Crédits",
     "archives": "Archives",
     "media": "Media kit",
+    "vtafr_2026": "VTAFR 2026",
     "watch": "Voir le live",
     "contact": "Me contacter",
     "explore": "Explorer",
@@ -76,7 +77,70 @@
     "media": {
       "title": "Media kit - Keola Kumaneko",
       "description": "Je suis Keola Kumaneko, VTuber panda roux francophone et muette. Retrouve ma fiche média, mes liens et mon contact professionnel."
+    },
+    "vtafr_2026": {
+      "title": "VTAFR 2026 : comprendre et participer - Keola Kumaneko",
+      "description": "Découvre les VTuber Awards Francophones, les éditions 2024 et 2025 et les étapes pour participer à l'édition 2026 dès l'ouverture officielle."
     }
+  },
+  "vtafr_2026": {
+    "eyebrow": "Un rendez-vous de la communauté VTuber",
+    "title": "VTAFR 2026",
+    "intro_1": "Les VTuber Awards Francophones préparent une édition pour fin 2026.",
+    "intro_2": "Je te présente l'événement, les éditions précédentes et les étapes pour soutenir tes favoris quand les votes ouvriront.",
+    "status_label": "Édition 2026",
+    "status_title": "Les votes ne sont pas encore ouverts",
+    "status_text": "Fin octobre 2026, le site officiel annonce une édition pour la fin de l'année, mais pas encore les dates ni les liens de participation. Garde-le sous la main pour les prochaines annonces.",
+    "official_site": "Consulter le site officiel",
+    "about_eyebrow": "Le principe",
+    "about_title": "C'est quoi, les VTAFR ?",
+    "about_art_alt": "Keola, assise et surprise, tient un petit esprit violet dans ses bras.",
+    "about_text": "Les VTAFR mettent à l’honneur les VTubers francophones, quelle que soit la taille de leur communauté. Le public propose ses coups de cœur, choisit parmi les finalistes, puis découvre les gagnants pendant une cérémonie en direct.",
+    "organizers": "KatChanVT a créé l’événement et le présente avec Daruma Nico. Une équipe de bénévoles les aide à faire vivre la cérémonie.",
+    "eligibility": "Pour être nommé, un VTuber doit avoir le français pour langue principale et avoir été actif pendant l’année concernée, avec au moins un live ou une vidéo. Aucun nombre minimum d’abonnés n’est demandé.",
+    "rules_link": "Découvrir les VTAFR et leurs règles",
+    "guide_eyebrow": "Ton parcours",
+    "guide_title": "Comment participer en 2026 ?",
+    "guide_intro_1": "Tu veux soutenir tes VTubers préférés ? Voici comment se déroule une édition des VTAFR.",
+    "guide_intro_2": "Pour 2026, attends l’annonce des dates et du formulaire avant de te lancer.",
+    "steps": {
+      "1": {
+        "title": "Va sur le site officiel",
+        "text": "Regarde si les nominations ou les votes sont ouverts. Tu y trouveras les consignes à suivre pour 2026."
+      },
+      "2": {
+        "title": "Propose tes VTubers favoris",
+        "text": "Pendant les nominations, tu peux proposer jusqu’à trois VTubers par catégorie. Le formulaire officiel te guidera."
+      },
+      "3": {
+        "title": "Vote pour les finalistes",
+        "text": "Les trois VTubers les plus nommés de chaque catégorie deviennent finalistes. Quand le vote ouvrira, choisis ton favori parmi eux."
+      },
+      "4": {
+        "title": "Retrouve la cérémonie",
+        "text": "Les gagnants sont annoncés en direct sur Twitch. Le rendez-vous 2026 sera annoncé sur le site officiel."
+      }
+    },
+    "history_eyebrow": "Retour en arrière",
+    "history_title": "Les éditions précédentes",
+    "history": {
+      "2024": {
+        "title": "J’étais finaliste !",
+        "emote_alt": "Keola sourit avec une couronne et les mains près du visage.",
+        "text_1": "La cérémonie de l’édition 2024 s’est tenue le 4 janvier 2025.",
+        "text_2": "J’étais finaliste dans la catégorie Miss VTubeuse !",
+        "text_3": "MielCrapouille a remporté le prix VTuber de l’année."
+      },
+      "2025": {
+        "title": "L’édition 2025",
+        "emote_alt": "Keola passe la tête sur le côté, le regard curieux.",
+        "text_1": "La cérémonie a eu lieu le 14 décembre 2025, avec 16 catégories.",
+        "text_2": "MielCrapouille a remporté une nouvelle fois le prix VTuber de l’année.",
+        "text_3": "Tu peux revoir la soirée juste ici."
+      }
+    },
+    "replay_link": "Revoir la cérémonie {year} sur YouTube",
+    "editions_link": "Explorer les éditions officielles"
   },
   "components": {
     "site_brand": {
@@ -97,8 +161,9 @@
       "language": "Langue du site"
     },
     "site_footer": {
-      "footer_intro": "Je suis Keola, VTuber panda roux et muette. Viens jouer et papoter avec mes petits esprits !",
-      "footer_welcome": "Bienvenue au Temple Kumaneko.",
+      "causes": "Causes à découvrir",
+      "footer_intro": "Je suis Keola, VTuber panda roux et muette.",
+      "footer_welcome": "Bienvenue au Temple Kumaneko !",
       "copyright": "Keola Kumaneko. Les illustrations restent la propriété de leurs artistes.",
       "elsewhere": "Me retrouver ailleurs"
     },

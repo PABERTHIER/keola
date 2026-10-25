@@ -11,6 +11,7 @@
     "credits": "Credits",
     "archives": "Archives",
     "media": "Media kit",
+    "vtafr_2026": "VTAFR 2026",
     "watch": "Watch live",
     "contact": "Contact me",
     "explore": "Explore",
@@ -76,7 +77,70 @@
     "media": {
       "title": "Media kit - Keola Kumaneko",
       "description": "I'm Keola Kumaneko, a French-speaking red panda VTuber, and I'm mute. Find my media sheet, official links and professional contact details."
+    },
+    "vtafr_2026": {
+      "title": "VTAFR 2026: how to take part - Keola Kumaneko",
+      "description": "Learn about the Francophone VTuber Awards, explore the 2024 and 2025 editions, and find out how to take part in 2026 when official voting opens."
     }
+  },
+  "vtafr_2026": {
+    "eyebrow": "A gathering for the VTuber community",
+    "title": "VTAFR 2026",
+    "intro_1": "The Francophone VTuber Awards are planning a late 2026 edition.",
+    "intro_2": "I'll introduce the event, look back at past editions, and show you how to support your favorites when voting opens.",
+    "status_label": "2026 edition",
+    "status_title": "Voting has not opened yet",
+    "status_text": "As of late October 2026, the official site says the next edition is planned for the end of the year, but it has not announced dates or participation links. Keep an eye on it for updates.",
+    "official_site": "Visit the official site",
+    "about_eyebrow": "The idea",
+    "about_title": "What are the VTAFR?",
+    "about_art_alt": "Keola sits holding a little purple spirit in her arms, looking surprised.",
+    "about_text": "The VTAFR celebrate French-speaking VTubers, no matter the size of their community. Viewers nominate their favorites, vote for the finalists, and discover the winners during a live ceremony.",
+    "organizers": "KatChanVT created the event and presents it with Daruma Nico. A team of volunteers helps bring the ceremony to life.",
+    "eligibility": "To be nominated, a VTuber must mainly create in French and have been active during the relevant year, with at least one stream or video. There is no minimum follower count.",
+    "rules_link": "Meet the VTAFR and read the rules",
+    "guide_eyebrow": "Your route",
+    "guide_title": "How can you take part in 2026?",
+    "guide_intro_1": "Want to support your favorite VTubers? Here is how a VTAFR edition works.",
+    "guide_intro_2": "For 2026, wait for the dates and official form to be announced before taking part.",
+    "steps": {
+      "1": {
+        "title": "Visit the official site",
+        "text": "Check whether nominations or voting are open. You will find the 2026 instructions there."
+      },
+      "2": {
+        "title": "Nominate your favorites",
+        "text": "During nominations, you can suggest up to three VTubers per category. The official form will guide you."
+      },
+      "3": {
+        "title": "Vote for the finalists",
+        "text": "The three most nominated VTubers in each category become finalists. When voting opens, choose your favorite among them."
+      },
+      "4": {
+        "title": "Watch the ceremony",
+        "text": "The winners are announced live on Twitch. The official site will announce the 2026 ceremony."
+      }
+    },
+    "history_eyebrow": "Looking back",
+    "history_title": "Past editions",
+    "history": {
+      "2024": {
+        "title": "I was a finalist!",
+        "emote_alt": "Keola smiles beneath a crown, with her hands near her face.",
+        "text_1": "The 2024 edition’s ceremony took place on January 4, 2025.",
+        "text_2": "I was a finalist in the Miss VTubeuse category!",
+        "text_3": "MielCrapouille won VTuber of the Year."
+      },
+      "2025": {
+        "title": "The 2025 edition",
+        "emote_alt": "Keola peeks in from the side with a curious look.",
+        "text_1": "The ceremony took place on December 14, 2025, with 16 categories.",
+        "text_2": "MielCrapouille won VTuber of the Year again.",
+        "text_3": "You can watch the replay here."
+      }
+    },
+    "replay_link": "Watch the {year} ceremony on YouTube",
+    "editions_link": "Explore the official edition archives"
   },
   "components": {
     "site_brand": {
@@ -97,8 +161,9 @@
       "language": "Site language"
     },
     "site_footer": {
-      "footer_intro": "I'm Keola, a red panda VTuber, and I'm mute. Come play and chat with my little spirits!",
-      "footer_welcome": "Welcome to Temple Kumaneko.",
+      "causes": "Causes to discover",
+      "footer_intro": "I'm Keola, a red panda VTuber, and I'm mute.",
+      "footer_welcome": "Welcome to Temple Kumaneko!",
       "copyright": "Keola Kumaneko. Illustrations remain the property of their respective artists.",
       "elsewhere": "Find me elsewhere"
     },

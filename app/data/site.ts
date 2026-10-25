@@ -1,3 +1,5 @@
+import type { TemporaryMenuLink } from '~/types/site'
+
 export const siteName = 'Keola Kumaneko'
 
 export const externalLinks = {
@@ -18,6 +20,11 @@ export const externalLinks = {
   presentationVideo: 'https://www.youtube.com/watch?v=67RMXZWvo00',
   presentationEmbed: 'https://www.youtube-nocookie.com/embed/67RMXZWvo00',
   email: 'mailto:kumaneko.keola@gmail.com',
+  vtafr: 'https://www.vtuberawardsfr.fr/',
+  vtafrAbout: 'https://www.vtuberawardsfr.fr/about',
+  vtafrEditions: 'https://www.vtuberawardsfr.fr/editions',
+  vtafrReplay2024: 'https://www.youtube.com/watch?v=K-XtpV1j0gs',
+  vtafrReplay2025: 'https://www.youtube.com/watch?v=C1N1U8a6eFY',
 } as const
 
 export const socialLinks = [
@@ -78,6 +85,11 @@ export const socialLinks = [
     detail: 'support',
   },
 ] as const
+
+// Temporary campaigns appear after the permanent links in the primary menu
+export const temporaryMenuLinks: readonly TemporaryMenuLink[] = [
+  // { path: '/vtafr/2026', labelKey: 'site.vtafr_2026' },
+]
 
 export const featuredSocialLinks = socialLinks.filter(link =>
   ['Twitch', 'YouTube', 'Discord', 'Ko-fi'].includes(link.name)

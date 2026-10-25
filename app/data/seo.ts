@@ -92,6 +92,17 @@ export const pageSeo = {
       '/images/keola/Keola_pirate_blush.webp',
     ],
   },
+  vtafr_2026: {
+    path: '/vtafr/2026',
+    type: 'WebPage',
+    image: '/images/og-images/og-image-vtafr-2026.webp',
+    imageAlt: 'vtafr_2026.about_art_alt',
+    images: [
+      '/images/keola/Keola_surprised.webp',
+      '/images/emotes/keolaQueen.png',
+      '/images/emotes/keolaLurk.png',
+    ],
+  },
 } as const
 
 export type PageName = keyof typeof pageSeo

@@ -86,7 +86,7 @@ Characteristics:
 - supports the full FR/EN/JA presentation
 
 **Signature: Kaushan Script** for the Keola wordmark and Latin hero name only.
-This is the script used for her name on Carrd (<https://keola.tv/>); it is not a replacement for Japanese typography.
+This is the script used for her name on the previous Carrd site; it is not a replacement for Japanese typography.
 
 #### Body / UI
 

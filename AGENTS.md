@@ -1,6 +1,6 @@
 # Keola Website Guidance
 
-Keola Kumaneko's French-first Nuxt 4 website replaces `keola.tv`.
+Keola Kumaneko's French-first Nuxt 4 website is live at `https://keola.tv`.
 It is an original, character-led design, not a Carrd remake or a nature/conservation campaign site.
 The site uses Vue 3, TypeScript 6, Yarn 4, server rendering on Vercel, and FR/EN/JA routes.
 This file is the shared entry point for coding agents. Keep guidance specific to this repository and verify implementation details against the source before documenting them.
@@ -116,17 +116,19 @@ Keep the pinned Yarn release in `package.json` and CI aligned.
 Nuxt I18n uses the `prefix` strategy: French routes also have a `/fr` prefix, with equivalent `/en` and `/ja` routes.
 `/` is the language-detection entry point; French is the configured default, and browser language or the locale cookie can affect redirection.
 
-| Page      | Source file                     | French route    | SEO namespace  |
-| --------- | ------------------------------- | --------------- | -------------- |
-| Home      | `app/pages/index.vue`           | `/fr`           | `seo.home`     |
-| Keola     | `app/pages/keola/index.vue`     | `/fr/keola`     | `seo.keola`    |
-| Gallery   | `app/pages/gallery/index.vue`   | `/fr/gallery`   | `seo.gallery`  |
-| Credits   | `app/pages/credits/index.vue`   | `/fr/credits`   | `seo.credits`  |
-| Archives  | `app/pages/archives/index.vue`  | `/fr/archives`  | `seo.archives` |
-| Media kit | `app/pages/media-kit/index.vue` | `/fr/media-kit` | `seo.media`    |
+| Page       | Source file                      | French route     | SEO namespace    |
+| ---------- | -------------------------------- | ---------------- | ---------------- |
+| Home       | `app/pages/index.vue`            | `/fr`            | `seo.home`       |
+| Keola      | `app/pages/keola/index.vue`      | `/fr/keola`      | `seo.keola`      |
+| Gallery    | `app/pages/gallery/index.vue`    | `/fr/gallery`    | `seo.gallery`    |
+| Credits    | `app/pages/credits/index.vue`    | `/fr/credits`    | `seo.credits`    |
+| Archives   | `app/pages/archives/index.vue`   | `/fr/archives`   | `seo.archives`   |
+| Media kit  | `app/pages/media-kit/index.vue`  | `/fr/media-kit`  | `seo.media`      |
+| VTAFR 2026 | `app/pages/vtafr/2026/index.vue` | `/fr/vtafr/2026` | `seo.vtafr_2026` |
 
 Keep each named page in `app/pages/<route>/index.vue`.
 The homepage stays at `app/pages/index.vue` so it serves the locale root.
+Short-lived menu links are listed in `temporaryMenuLinks` in `app/data/site.ts` and render after the permanent header links; removing an entry hides the link without removing its localized page or SEO registration.
 
 When adding or substantially changing a page:
 
@@ -149,7 +151,8 @@ The sitemap alternates use FR-FR, EN-US, JA-JP and `x-default`.
 The standalone `app/error.vue` uses localized `error.*` copy, preserves HTTP status, emits noindex metadata/headers and omits canonical/hreflang links.
 Its recovery links clear the error before redirecting; do not register error pages in the sitemap.
 Use the configured base URL rather than hardcoding a domain in individual pages.
-The final domain is awaiting confirmation; do not silently replace deployment URLs with `keola.tv`.
+The production domain is `https://keola.tv`, supplied by `NUXT_SITE_URL` in Vercel's Production environment.
+Keep the `https://keola.vercel.app` fallback in `nuxt.config.ts`.
 See [SEO.md](.agents/docs/SEO.md) for metadata ownership, image sitemaps, indexing and launch verification.
 Nuxt SEO v6 bundles AI Ready and Skew Protection; both are explicitly disabled in `nuxt.config.ts` until the site has an AI publishing policy or persistent old-asset storage.
 The production robots policy remains `Content-Usage: train-ai=n` without a `Content-Signal` line.

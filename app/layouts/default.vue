@@ -27,9 +27,9 @@ function focusMain() {
   padding: $space-12 $space-18;
   background: $white;
   transform: translateY(-160%);
-}
 
-.skip-link:focus {
-  transform: translateY(0);
+  &:focus {
+    transform: translateY(0);
+  }
 }
 </style>

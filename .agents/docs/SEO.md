@@ -54,9 +54,9 @@ Do not declare assumed 1200×630 dimensions for a differently sized image.
 ## URLs and indexing
 
 `nuxt.config.ts` resolves one site URL for Site Config, I18n, social URLs and identity.
-The production fallback remains `https://keola.vercel.app` until the final domain is confirmed.
-No environment-variable change is needed while that fallback is the intended production address.
-When a custom domain is ready, set `NUXT_SITE_URL` to its HTTPS origin in Vercel's project environment variables, scoped to **Production only**, then redeploy so the build reads it.
+The live production origin is `https://keola.tv`.
+Vercel's **Production only** `NUXT_SITE_URL` variable supplies it at build time.
+The configured `https://keola.vercel.app` URL remains a fallback if that variable is absent.
 Leave it unset in Preview, Development and local `.env` files: Nuxt Site Config also reads this variable directly with higher priority than `site.url`, which can otherwise disagree with I18n's environment-specific origin.
 Do not override only I18n's base URL at runtime.
 
@@ -64,12 +64,12 @@ Do not override only I18n's base URL at runtime.
 | -------------------------------------------- | ------------------------------ | -------- |
 | `yarn dev`                                   | `http://localhost:3000`        | Disabled |
 | Vercel preview/development with `VERCEL_URL` | That deployment's HTTPS origin | Disabled |
-| Vercel production                            | Production origin              | Enabled  |
-| Local production build without `VERCEL_ENV`  | Production origin              | Enabled  |
+| Vercel production                            | `https://keola.tv`             | Enabled  |
+| Local production build without `VERCEL_ENV`  | Configured origin or fallback  | Enabled  |
 
 Preview pages, images, canonical URLs and sitemaps use the preview deployment's own origin, so newly added artwork and routes can be tested before production.
 They remain non-indexable. Production uses `NUXT_SITE_URL` (or its fallback), regardless of `VERCEL_URL`.
-Local production builds without deployment variables also use the production fallback.
+Local production builds without deployment variables use `https://keola.vercel.app`.
 Keep Vercel's system environment variables enabled; Vercel supplies `VERCEL_ENV` and `VERCEL_URL` automatically.
 A deployed non-production branch, including one named `dev`, normally uses the Preview environment; the branch name itself does not select `VERCEL_ENV`.
 `VERCEL_URL` is a hostname without a protocol, so the configuration adds `https://`.
@@ -177,7 +177,7 @@ Meta keywords, repeated app icons and blanket article tags add no useful setup h
 | Registry-based `ogUrl`                     | `localePath(pageData.path)` resolves the intended localized page and excludes query/hash/trailing-slash variants. Its origin follows the environment.                            |
 | Reactive schema and template parameters    | Preserve the correct page type, URL, identity references and images after hydration and client navigation; verify them in a browser after dependency upgrades.                   |
 
-## Verification and launch
+## Production verification
 
 Run `yarn format:check`, `yarn typecheck`, `yarn lint` and `yarn build`.
 Check changed root config and Markdown explicitly with Prettier as well.
@@ -195,17 +195,14 @@ Inspect production SSR HTML on all 18 localized routes and test browser navigati
 - Error pages have noindex metadata/headers, no canonical/hreflang, valid OG metadata and working recovery links in all locales.
 - Development browser console has no Unhead metadata warnings, missing translations or hydration errors; do not check only hydration messages.
 
-After deployment, check public robots/sitemaps/assets, validate sample JSON-LD
-with Google's Rich Results Test and Schema.org Validator, and inspect social cards.
+After deployment, check public robots/sitemaps/assets, validate sample JSON-LD with Google's Rich Results Test and Schema.org Validator, and inspect social cards.
 Valid Person/WebPage data does not itself guarantee a Google rich result.
 Verify the production property in Google Search Console and Bing Webmaster Tools,
 submit the sitemap index, inspect localized URLs and monitor indexing.
 Verification tokens must come from those accounts, never placeholders.
 
-For the old-site migration, confirm the final origin, map old URLs to their closest
-new localized equivalents and configure permanent redirects on the old host.
-Update the production URL and rebuild before submitting the new sitemap.
-External accounts, DNS and old-host redirects require access outside this repository.
+For any remaining migration work, map old URLs to their closest localized equivalents and verify permanent redirects for old paths.
+DNS, redirects and search-console access are managed outside this repository.
 
 ## References
 
