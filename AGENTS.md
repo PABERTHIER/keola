@@ -116,17 +116,19 @@ Keep the pinned Yarn release in `package.json` and CI aligned.
 Nuxt I18n uses the `prefix` strategy: French routes also have a `/fr` prefix, with equivalent `/en` and `/ja` routes.
 `/` is the language-detection entry point; French is the configured default, and browser language or the locale cookie can affect redirection.
 
-| Page      | Source file                     | French route    | SEO namespace  |
-| --------- | ------------------------------- | --------------- | -------------- |
-| Home      | `app/pages/index.vue`           | `/fr`           | `seo.home`     |
-| Keola     | `app/pages/keola/index.vue`     | `/fr/keola`     | `seo.keola`    |
-| Gallery   | `app/pages/gallery/index.vue`   | `/fr/gallery`   | `seo.gallery`  |
-| Credits   | `app/pages/credits/index.vue`   | `/fr/credits`   | `seo.credits`  |
-| Archives  | `app/pages/archives/index.vue`  | `/fr/archives`  | `seo.archives` |
-| Media kit | `app/pages/media-kit/index.vue` | `/fr/media-kit` | `seo.media`    |
+| Page       | Source file                      | French route     | SEO namespace    |
+| ---------- | -------------------------------- | ---------------- | ---------------- |
+| Home       | `app/pages/index.vue`            | `/fr`            | `seo.home`       |
+| Keola      | `app/pages/keola/index.vue`      | `/fr/keola`      | `seo.keola`      |
+| Gallery    | `app/pages/gallery/index.vue`    | `/fr/gallery`    | `seo.gallery`    |
+| Credits    | `app/pages/credits/index.vue`    | `/fr/credits`    | `seo.credits`    |
+| Archives   | `app/pages/archives/index.vue`   | `/fr/archives`   | `seo.archives`   |
+| Media kit  | `app/pages/media-kit/index.vue`  | `/fr/media-kit`  | `seo.media`      |
+| VTAFR 2026 | `app/pages/vtafr/2026/index.vue` | `/fr/vtafr/2026` | `seo.vtafr_2026` |
 
 Keep each named page in `app/pages/<route>/index.vue`.
 The homepage stays at `app/pages/index.vue` so it serves the locale root.
+Short-lived menu links are listed in `temporaryMenuLinks` in `app/data/site.ts` and render after the permanent header links; removing an entry hides the link without removing its localized page or SEO registration.
 
 When adding or substantially changing a page:
 
