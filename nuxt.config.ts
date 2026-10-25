@@ -161,6 +161,8 @@ export default defineNuxtConfig({
   aiReady: false, // SEO v6 bundles AI Ready; this SSR site does not publish AI content endpoints
   skewProtection: false, // Vercel builds do not share the local asset cache required by this module
   sitemap: {
+    // The registry covers every public page; avoid duplicate auto-discovered routes overriding their images
+    excludeAppSources: ['nuxt:pages'],
     // Runtime SSR pages aren't crawled for images by the sitemap module
     // i18n expands each record into FR/EN/JA with reciprocal alternates
     urls: Object.values(pageSeo).map(page => ({
