@@ -88,7 +88,7 @@ export const socialLinks = [
 
 // Temporary campaigns appear after the permanent links in the primary menu
 export const temporaryMenuLinks: readonly TemporaryMenuLink[] = [
-  { path: '/vtafr/2026', labelKey: 'site.vtafr_2026' },
+  // { path: '/vtafr/2026', labelKey: 'site.vtafr_2026' },
 ]
 
 export const featuredSocialLinks = socialLinks.filter(link =>
