@@ -33,6 +33,17 @@
         <NuxtLink :to="localePath('/credits')" @click="closeMenu()">
           {{ t('site.credits') }}
         </NuxtLink>
+        <NuxtLink :to="localePath('/media-kit')" @click="closeMenu()">
+          {{ t('site.media') }}
+        </NuxtLink>
+        <NuxtLink
+          v-for="link in temporaryMenuLinks"
+          :key="link.path"
+          class="site-nav__temporary"
+          :to="localePath(link.path)"
+          @click="closeMenu()">
+          {{ t(link.labelKey) }}
+        </NuxtLink>
       </nav>
 
       <div class="site-header__actions">
@@ -80,7 +91,7 @@
 </template>
 
 <script setup lang="ts">
-import { externalLinks } from '~/data/site'
+import { externalLinks, temporaryMenuLinks } from '~/data/site'
 
 const { t } = useI18n()
 
@@ -267,6 +278,39 @@ watch(
       color: $header-link-hover;
     }
   }
+
+  a.site-nav__temporary {
+    gap: $space-8;
+    padding-inline: $space-12;
+    border: $border-width solid $orange;
+    border-radius: $radius-control;
+    background: $orange-pale;
+    color: $ink;
+    transition:
+      background-color $transition-ui,
+      color $transition-ui;
+
+    &:hover,
+    &:focus-visible {
+      background: $orange;
+      color: $plum-deep;
+    }
+
+    &::before {
+      width: $space-8;
+      height: $space-8;
+      flex: none;
+      border-radius: 50%;
+      background: $orange;
+      content: '';
+      transition: background-color $transition-ui;
+    }
+
+    &:hover::before,
+    &:focus-visible::before {
+      background: $plum-deep;
+    }
+  }
 }
 
 .menu-toggle {
@@ -333,6 +377,13 @@ watch(
       padding: $space-13 $space-7;
       border-bottom: $border-width solid $line;
       font-size: 0.95rem;
+    }
+
+    a.site-nav__temporary {
+      margin-top: $space-10;
+      padding-inline: $space-13;
+      border: $border-width solid $orange;
+      border-left-width: 4px;
     }
   }
 

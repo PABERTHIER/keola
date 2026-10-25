@@ -3,6 +3,7 @@
     "red_panda_network": "Red Panda Network",
     "safebear": "SafeBear",
     "holy": "HOLY",
+    "vtafr_2026": "VTAFR 2026",
     "skip": "本文へ移動",
     "home": "ホーム",
     "about": "Keola",
@@ -53,6 +54,10 @@
     "support": "応援"
   },
   "seo": {
+    "vtafr_2026": {
+      "title": "VTAFR 2026：参加方法 - Keola Kumaneko",
+      "description": "VTuber Awards Francophonesの概要、2024年と2025年の記録、2026年の公式投票が始まったときの参加方法を紹介します。"
+    },
     "keola": {
       "title": "自己紹介と物語 - Keola Kumaneko",
       "description": "私はレッサーパンダVTuberのKeola Kumaneko。私の紹介動画、Temple Kumanekoの物語、配信の始まりやモデルを見てね。"
@@ -77,6 +82,65 @@
       "title": "メディアキット - Keola Kumaneko",
       "description": "私はKeola Kumaneko。フランス語で活動するレッサーパンダVTuberで、声を出すことができません。メディア資料、公式リンク、お仕事の連絡先はこちら。"
     }
+  },
+  "vtafr_2026": {
+    "eyebrow": "VTuberコミュニティのイベント",
+    "title": "VTAFR 2026",
+    "intro_1": "フランス語圏VTuberの祭典VTAFRは、2026年末の開催を予定しています。",
+    "intro_2": "イベントとこれまでの開催を振り返り、投票が始まったときにお気に入りを応援する方法を紹介するね。",
+    "status_label": "2026年版",
+    "status_title": "投票はまだ始まっていません",
+    "status_text": "2026年10月末の時点で、公式サイトは年末の開催予定を案内していますが、日程や参加リンクはまだ発表していません。最新情報は公式サイトで確認してね。",
+    "official_site": "公式サイトを見る",
+    "about_eyebrow": "イベントについて",
+    "about_title": "VTAFRとは？",
+    "about_art_alt": "驚いた表情のKeola Kumanekoが座り、腕に小さな紫色の精霊を抱いている。",
+    "about_text": "VTAFRは、コミュニティの規模に関係なくフランス語圏のVTuberをたたえるイベントです。視聴者が候補を推薦し、ファイナリストに投票。受賞者は生配信の授賞式で発表されます。",
+    "organizers": "イベントを作ったのはKatChanVT。Daruma Nicoと一緒に司会を務め、ボランティアのチームが運営を支えています。",
+    "eligibility": "候補になれるのは、主な活動言語がフランス語で、対象年に少なくとも1回の配信か動画を公開したVTuberです。フォロワー数の下限はありません。",
+    "rules_link": "VTAFRと参加ルールを見る",
+    "guide_eyebrow": "参加の流れ",
+    "guide_title": "2026年はどう参加する？",
+    "guide_intro_1": "お気に入りのVTuberを応援したい？ VTAFRへの参加の流れを紹介するね。",
+    "guide_intro_2": "2026年版の日程と公式フォームが発表されてから参加してね。",
+    "steps": {
+      "1": {
+        "title": "公式サイトを見よう",
+        "text": "推薦や投票が始まっているか確認してね。2026年版の案内もそこに掲載されます。"
+      },
+      "2": {
+        "title": "好きなVTuberを推薦しよう",
+        "text": "推薦期間には、各部門で最大3人のVTuberを推薦できます。公式フォームの案内に従ってね。"
+      },
+      "3": {
+        "title": "ファイナリストに投票しよう",
+        "text": "各部門で推薦数の多い3人が最終候補に。投票が始まったら、その中からお気に入りを選んでね。"
+      },
+      "4": {
+        "title": "授賞式を見よう",
+        "text": "受賞者はTwitchの生配信で発表されます。2026年版の予定は公式サイトで発表されます。"
+      }
+    },
+    "history_eyebrow": "これまでの開催",
+    "history_title": "過去の開催記録",
+    "history": {
+      "2024": {
+        "title": "私も最終候補に！",
+        "emote_alt": "王冠をかぶったKeola Kumanekoが、顔のそばに手を添えて微笑んでいる。",
+        "text_1": "2024年版の授賞式は2025年1月4日に開催されました。",
+        "text_2": "私は「Miss VTubeuse」部門の最終候補に選ばれたよ！",
+        "text_3": "「VTuber de l’année」はMielCrapouilleが受賞しました。"
+      },
+      "2025": {
+        "title": "2025年版",
+        "emote_alt": "Keola Kumanekoが横から顔をのぞかせ、興味深そうに見ている。",
+        "text_1": "授賞式は2025年12月14日に開催され、16部門の結果が発表されました。",
+        "text_2": "「VTuber de l’année」はMielCrapouilleが再び受賞。",
+        "text_3": "配信のアーカイブも見られるよ。"
+      }
+    },
+    "replay_link": "{year}年の授賞式をYouTubeで見る",
+    "editions_link": "公式の過去開催記録を見る"
   },
   "components": {
     "site_brand": {
